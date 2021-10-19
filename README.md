@@ -7,6 +7,8 @@
  
  used fernflower instead of cfr, becuase it better handles the deobfuscated code
  
+ Pyro is coded in kotlin, so decompilation into java is not perfect, and leaves a lot of artifacts, aswell as frequent nullchecks and use of jetbrains libraries. 
+ 
  Credit to Crystallinqq for the cracked jar, which was used for this.
  
  dmca if ur a pedophile, a registered sex offender, british and if you groom children :^)
