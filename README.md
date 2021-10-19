@@ -8,3 +8,5 @@
  used fernflower instead of cfr, becuase it better handles the deobfuscated code
  
  Credit to Crystallinqq for the cracked jar, which was used for this.
+ 
+ dmca if ur a pedophile, a registered sex offender, british and if you groom children :^)
