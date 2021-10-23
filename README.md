@@ -1,4 +1,8 @@
 # PyroClient-Deobf
+
+EDIT: Ima redo this one soon cus its pretty shit rn
+
+
  Pyro client v1.4.1 deobfuscated
  
  Previously binsecured
