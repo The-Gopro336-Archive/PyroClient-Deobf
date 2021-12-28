@@ -1,7 +1,9 @@
 # PyroClient-Deobf
 
-EDIT: Ima redo this one soon cus its pretty shit rn
 
+ Finally got arround to fixing it
+ 
+ Is extremly scuffed, as pyro is a kotlin client, and deocompiling kotin into java is lossy, and causes crashses (there are currently no kotlin decompilers)
 
  Pyro client v1.4.1 deobfuscated
  
