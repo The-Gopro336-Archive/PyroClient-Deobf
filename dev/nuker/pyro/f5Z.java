@@ -1,9 +1,19 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.gui.ScaledResolution
+ *  org.jetbrains.annotations.NotNull
+ *  org.jetbrains.annotations.Nullable
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.f0g;
+import dev.nuker.pyro.f41;
+import dev.nuker.pyro.f43;
+import dev.nuker.pyro.f5T;
+import dev.nuker.pyro.fdZ;
+import dev.nuker.pyro.feo;
 import dev.nuker.pyro.security.inject.LauncherEventHide;
 import java.util.Arrays;
 import kotlin.jvm.internal.StringCompanionObject;
@@ -11,57 +21,56 @@ import net.minecraft.client.gui.ScaledResolution;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class f5Z extends f5T {
-   // $FF: renamed from: 1 java.lang.String
-   @NotNull
-   public String field_1055 = "";
-   // $FF: renamed from: c int
-   public int field_1056 = 11184810;
+public class f5Z
+extends f5T {
+    @NotNull
+    public String Field4245 = "";
+    public int Field4246 = 0xAAAAAA;
 
-   // $FF: renamed from: c () int
-   public int method_1560() {
-      return this.field_1056;
-   }
+    public int Method2376() {
+        return this.Field4246;
+    }
 
-   // $FF: renamed from: 4 () java.lang.String
-   @NotNull
-   public String method_1559() {
-      return this.field_1055;
-   }
+    @Override
+    @NotNull
+    public String Method4969() {
+        return this.Field4245;
+    }
 
-   // $FF: renamed from: c (int) void
-   public void method_1561(int var1) {
-      this.field_1056 = var1;
-   }
+    public void Method2377(int n) {
+        this.Field4246 = n;
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.f43) void
-   @f0g
-   @LauncherEventHide
-   public void method_1562(@NotNull f43 var1) {
-      if (var1.c() == f41.field_2120 && fdZ.field_976.player != null) {
-         if (fdZ.field_976.player.inventory.getCurrentItem().isItemStackDamageable()) {
-            int var2 = fdZ.field_976.player.inventory.getCurrentItem().getMaxDamage();
-            int var3 = fdZ.field_976.player.inventory.getCurrentItem().getItemDamage();
-            StringCompanionObject var4 = StringCompanionObject.INSTANCE;
-            String var5 = "§7Durability §r%s";
-            Object[] var6 = new Object[]{var2 - var3};
-            boolean var7 = false;
-            String var9 = String.format(var5, Arrays.copyOf(var6, var6.length));
-            this.field_1055 = var9;
-            this.field_1056 = (new feo((float)(var2 - var3) / (float)var2 * 120.0F, 100.0F, 50.0F, 1.0F)).method_2032().getRGB();
-         } else {
-            this.field_1055 = "§7Durability §rInf";
-         }
-      }
+    @f0g
+    @LauncherEventHide
+    public void Method840(@NotNull f43 f432) {
+        if (f432.Method5619() == f41.Pre) {
+            if (fdZ.Field313.player != null) {
+                if (fdZ.Field313.player.inventory.getCurrentItem().isItemStackDamageable()) {
+                    String string;
+                    int n = fdZ.Field313.player.inventory.getCurrentItem().getMaxDamage();
+                    int n2 = fdZ.Field313.player.inventory.getCurrentItem().getItemDamage();
+                    StringCompanionObject stringCompanionObject = StringCompanionObject.Field4618;
+                    String string2 = "\u00a77Durability \u00a7r%s";
+                    Object[] arrobject = new Object[]{n - n2};
+                    f5Z f5Z2 = this;
+                    boolean bl = false;
+                    f5Z2.Field4245 = string = String.format(string2, Arrays.copyOf(arrobject, arrobject.length));
+                    this.Field4246 = new feo((float)(n - n2) / (float)n * 120.0f, 100.0f, 50.0f, 1.0f).Method773().getRGB();
+                } else {
+                    this.Field4245 = "\u00a77Durability \u00a7rInf";
+                }
+            }
+        }
+    }
 
-   }
+    public f5Z() {
+        super("ping");
+    }
 
-   public f5Z() {
-      super("ping");
-   }
-
-   // $FF: renamed from: c (net.minecraft.client.gui.ScaledResolution, float, float) int
-   public int method_1558(@Nullable ScaledResolution var1, float var2, float var3) {
-      return this.field_1056;
-   }
+    @Override
+    public int Method4968(@Nullable ScaledResolution scaledResolution, float f, float f2) {
+        return this.Field4246;
+    }
 }
+

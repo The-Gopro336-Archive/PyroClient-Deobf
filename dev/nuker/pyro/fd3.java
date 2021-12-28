@@ -1,27 +1,29 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.util.math.BlockPos
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.fd4;
 import java.util.function.Consumer;
 import net.minecraft.util.math.BlockPos;
 
-public class fd3 implements Consumer {
-   // $FF: renamed from: c dev.nuker.pyro.fd4
-   public fd4 field_85;
+public class fd3
+implements Consumer {
+    public fd4 Field108;
 
-   // $FF: renamed from: c (java.lang.Boolean) void
-   public void method_113(Boolean var1) {
-      fd4.method_1382(this.field_85, BlockPos.ORIGIN);
-   }
+    public void Method182(Boolean bl) {
+        fd4.Method201(this.Field108, BlockPos.ORIGIN);
+    }
 
-   public void accept(Object var1) {
-      this.method_113((Boolean)var1);
-   }
+    public void accept(Object object) {
+        this.Method182((Boolean)object);
+    }
 
-   public fd3(fd4 var1) {
-      this.field_85 = var1;
-      super();
-   }
+    public fd3(fd4 fd42) {
+        this.Field108 = fd42;
+    }
 }
+

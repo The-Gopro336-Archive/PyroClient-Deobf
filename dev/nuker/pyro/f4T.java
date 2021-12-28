@@ -1,74 +1,71 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-public class f4T extends f4Q {
-   // $FF: renamed from: 1 boolean
-   public boolean field_1127;
-   // $FF: renamed from: 4 float
-   public float field_1128;
-   // $FF: renamed from: 5 float
-   public float field_1129;
-   // $FF: renamed from: 6 float
-   public float field_1130;
-   // $FF: renamed from: 7 float
-   public float field_1131;
+import dev.nuker.pyro.f0H;
+import dev.nuker.pyro.f4Q;
 
-   public float meth1() {
-      return this.field_1129;
-   }
+public class f4T
+extends f4Q {
+    public boolean Field4060;
+    public float Field4061;
+    public float Field4062;
+    public float Field4063;
+    public float Field4064;
 
-   // $FF: renamed from: c (float, float, float) boolean
-   public boolean method_1639(float var1, float var2, float var3) {
-      if (this.field_1127) {
-         this.2(var1 + this.2() - this.field_1130);
-         this.3(var2 + this.7() - this.field_1131);
-      }
+    public float Method740() {
+        return this.Field4062;
+    }
 
-      if (this.field_1128 > 0.0F) {
-         this.field_1128 -= 10.0F;
-         if (this.field_1128 <= 0.0F) {
-            this.field_1128 = 0.0F;
-            this.c(!this.9());
-         }
-      }
+    @Override
+    public boolean Method4797(float f, float f2, float f3) {
+        if (this.Field4060) {
+            this.Method4910(f + this.Method4828() - this.Field4063);
+            this.Method4903(f2 + this.Method4906() - this.Field4064);
+        }
+        if (this.Field4061 > 0.0f) {
+            this.Field4061 -= 10.0f;
+            if (this.Field4061 <= 0.0f) {
+                this.Field4061 = 0.0f;
+                this.Method4824(!this.Method5739());
+            }
+        }
+        return super.Method4797(f, f2, f3);
+    }
 
-      return super.method_1639(var1, var2, var3);
-   }
+    public void Method5710(float f) {
+        this.Field4062 = f;
+    }
 
-   // $FF: renamed from: 4 (float) void
-   public void method_1669(float var1) {
-      this.field_1129 = var1;
-   }
+    @Override
+    public void Method4810(int n, int n2, int n3) {
+        super.Method4810(n, n2, n3);
+        this.Field4060 = false;
+    }
 
-   // $FF: renamed from: c (int, int, int) void
-   public void method_1640(int var1, int var2, int var3) {
-      super.method_1640(var1, var2, var3);
-      this.field_1127 = false;
-   }
+    public f4T(String string, float f, float f2, float f3, float f4, float f5) {
+        super(string, f, f2, f3, f4);
+        this.Field4062 = f5;
+    }
 
-   public f4T(String var1, float var2, float var3, float var4, float var5, float var6) {
-      super(var1, var2, var3, var4, var5);
-      this.field_1129 = var6;
-   }
-
-   // $FF: renamed from: 0 (int, int, int) void
-   public void method_1622(int var1, int var2, int var3) {
-      super.method_1622(var1, var2, var3);
-      double var4 = f0H.field_2338.method_3492();
-      float var6 = (float)((double)((float)var1 - this.2()) / var4);
-      float var7 = (float)((double)((float)var2 - this.7()) / var4);
-      if (var6 >= 0.0F && var6 <= this.c() && var7 >= 0.0F && (double)var7 < (double)this.field_1129 * var4) {
-         if (var3 == 0) {
-            this.field_1127 = true;
-            this.field_1130 = var6;
-            this.field_1131 = var7;
-         } else if (var3 == 1) {
-            this.field_1128 = this.meth4();
-         }
-      }
-
-   }
+    @Override
+    public void Method4796(int n, int n2, int n3) {
+        super.Method4796(n, n2, n3);
+        double d = f0H.Field5479.Method7706();
+        float f = (float)((double)((float)n - this.Method4828()) / d);
+        float f2 = (float)((double)((float)n2 - this.Method4906()) / d);
+        if (f >= 0.0f && f <= this.Method5094() && f2 >= 0.0f) {
+            if ((double)f2 < (double)this.Field4062 * d) {
+                if (n3 == 0) {
+                    this.Field4060 = true;
+                    this.Field4063 = f;
+                    this.Field4064 = f2;
+                } else if (n3 == 1) {
+                    this.Field4061 = this.Method4908();
+                }
+            }
+        }
+    }
 }
+

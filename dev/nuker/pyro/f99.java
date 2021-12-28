@@ -1,10 +1,56 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  baritone.api.BaritoneAPI
+ *  baritone.api.Settings$Setting
+ *  net.minecraft.client.entity.EntityPlayerSP
+ *  net.minecraft.network.Packet
+ *  net.minecraft.network.play.client.CPacketEntityAction
+ *  net.minecraft.network.play.client.CPacketEntityAction$Action
+ *  net.minecraft.world.World
+ *  org.jetbrains.annotations.NotNull
+ *  org.jetbrains.annotations.Nullable
  */
 package dev.nuker.pyro;
 
 import baritone.api.BaritoneAPI;
+import baritone.api.Settings;
+import dev.nuker.pyro.BooleanSetting;
+import dev.nuker.pyro.Class57;
+import dev.nuker.pyro.Module;
+import dev.nuker.pyro.Pyro;
+import dev.nuker.pyro.PyroStatic;
+import dev.nuker.pyro.f00;
+import dev.nuker.pyro.f0g;
+import dev.nuker.pyro.f0l;
+import dev.nuker.pyro.f41;
+import dev.nuker.pyro.f49;
+import dev.nuker.pyro.f8L;
+import dev.nuker.pyro.f8M;
+import dev.nuker.pyro.f8N;
+import dev.nuker.pyro.f8O;
+import dev.nuker.pyro.f8P;
+import dev.nuker.pyro.f8Q;
+import dev.nuker.pyro.f8R;
+import dev.nuker.pyro.f8S;
+import dev.nuker.pyro.f8T;
+import dev.nuker.pyro.f8U;
+import dev.nuker.pyro.f8V;
+import dev.nuker.pyro.f8W;
+import dev.nuker.pyro.f8X;
+import dev.nuker.pyro.f8Y;
+import dev.nuker.pyro.f8Z;
+import dev.nuker.pyro.f90;
+import dev.nuker.pyro.f91;
+import dev.nuker.pyro.f92;
+import dev.nuker.pyro.f93;
+import dev.nuker.pyro.f94;
+import dev.nuker.pyro.f95;
+import dev.nuker.pyro.f96;
+import dev.nuker.pyro.f97;
+import dev.nuker.pyro.f98;
+import dev.nuker.pyro.f9c;
 import dev.nuker.pyro.security.inject.LauncherEventHide;
 import java.awt.Color;
 import kotlin.TypeCastException;
@@ -12,214 +58,179 @@ import kotlin.jvm.functions.Function1;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.client.CPacketEntityAction;
-import net.minecraft.network.play.client.CPacketEntityAction.Action;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class f99 extends Module {
-   // $FF: renamed from: c dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_358 = (BooleanSetting)this.register((f0w)(new BooleanSetting("allowSprint", "Allow Sprint", "Let Baritone sprint", true)));
-   // $FF: renamed from: 0 dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_359 = (BooleanSetting)this.register((f0w)(new BooleanSetting("allowPlace", "Allow Place", "Let Baritone place blocks", true)));
-   // $FF: renamed from: 1 dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_360 = (BooleanSetting)this.register((f0w)(new BooleanSetting("allowBreak", "Allow Break", "Let Baritone break blocks", true)));
-   // $FF: renamed from: 2 dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_361 = (BooleanSetting)this.register((f0w)(new BooleanSetting("allowParkour", "Allow Parkour", "Let Baritone do parkour", false)));
-   // $FF: renamed from: 3 dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_362 = (BooleanSetting)this.register((f0w)(new BooleanSetting("allowParkourPlace", "Allow Parkour Place", "Let Baritone place blocks while doing parkour", false)));
-   // $FF: renamed from: 4 dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_363 = (BooleanSetting)this.register((f0w)(new BooleanSetting("allowInventory", "Allow Inventory Use", "Let Baritone use things in your inventory", false)));
-   // $FF: renamed from: 5 dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_364 = (BooleanSetting)this.register((f0w)(new BooleanSetting("mapartMode", "Map Art Mode", "Enable Map art mode - tbh not totally sure what this does", false)));
-   // $FF: renamed from: 6 dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_365 = (BooleanSetting)this.register((f0w)(new BooleanSetting("sneakCancel", "Sneak2Stop", "Stops Baritone when you sneak", true)));
-   // $FF: renamed from: 7 dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_366 = (BooleanSetting)this.register((f0w)(new BooleanSetting("antiElytra", "Anti Elytra", "Stops Baritone from accidentally triggering elytra", true)));
-   // $FF: renamed from: c dev.nuker.pyro.f0l
-   @NotNull
-   public f0l field_367;
-   // $FF: renamed from: 0 dev.nuker.pyro.f0l
-   @NotNull
-   public f0l field_368;
-   // $FF: renamed from: 1 dev.nuker.pyro.f0l
-   @NotNull
-   public f0l field_369;
-   // $FF: renamed from: 2 dev.nuker.pyro.f0l
-   @NotNull
-   public f0l field_370;
-   // $FF: renamed from: 3 dev.nuker.pyro.f0l
-   @NotNull
-   public f0l field_371;
-   // $FF: renamed from: c boolean
-   public boolean field_372;
+public class f99
+extends Module {
+    @NotNull
+    public BooleanSetting Field3469 = (BooleanSetting)this.Method7264(new BooleanSetting("allowSprint", "Allow Sprint", "Let Baritone sprint", true));
+    @NotNull
+    public BooleanSetting Field3470 = (BooleanSetting)this.Method7264(new BooleanSetting("allowPlace", "Allow Place", "Let Baritone place blocks", true));
+    @NotNull
+    public BooleanSetting Field3471 = (BooleanSetting)this.Method7264(new BooleanSetting("allowBreak", "Allow Break", "Let Baritone break blocks", true));
+    @NotNull
+    public BooleanSetting Field3472 = (BooleanSetting)this.Method7264(new BooleanSetting("allowParkour", "Allow Parkour", "Let Baritone do parkour", false));
+    @NotNull
+    public BooleanSetting Field3473 = (BooleanSetting)this.Method7264(new BooleanSetting("allowParkourPlace", "Allow Parkour Place", "Let Baritone place blocks while doing parkour", false));
+    @NotNull
+    public BooleanSetting Field3474 = (BooleanSetting)this.Method7264(new BooleanSetting("allowInventory", "Allow Inventory Use", "Let Baritone use things in your inventory", false));
+    @NotNull
+    public BooleanSetting Field3475 = (BooleanSetting)this.Method7264(new BooleanSetting("mapartMode", "Map Art Mode", "Enable Map art mode - tbh not totally sure what this does", false));
+    @NotNull
+    public BooleanSetting Field3476 = (BooleanSetting)this.Method7264(new BooleanSetting("sneakCancel", "Sneak2Stop", "Stops Baritone when you sneak", true));
+    @NotNull
+    public BooleanSetting Field3477 = (BooleanSetting)this.Method7264(new BooleanSetting("antiElytra", "Anti Elytra", "Stops Baritone from accidentally triggering elytra", true));
+    @NotNull
+    public f0l Field3478 = (f0l)this.Method7264(new f0l("pathColor", "Path Color", "Finalized path color", f00.Field5379.Method7937(Color.RED)));
+    @NotNull
+    public f0l Field3479 = (f0l)this.Method7264(new f0l("nextColor", "Next Path Color", "Color for next path segment", f00.Field5379.Method7937(Color.MAGENTA)));
+    @NotNull
+    public f0l Field3480 = (f0l)this.Method7264(new f0l("bestColor", "Best Path Color", "Color for next best path segment", f00.Field5379.Method7937(Color.BLUE)));
+    @NotNull
+    public f0l Field3481 = (f0l)this.Method7264(new f0l("consideringColor", "Considering Path Color", "Last checked path color", f00.Field5379.Method7937(Color.CYAN)));
+    @NotNull
+    public f0l Field3482 = (f0l)this.Method7264(new f0l("goalColor", "Goal Color", "Goal box color", f00.Field5379.Method7937(Color.GREEN)));
+    public boolean Field3483;
 
-   // $FF: renamed from: 4 () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_527() {
-      return this.field_365;
-   }
+    @NotNull
+    public BooleanSetting Method276() {
+        return this.Field3476;
+    }
 
-   // $FF: renamed from: b () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_528() {
-      return this.field_363;
-   }
+    @NotNull
+    public BooleanSetting Method271() {
+        return this.Field3474;
+    }
 
-   // $FF: renamed from: 1 () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_529() {
-      return this.field_362;
-   }
+    @NotNull
+    public BooleanSetting Method213() {
+        return this.Field3473;
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.f49) void
-   @f0g
-   @LauncherEventHide
-   public void method_530(@NotNull f49 var1) {
-      if (var1.c() == f41.field_2120 && var1.c() instanceof CPacketEntityAction && ((Boolean)PyroStatic.field_2467.c.method_3034() && !PyroStatic.field_2467.method_1192() || (Boolean)PyroStatic.field_2489.field_366.c() && BaritoneAPI.getProvider().getPrimaryBaritone().getPathingBehavior().isPathing())) {
-         Packet var10000 = var1.c();
-         if (var10000 == null) {
-            throw new TypeCastException("null cannot be cast to non-null type net.minecraft.network.play.client.CPacketEntityAction");
-         }
+    @f0g
+    @LauncherEventHide
+    public void Method2393(@NotNull f49 f492) {
+        block5: {
+            block6: {
+                if (f492.Method5619() != f41.Pre) break block5;
+                if (!(f492.Method5784() instanceof CPacketEntityAction)) break block5;
+                if (((Boolean)PyroStatic.Field6403.Field5236.Method5264()).booleanValue() && !PyroStatic.Field6403.Method2269()) break block6;
+                if (!((Boolean)PyroStatic.Field6425.Field3477.Method7979()).booleanValue()) break block5;
+                if (!BaritoneAPI.getProvider().getPrimaryBaritone().getPathingBehavior().isPathing()) break block5;
+            }
+            Packet packet = f492.Method5784();
+            if (packet == null) {
+                throw new TypeCastException("null cannot be cast to non-null type net.minecraft.network.play.client.CPacketEntityAction");
+            }
+            CPacketEntityAction cPacketEntityAction = (CPacketEntityAction)packet;
+            if (cPacketEntityAction.getAction() == CPacketEntityAction.Action.START_FALL_FLYING) {
+                f492.Method7948();
+            }
+        }
+    }
 
-         CPacketEntityAction var2 = (CPacketEntityAction)var10000;
-         if (var2.getAction() == Action.START_FALL_FLYING) {
-            var1.0();
-         }
-      }
+    @NotNull
+    public BooleanSetting Method2424() {
+        return this.Field3475;
+    }
 
-   }
+    public Class57 Method5272(Settings.Setting setting, Function1 function1, Function1 function12) {
+        return new f98(setting, function1, function12);
+    }
 
-   // $FF: renamed from: 5 () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_531() {
-      return this.field_364;
-   }
+    @NotNull
+    public f0l Method5273() {
+        return this.Field3480;
+    }
 
-   // $FF: renamed from: c (baritone.api.Settings.Setting, kotlin.jvm.functions.Function1, kotlin.jvm.functions.Function1) dev.nuker.pyro.fw
-   public class_6 method_532(baritone.api.Settings.Setting var1, Function1 var2, Function1 var3) {
-      return (class_6)(new f98(var1, var2, var3));
-   }
+    public void Method5008() {
+        if (this.Field3483) {
+            this.Field3469.Method7978(this.Method5272(BaritoneAPI.getSettings().allowSprint, f8L.Field3455, f8W.Field3461));
+            this.Field3470.Method7978(this.Method5272(BaritoneAPI.getSettings().allowPlace, f91.Field3425, f92.Field3445));
+            this.Field3471.Method7978(this.Method5272(BaritoneAPI.getSettings().allowBreak, f93.Field3448, f94.Field3492));
+            this.Field3472.Method7978(this.Method5272(BaritoneAPI.getSettings().allowParkour, f95.Field3496, f96.Field3500));
+            this.Field3473.Method7978(this.Method5272(BaritoneAPI.getSettings().allowParkourPlace, f97.Field3503, f8M.Field3457));
+            this.Field3474.Method7978(this.Method5272(BaritoneAPI.getSettings().allowInventory, f8N.Field3459, f8O.Field3421));
+            this.Field3475.Method7978(this.Method5272(BaritoneAPI.getSettings().mapArtMode, f8P.Field3424, f8Q.Field3444));
+            this.Field3478.Method7978(this.Method5272(BaritoneAPI.getSettings().colorCurrentPath, f8R.Field3447, f8S.Field3491));
+            this.Field3479.Method7978(this.Method5272(BaritoneAPI.getSettings().colorNextPath, f8T.Field3495, f8U.Field3499));
+            this.Field3480.Method7978(this.Method5272(BaritoneAPI.getSettings().colorBestPathSoFar, f8V.Field3502, f8X.Field3468));
+            this.Field3481.Method7978(this.Method5272(BaritoneAPI.getSettings().colorMostRecentConsidered, f8Y.Field3485, f8Z.Field3487));
+            this.Field3482.Method7978(this.Method5272(BaritoneAPI.getSettings().colorGoalBox, f9c.Field3713, f90.Field3422));
+        }
+    }
 
-   // $FF: renamed from: f () dev.nuker.pyro.f0l
-   @NotNull
-   public f0l method_533() {
-      return this.field_369;
-   }
+    public void Method557(boolean bl) {
+        this.Field3483 = bl;
+    }
 
-   // $FF: renamed from: 9 () void
-   public void method_534() {
-      if (this.field_372) {
-         this.field_358.c(this.method_532(BaritoneAPI.getSettings().allowSprint, (Function1)f8L.field_36, (Function1)f8W.field_33));
-         this.field_359.c(this.method_532(BaritoneAPI.getSettings().allowPlace, (Function1)f91.field_41, (Function1)f92.field_39));
-         this.field_360.c(this.method_532(BaritoneAPI.getSettings().allowBreak, (Function1)f93.field_37, (Function1)f94.field_28));
-         this.field_361.c(this.method_532(BaritoneAPI.getSettings().allowParkour, (Function1)f95.field_26, (Function1)f96.field_24));
-         this.field_362.c(this.method_532(BaritoneAPI.getSettings().allowParkourPlace, (Function1)f97.field_22, (Function1)f8M.field_35));
-         this.field_363.c(this.method_532(BaritoneAPI.getSettings().allowInventory, (Function1)f8N.field_34, (Function1)f8O.field_44));
-         this.field_364.c(this.method_532(BaritoneAPI.getSettings().mapArtMode, (Function1)f8P.field_42, (Function1)f8Q.field_40));
-         this.field_367.c(this.method_532(BaritoneAPI.getSettings().colorCurrentPath, (Function1)f8R.field_38, (Function1)f8S.field_29));
-         this.field_368.c(this.method_532(BaritoneAPI.getSettings().colorNextPath, (Function1)f8T.field_27, (Function1)f8U.field_25));
-         this.field_369.c(this.method_532(BaritoneAPI.getSettings().colorBestPathSoFar, (Function1)f8V.field_23, (Function1)f8X.field_32));
-         this.field_370.c(this.method_532(BaritoneAPI.getSettings().colorMostRecentConsidered, (Function1)f8Y.field_31, (Function1)f8Z.field_30));
-         this.field_371.c(this.method_532(BaritoneAPI.getSettings().colorGoalBox, (Function1)f9c.field_21, (Function1)f90.field_43));
-      }
+    @NotNull
+    public f0l Method5274() {
+        return this.Field3478;
+    }
 
-   }
+    public boolean Method4876() {
+        return this.Field3483;
+    }
 
-   // $FF: renamed from: c (boolean) void
-   public void method_535(boolean var1) {
-      this.field_372 = var1;
-   }
+    @NotNull
+    public BooleanSetting Method281() {
+        return this.Field3472;
+    }
 
-   // $FF: renamed from: 6 () dev.nuker.pyro.f0l
-   @NotNull
-   public f0l method_536() {
-      return this.field_367;
-   }
+    @NotNull
+    public BooleanSetting Method273() {
+        return this.Field3469;
+    }
 
-   // $FF: renamed from: c () boolean
-   public boolean method_537() {
-      return this.field_372;
-   }
+    @NotNull
+    public f0l Method2369() {
+        return this.Field3481;
+    }
 
-   // $FF: renamed from: e () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_538() {
-      return this.field_361;
-   }
+    @NotNull
+    public BooleanSetting Method269() {
+        return this.Field3477;
+    }
 
-   // $FF: renamed from: d () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_539() {
-      return this.field_358;
-   }
+    @NotNull
+    public f0l Method214() {
+        return this.Field3482;
+    }
 
-   // $FF: renamed from: 2 () dev.nuker.pyro.f0l
-   @NotNull
-   public f0l method_540() {
-      return this.field_370;
-   }
+    @Override
+    public void Method205(boolean bl, @Nullable EntityPlayerSP entityPlayerSP, @Nullable World world) {
+        if (bl) {
+            this.Field5236.Method5266(false);
+        }
+    }
 
-   // $FF: renamed from: 8 () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_541() {
-      return this.field_366;
-   }
+    public f99() {
+        super("baritone", "Baritone", "Settings for baritone");
+        try {
+            this.Field3483 = Pyro.class.getClassLoader().loadClass("baritone.api.BaritoneAPI") != null;
+            Pyro.Method8978().Method7915(this);
+        }
+        catch (ClassNotFoundException classNotFoundException) {
+            // empty catch block
+        }
+    }
 
-   // $FF: renamed from: 3 () dev.nuker.pyro.f0l
-   @NotNull
-   public f0l method_542() {
-      return this.field_371;
-   }
+    @NotNull
+    public BooleanSetting Method283() {
+        return this.Field3471;
+    }
 
-   // $FF: renamed from: c (boolean, net.minecraft.client.entity.EntityPlayerSP, net.minecraft.world.World) void
-   public void method_116(boolean var1, @Nullable EntityPlayerSP var2, @Nullable World var3) {
-      if (var1) {
-         this.c.method_3033(false);
-      }
+    @NotNull
+    public f0l Method2368() {
+        return this.Field3479;
+    }
 
-   }
-
-   public f99() {
-      super("baritone", "Baritone", "Settings for baritone");
-      this.field_367 = (f0l)this.register((f0w)(new f0l("pathColor", "Path Color", "Finalized path color", f00.field_2296.method_3693(Color.RED))));
-      this.field_368 = (f0l)this.register((f0w)(new f0l("nextColor", "Next Path Color", "Color for next path segment", f00.field_2296.method_3693(Color.MAGENTA))));
-      this.field_369 = (f0l)this.register((f0w)(new f0l("bestColor", "Best Path Color", "Color for next best path segment", f00.field_2296.method_3693(Color.BLUE))));
-      this.field_370 = (f0l)this.register((f0w)(new f0l("consideringColor", "Considering Path Color", "Last checked path color", f00.field_2296.method_3693(Color.CYAN))));
-      this.field_371 = (f0l)this.register((f0w)(new f0l("goalColor", "Goal Color", "Goal box color", f00.field_2296.method_3693(Color.GREEN))));
-
-      try {
-         this.field_372 = Pyro.class.getClassLoader().loadClass("baritone.api.BaritoneAPI") != null;
-         Pyro.getEventManager().method_31(this);
-      } catch (ClassNotFoundException var2) {
-      }
-
-   }
-
-   // $FF: renamed from: a () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_543() {
-      return this.field_360;
-   }
-
-   // $FF: renamed from: 0 () dev.nuker.pyro.f0l
-   @NotNull
-   public f0l method_544() {
-      return this.field_368;
-   }
-
-   // $FF: renamed from: 7 () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_545() {
-      return this.field_359;
-   }
+    @NotNull
+    public BooleanSetting Method279() {
+        return this.Field3470;
+    }
 }
+

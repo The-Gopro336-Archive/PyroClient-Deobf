@@ -1,8 +1,8 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
 public class f4E {
 }
+

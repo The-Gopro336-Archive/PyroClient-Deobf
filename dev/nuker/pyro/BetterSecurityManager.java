@@ -1,17 +1,23 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
 import java.security.Permission;
 
-public class BetterSecurityManager extends SecurityManager {
-   public void checkPermission(Permission var1) {
-      Object var10000 = null;
-   }
+public class BetterSecurityManager
+extends SecurityManager {
+    /*
+     * Enabled force condition propagation
+     * Lifted jumps to return sites
+     */
+    @Override
+    public void checkPermission(Permission permission) {
+    }
 
-   public BetterSecurityManager() {
-      throw null;
-   }
+    public BetterSecurityManager() {
+        BetterSecurityManager betterSecurityManager = this;
+        throw null;
+    }
 }
+

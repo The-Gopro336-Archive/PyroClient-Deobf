@@ -1,20 +1,37 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-public enum f07 {
-   // $FF: renamed from: c dev.nuker.pyro.f07
-   field_2302,
-   // $FF: renamed from: 0 dev.nuker.pyro.f07
-   field_2303;
+public class f07
+extends Enum {
+    public static /* enum */ f07 SET;
+    public static /* enum */ f07 MULTIPLY;
+    public static /* synthetic */ f07[] Field5386;
 
-   // $FF: renamed from: c dev.nuker.pyro.f07[]
-   public static f07[] field_2304 = new f07[]{field_2302 = new f07("SET", 0), field_2303 = new f07("MULTIPLY", 1)};
+    /*
+     * WARNING - Possible parameter corruption
+     * WARNING - void declaration
+     */
+    public f07() {
+        void var2_-1;
+        void var1_-1;
+    }
 
-   // $FF: renamed from: c (java.lang.String) dev.nuker.pyro.f07
-   public static f07 method_3466(String var0) {
-      return (f07)Enum.valueOf(f07.class, var0);
-   }
+    public static f07[] Method7601() {
+        return (f07[])Field5386.clone();
+    }
+
+    static {
+        f07[] arrf07 = new f07[2];
+        f07[] arrf072 = arrf07;
+        arrf07[0] = SET = new f07("SET", 0);
+        arrf07[1] = MULTIPLY = new f07("MULTIPLY", 1);
+        Field5386 = arrf07;
+    }
+
+    public static f07 Method7602(String string) {
+        return Enum.valueOf(f07.class, string);
+    }
 }
+

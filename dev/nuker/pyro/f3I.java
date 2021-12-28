@@ -1,58 +1,27 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  com.mojang.realmsclient.gui.ChatFormatting
+ *  org.jetbrains.annotations.Nullable
  */
 package dev.nuker.pyro;
 
 import com.mojang.brigadier.Command;
-import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.realmsclient.gui.ChatFormatting;
-import java.util.Collection;
-import java.util.Iterator;
-import kotlin.collections.CollectionsKt;
-import kotlin.jvm.internal.Intrinsics;
-import net.minecraft.client.Minecraft;
-import net.minecraft.util.math.Vec3d;
+import dev.nuker.pyro.Class29;
+import dev.nuker.pyro.Pyro;
+import org.jetbrains.annotations.Nullable;
 
-public class f3I implements Command {
-   // $FF: renamed from: c dev.nuker.pyro.f3I
-   public static f3I field_2054 = new f3I();
+public class f3i
+implements Command {
+    public static f3i Field4045 = new f3i();
 
-   public int run(CommandContext var1) {
-      String var2 = StringArgumentType.getString(var1, "name");
-      Vec3d var3 = Minecraft.getMinecraft().player.getPositionVector();
-      Iterable var4 = (Iterable)WaypointManager.INSTANCE.getWaypoints();
-      boolean var5 = false;
-      boolean var10000;
-      if (var4 instanceof Collection && ((Collection)var4).isEmpty()) {
-         var10000 = false;
-      } else {
-         Iterator var6 = var4.iterator();
-
-         while(true) {
-            if (!var6.hasNext()) {
-               var10000 = false;
-               break;
-            }
-
-            Object var7 = var6.next();
-            Waypoint var8 = (Waypoint)var7;
-            boolean var9 = false;
-            if (Intrinsics.areEqual((Object)var8.getName(), (Object)var2)) {
-               var10000 = true;
-               break;
-            }
-         }
-      }
-
-      if (var10000) {
-         Pyro.INSTANCE.sendAndKeepMessage(ChatFormatting.RED + "The waypoint '" + var2 + "' already exists");
-      } else {
-         WaypointManager.INSTANCE.saveWaypoint(new Waypoint(var2, var3.x, var3.y, var3.z, CollectionsKt.listOf(Minecraft.getMinecraft().player.dimension)));
-         Pyro.INSTANCE.sendAndKeepMessage(ChatFormatting.GREEN + "Added waypoint '" + var2 + '\'');
-      }
-
-      return 0;
-   }
+    public int Method152(@Nullable CommandContext commandContext) {
+        Class29.Field3216.Method7300().Method455();
+        Pyro.Field6182.Method8989((Object)ChatFormatting.GREEN + "Reloaded macros");
+        return 0;
+    }
 }
+

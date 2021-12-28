@@ -1,32 +1,32 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-import net.minecraft.client.settings.KeyBinding;
-import org.jetbrains.annotations.NotNull;
+import dev.nuker.pyro.f07;
+import dev.nuker.pyro.f0b;
+import dev.nuker.pyro.fai;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function0;
+import kotlin.jvm.internal.Lambda;
 
-public class faG extends far {
-   // $FF: renamed from: c () void
-   public void method_1682() {
-   }
+public class fag
+extends Lambda
+implements Function0 {
+    public fai Field1933;
 
-   // $FF: renamed from: c (dev.nuker.pyro.f4u) void
-   public void method_1684(@NotNull f4u var1) {
-      if (fec.method_1758() && var1.c() == f41.field_2120) {
-         KeyBinding.setKeyBindState(far.c.gameSettings.keyBindSprint.getKeyCode(), true);
-         if (far.c.player.collidedVertically) {
-            far.c.player.jump();
-         }
-      }
+    public void Method2267() {
+        f0b.Field5568.Method7902("elytraflyCreative", f07.MULTIPLY, (float)((Number)this.Field1933.Method2531().Method7979()).doubleValue());
+    }
 
-   }
+    public Object Method945() {
+        this.Method2267();
+        return Unit.Field4531;
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.f4p) void
-   public void method_1681(@NotNull f4p var1) {
-   }
-
-   public void meth0() {
-   }
+    public fag(fai fai2) {
+        this.Field1933 = fai2;
+        super(0);
+    }
 }
+

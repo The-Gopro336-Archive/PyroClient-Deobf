@@ -1,24 +1,41 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-public enum fa7 {
-   // $FF: renamed from: c dev.nuker.pyro.fa7
-   field_1465,
-   // $FF: renamed from: 0 dev.nuker.pyro.fa7
-   field_1466,
-   // $FF: renamed from: 1 dev.nuker.pyro.fa7
-   field_1467,
-   // $FF: renamed from: 2 dev.nuker.pyro.fa7
-   field_1468;
+public class fa7
+extends Enum {
+    public static /* enum */ fa7 Instant;
+    public static /* enum */ fa7 Add;
+    public static /* enum */ fa7 Multiply;
+    public static /* enum */ fa7 Ace;
+    public static /* synthetic */ fa7[] Field1643;
 
-   // $FF: renamed from: c dev.nuker.pyro.fa7[]
-   public static fa7[] field_1469 = new fa7[]{field_1465 = new fa7("Instant", 0), field_1466 = new fa7("Add", 1), field_1467 = new fa7("Multiply", 2), field_1468 = new fa7("Ace", 3)};
+    /*
+     * WARNING - Possible parameter corruption
+     * WARNING - void declaration
+     */
+    public fa7() {
+        void var2_-1;
+        void var1_-1;
+    }
 
-   // $FF: renamed from: c (java.lang.String) dev.nuker.pyro.fa7
-   public static fa7 method_2650(String var0) {
-      return (fa7)Enum.valueOf(fa7.class, var0);
-   }
+    static {
+        fa7[] arrfa7 = new fa7[4];
+        fa7[] arrfa72 = arrfa7;
+        arrfa7[0] = Instant = new fa7("Instant", 0);
+        arrfa7[1] = Add = new fa7("Add", 1);
+        arrfa7[2] = Multiply = new fa7("Multiply", 2);
+        arrfa7[3] = Ace = new fa7("Ace", 3);
+        Field1643 = arrfa7;
+    }
+
+    public static fa7 Method2361(String string) {
+        return Enum.valueOf(fa7.class, string);
+    }
+
+    public static fa7[] Method2362() {
+        return (fa7[])Field1643.clone();
+    }
 }
+

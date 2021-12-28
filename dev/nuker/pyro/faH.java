@@ -1,29 +1,29 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-import org.jetbrains.annotations.NotNull;
+import dev.nuker.pyro.f0b;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function0;
+import kotlin.jvm.internal.Lambda;
 
-public class faH extends far {
-   public void meth0() {
-   }
+public class fah
+extends Lambda
+implements Function0 {
+    public static fah Field1818 = new fah();
 
-   // $FF: renamed from: c () void
-   public void method_1682() {
-   }
+    public void Method2267() {
+        f0b.Field5568.Method7904("elytraflyCreative");
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.f4p) void
-   public void method_1681(@NotNull f4p var1) {
-      if (!var1.c() && fec.method_1758()) {
-         var1.0();
-         fec.method_1774(var1, ((Number)PyroStatic.field_2494.method_333().c()).doubleValue() / (double)10);
-      }
+    public fah() {
+        super(0);
+    }
 
-   }
-
-   // $FF: renamed from: c (dev.nuker.pyro.f4u) void
-   public void method_1684(@NotNull f4u var1) {
-   }
+    public Object Method945() {
+        this.Method2267();
+        return Unit.Field4531;
+    }
 }
+

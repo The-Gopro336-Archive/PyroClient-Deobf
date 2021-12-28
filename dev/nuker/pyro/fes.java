@@ -1,14 +1,16 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.entity.Entity
  */
 package dev.nuker.pyro;
 
 import net.minecraft.entity.Entity;
 
 public interface fes {
-   // $FF: renamed from: c (net.minecraft.entity.Entity) boolean
-   default boolean method_1(Entity var1) {
-      throw new UnsupportedOperationException("Please report this to the binscure obfuscator developers");
-   }
+    default public boolean Method884(Entity entity) {
+        throw new UnsupportedOperationException("Please report this to the binscure obfuscator developers");
+    }
 }
+

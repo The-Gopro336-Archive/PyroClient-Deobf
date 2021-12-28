@@ -1,9 +1,17 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.gui.ScaledResolution
+ *  net.minecraft.entity.Entity
+ *  org.jetbrains.annotations.NotNull
+ *  org.jetbrains.annotations.Nullable
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.f5T;
+import dev.nuker.pyro.fdZ;
+import dev.nuker.pyro.feo;
 import java.util.Arrays;
 import kotlin.jvm.internal.StringCompanionObject;
 import net.minecraft.client.gui.ScaledResolution;
@@ -11,90 +19,83 @@ import net.minecraft.entity.Entity;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class f5Y extends f5T {
-   // $FF: renamed from: c int
-   public int field_1057;
-   // $FF: renamed from: c boolean
-   public boolean field_1058;
-   // $FF: renamed from: 1 java.lang.String
-   @NotNull
-   public String field_1059;
-   // $FF: renamed from: 0 int
-   public int field_1060;
+public class f5Y
+extends f5T {
+    public int Field4240;
+    public boolean Field4241;
+    @NotNull
+    public String Field4242;
+    public int Field4243;
 
-   // $FF: renamed from: 0 (int) void
-   public void method_1563(int var1) {
-      this.field_1060 = var1;
-   }
+    public void Method2680(int n) {
+        this.Field4243 = n;
+    }
 
-   // $FF: renamed from: c (java.lang.String) void
-   public void method_1564(@NotNull String var1) {
-      this.field_1059 = var1;
-   }
+    public void Method5736(@NotNull String string) {
+        this.Field4242 = string;
+    }
 
-   // $FF: renamed from: c (int) void
-   public void method_1565(int var1) {
-      this.field_1057 = var1;
-   }
+    public void Method2377(int n) {
+        this.Field4240 = n;
+    }
 
-   // $FF: renamed from: c (boolean) void
-   public void method_1566(boolean var1) {
-      this.field_1058 = var1;
-   }
+    public void Method4824(boolean bl) {
+        this.Field4241 = bl;
+    }
 
-   // $FF: renamed from: 1 () int
-   public int method_1567() {
-      return this.field_1057;
-   }
+    public int Method5742() {
+        return this.Field4240;
+    }
 
-   public void meth2() {
-      Entity var1 = fdZ.field_976.world.getEntityByID(this.field_1060);
-      if (var1 != null) {
-         StringCompanionObject var2 = StringCompanionObject.INSTANCE;
-         String var3 = "%s [%.1f]";
-         Object[] var4 = new Object[]{var1.getName(), fdZ.field_976.player.getDistance(var1)};
-         boolean var5 = false;
-         String var7 = String.format(var3, Arrays.copyOf(var4, var4.length));
-         this.field_1059 = var7;
-         float var8 = var1.getDistance((Entity)fdZ.field_976.player);
-         float var9 = var8 >= 60.0F ? 120.0F : var8 + var8;
-         this.field_1057 = (new feo(var9, 100.0F, 50.0F, 1.0F)).method_2032().getRGB();
-      }
+    public void Method456() {
+        Entity entity = fdZ.Field313.world.getEntityByID(this.Field4243);
+        if (entity != null) {
+            String string;
+            StringCompanionObject stringCompanionObject = StringCompanionObject.Field4618;
+            String string2 = "%s [%.1f]";
+            Object[] arrobject = new Object[]{entity.getName(), Float.valueOf(fdZ.Field313.player.getDistance(entity))};
+            f5Y f5Y2 = this;
+            boolean bl = false;
+            f5Y2.Field4242 = string = String.format(string2, Arrays.copyOf(arrobject, arrobject.length));
+            float f = entity.getDistance((Entity)fdZ.Field313.player);
+            float f2 = f >= 60.0f ? 120.0f : f + f;
+            this.Field4240 = new feo(f2, 100.0f, 50.0f, 1.0f).Method773().getRGB();
+        }
+    }
 
-   }
+    @Override
+    public int Method4968(@Nullable ScaledResolution scaledResolution, float f, float f2) {
+        if (this.Field4241) {
+            return 1831126;
+        }
+        return this.Field4240;
+    }
 
-   // $FF: renamed from: c (net.minecraft.client.gui.ScaledResolution, float, float) int
-   public int method_1558(@Nullable ScaledResolution var1, float var2, float var3) {
-      return this.field_1058 ? 1831126 : this.field_1057;
-   }
+    public f5Y(@NotNull String string, boolean bl, @NotNull String string2, int n) {
+        super(string);
+        this.Field4241 = bl;
+        this.Field4242 = string2;
+        this.Field4243 = n;
+        this.Field4240 = -1;
+    }
 
-   public f5Y(@NotNull String var1, boolean var2, @NotNull String var3, int var4) {
-      super(var1);
-      this.field_1058 = var2;
-      this.field_1059 = var3;
-      this.field_1060 = var4;
-      this.field_1057 = -1;
-   }
+    public boolean Method5743() {
+        return this.Field4241;
+    }
 
-   // $FF: renamed from: 0 () boolean
-   public boolean method_1568() {
-      return this.field_1058;
-   }
+    public int Method2376() {
+        return this.Field4243;
+    }
 
-   // $FF: renamed from: c () int
-   public int method_1569() {
-      return this.field_1060;
-   }
+    @Override
+    @NotNull
+    public String Method4969() {
+        return this.Field4242;
+    }
 
-   // $FF: renamed from: 4 () java.lang.String
-   @NotNull
-   public String method_1559() {
-      return this.field_1059;
-   }
-
-   // $FF: renamed from: 5 () java.lang.String
-   @NotNull
-   public String method_1570() {
-      return this.field_1059;
-   }
+    @NotNull
+    public String Method4911() {
+        return this.Field4242;
+    }
 }
+

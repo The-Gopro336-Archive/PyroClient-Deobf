@@ -1,28 +1,31 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.entity.Entity
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.f8J;
 import java.util.function.Predicate;
 import net.minecraft.entity.Entity;
 import org.jetbrains.annotations.NotNull;
 
-public class f8H implements Predicate {
-   // $FF: renamed from: c dev.nuker.pyro.f8J
-   public f8J field_1840;
+public class f8H
+implements Predicate {
+    public f8J Field3361;
 
-   // $FF: renamed from: c (net.minecraft.entity.Entity) boolean
-   public boolean method_3017(@NotNull Entity var1) {
-      return this.field_1840.method_619(var1);
-   }
+    public boolean Method2427(@NotNull Entity entity) {
+        return this.Field3361.Method2425(entity);
+    }
 
-   public f8H(f8J var1) {
-      this.field_1840 = var1;
-      super();
-   }
+    public f8H(f8J f8J2) {
+        this.Field3361 = f8J2;
+    }
 
-   public boolean test(Object var1) {
-      return this.method_3017((Entity)var1);
-   }
+    public boolean test(Object object) {
+        return this.Method2427((Entity)object);
+    }
 }
+

@@ -1,89 +1,89 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  com.google.gson.JsonElement
+ *  com.google.gson.JsonPrimitive
+ *  org.jetbrains.annotations.NotNull
+ *  org.jetbrains.annotations.Nullable
  */
 package dev.nuker.pyro;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
+import dev.nuker.pyro.Setting;
+import dev.nuker.pyro.f0R;
+import dev.nuker.pyro.f13;
 import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class IntegerSetting extends Setting {
-   // $FF: renamed from: c int
-   public int field_2223;
-   // $FF: renamed from: 0 int
-   public int field_2224;
-   // $FF: renamed from: 1 int
-   public int field_2225;
+public class IntegerSetting
+extends Setting {
+    public int Field4307;
+    public int Field4308;
+    public int Field4309;
 
-   @JvmOverloads
-   public IntegerSetting(@NotNull String var1, @NotNull String var2, @Nullable String var3, int var4, int var5, int var6) {
-      this(var1, var2, var3, var4, var5, var6, 0, 64, (DefaultConstructorMarker)null);
-   }
+    @JvmOverloads
+    public IntegerSetting(@NotNull String string, @NotNull String string2, @Nullable String string3, int n, int n2, int n3) {
+        this(string, string2, string3, n, n2, n3, 0, 64, null);
+    }
 
-   // $FF: renamed from: 1 (int) void
-   public void method_3337(int var1) {
-      this.field_2224 = var1;
-   }
+    public void Method5962(int n) {
+        this.Field4308 = n;
+    }
 
-   // $FF: renamed from: 0 (int) void
-   public void method_3338(int var1) {
-      this.field_2223 = var1;
-   }
+    public void Method5963(int n) {
+        this.Field4307 = n;
+    }
 
-   @JvmOverloads
-   public IntegerSetting(@NotNull String var1, @NotNull String var2, @Nullable String var3, int var4, int var5, int var6, int var7) {
-      super(var1, var2, var3, var4);
-      this.field_2223 = var5;
-      this.field_2224 = var6;
-      this.field_2225 = var7;
-   }
+    @JvmOverloads
+    public IntegerSetting(@NotNull String string, @NotNull String string2, @Nullable String string3, int n, int n2, int n3, int n4) {
+        super(string, string2, string3, n);
+        this.Field4307 = n2;
+        this.Field4308 = n3;
+        this.Field4309 = n4;
+    }
 
-   public IntegerSetting(String var1, String var2, String var3, int var4, int var5, int var6, int var7, int var8, DefaultConstructorMarker var9) {
-      if ((var8 & 64) != 0) {
-         var7 = var6 - var5;
-      }
+    public IntegerSetting(String string, String string2, String string3, int n, int n2, int n3, int n4, int n5, DefaultConstructorMarker defaultConstructorMarker) {
+        if ((n5 & 0x40) != 0) {
+            n4 = n3 - n2;
+        }
+        this(string, string2, string3, n, n2, n3, n4);
+    }
 
-      this(var1, var2, var3, var4, var5, var6, var7);
-   }
+    @Override
+    public void Method5964(@NotNull JsonElement jsonElement) {
+        this.Method7976().Method5266(jsonElement.getAsInt());
+    }
 
-   // $FF: renamed from: c (com.google.gson.JsonElement) void
-   public void method_3310(@NotNull JsonElement var1) {
-      this.getValue().method_3033(var1.getAsInt());
-   }
+    public int Method5965() {
+        return this.Field4309;
+    }
 
-   // $FF: renamed from: 0 () int
-   public int method_3339() {
-      return this.field_2225;
-   }
+    public int Method5966() {
+        return this.Field4308;
+    }
 
-   // $FF: renamed from: c () int
-   public int method_3340() {
-      return this.field_2224;
-   }
+    public void Method5967(int n) {
+        this.Field4309 = n;
+    }
 
-   // $FF: renamed from: c (int) void
-   public void method_3341(int var1) {
-      this.field_2225 = var1;
-   }
+    public int Method5968() {
+        return this.Field4307;
+    }
 
-   // $FF: renamed from: 1 () int
-   public int method_3342() {
-      return this.field_2223;
-   }
+    @Override
+    @NotNull
+    public JsonElement Method5969() {
+        return (JsonElement)new JsonPrimitive((Number)this.Method7976().Method5264());
+    }
 
-   // $FF: renamed from: 0 () com.google.gson.JsonElement
-   @NotNull
-   public JsonElement method_3316() {
-      return (JsonElement)(new JsonPrimitive((Number)this.getValue().method_3034()));
-   }
-
-   // $FF: renamed from: 2 () dev.nuker.pyro.f13
-   @NotNull
-   public f13 method_3309() {
-      return (f13)(new f0R(this));
-   }
+    @Override
+    @NotNull
+    public f13 Method5970() {
+        return new f0R(this);
+    }
 }
+

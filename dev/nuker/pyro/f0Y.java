@@ -1,214 +1,204 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.gui.FontRenderer
+ *  net.minecraft.client.gui.Gui
+ *  org.jetbrains.annotations.NotNull
+ *  org.jetbrains.annotations.Nullable
  */
 package dev.nuker.pyro;
 
-import java.util.function.Consumer;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import dev.nuker.pyro.Class56;
+import dev.nuker.pyro.f0F;
+import dev.nuker.pyro.f0H;
+import dev.nuker.pyro.f0J;
+import dev.nuker.pyro.f0W;
+import dev.nuker.pyro.f0X;
+import dev.nuker.pyro.f0w;
+import dev.nuker.pyro.f12;
+import dev.nuker.pyro.f13;
+import dev.nuker.pyro.f14;
+import dev.nuker.pyro.f17;
 import kotlin.jvm.internal.Intrinsics;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.Gui;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class f0Y implements f13 {
-   // $FF: renamed from: 2 boolean
-   public boolean field_2351;
-   // $FF: renamed from: c dev.nuker.pyro.fz
-   @Nullable
-   public class_7 field_2352;
-   // $FF: renamed from: c dev.nuker.pyro.f0w
-   @Nullable
-   public f0w field_2353;
-   // $FF: renamed from: 1 java.lang.String
-   @NotNull
-   public static String field_2354 = "Defaults";
-   // $FF: renamed from: c dev.nuker.pyro.f0X
-   public static f0X field_2355 = new f0X((DefaultConstructorMarker)null);
+public class f0Y
+implements f13 {
+    public boolean Field5533;
+    @Nullable
+    public Class56<Object> Field5534;
+    @Nullable
+    public f0w<?> Field5535;
+    @NotNull
+    public static String Field5536 = "Defaults";
+    public static f0X Field5537 = new f0X(null);
 
-   // $FF: renamed from: c () void
-   public void method_20() {
-      f12.method_3637(this);
-   }
+    @Override
+    public void Method7837() {
+        f12.Method7828(this);
+    }
 
-   // $FF: renamed from: 0 (dev.nuker.pyro.f0F, dev.nuker.pyro.f0H, dev.nuker.pyro.f17) void
-   public void method_24(@NotNull f0F var1, @NotNull f0H var2, @NotNull f17 var3) {
-      f12.method_3641(this, var1, var2, var3);
-   }
+    @Override
+    public void Method7818(@NotNull f0F f0F2, @NotNull f0H f0H2, @NotNull f17 f172) {
+        f12.Method7832(this, f0F2, f0H2, f172);
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.f0w) void
-   public void method_3585(@Nullable f0w var1) {
-      this.field_2353 = var1;
-   }
+    public void Method7866(@Nullable f0w f0w2) {
+        this.Field5535 = f0w2;
+    }
 
-   // $FF: renamed from: 1 (dev.nuker.pyro.f0F, double, double, dev.nuker.pyro.f0H) boolean
-   public boolean method_25(@NotNull f0F var1, double var2, double var4, @NotNull f0H var6) {
-      return this.field_2353 != null && this.method_21(var1, var2, var4, var6) && var2 >= (double)(var1.method_3581() + f0H.field_2335);
-   }
+    @Override
+    public boolean Method7841(@NotNull f0F f0F2, double d, double d2, @NotNull f0H f0H2) {
+        return this.Field5535 != null && this.Method7838(f0F2, d, d2, f0H2) && d >= (double)(f0F2.Method7813() + f0H.Field5476);
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.fz) void
-   public void method_3586(@Nullable class_7 var1) {
-      this.field_2352 = var1;
-   }
+    public void Method7867(@Nullable Class56 class56) {
+        this.Field5534 = class56;
+    }
 
-   // $FF: renamed from: c (net.minecraft.client.gui.FontRenderer) int
-   public int method_3587(FontRenderer var1) {
-      int var10000 = f0J.field_2340.method_3556(var1, "Defaults");
-      f0J var10001 = f0J.field_2340;
-      f0w var10003 = this.field_2353;
-      if (var10003 == null) {
-         Intrinsics.throwNpe();
-      }
+    public int Method7868(FontRenderer fontRenderer) {
+        int n = f0J.Field5485.Method7776(fontRenderer, "Defaults");
+        f0w<?> f0w2 = this.Field5535;
+        if (f0w2 == null) {
+            Intrinsics.Method6551();
+        }
+        return Math.max(n, f0J.Field5485.Method7776(fontRenderer, f0w2.Method7969()));
+    }
 
-      return Math.max(var10000, var10001.method_3556(var1, var10003.method_3305()));
-   }
-
-   public f0Y(@Nullable f0w var1) {
-      this.field_2353 = var1;
-      class_7 var10001;
-      if (this.field_2353 != null) {
-         var10001 = new class_7;
-         f0w var10003 = this.field_2353;
-         if (var10003 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         var10001.<init>(var10003.method_3318(), (Consumer)(new f0W(this)));
-      } else {
-         var10001 = null;
-      }
-
-      this.field_2352 = var10001;
-   }
-
-   // $FF: renamed from: c (dev.nuker.pyro.f0F, dev.nuker.pyro.f0H, dev.nuker.pyro.f17) void
-   public void method_27(@NotNull f0F var1, @NotNull f0H var2, @NotNull f17 var3) {
-      if (var3 instanceof f14 && var3.method_3645() == 0 && var3.method_3646() >= (double)f0H.field_2335 && var3.method_3647() >= (double)var1.method_3581() && var3.method_3646() <= (double)(var1.method_3582().FONT_HEIGHT + f0H.field_2335) && var3.method_3647() <= (double)(var1.method_3582().getStringWidth("Defaults") + var1.method_3581())) {
-         class_7 var10000 = this.field_2352;
-         if (var10000 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         f0w var10001 = this.field_2353;
-         if (var10001 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         var10000.method_3033(var10001.method_3318());
-         var10000 = this.field_2352;
-         if (var10000 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         var10001 = this.field_2353;
-         if (var10001 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         var10000.method_3033(var10001.method_3304());
-      }
-
-   }
-
-   // $FF: renamed from: 0 (dev.nuker.pyro.f0F, double, double, dev.nuker.pyro.f0H) void
-   public void method_28(@NotNull f0F var1, double var2, double var4, @NotNull f0H var6) {
-      if (this.field_2353 != null) {
-         if (var2 >= (double)0 && var4 >= (double)0 && var2 <= (double)var1.method_3581() && var4 <= (double)var1.method_3583()) {
-            this.field_2351 = true;
-         }
-
-      }
-   }
-
-   // $FF: renamed from: 0 () dev.nuker.pyro.f0w
-   @Nullable
-   public f0w method_3588() {
-      return this.field_2353;
-   }
-
-   // $FF: renamed from: 2 (dev.nuker.pyro.f0F, double, double, dev.nuker.pyro.f0H) boolean
-   public boolean method_21(@NotNull f0F var1, double var2, double var4, @NotNull f0H var6) {
-      if (this.field_2353 == null) {
-         return false;
-      } else {
-         if (this.field_2351) {
-            if (var4 >= (double)0) {
-               label100: {
-                  if (!(var4 <= (double)var1.method_3583()) || !(var2 >= (double)0)) {
-                     f0w var10001 = this.field_2353;
-                     if (var10001 == null) {
-                        Intrinsics.throwNpe();
-                     }
-
-                     if (!(var4 <= (double)(var10001.method_3305() == null ? f0H.field_2335 * 2 + var1.method_3582().FONT_HEIGHT : f0H.field_2335 * 2 + 5 + var1.method_3582().FONT_HEIGHT * 2)) || !(var2 >= (double)(var1.method_3581() + f0H.field_2335))) {
-                        break label100;
-                     }
-                  }
-
-                  if (var2 <= (double)(var1.method_3581() + this.method_3587(var1.method_3582()) + f0H.field_2335 * 3)) {
-                     return this.field_2351;
-                  }
-               }
+    public f0Y(@Nullable f0w f0w2) {
+        Class56 class56;
+        this.Field5535 = f0w2;
+        if (this.Field5535 != null) {
+            f0w<?> f0w3 = this.Field5535;
+            if (f0w3 == null) {
+                Intrinsics.Method6551();
             }
+            class56 = new Class56(f0w3.Method7979(), new f0W(this));
+        } else {
+            class56 = null;
+        }
+        this.Field5534 = class56;
+    }
 
-            this.field_2351 = false;
-         }
-
-         return this.field_2351;
-      }
-   }
-
-   // $FF: renamed from: c (char, int) void
-   public void method_23(char var1, int var2) {
-      f12.method_3638(this, var1, var2);
-   }
-
-   // $FF: renamed from: c (dev.nuker.pyro.f0F, double, double, dev.nuker.pyro.f0H) void
-   public void method_22(@NotNull f0F var1, double var2, double var4, @NotNull f0H var6) {
-      if (this.field_2353 != null) {
-         double var7 = var2 - (double)var1.method_3581();
-         int var9 = this.method_3587(var1.method_3582()) + f0H.field_2335 * 2;
-         int var10 = var1.method_3581() + f0H.field_2335;
-         f0w var10003 = this.field_2353;
-         if (var10003 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         f0J.method_3558(var10, 0, var9, var10003.method_3305() == null ? f0H.field_2335 * 2 + var1.method_3582().FONT_HEIGHT : f0H.field_2335 * 4 + var1.method_3582().FONT_HEIGHT * 2, var6.method_3490(), var6.method_3505(), 1);
-         f0w var10000 = this.field_2353;
-         if (var10000 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         if (var10000.method_3305() != null) {
-            Gui.drawRect(var10, var1.method_3582().FONT_HEIGHT + f0H.field_2335 * 2, var10 + var9, var1.method_3582().FONT_HEIGHT + f0H.field_2335 * 2 + 1, var6.method_3505());
-         }
-
-         var10 += f0H.field_2335;
-         f0J.field_2340.method_3553(var1.method_3582(), "Defaults", var10, f0H.field_2335 + 1, var4 >= (double)f0H.field_2335 && var7 >= (double)f0H.field_2335 && var4 <= (double)(var1.method_3582().FONT_HEIGHT + f0H.field_2335) && var7 <= (double)var1.method_3582().getStringWidth("Defaults") ? var6.method_3505() : var6.method_3494());
-         var10000 = this.field_2353;
-         if (var10000 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         if (var10000.method_3305() != null) {
-            f0J var11 = f0J.field_2340;
-            FontRenderer var10001 = var1.method_3582();
-            f0w var10002 = this.field_2353;
-            if (var10002 == null) {
-               Intrinsics.throwNpe();
+    @Override
+    public void Method7842(@NotNull f0F f0F2, @NotNull f0H f0H2, @NotNull f17 f172) {
+        if (f172 instanceof f14 && f172.Method7895() == 0) {
+            if (f172.Method7896() >= (double)f0H.Field5476 && f172.Method7897() >= (double)f0F2.Method7813() && f172.Method7896() <= (double)(f0F2.Method7814().FONT_HEIGHT + f0H.Field5476) && f172.Method7897() <= (double)(f0F2.Method7814().getStringWidth("Defaults") + f0F2.Method7813())) {
+                Class56<Object> class56 = this.Field5534;
+                if (class56 == null) {
+                    Intrinsics.Method6551();
+                }
+                f0w<?> f0w2 = this.Field5535;
+                if (f0w2 == null) {
+                    Intrinsics.Method6551();
+                }
+                class56.Method5266(f0w2.Method7979());
+                Class56<Object> class562 = this.Field5534;
+                if (class562 == null) {
+                    Intrinsics.Method6551();
+                }
+                f0w<?> f0w3 = this.Field5535;
+                if (f0w3 == null) {
+                    Intrinsics.Method6551();
+                }
+                class562.Method5266(f0w3.Method7966());
             }
+        }
+    }
 
-            var11.method_3553(var10001, var10002.method_3305(), var10, var1.method_3582().FONT_HEIGHT + f0H.field_2335 * 3 + 1, var6.method_3494());
-         }
+    @Override
+    public void Method7819(@NotNull f0F f0F2, double d, double d2, @NotNull f0H f0H2) {
+        if (this.Field5535 == null) {
+            return;
+        }
+        if (d >= 0.0 && d2 >= 0.0) {
+            if (d <= (double)f0F2.Method7813() && d2 <= (double)f0F2.Method7815()) {
+                this.Field5533 = true;
+            }
+        }
+    }
 
-      }
-   }
+    @Nullable
+    public f0w Method7869() {
+        return this.Field5535;
+    }
 
-   // $FF: renamed from: c () dev.nuker.pyro.fz
-   @Nullable
-   public class_7 method_3589() {
-      return this.field_2352;
-   }
+    @Override
+    public boolean Method7838(@NotNull f0F f0F2, double d, double d2, @NotNull f0H f0H2) {
+        block5: {
+            block6: {
+                block7: {
+                    if (this.Field5535 == null) {
+                        return false;
+                    }
+                    if (!this.Field5533) break block5;
+                    if (!(d2 >= 0.0)) break block6;
+                    if (d2 <= (double)f0F2.Method7815() && d >= 0.0) break block7;
+                    f0w<?> f0w2 = this.Field5535;
+                    if (f0w2 == null) {
+                        Intrinsics.Method6551();
+                    }
+                    int n = f0w2.Method7969() == null ? f0H.Field5476 * 2 + f0F2.Method7814().FONT_HEIGHT : f0H.Field5476 * 2 + 5 + f0F2.Method7814().FONT_HEIGHT * 2;
+                    if (!(d2 <= (double)n) || !(d >= (double)(f0F2.Method7813() + f0H.Field5476))) break block6;
+                }
+                if (d <= (double)(f0F2.Method7813() + this.Method7868(f0F2.Method7814()) + f0H.Field5476 * 3)) break block5;
+            }
+            this.Field5533 = false;
+        }
+        return this.Field5533;
+    }
+
+    @Override
+    public void Method7840(char c, int n) {
+        f12.Method7829(this, c, n);
+    }
+
+    /*
+     * Enabled aggressive block sorting
+     */
+    @Override
+    public void Method7839(@NotNull f0F f0F2, double d, double d2, @NotNull f0H f0H2) {
+        double d3 = d;
+        if (this.Field5535 == null) {
+            return;
+        }
+        d3 -= (double)f0F2.Method7813();
+        int n = this.Method7868(f0F2.Method7814()) + f0H.Field5476 * 2;
+        int n2 = f0F2.Method7813() + f0H.Field5476;
+        f0w<?> f0w2 = this.Field5535;
+        if (f0w2 == null) {
+            Intrinsics.Method6551();
+        }
+        f0J.Method7778(n2, 0, n, f0w2.Method7969() == null ? f0H.Field5476 * 2 + f0F2.Method7814().FONT_HEIGHT : f0H.Field5476 * 4 + f0F2.Method7814().FONT_HEIGHT * 2, f0H2.Method7704(), f0H2.Method7719(), 1);
+        f0w<?> f0w3 = this.Field5535;
+        if (f0w3 == null) {
+            Intrinsics.Method6551();
+        }
+        if (f0w3.Method7969() != null) {
+            Gui.drawRect((int)n2, (int)(f0F2.Method7814().FONT_HEIGHT + f0H.Field5476 * 2), (int)(n2 + n), (int)(f0F2.Method7814().FONT_HEIGHT + f0H.Field5476 * 2 + 1), (int)f0H2.Method7719());
+        }
+        f0J.Field5485.Method7773(f0F2.Method7814(), "Defaults", n2 += f0H.Field5476, f0H.Field5476 + 1, d2 >= (double)f0H.Field5476 && d3 >= (double)f0H.Field5476 && d2 <= (double)(f0F2.Method7814().FONT_HEIGHT + f0H.Field5476) && d3 <= (double)f0F2.Method7814().getStringWidth("Defaults") ? f0H2.Method7719() : f0H2.Method7708());
+        f0w<?> f0w4 = this.Field5535;
+        if (f0w4 == null) {
+            Intrinsics.Method6551();
+        }
+        if (f0w4.Method7969() != null) {
+            FontRenderer fontRenderer = f0F2.Method7814();
+            f0w<?> f0w5 = this.Field5535;
+            if (f0w5 == null) {
+                Intrinsics.Method6551();
+            }
+            f0J.Field5485.Method7773(fontRenderer, f0w5.Method7969(), n2, f0F2.Method7814().FONT_HEIGHT + f0H.Field5476 * 3 + 1, f0H2.Method7708());
+        }
+    }
+
+    @Nullable
+    public Class56 Method7870() {
+        return this.Field5534;
+    }
 }
+

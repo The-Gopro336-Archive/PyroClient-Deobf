@@ -1,9 +1,15 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.f3U;
+import dev.nuker.pyro.f3V;
+import dev.nuker.pyro.f3W;
+import dev.nuker.pyro.f3X;
 import java.util.List;
 import kotlin.Pair;
 import kotlin.TuplesKt;
@@ -11,21 +17,19 @@ import kotlin.collections.CollectionsKt;
 import org.jetbrains.annotations.NotNull;
 
 public class f3T {
-   // $FF: renamed from: c java.util.List
-   @NotNull
-   public static List field_2106;
-   // $FF: renamed from: c dev.nuker.pyro.f3T
-   public static f3T field_2107;
+    @NotNull
+    public static List<Pair<Class<?>, f3X>> Field3899;
+    public static f3T Field3900;
 
-   static {
-      f3T var0 = new f3T();
-      field_2107 = var0;
-      field_2106 = CollectionsKt.listOf(new Pair[]{TuplesKt.method_2843(Boolean.TYPE, f3U.field_2110), TuplesKt.method_2843(Integer.TYPE, f3V.field_2129), TuplesKt.method_2843(String.class, f3W.field_2132)});
-   }
+    static {
+        f3T f3T2;
+        Field3900 = f3T2 = new f3T();
+        Field3899 = CollectionsKt.Method1014(TuplesKt.Method2826(Boolean.TYPE, f3U.Field3903), TuplesKt.Method2826(Integer.TYPE, f3V.Field3941), TuplesKt.Method2826(String.class, f3W.Field3944));
+    }
 
-   // $FF: renamed from: c () java.util.List
-   @NotNull
-   public List method_3192() {
-      return field_2106;
-   }
+    @NotNull
+    public List Method5599() {
+        return Field3899;
+    }
 }
+

@@ -1,6 +1,8 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.network.play.client.CPacketVehicleMove
  */
 package dev.nuker.pyro.mixin;
 
@@ -8,8 +10,9 @@ import net.minecraft.network.play.client.CPacketVehicleMove;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
-@Mixin({CPacketVehicleMove.class})
+@Mixin(value={CPacketVehicleMove.class})
 public interface CPacketVehicleMoveAccessor {
-   @Accessor("y")
-   void setY(double var1);
+    @Accessor(value="y")
+    public void Method12239(double var1);
 }
+

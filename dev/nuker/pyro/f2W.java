@@ -1,12 +1,16 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  org.jetbrains.annotations.NotNull
+ *  org.jetbrains.annotations.Nullable
  */
 package dev.nuker.pyro;
 
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.suggestion.SuggestionProvider;
 import com.mojang.brigadier.suggestion.SuggestionsBuilder;
+import dev.nuker.pyro.PyroStatic;
 import java.util.Iterator;
 import java.util.concurrent.CompletableFuture;
 import kotlin.TypeCastException;
@@ -14,34 +18,33 @@ import kotlin.text.StringsKt;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class f2W implements SuggestionProvider {
-   // $FF: renamed from: c dev.nuker.pyro.f2W
-   public static f2W field_2030 = new f2W();
+public class f2W
+implements SuggestionProvider {
+    public static f2W Field3809 = new f2W();
 
-   public CompletableFuture getSuggestions(@Nullable CommandContext var1, @NotNull SuggestionsBuilder var2) {
-      Iterator var4 = PyroStatic.field_2568.method_1243().method_1983().iterator();
-
-      while(var4.hasNext()) {
-         String var3 = (String)var4.next();
-         boolean var6 = false;
-         if (var3 == null) {
-            throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
-         }
-
-         String var10000 = StringsKt.substringAfter$default(var3.toLowerCase(), "minecraft:", (String)null, 2, (Object)null);
-         String var5 = var2.getRemaining();
-         String var7 = var10000;
-         var6 = false;
-         if (var5 == null) {
-            throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
-         }
-
-         String var8 = var5.toLowerCase();
-         if (StringsKt.startsWith$default(var7, StringsKt.substringAfter$default(var8, "minecraft:", (String)null, 2, (Object)null), false, 2, (Object)null)) {
-            var2.suggest(var3);
-         }
-      }
-
-      return var2.buildFuture();
-   }
+    public CompletableFuture Method5478(@Nullable CommandContext commandContext, @NotNull SuggestionsBuilder suggestionsBuilder) {
+        Iterator iterator2 = PyroStatic.Field6504.Method583().Method520().iterator();
+        while (iterator2.hasNext()) {
+            String string;
+            String string2;
+            String string3 = string2 = (String)iterator2.next();
+            boolean bl = false;
+            String string4 = string3;
+            if (string4 == null) {
+                throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
+            }
+            string3 = suggestionsBuilder.Method2698();
+            String string5 = StringsKt.Method11419(string4.toLowerCase(), "minecraft:", null, 2, null);
+            bl = false;
+            String string6 = string3;
+            if (string6 == null) {
+                throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
+            }
+            string6.toLowerCase();
+            if (!StringsKt.Method9998(string5, StringsKt.Method11419(string, "minecraft:", null, 2, null), false, 2, null)) continue;
+            suggestionsBuilder.Method2701(string2);
+        }
+        return suggestionsBuilder.Method2700();
+    }
 }
+

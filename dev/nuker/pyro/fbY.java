@@ -1,22 +1,39 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-public enum fbY {
-   // $FF: renamed from: c dev.nuker.pyro.fbY
-   field_1625,
-   // $FF: renamed from: 0 dev.nuker.pyro.fbY
-   field_1626,
-   // $FF: renamed from: 1 dev.nuker.pyro.fbY
-   field_1627;
+public class fbY
+extends Enum {
+    public static /* enum */ fbY Clear;
+    public static /* enum */ fbY Rain;
+    public static /* enum */ fbY Thunder;
+    public static /* synthetic */ fbY[] Field2003;
 
-   // $FF: renamed from: c dev.nuker.pyro.fbY[]
-   public static fbY[] field_1628 = new fbY[]{field_1625 = new fbY("Clear", 0), field_1626 = new fbY("Rain", 1), field_1627 = new fbY("Thunder", 2)};
+    /*
+     * WARNING - Possible parameter corruption
+     * WARNING - void declaration
+     */
+    public fbY() {
+        void var2_-1;
+        void var1_-1;
+    }
 
-   // $FF: renamed from: c (java.lang.String) dev.nuker.pyro.fbY
-   public static fbY method_2822(String var0) {
-      return (fbY)Enum.valueOf(fbY.class, var0);
-   }
+    public static fbY Method2670(String string) {
+        return Enum.valueOf(fbY.class, string);
+    }
+
+    public static fbY[] Method2671() {
+        return (fbY[])Field2003.clone();
+    }
+
+    static {
+        fbY[] arrfbY = new fbY[3];
+        fbY[] arrfbY2 = arrfbY;
+        arrfbY[0] = Clear = new fbY("Clear", 0);
+        arrfbY[1] = Rain = new fbY("Rain", 1);
+        arrfbY[2] = Thunder = new fbY("Thunder", 2);
+        Field2003 = arrfbY;
+    }
 }
+

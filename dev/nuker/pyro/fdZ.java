@@ -1,12 +1,14 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.Minecraft
  */
 package dev.nuker.pyro;
 
 import net.minecraft.client.Minecraft;
 
 public class fdZ {
-   // $FF: renamed from: c net.minecraft.client.Minecraft
-   public static Minecraft field_976 = Minecraft.getMinecraft();
+    public static Minecraft Field313 = Minecraft.getMinecraft();
 }
+

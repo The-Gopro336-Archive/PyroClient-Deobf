@@ -1,28 +1,27 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  org.jetbrains.annotations.Nullable
  */
 package dev.nuker.pyro;
 
-import java.util.function.Predicate;
-import kotlin.jvm.internal.Intrinsics;
-import org.jetbrains.annotations.NotNull;
+import com.mojang.brigadier.Command;
+import com.mojang.brigadier.arguments.DoubleArgumentType;
+import com.mojang.brigadier.context.CommandContext;
+import dev.nuker.pyro.Pyro;
+import dev.nuker.pyro.f0H;
+import org.jetbrains.annotations.Nullable;
 
-public class f2P implements Predicate {
-   // $FF: renamed from: c java.lang.String
-   public String field_2016;
+public class f2p
+implements Command {
+    public static f2p Field3919 = new f2p();
 
-   public boolean test(Object var1) {
-      return this.method_3096((Module)var1);
-   }
-
-   // $FF: renamed from: c (dev.nuker.pyro.Module) boolean
-   public boolean method_3096(@NotNull Module var1) {
-      return Intrinsics.areEqual((Object)var1.method_141(), (Object)this.field_2016);
-   }
-
-   public f2P(String var1) {
-      this.field_2016 = var1;
-      super();
-   }
+    public int Method152(@Nullable CommandContext commandContext) {
+        double d;
+        f0H.Field5478 = d = DoubleArgumentType.Method8094(commandContext, "scale");
+        Pyro.Field6182.Method8989("Set the gui scale to " + d);
+        return 0;
+    }
 }
+

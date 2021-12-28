@@ -1,6 +1,8 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
@@ -11,22 +13,23 @@ import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.Ref;
 import org.jetbrains.annotations.NotNull;
 
-public class f8C extends Lambda implements Function1 {
-   // $FF: renamed from: c kotlin.jvm.internal.Ref$ObjectRef
-   public Ref.ObjectRef field_45;
+public class f8C
+extends Lambda
+implements Function1 {
+    public Ref.ObjectRef Field3396;
 
-   public Object invoke(Object var1) {
-      this.method_88((String)var1);
-      return Unit.INSTANCE;
-   }
+    public Object Method41(Object object) {
+        this.Method5206((String)object);
+        return Unit.Field4531;
+    }
 
-   // $FF: renamed from: c (java.lang.String) void
-   public void method_88(@NotNull String var1) {
-      ((ArrayList)this.field_45.element).add(var1);
-   }
+    public void Method5206(@NotNull String string) {
+        ((ArrayList)this.Field3396.Field5552).add(string);
+    }
 
-   public f8C(Ref.ObjectRef var1) {
-      this.field_45 = var1;
-      super(1);
-   }
+    public f8C(Ref.ObjectRef objectRef) {
+        this.Field3396 = objectRef;
+        super(1);
+    }
 }
+

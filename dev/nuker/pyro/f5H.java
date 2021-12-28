@@ -1,119 +1,124 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.gui.ScaledResolution
+ *  net.minecraft.client.renderer.GlStateManager
+ *  org.jetbrains.annotations.NotNull
+ *  org.jetbrains.annotations.Nullable
  */
 package dev.nuker.pyro;
 
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import dev.nuker.pyro.PyroRenderUtil;
+import dev.nuker.pyro.f5h;
+import dev.nuker.pyro.f5i;
+import dev.nuker.pyro.f5j;
+import dev.nuker.pyro.f5q;
+import dev.nuker.pyro.f5t;
+import dev.nuker.pyro.fdZ;
 import kotlin.jvm.internal.Intrinsics;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.GlStateManager;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class f5H extends f5q {
-   // $FF: renamed from: c dev.nuker.pyro.f5h[]
-   @NotNull
-   public f5h[] field_1046 = new f5h[]{(f5h)null, (f5h)null, (f5h)null, (f5h)null};
+public class f5H
+extends f5q {
+    @NotNull
+    public f5h[] Field4160 = new f5h[]{null, null, null, null};
 
-   // $FF: renamed from: c () dev.nuker.pyro.f5h[]
-   @NotNull
-   public f5h[] method_1545() {
-      return this.field_1046;
-   }
+    @NotNull
+    public f5h[] Method5799() {
+        return this.Field4160;
+    }
 
-   // $FF: renamed from: 1 () boolean
-   public boolean method_1535() {
-      return false;
-   }
+    @Override
+    public boolean Method4872() {
+        return false;
+    }
 
-   public f5H() {
-      super("Notifications", (String)null, 2, (DefaultConstructorMarker)null);
-   }
+    public f5H() {
+        super("Notifications", null, 2, null);
+    }
 
-   // $FF: renamed from: 0 () float
-   public float method_1531() {
-      return 40.0F;
-   }
+    @Override
+    public float Method4873() {
+        return 40.0f;
+    }
 
-   // $FF: renamed from: 5 () float
-   public float method_1526() {
-      return 160.0F;
-   }
+    @Override
+    public float Method4871() {
+        return 160.0f;
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.f5h[]) void
-   public void method_1546(@NotNull f5h[] var1) {
-      this.field_1046 = var1;
-   }
+    public void Method5800(@NotNull f5h[] arrf5h) {
+        this.Field4160 = arrf5h;
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.f5h, int) void
-   public void method_1547(f5h var1, int var2) {
-      if (var1 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      int var3 = var1.method_2952();
-      int var4 = var1.method_2950();
-      if (var3 == 0) {
-         var1.method_2953(var4 + 1);
-      }
-
-      if (var3 > 0 && var4 < 300) {
-         var1.method_2949(var3 - 2);
-      } else if (var4 >= 300) {
-         if ((float)var3 < this.method_1526()) {
-            var1.method_2949(var3 + 3);
-         } else {
-            var1.method_2953(var4 + 1);
-            if (var4 >= 330) {
-               f5i.method_2956().field_1703.remove(var1);
+    /*
+     * Enabled aggressive block sorting
+     */
+    public void Method5801(f5h f5h2, int n) {
+        f5h f5h3 = f5h2;
+        if (f5h3 == null) {
+            Intrinsics.Method6551();
+        }
+        int n2 = f5h3.Method4882();
+        int n3 = f5h2.Method4880();
+        if (n2 == 0) {
+            f5h2.Method4883(n3 + 1);
+        }
+        if (n2 > 0 && n3 < 300) {
+            f5h2.Method4879(n2 - 2);
+        } else if (n3 >= 300) {
+            if ((float)n2 < this.Method4871()) {
+                f5h2.Method4879(n2 + 3);
+            } else {
+                f5h2.Method4883(n3 + 1);
+                if (n3 >= 330) {
+                    f5i.Method4887().Field3004.remove(f5h2);
+                }
             }
-         }
-      }
+        }
+        int n4 = 8;
+        GlStateManager.pushMatrix();
+        GlStateManager.translate((float)n2, (float)n, (float)0.0f);
+        PyroRenderUtil.Method12316(0.0f, 0.0f, this.Method4871(), this.Method4873(), -1728053248);
+        PyroRenderUtil.Method12316(0.0f, 0.0f, n4, this.Method4873(), f5h2.Method4881());
+        GlStateManager.pushMatrix();
+        GlStateManager.scale((double)1.1, (double)1.1, (double)1.1);
+        PyroRenderUtil.Method12313(f5h2.Method4884(), (float)n4 + (float)2, 4.0f, -1);
+        GlStateManager.popMatrix();
+        PyroRenderUtil.Method12313(f5h2.Method4878(), (float)n4 + (float)4, 18.0f, -1);
+        GlStateManager.popMatrix();
+    }
 
-      byte var5 = 8;
-      GlStateManager.pushMatrix();
-      GlStateManager.translate((float)var3, (float)var2, 0.0F);
-      PyroRenderUtil.meth0(0.0F, 0.0F, this.method_1526(), this.method_1531(), -1728053248);
-      PyroRenderUtil.meth0(0.0F, 0.0F, (float)var5, this.method_1531(), var1.method_2951());
-      GlStateManager.pushMatrix();
-      GlStateManager.scale(1.1D, 1.1D, 1.1D);
-      PyroRenderUtil.meth1(var1.method_2954(), (float)var5 + (float)2, 4.0F, -1);
-      GlStateManager.popMatrix();
-      PyroRenderUtil.meth1(var1.method_2948(), (float)var5 + (float)4, 18.0F, -1);
-      GlStateManager.popMatrix();
-   }
-
-   // $FF: renamed from: c (dev.nuker.pyro.f5t, int, net.minecraft.client.gui.ScaledResolution, float, float) void
-   public void method_1528(@Nullable f5t var1, int var2, @Nullable ScaledResolution var3, float var4, float var5) {
-      if (fdZ.field_976.world != null && fdZ.field_976.player != null) {
-         if (fdZ.field_976.currentScreen instanceof f5j) {
-            PyroRenderUtil.meth0(0.0F, 0.0F, this.method_1526(), this.method_1531(), -1728053248);
-            PyroRenderUtil.meth0(0.0F, 0.0F, 8.0F, this.method_1531(), -1234904);
+    @Override
+    public void Method4875(@Nullable f5t f5t2, int n, @Nullable ScaledResolution scaledResolution, float f, float f2) {
+        if (fdZ.Field313.world == null || fdZ.Field313.player == null) {
+            f5i.Method4887().Field3004.clear();
+            return;
+        }
+        if (fdZ.Field313.currentScreen instanceof f5j) {
+            PyroRenderUtil.Method12316(0.0f, 0.0f, this.Method4871(), this.Method4873(), -1728053248);
+            PyroRenderUtil.Method12316(0.0f, 0.0f, 8.0f, this.Method4873(), -1234904);
             GlStateManager.pushMatrix();
-            GlStateManager.scale(1.1D, 1.1D, 1.1D);
-            PyroRenderUtil.meth1("Notifications", 10.0F, 4.0F, -1);
+            GlStateManager.scale((double)1.1, (double)1.1, (double)1.1);
+            PyroRenderUtil.Method12313("Notifications", 10.0f, 4.0f, -1);
             GlStateManager.popMatrix();
-            PyroRenderUtil.meth1("This is an example!", 12.0F, 18.0F, -1);
-         } else {
-            int var6 = 0;
-
-            for(int var7 = this.field_1046.length; var6 < var7; ++var6) {
-               if (f5i.method_2956().field_1703.size() >= var6 + 1) {
-                  if (f5i.method_2956().field_1703.size() >= var6 + 1) {
-                     this.field_1046[var6] = (f5h)f5i.method_2956().field_1703.get(var6);
-                  }
-
-                  int var8 = (int)(this.method_1531() * (float)var6 + (float)(6 * var6));
-                  if (this.field_1046[var6] != null) {
-                     this.method_1547(this.field_1046[var6], var8);
-                  }
-               }
+            PyroRenderUtil.Method12313("This is an example!", 12.0f, 18.0f, -1);
+            return;
+        }
+        int n2 = this.Field4160.length;
+        for (int i = 0; i < n2; ++i) {
+            if (f5i.Method4887().Field3004.size() < i + 1) continue;
+            if (f5i.Method4887().Field3004.size() >= i + 1) {
+                this.Field4160[i] = f5i.Method4887().Field3004.get(i);
             }
-
-         }
-      } else {
-         f5i.method_2956().field_1703.clear();
-      }
-   }
+            int n3 = (int)(this.Method4873() * (float)i + (float)(6 * i));
+            if (this.Field4160[i] == null) continue;
+            this.Method5801(this.Field4160[i], n3);
+        }
+    }
 }
+

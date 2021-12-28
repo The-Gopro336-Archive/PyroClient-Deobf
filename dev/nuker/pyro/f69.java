@@ -1,55 +1,62 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.network.Packet
+ *  net.minecraft.network.play.server.SPacketSpawnPlayer
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.BooleanSetting;
+import dev.nuker.pyro.Module;
+import dev.nuker.pyro.Pyro;
+import dev.nuker.pyro.f0g;
+import dev.nuker.pyro.f41;
+import dev.nuker.pyro.f4e;
 import dev.nuker.pyro.security.inject.LauncherEventHide;
 import kotlin.TypeCastException;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.SPacketSpawnPlayer;
 import org.jetbrains.annotations.NotNull;
 
-public class f69 extends Module {
-   // $FF: renamed from: c dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_203 = (BooleanSetting)this.register((f0w)(new BooleanSetting("gwen", "Gwen", "Tries to remove bots on the GWEN anticheat (Mineplex)", true)));
+public class f69
+extends Module {
+    @NotNull
+    public BooleanSetting Field4239 = (BooleanSetting)this.Method7264(new BooleanSetting("gwen", "Gwen", "Tries to remove bots on the GWEN anticheat (Mineplex)", true));
 
-   // $FF: renamed from: c () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_291() {
-      return this.field_203;
-   }
+    @NotNull
+    public BooleanSetting Method215() {
+        return this.Field4239;
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.f4e) void
-   @f0g
-   @LauncherEventHide
-   public void method_292(@NotNull f4e var1) {
-      if (var1.c() == f41.field_2120 && (Boolean)this.field_203.c() && var1.c() instanceof SPacketSpawnPlayer) {
-         Packet var10000 = var1.c();
-         if (var10000 == null) {
-            throw new TypeCastException("null cannot be cast to non-null type net.minecraft.network.play.server.SPacketSpawnPlayer");
-         }
+    @f0g
+    @LauncherEventHide
+    public void Method244(@NotNull f4e f4e2) {
+        if (f4e2.Method5619() == f41.Pre && ((Boolean)this.Field4239.Method7979()).booleanValue() && f4e2.Method5784() instanceof SPacketSpawnPlayer) {
+            Packet packet = f4e2.Method5784();
+            if (packet == null) {
+                throw new TypeCastException("null cannot be cast to non-null type net.minecraft.network.play.server.SPacketSpawnPlayer");
+            }
+            SPacketSpawnPlayer sPacketSpawnPlayer = (SPacketSpawnPlayer)packet;
+            double d = sPacketSpawnPlayer.getX() / 32.0;
+            double d2 = sPacketSpawnPlayer.getY() / 32.0;
+            double d3 = sPacketSpawnPlayer.getZ() / 32.0;
+            double d4 = this.Field5233.player.posX - d;
+            double d5 = this.Field5233.player.posY - d2;
+            double d6 = this.Field5233.player.posZ - d3;
+            double d7 = d4 * d4 + d5 * d5 + d6 * d6;
+            boolean bl = false;
+            double d8 = Math.sqrt(d7);
+            if (d8 <= (double)17 && d != this.Field5233.player.posX && d2 != this.Field5233.player.posY && d3 != this.Field5233.player.posZ) {
+                Pyro.Field6182.Method8989("Removed a bot. [GWEN]");
+                f4e2.Method7948();
+            }
+        }
+    }
 
-         SPacketSpawnPlayer var2 = (SPacketSpawnPlayer)var10000;
-         double var3 = var2.getX() / 32.0D;
-         double var5 = var2.getY() / 32.0D;
-         double var7 = var2.getZ() / 32.0D;
-         double var9 = this.c.player.posX - var3;
-         double var11 = this.c.player.posY - var5;
-         double var13 = this.c.player.posZ - var7;
-         double var17 = var9 * var9 + var11 * var11 + var13 * var13;
-         boolean var19 = false;
-         double var15 = Math.sqrt(var17);
-         if (var15 <= (double)17 && var3 != this.c.player.posX && var5 != this.c.player.posY && var7 != this.c.player.posZ) {
-            Pyro.INSTANCE.sendMessage("Removed a bot. [GWEN]");
-            var1.0();
-         }
-      }
-
-   }
-
-   public f69() {
-      super("antibots", "AntiBots", "Attempts to remove bots on hypixel/mineplex servers");
-   }
+    public f69() {
+        super("antibots", "AntiBots", "Attempts to remove bots on hypixel/mineplex servers");
+    }
 }
+

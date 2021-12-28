@@ -1,33 +1,43 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  com.google.gson.JsonElement
+ *  com.google.gson.JsonPrimitive
+ *  org.jetbrains.annotations.NotNull
+ *  org.jetbrains.annotations.Nullable
  */
 package dev.nuker.pyro;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
+import dev.nuker.pyro.Setting;
+import dev.nuker.pyro.f0K;
+import dev.nuker.pyro.f13;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class BooleanSetting extends Setting {
-   // $FF: renamed from: c (com.google.gson.JsonElement) void
-   public void method_3310(@NotNull JsonElement var1) {
-      this.getValue().method_3033(var1.getAsBoolean());
-   }
+public class BooleanSetting
+extends Setting {
+    @Override
+    public void Method5964(@NotNull JsonElement jsonElement) {
+        this.Method7976().Method5266(jsonElement.getAsBoolean());
+    }
 
-   public BooleanSetting(@NotNull String var1, @NotNull String var2, @Nullable String var3, boolean var4) {
-      super(var1, var2, var3, var4);
-   }
+    public BooleanSetting(@NotNull String string, @NotNull String string2, @Nullable String string3, boolean bl) {
+        super(string, string2, string3, bl);
+    }
 
-   // $FF: renamed from: 2 () dev.nuker.pyro.f13
-   @NotNull
-   public f13 method_3309() {
-      return (f13)(new f0K(this));
-   }
+    @Override
+    @NotNull
+    public f13 Method5970() {
+        return new f0K(this);
+    }
 
-   // $FF: renamed from: 0 () com.google.gson.JsonElement
-   @NotNull
-   public JsonElement method_3316() {
-      return (JsonElement)(new JsonPrimitive((Boolean)this.getValue().method_3034()));
-   }
+    @Override
+    @NotNull
+    public JsonElement Method5969() {
+        return (JsonElement)new JsonPrimitive((Boolean)this.Method7976().Method5264());
+    }
 }
+

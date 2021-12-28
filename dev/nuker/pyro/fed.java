@@ -1,9 +1,54 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.block.Block
+ *  net.minecraft.block.BlockCommandBlock
+ *  net.minecraft.block.BlockStructure
+ *  net.minecraft.block.state.IBlockState
+ *  net.minecraft.client.entity.EntityPlayerSP
+ *  net.minecraft.client.multiplayer.WorldClient
+ *  net.minecraft.entity.Entity
+ *  net.minecraft.entity.EntityLivingBase
+ *  net.minecraft.entity.player.EntityPlayer
+ *  net.minecraft.init.Blocks
+ *  net.minecraft.item.ItemBlock
+ *  net.minecraft.item.ItemStack
+ *  net.minecraft.network.Packet
+ *  net.minecraft.network.play.client.CPacketAnimation
+ *  net.minecraft.network.play.client.CPacketEntityAction
+ *  net.minecraft.network.play.client.CPacketEntityAction$Action
+ *  net.minecraft.network.play.client.CPacketPlayer$Rotation
+ *  net.minecraft.network.play.client.CPacketPlayerTryUseItemOnBlock
+ *  net.minecraft.util.EnumActionResult
+ *  net.minecraft.util.EnumFacing
+ *  net.minecraft.util.EnumHand
+ *  net.minecraft.util.math.AxisAlignedBB
+ *  net.minecraft.util.math.BlockPos
+ *  net.minecraft.util.math.MathHelper
+ *  net.minecraft.util.math.RayTraceResult
+ *  net.minecraft.util.math.RayTraceResult$Type
+ *  net.minecraft.util.math.Vec3d
+ *  net.minecraft.util.math.Vec3i
+ *  net.minecraft.world.GameType
+ *  net.minecraft.world.IBlockAccess
+ *  net.minecraft.world.World
+ *  net.minecraftforge.common.ForgeHooks
+ *  net.minecraftforge.event.ForgeEventFactory
+ *  net.minecraftforge.event.entity.player.PlayerInteractEvent$RightClickBlock
+ *  net.minecraftforge.fml.common.eventhandler.Event$Result
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.Pyro;
+import dev.nuker.pyro.Rotation;
+import dev.nuker.pyro.fdZ;
+import dev.nuker.pyro.fea;
+import dev.nuker.pyro.feb;
+import dev.nuker.pyro.feg;
+import dev.nuker.pyro.feh;
+import dev.nuker.pyro.few;
+import dev.nuker.pyro.fex;
 import java.util.Arrays;
 import java.util.List;
 import net.minecraft.block.Block;
@@ -12,13 +57,17 @@ import net.minecraft.block.BlockStructure;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.multiplayer.WorldClient;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.network.Packet;
 import net.minecraft.network.play.client.CPacketAnimation;
 import net.minecraft.network.play.client.CPacketEntityAction;
+import net.minecraft.network.play.client.CPacketPlayer;
 import net.minecraft.network.play.client.CPacketPlayerTryUseItemOnBlock;
-import net.minecraft.network.play.client.CPacketEntityAction.Action;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -27,422 +76,341 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.math.RayTraceResult.Type;
+import net.minecraft.util.math.Vec3i;
 import net.minecraft.world.GameType;
+import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.event.ForgeEventFactory;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock;
-import net.minecraftforge.fml.common.eventhandler.Event.Result;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.fml.common.eventhandler.Event;
 
-public class fed extends fdZ {
-   // $FF: renamed from: c java.util.List
-   public static List field_1217;
-   // $FF: renamed from: 0 java.util.List
-   public static List field_1218;
-   // $FF: renamed from: c double[]
-   public static double[] field_1219;
-   // $FF: renamed from: 0 double[]
-   public static double[] field_1220;
-   // $FF: renamed from: 1 double[]
-   public static double[] field_1221;
+public class fed
+extends fdZ {
+    public static List<Block> Field441 = Arrays.asList(new Block[]{Blocks.ENDER_CHEST, Blocks.CHEST, Blocks.TRAPPED_CHEST, Blocks.CRAFTING_TABLE, Blocks.ANVIL, Blocks.BREWING_STAND, Blocks.HOPPER, Blocks.DROPPER, Blocks.DISPENSER, Blocks.TRAPDOOR, Blocks.ENCHANTING_TABLE});
+    public static List<Block> Field442 = Arrays.asList(new Block[]{Blocks.WHITE_SHULKER_BOX, Blocks.ORANGE_SHULKER_BOX, Blocks.MAGENTA_SHULKER_BOX, Blocks.LIGHT_BLUE_SHULKER_BOX, Blocks.YELLOW_SHULKER_BOX, Blocks.LIME_SHULKER_BOX, Blocks.PINK_SHULKER_BOX, Blocks.GRAY_SHULKER_BOX, Blocks.SILVER_SHULKER_BOX, Blocks.CYAN_SHULKER_BOX, Blocks.PURPLE_SHULKER_BOX, Blocks.BLUE_SHULKER_BOX, Blocks.BROWN_SHULKER_BOX, Blocks.GREEN_SHULKER_BOX, Blocks.RED_SHULKER_BOX, Blocks.BLACK_SHULKER_BOX});
+    public static double[] Field443 = new double[]{0.05, 0.95};
+    public static double[] Field444 = new double[]{0.05, 0.95};
+    public static double[] Field445 = new double[]{0.05, 0.95};
 
-   // $FF: renamed from: c (int, int, int, net.minecraft.util.EnumFacing) float[]
-   public static float[] method_1792(int var0, int var1, int var2, EnumFacing var3) {
-      return method_1811(var0, var1, var2, var3, 1.0D);
-   }
+    public static float[] Method654(int n, int n2, int n3, EnumFacing enumFacing) {
+        return fed.Method672(n, n2, n3, enumFacing, 1.0);
+    }
 
-   // $FF: renamed from: c (net.minecraft.client.entity.EntityPlayerSP, net.minecraft.client.multiplayer.WorldClient, net.minecraft.util.math.BlockPos, net.minecraft.util.EnumFacing, net.minecraft.util.math.Vec3d, net.minecraft.util.EnumHand) net.minecraft.util.EnumActionResult
-   public static EnumActionResult method_1793(EntityPlayerSP var0, WorldClient var1, BlockPos var2, EnumFacing var3, Vec3d var4, EnumHand var5) {
-      c.playerController.updateController();
-      ItemStack var6 = var0.getHeldItem(var5);
-      float var7 = (float)(var4.x - (double)var2.getX());
-      float var8 = (float)(var4.y - (double)var2.getY());
-      float var9 = (float)(var4.z - (double)var2.getZ());
-      boolean var10 = false;
-      if (!c.world.getWorldBorder().contains(var2)) {
-         return EnumActionResult.FAIL;
-      } else {
-         RightClickBlock var11 = ForgeHooks.onRightClickBlock(var0, var5, var2, var3, ForgeHooks.rayTraceEyeHitVec(var0, (double)(c.playerController.getBlockReachDistance() + 1.0F)));
-         if (var11.isCanceled()) {
-            c.getConnection().sendPacket(new CPacketPlayerTryUseItemOnBlock(var2, var3, var5, var7, var8, var9));
-            return var11.getCancellationResult();
-         } else {
-            EnumActionResult var12 = EnumActionResult.PASS;
-            if (c.playerController.getCurrentGameType() != GameType.SPECTATOR) {
-               EnumActionResult var13 = var6.onItemUseFirst(var0, var1, var2, var5, var3, var7, var8, var9);
-               if (var13 != EnumActionResult.PASS) {
-                  c.getConnection().sendPacket(new CPacketPlayerTryUseItemOnBlock(var2, var3, var5, var7, var8, var9));
-                  return var13;
-               }
-
-               IBlockState var14 = var1.getBlockState(var2);
-               boolean var15 = var0.getHeldItemMainhand().doesSneakBypassUse(var1, var2, var0) && var0.getHeldItemOffhand().doesSneakBypassUse(var1, var2, var0);
-               if (!var0.isSneaking() || var15 || var11.getUseBlock() == Result.ALLOW) {
-                  if (var11.getUseBlock() != Result.DENY) {
-                     var10 = var14.getBlock().onBlockActivated(var1, var2, var14, var0, var5, var3, var7, var8, var9);
-                  }
-
-                  if (var10) {
-                     var12 = EnumActionResult.SUCCESS;
-                  }
-               }
-
-               if (!var10 && var6.getItem() instanceof ItemBlock) {
-                  ItemBlock var16 = (ItemBlock)var6.getItem();
-                  if (!var16.canPlaceBlockOnSide(var1, var2, var3, var0, var6)) {
-                     return EnumActionResult.FAIL;
-                  }
-               }
+    public static EnumActionResult Method655(EntityPlayerSP entityPlayerSP, WorldClient worldClient, BlockPos blockPos, EnumFacing enumFacing, Vec3d vec3d, EnumHand enumHand) {
+        block20: {
+            EnumActionResult enumActionResult;
+            EnumActionResult enumActionResult2;
+            PlayerInteractEvent.RightClickBlock rightClickBlock;
+            float f;
+            float f2;
+            float f3;
+            ItemStack itemStack;
+            block19: {
+                block18: {
+                    fed.Field313.playerController.updateController();
+                    itemStack = entityPlayerSP.getHeldItem(enumHand);
+                    f3 = (float)(vec3d.x - (double)blockPos.getX());
+                    f2 = (float)(vec3d.y - (double)blockPos.getY());
+                    f = (float)(vec3d.z - (double)blockPos.getZ());
+                    boolean bl = false;
+                    if (!fed.Field313.world.getWorldBorder().contains(blockPos)) {
+                        return EnumActionResult.FAIL;
+                    }
+                    rightClickBlock = ForgeHooks.onRightClickBlock((EntityPlayer)entityPlayerSP, (EnumHand)enumHand, (BlockPos)blockPos, (EnumFacing)enumFacing, (Vec3d)ForgeHooks.rayTraceEyeHitVec((EntityLivingBase)entityPlayerSP, (double)(fed.Field313.playerController.getBlockReachDistance() + 1.0f)));
+                    if (rightClickBlock.isCanceled()) {
+                        Field313.getConnection().sendPacket((Packet)new CPacketPlayerTryUseItemOnBlock(blockPos, enumFacing, enumHand, f3, f2, f));
+                        return rightClickBlock.getCancellationResult();
+                    }
+                    enumActionResult2 = EnumActionResult.PASS;
+                    if (fed.Field313.playerController.getCurrentGameType() != GameType.SPECTATOR) {
+                        ItemBlock itemBlock;
+                        boolean bl2;
+                        enumActionResult = itemStack.onItemUseFirst((EntityPlayer)entityPlayerSP, (World)worldClient, blockPos, enumHand, enumFacing, f3, f2, f);
+                        if (enumActionResult != EnumActionResult.PASS) {
+                            Field313.getConnection().sendPacket((Packet)new CPacketPlayerTryUseItemOnBlock(blockPos, enumFacing, enumHand, f3, f2, f));
+                            return enumActionResult;
+                        }
+                        IBlockState iBlockState = worldClient.getBlockState(blockPos);
+                        boolean bl3 = bl2 = entityPlayerSP.getHeldItemMainhand().doesSneakBypassUse((IBlockAccess)worldClient, blockPos, (EntityPlayer)entityPlayerSP) && entityPlayerSP.getHeldItemOffhand().doesSneakBypassUse((IBlockAccess)worldClient, blockPos, (EntityPlayer)entityPlayerSP);
+                        if (!entityPlayerSP.isSneaking() || bl2 || rightClickBlock.getUseBlock() == Event.Result.ALLOW) {
+                            if (rightClickBlock.getUseBlock() != Event.Result.DENY) {
+                                bl = iBlockState.getBlock().onBlockActivated((World)worldClient, blockPos, iBlockState, (EntityPlayer)entityPlayerSP, enumHand, enumFacing, f3, f2, f);
+                            }
+                            if (bl) {
+                                enumActionResult2 = EnumActionResult.SUCCESS;
+                            }
+                        }
+                        if (!bl && itemStack.getItem() instanceof ItemBlock && !(itemBlock = (ItemBlock)itemStack.getItem()).canPlaceBlockOnSide((World)worldClient, blockPos, enumFacing, (EntityPlayer)entityPlayerSP, itemStack)) {
+                            return EnumActionResult.FAIL;
+                        }
+                    }
+                    Field313.getConnection().sendPacket((Packet)new CPacketPlayerTryUseItemOnBlock(blockPos, enumFacing, enumHand, f3, f2, f));
+                    if (bl) break block18;
+                    if (fed.Field313.playerController.getCurrentGameType() != GameType.SPECTATOR) break block19;
+                }
+                if (rightClickBlock.getUseItem() != Event.Result.ALLOW) break block20;
             }
+            if (itemStack.isEmpty()) {
+                return EnumActionResult.PASS;
+            }
+            if (entityPlayerSP.getCooldownTracker().hasCooldown(itemStack.getItem())) {
+                return EnumActionResult.PASS;
+            }
+            if (itemStack.getItem() instanceof ItemBlock && !entityPlayerSP.canUseCommandBlock() && ((enumActionResult = ((ItemBlock)itemStack.getItem()).getBlock()) instanceof BlockCommandBlock || enumActionResult instanceof BlockStructure)) {
+                return EnumActionResult.FAIL;
+            }
+            if (fed.Field313.playerController.getCurrentGameType().isCreative()) {
+                int n = itemStack.getMetadata();
+                int n2 = itemStack.getCount();
+                if (rightClickBlock.getUseItem() != Event.Result.DENY) {
+                    EnumActionResult enumActionResult3 = itemStack.onItemUse((EntityPlayer)entityPlayerSP, (World)worldClient, blockPos, enumHand, enumFacing, f3, f2, f);
+                    itemStack.setItemDamage(n);
+                    itemStack.setCount(n2);
+                    return enumActionResult3;
+                }
+                return enumActionResult2;
+            }
+            enumActionResult = itemStack.copy();
+            if (rightClickBlock.getUseItem() != Event.Result.DENY) {
+                enumActionResult2 = itemStack.onItemUse((EntityPlayer)entityPlayerSP, (World)worldClient, blockPos, enumHand, enumFacing, f3, f2, f);
+            }
+            if (itemStack.isEmpty()) {
+                ForgeEventFactory.onPlayerDestroyItem((EntityPlayer)entityPlayerSP, (ItemStack)enumActionResult, (EnumHand)enumHand);
+            }
+            return enumActionResult2;
+        }
+        return EnumActionResult.SUCCESS;
+    }
 
-            c.getConnection().sendPacket(new CPacketPlayerTryUseItemOnBlock(var2, var3, var5, var7, var8, var9));
-            if ((var10 || c.playerController.getCurrentGameType() == GameType.SPECTATOR) && var11.getUseItem() != Result.ALLOW) {
-               return EnumActionResult.SUCCESS;
-            } else if (var6.isEmpty()) {
-               return EnumActionResult.PASS;
-            } else if (var0.getCooldownTracker().hasCooldown(var6.getItem())) {
-               return EnumActionResult.PASS;
+    public static float[] Method656(double d, double d2, double d3, double d4, double d5, double d6) {
+        double d7 = d - d4;
+        double d8 = d2 - d5;
+        double d9 = d3 - d6;
+        double d10 = d9 < 0.0 && d7 < 0.0 ? 90.0 + Math.toDegrees(Math.atan(d9 / d7)) : (d9 < 0.0 && d7 > 0.0 ? -90.0 + Math.toDegrees(Math.atan(d9 / d7)) : Math.toDegrees(-Math.atan(d7 / d9)));
+        double d11 = Math.sqrt(d7 * d7 + d9 * d9);
+        double d12 = -Math.toDegrees(Math.atan(d8 / d11));
+        d10 = fed.Method336((float)d10);
+        d12 = fed.Method336((float)d12);
+        d10 = Double.isNaN(d10) ? 0.0 : d10;
+        d12 = Double.isNaN(d12) ? 0.0 : d12;
+        return new float[]{(float)d10, (float)d12};
+    }
+
+    /*
+     * Enabled force condition propagation
+     * Lifted jumps to return sites
+     */
+    public static boolean Method657(BlockPos blockPos) {
+        IBlockState iBlockState = feg.Method701(blockPos);
+        if (iBlockState.getBlock() == Blocks.WATER) return true;
+        if (iBlockState.getBlock() == Blocks.LAVA) return true;
+        if (iBlockState.getBlock() != Blocks.AIR) return false;
+        return true;
+    }
+
+    public static fea Method658(BlockPos blockPos, float f, boolean bl, boolean bl2) {
+        return fed.Method660(blockPos, f, bl, false, false, bl2);
+    }
+
+    public static feh Method659(BlockPos blockPos, double d) {
+        feh feh2 = null;
+        Vec3d vec3d = new Vec3d(fed.Field313.player.posX, fed.Field313.player.getEntityBoundingBox().minY + (double)fed.Field313.player.getEyeHeight(), fed.Field313.player.posZ);
+        for (EnumFacing enumFacing : EnumFacing.values()) {
+            BlockPos blockPos2 = blockPos.offset(enumFacing);
+            if (!feg.Method691(blockPos2)) continue;
+            Vec3d vec3d2 = new Vec3d(enumFacing.getDirectionVec());
+            for (double d2 = 0.1; d2 < 0.9; d2 += 0.1) {
+                for (double d3 = 0.1; d3 < 0.9; d3 += 0.1) {
+                    for (double d4 = 0.1; d4 < 0.9; d4 += 0.1) {
+                        Vec3d vec3d3 = new Vec3d((Vec3i)blockPos).addVector(d2, d3, d4);
+                        double d5 = vec3d.squareDistanceTo(vec3d3);
+                        Vec3d vec3d4 = vec3d3.add(new Vec3d(vec3d2.x * 0.5, vec3d2.y * 0.5, vec3d2.z * 0.5));
+                        if (vec3d.squareDistanceTo(vec3d4) > 18.0 || d5 > vec3d.squareDistanceTo(vec3d3.add(vec3d2))) continue;
+                        if (fed.Field313.world.rayTraceBlocks(vec3d, vec3d4, false, true, false) != null) continue;
+                        double d6 = vec3d4.x - vec3d.x;
+                        double d7 = vec3d4.y - vec3d.y;
+                        double d8 = vec3d4.z - vec3d.z;
+                        double d9 = MathHelper.sqrt((double)(d6 * d6 + d8 * d8));
+                        Rotation rotation = new Rotation(MathHelper.wrapDegrees((float)((float)Math.toDegrees(Math.atan2(d8, d6)) - 90.0f)), MathHelper.wrapDegrees((float)((float)(-Math.toDegrees(Math.atan2(d7, d9))))));
+                        Vec3d vec3d5 = few.Method835().Method834(rotation);
+                        Vec3d vec3d6 = vec3d.addVector(vec3d5.x * 4.0, vec3d5.y * 4.0, vec3d5.z * 4.0);
+                        RayTraceResult rayTraceResult = fed.Field313.world.rayTraceBlocks(vec3d, vec3d6, false, false, true);
+                        if (rayTraceResult.typeOfHit != RayTraceResult.Type.BLOCK) continue;
+                        if (!rayTraceResult.getBlockPos().equals((Object)blockPos2)) continue;
+                        if (feh2 != null) {
+                            if (!(few.Method835().Method853(rotation) < few.Method835().Method853(feh2.Method786().Method891()))) continue;
+                        }
+                        feh2 = new feh(blockPos2, enumFacing.getOpposite(), vec3d4, new fex(vec3d3, rotation, enumFacing.getOpposite()));
+                    }
+                }
+            }
+        }
+        return feh2;
+    }
+
+    public static float Method336(float f) {
+        f %= 360.0f;
+        while (f >= 180.0f) {
+            f -= 360.0f;
+        }
+        while (f < -180.0f) {
+            f += 360.0f;
+        }
+        return f;
+    }
+
+    public static fea Method660(BlockPos blockPos, float f, boolean bl, boolean bl2, boolean bl3, boolean bl4) {
+        IBlockState iBlockState = feg.Method701(blockPos);
+        if (!iBlockState.getMaterial().isReplaceable()) {
+            return fea.NotReplaceable;
+        }
+        if (!fed.Method667(blockPos)) {
+            return fea.Neighbors;
+        }
+        Vec3d vec3d = new Vec3d(fed.Field313.player.posX, fed.Field313.player.posY + (double)fed.Field313.player.getEyeHeight(), fed.Field313.player.posZ);
+        for (EnumFacing enumFacing : EnumFacing.values()) {
+            BlockPos blockPos2 = blockPos.offset(enumFacing);
+            EnumFacing enumFacing2 = enumFacing.getOpposite();
+            if (!feg.Method701(blockPos2).getBlock().canCollideCheck(feg.Method701(blockPos2), false)) continue;
+            Vec3d vec3d2 = new Vec3d((Vec3i)blockPos2).addVector(0.5, 0.5, 0.5).add(new Vec3d(enumFacing2.getDirectionVec()).scale(0.5));
+            if (!(vec3d.distanceTo(vec3d2) <= (double)f)) continue;
+            Block block = feg.Method701(blockPos2).getBlock();
+            boolean bl5 = block.onBlockActivated((World)fed.Field313.world, blockPos, feg.Method701(blockPos), (EntityPlayer)fed.Field313.player, EnumHand.MAIN_HAND, enumFacing, 0.0f, 0.0f, 0.0f);
+            if (Field441.contains((Object)block) || Field442.contains((Object)block) || bl5) {
+                fed.Field313.player.connection.sendPacket((Packet)new CPacketEntityAction((Entity)fed.Field313.player, CPacketEntityAction.Action.START_SNEAKING));
+            }
+            EnumActionResult enumActionResult = null;
+            if (bl4) {
+                float[] arrf = few.Method835().Method850(blockPos2, enumFacing.getOpposite());
+                fed.Field313.player.connection.sendPacket((Packet)new CPacketPlayer.Rotation(arrf[0], arrf[1], fed.Field313.player.onGround));
+                Pyro.Field6184.Method7536(arrf[0]);
+                Pyro.Field6184.Method7539(arrf[1]);
+            }
+            enumActionResult = bl3 ? fed.Method655(fed.Field313.player, fed.Field313.world, blockPos2, enumFacing2, vec3d2, bl2 ? EnumHand.OFF_HAND : EnumHand.MAIN_HAND) : fed.Field313.playerController.processRightClickBlock(fed.Field313.player, fed.Field313.world, blockPos2, enumFacing2, vec3d2, bl2 ? EnumHand.OFF_HAND : EnumHand.MAIN_HAND);
+            if (enumActionResult == EnumActionResult.FAIL) continue;
+            if (bl) {
+                fed.Field313.player.connection.sendPacket((Packet)new CPacketAnimation(EnumHand.MAIN_HAND));
             } else {
-               if (var6.getItem() instanceof ItemBlock && !var0.canUseCommandBlock()) {
-                  Block var17 = ((ItemBlock)var6.getItem()).getBlock();
-                  if (var17 instanceof BlockCommandBlock || var17 instanceof BlockStructure) {
-                     return EnumActionResult.FAIL;
-                  }
-               }
-
-               if (c.playerController.getCurrentGameType().isCreative()) {
-                  int var19 = var6.getMetadata();
-                  int var20 = var6.getCount();
-                  if (var11.getUseItem() != Result.DENY) {
-                     EnumActionResult var21 = var6.onItemUse(var0, var1, var2, var5, var3, var7, var8, var9);
-                     var6.setItemDamage(var19);
-                     var6.setCount(var20);
-                     return var21;
-                  } else {
-                     return var12;
-                  }
-               } else {
-                  ItemStack var18 = var6.copy();
-                  if (var11.getUseItem() != Result.DENY) {
-                     var12 = var6.onItemUse(var0, var1, var2, var5, var3, var7, var8, var9);
-                  }
-
-                  if (var6.isEmpty()) {
-                     ForgeEventFactory.onPlayerDestroyItem(var0, var18, var5);
-                  }
-
-                  return var12;
-               }
+                fed.Field313.player.swingArm(EnumHand.MAIN_HAND);
             }
-         }
-      }
-   }
-
-   // $FF: renamed from: c (double, double, double, double, double, double) float[]
-   public static float[] method_1794(double var0, double var2, double var4, double var6, double var8, double var10) {
-      double var12 = var0 - var6;
-      double var14 = var2 - var8;
-      double var16 = var4 - var10;
-      double var18;
-      if (var16 < 0.0D && var12 < 0.0D) {
-         var18 = 90.0D + Math.toDegrees(Math.atan(var16 / var12));
-      } else if (var16 < 0.0D && var12 > 0.0D) {
-         var18 = -90.0D + Math.toDegrees(Math.atan(var16 / var12));
-      } else {
-         var18 = Math.toDegrees(-Math.atan(var12 / var16));
-      }
-
-      double var20 = Math.sqrt(var12 * var12 + var16 * var16);
-      double var22 = -Math.toDegrees(Math.atan(var14 / var20));
-      var18 = (double)method_1798((float)var18);
-      var22 = (double)method_1798((float)var22);
-      var18 = Double.isNaN(var18) ? 0.0D : var18;
-      var22 = Double.isNaN(var22) ? 0.0D : var22;
-      return new float[]{(float)var18, (float)var22};
-   }
-
-   // $FF: renamed from: 0 (net.minecraft.util.math.BlockPos) boolean
-   public static boolean method_1795(BlockPos var0) {
-      IBlockState var1 = feg.method_1791(var0);
-      return var1.getBlock() == Blocks.WATER || var1.getBlock() == Blocks.LAVA || var1.getBlock() == Blocks.AIR;
-   }
-
-   // $FF: renamed from: c (net.minecraft.util.math.BlockPos, float, boolean, boolean) dev.nuker.pyro.fea
-   public static fea method_1796(BlockPos var0, float var1, boolean var2, boolean var3) {
-      return method_1799(var0, var1, var2, false, false, var3);
-   }
-
-   // $FF: renamed from: 0 (net.minecraft.util.math.BlockPos, double) dev.nuker.pyro.feh
-   public static feh method_1797(BlockPos var0, double var1) {
-      feh var3 = null;
-      Vec3d var4 = new Vec3d(c.player.posX, c.player.getEntityBoundingBox().minY + (double)c.player.getEyeHeight(), c.player.posZ);
-      EnumFacing[] var5 = EnumFacing.values();
-      int var6 = var5.length;
-
-      for(int var7 = 0; var7 < var6; ++var7) {
-         EnumFacing var8 = var5[var7];
-         BlockPos var9 = var0.offset(var8);
-         if (feg.method_1780(var9)) {
-            Vec3d var10 = new Vec3d(var8.getDirectionVec());
-
-            for(double var11 = 0.1D; var11 < 0.9D; var11 += 0.1D) {
-               for(double var13 = 0.1D; var13 < 0.9D; var13 += 0.1D) {
-                  for(double var15 = 0.1D; var15 < 0.9D; var15 += 0.1D) {
-                     Vec3d var17 = (new Vec3d(var0)).addVector(var11, var13, var15);
-                     double var18 = var4.squareDistanceTo(var17);
-                     Vec3d var20 = var17.add(new Vec3d(var10.x * 0.5D, var10.y * 0.5D, var10.z * 0.5D));
-                     if (!(var4.squareDistanceTo(var20) > 18.0D) && !(var18 > var4.squareDistanceTo(var17.add(var10))) && c.world.rayTraceBlocks(var4, var20, false, true, false) == null) {
-                        double var21 = var20.x - var4.x;
-                        double var23 = var20.y - var4.y;
-                        double var25 = var20.z - var4.z;
-                        double var27 = (double)MathHelper.sqrt(var21 * var21 + var25 * var25);
-                        Rotation var29 = new Rotation(MathHelper.wrapDegrees((float)Math.toDegrees(Math.atan2(var25, var21)) - 90.0F), MathHelper.wrapDegrees((float)(-Math.toDegrees(Math.atan2(var23, var27)))));
-                        Vec3d var30 = few.method_1716().method_1714(var29);
-                        Vec3d var31 = var4.addVector(var30.x * 4.0D, var30.y * 4.0D, var30.z * 4.0D);
-                        RayTraceResult var32 = c.world.rayTraceBlocks(var4, var31, false, false, true);
-                        if (var32.typeOfHit == Type.BLOCK && var32.getBlockPos().equals(var9) && (var3 == null || few.method_1716().method_1739(var29) < few.method_1716().method_1739(var3.method_2042().method_2076()))) {
-                           var3 = new feh(var9, var8.getOpposite(), var20, new fex(var17, var29, var8.getOpposite()));
-                        }
-                     }
-                  }
-               }
+            if (bl5) {
+                fed.Field313.player.connection.sendPacket((Packet)new CPacketEntityAction((Entity)fed.Field313.player, CPacketEntityAction.Action.STOP_SNEAKING));
             }
-         }
-      }
+            return fea.Placed;
+        }
+        return fea.CantPlace;
+    }
 
-      return var3;
-   }
+    public static fea Method661(BlockPos blockPos, float f, boolean bl) {
+        return fed.Method660(blockPos, f, bl, false, false, false);
+    }
 
-   // $FF: renamed from: c (float) float
-   public static float method_1798(float var0) {
-      for(var0 %= 360.0F; var0 >= 180.0F; var0 -= 360.0F) {
-      }
+    public static feh Method662(int n, int n2, int n3) {
+        return fed.Method671(new BlockPos(n, n2, n3));
+    }
 
-      while(var0 < -180.0F) {
-         var0 += 360.0F;
-      }
+    public static feb Method663(BlockPos blockPos, EnumFacing enumFacing, ItemStack itemStack) {
+        return fed.Method666(blockPos, false, false, enumFacing, itemStack);
+    }
 
-      return var0;
-   }
+    public static float[] Method664(double d, double d2, double d3) {
+        return fed.Method656(d, d2, d3, fed.Field313.player.posX, fed.Field313.player.posY + (double)fed.Field313.player.getEyeHeight(), fed.Field313.player.posZ);
+    }
 
-   // $FF: renamed from: c (net.minecraft.util.math.BlockPos, float, boolean, boolean, boolean, boolean) dev.nuker.pyro.fea
-   public static fea method_1799(BlockPos var0, float var1, boolean var2, boolean var3, boolean var4, boolean var5) {
-      IBlockState var6 = feg.method_1791(var0);
-      if (!var6.getMaterial().isReplaceable()) {
-         return fea.field_1335;
-      } else if (!method_1806(var0)) {
-         return fea.field_1336;
-      } else {
-         Vec3d var7 = new Vec3d(c.player.posX, c.player.posY + (double)c.player.getEyeHeight(), c.player.posZ);
-         EnumFacing[] var8 = EnumFacing.values();
-         int var9 = var8.length;
+    public static fea Method665(BlockPos blockPos, float f, boolean bl, boolean bl2, boolean bl3) {
+        return fed.Method660(blockPos, f, bl, bl2, bl3, false);
+    }
 
-         for(int var10 = 0; var10 < var9; ++var10) {
-            EnumFacing var11 = var8[var10];
-            BlockPos var12 = var0.offset(var11);
-            EnumFacing var13 = var11.getOpposite();
-            if (feg.method_1791(var12).getBlock().canCollideCheck(feg.method_1791(var12), false)) {
-               Vec3d var14 = (new Vec3d(var12)).addVector(0.5D, 0.5D, 0.5D).add((new Vec3d(var13.getDirectionVec())).scale(0.5D));
-               if (var7.distanceTo(var14) <= (double)var1) {
-                  Block var15 = feg.method_1791(var12).getBlock();
-                  boolean var16 = var15.onBlockActivated(c.world, var0, feg.method_1791(var0), c.player, EnumHand.MAIN_HAND, var11, 0.0F, 0.0F, 0.0F);
-                  if (field_1217.contains(var15) || field_1218.contains(var15) || var16) {
-                     c.player.connection.sendPacket(new CPacketEntityAction(c.player, Action.START_SNEAKING));
-                  }
-
-                  EnumActionResult var17 = null;
-                  if (var5) {
-                     float[] var18 = few.method_1716().method_1736(var12, var11.getOpposite());
-                     c.player.connection.sendPacket(new net.minecraft.network.play.client.CPacketPlayer.Rotation(var18[0], var18[1], c.player.onGround));
-                     Pyro.rotationManager.method_3454(var18[0]);
-                     Pyro.rotationManager.method_3457(var18[1]);
-                  }
-
-                  if (var4) {
-                     var17 = method_1793(c.player, c.world, var12, var13, var14, var3 ? EnumHand.OFF_HAND : EnumHand.MAIN_HAND);
-                  } else {
-                     var17 = c.playerController.processRightClickBlock(c.player, c.world, var12, var13, var14, var3 ? EnumHand.OFF_HAND : EnumHand.MAIN_HAND);
-                  }
-
-                  if (var17 != EnumActionResult.FAIL) {
-                     if (var2) {
-                        c.player.connection.sendPacket(new CPacketAnimation(EnumHand.MAIN_HAND));
-                     } else {
-                        c.player.swingArm(EnumHand.MAIN_HAND);
-                     }
-
-                     if (var16) {
-                        c.player.connection.sendPacket(new CPacketEntityAction(c.player, Action.STOP_SNEAKING));
-                     }
-
-                     return fea.field_1338;
-                  }
-               }
+    public static feb Method666(BlockPos blockPos, boolean bl, boolean bl2, EnumFacing enumFacing, ItemStack itemStack) {
+        if (fed.Field313.world == null) {
+            return feb.NoEntityCollision;
+        }
+        if (!fed.Field313.world.checkNoEntityCollision(new AxisAlignedBB(blockPos)) && !bl) {
+            return feb.NoEntityCollision;
+        }
+        if (!fed.Method673(blockPos)) {
+            return feb.NoNeighbors;
+        }
+        if (itemStack.getItem() instanceof ItemBlock) {
+            ItemBlock itemBlock = (ItemBlock)itemStack.getItem();
+            if (!itemBlock.canPlaceBlockOnSide((World)fed.Field313.world, blockPos, enumFacing, (EntityPlayer)fed.Field313.player, itemStack)) {
+                return feb.AlreadyBlockThere;
             }
-         }
+            return feb.Ok;
+        }
+        return feb.AlreadyBlockThere;
+    }
 
-         return fea.field_1337;
-      }
-   }
-
-   // $FF: renamed from: c (net.minecraft.util.math.BlockPos, float, boolean) dev.nuker.pyro.fea
-   public static fea method_1800(BlockPos var0, float var1, boolean var2) {
-      return method_1799(var0, var1, var2, false, false, false);
-   }
-
-   // $FF: renamed from: c (int, int, int) dev.nuker.pyro.feh
-   public static feh method_1801(int var0, int var1, int var2) {
-      return method_1810(new BlockPos(var0, var1, var2));
-   }
-
-   // $FF: renamed from: c (net.minecraft.util.math.BlockPos, net.minecraft.util.EnumFacing, net.minecraft.item.ItemStack) dev.nuker.pyro.feb
-   public static feb method_1802(BlockPos var0, EnumFacing var1, ItemStack var2) {
-      return method_1805(var0, false, false, var1, var2);
-   }
-
-   // $FF: renamed from: c (double, double, double) float[]
-   public static float[] method_1803(double var0, double var2, double var4) {
-      return method_1794(var0, var2, var4, c.player.posX, c.player.posY + (double)c.player.getEyeHeight(), c.player.posZ);
-   }
-
-   // $FF: renamed from: c (net.minecraft.util.math.BlockPos, float, boolean, boolean, boolean) dev.nuker.pyro.fea
-   public static fea method_1804(BlockPos var0, float var1, boolean var2, boolean var3, boolean var4) {
-      return method_1799(var0, var1, var2, var3, var4, false);
-   }
-
-   // $FF: renamed from: c (net.minecraft.util.math.BlockPos, boolean, boolean, net.minecraft.util.EnumFacing, net.minecraft.item.ItemStack) dev.nuker.pyro.feb
-   public static feb method_1805(BlockPos var0, boolean var1, boolean var2, EnumFacing var3, ItemStack var4) {
-      if (c.world == null) {
-         return feb.field_1340;
-      } else if (!c.world.checkNoEntityCollision(new AxisAlignedBB(var0)) && !var1) {
-         return feb.field_1340;
-      } else if (!method_1812(var0)) {
-         return feb.field_1342;
-      } else if (var4.getItem() instanceof ItemBlock) {
-         ItemBlock var5 = (ItemBlock)var4.getItem();
-         return !var5.canPlaceBlockOnSide(c.world, var0, var3, c.player, var4) ? feb.field_1341 : feb.field_1343;
-      } else {
-         return feb.field_1341;
-      }
-   }
-
-   // $FF: renamed from: 4 (net.minecraft.util.math.BlockPos) boolean
-   public static boolean method_1806(BlockPos var0) {
-      if (!method_1812(var0)) {
-         EnumFacing[] var1 = EnumFacing.values();
-         int var2 = var1.length;
-
-         for(int var3 = 0; var3 < var2; ++var3) {
-            EnumFacing var4 = var1[var3];
-            BlockPos var5 = var0.offset(var4);
-            if (method_1812(var5)) {
-               return true;
+    public static boolean Method667(BlockPos blockPos) {
+        if (!fed.Method673(blockPos)) {
+            for (EnumFacing enumFacing : EnumFacing.values()) {
+                BlockPos blockPos2 = blockPos.offset(enumFacing);
+                if (!fed.Method673(blockPos2)) continue;
+                return true;
             }
-         }
+            return false;
+        }
+        return true;
+    }
 
-         return false;
-      } else {
-         return true;
-      }
-   }
+    public static feh Method668(BlockPos blockPos) {
+        return fed.Method674(blockPos, 1.0);
+    }
 
-   static {
-      field_1217 = Arrays.asList(Blocks.ENDER_CHEST, Blocks.CHEST, Blocks.TRAPPED_CHEST, Blocks.CRAFTING_TABLE, Blocks.ANVIL, Blocks.BREWING_STAND, Blocks.HOPPER, Blocks.DROPPER, Blocks.DISPENSER, Blocks.TRAPDOOR, Blocks.ENCHANTING_TABLE);
-      field_1218 = Arrays.asList(Blocks.WHITE_SHULKER_BOX, Blocks.ORANGE_SHULKER_BOX, Blocks.MAGENTA_SHULKER_BOX, Blocks.LIGHT_BLUE_SHULKER_BOX, Blocks.YELLOW_SHULKER_BOX, Blocks.LIME_SHULKER_BOX, Blocks.PINK_SHULKER_BOX, Blocks.GRAY_SHULKER_BOX, Blocks.SILVER_SHULKER_BOX, Blocks.CYAN_SHULKER_BOX, Blocks.PURPLE_SHULKER_BOX, Blocks.BLUE_SHULKER_BOX, Blocks.BROWN_SHULKER_BOX, Blocks.GREEN_SHULKER_BOX, Blocks.RED_SHULKER_BOX, Blocks.BLACK_SHULKER_BOX);
-      field_1219 = new double[]{0.05D, 0.95D};
-      field_1220 = new double[]{0.05D, 0.95D};
-      field_1221 = new double[]{0.05D, 0.95D};
-   }
+    public static feh Method669(BlockPos blockPos) {
+        return fed.Method671(blockPos);
+    }
 
-   // $FF: renamed from: 1 (net.minecraft.util.math.BlockPos) dev.nuker.pyro.feh
-   public static feh method_1807(BlockPos var0) {
-      return method_1813(var0, 1.0D);
-   }
+    public static feh Method670(BlockPos blockPos) {
+        return fed.Method668(blockPos);
+    }
 
-   // $FF: renamed from: c (net.minecraft.util.math.BlockPos) dev.nuker.pyro.feh
-   public static feh method_1808(BlockPos var0) {
-      return method_1810(var0);
-   }
+    public static feh Method671(BlockPos blockPos) {
+        return fed.Method659(blockPos, 1.0);
+    }
 
-   // $FF: renamed from: 2 (net.minecraft.util.math.BlockPos) dev.nuker.pyro.feh
-   public static feh method_1809(BlockPos var0) {
-      return method_1807(var0);
-   }
+    public static float[] Method672(int n, int n2, int n3, EnumFacing enumFacing, double d) {
+        return fed.Method664((double)n + 0.5 + (double)enumFacing.getDirectionVec().getX() * d / 2.0, (double)n2 + 0.5 + (double)enumFacing.getDirectionVec().getY() * d / 2.0, (double)n3 + 0.5 + (double)enumFacing.getDirectionVec().getZ() * d / 2.0);
+    }
 
-   // $FF: renamed from: 3 (net.minecraft.util.math.BlockPos) dev.nuker.pyro.feh
-   public static feh method_1810(BlockPos var0) {
-      return method_1797(var0, 1.0D);
-   }
-
-   // $FF: renamed from: c (int, int, int, net.minecraft.util.EnumFacing, double) float[]
-   public static float[] method_1811(int var0, int var1, int var2, EnumFacing var3, double var4) {
-      return method_1803((double)var0 + 0.5D + (double)var3.getDirectionVec().getX() * var4 / 2.0D, (double)var1 + 0.5D + (double)var3.getDirectionVec().getY() * var4 / 2.0D, (double)var2 + 0.5D + (double)var3.getDirectionVec().getZ() * var4 / 2.0D);
-   }
-
-   // $FF: renamed from: 5 (net.minecraft.util.math.BlockPos) boolean
-   public static boolean method_1812(BlockPos var0) {
-      EnumFacing[] var1 = EnumFacing.values();
-      int var2 = var1.length;
-
-      for(int var3 = 0; var3 < var2; ++var3) {
-         EnumFacing var4 = var1[var3];
-         BlockPos var5 = var0.offset(var4);
-         if (!feg.method_1791(var5).getMaterial().isReplaceable()) {
+    public static boolean Method673(BlockPos blockPos) {
+        for (EnumFacing enumFacing : EnumFacing.values()) {
+            BlockPos blockPos2 = blockPos.offset(enumFacing);
+            if (feg.Method701(blockPos2).getMaterial().isReplaceable()) continue;
             return true;
-         }
-      }
+        }
+        return false;
+    }
 
-      return false;
-   }
-
-   // $FF: renamed from: c (net.minecraft.util.math.BlockPos, double) dev.nuker.pyro.feh
-   public static feh method_1813(BlockPos var0, double var1) {
-      Vec3d var3 = new Vec3d(c.player.posX, c.player.getEntityBoundingBox().minY + (double)c.player.getEyeHeight(), c.player.posZ);
-      EnumFacing[] var4 = EnumFacing.values();
-      int var5 = var4.length;
-
-      for(int var6 = 0; var6 < var5; ++var6) {
-         EnumFacing var7 = var4[var6];
-         BlockPos var8 = var0.offset(var7);
-         if (feg.method_1780(var8)) {
-            Vec3d var9 = new Vec3d(var7.getDirectionVec());
-            double[] var10 = field_1219;
-            int var11 = var10.length;
-
-            for(int var12 = 0; var12 < var11; ++var12) {
-               double var13 = var10[var12];
-               double[] var15 = field_1220;
-               int var16 = var15.length;
-
-               for(int var17 = 0; var17 < var16; ++var17) {
-                  double var18 = var15[var17];
-                  double[] var20 = field_1221;
-                  int var21 = var20.length;
-
-                  for(int var22 = 0; var22 < var21; ++var22) {
-                     double var23 = var20[var22];
-                     Vec3d var25 = (new Vec3d(var0)).addVector(var13, var18, var23);
-                     double var26 = var3.squareDistanceTo(var25);
-                     Vec3d var28 = var25.add(new Vec3d(var9.x * 0.5D, var9.y * 0.5D, var9.z * 0.5D));
-                     if (!(var3.squareDistanceTo(var28) > 18.0D) && !(var26 > var3.squareDistanceTo(var25.add(var9))) && c.world.rayTraceBlocks(var3, var28, false, true, false) == null) {
-                        double var29 = var28.x - var3.x;
-                        double var31 = var28.y - var3.y;
-                        double var33 = var28.z - var3.z;
-                        double var35 = (double)MathHelper.sqrt(var29 * var29 + var33 * var33);
-                        Rotation var37 = new Rotation(MathHelper.wrapDegrees((float)Math.toDegrees(Math.atan2(var33, var29)) - 90.0F), MathHelper.wrapDegrees((float)(-Math.toDegrees(Math.atan2(var31, var35)))));
-                        Vec3d var38 = few.method_1716().method_1714(var37);
-                        Vec3d var39 = var3.addVector(var38.x * 4.0D, var38.y * 4.0D, var38.z * 4.0D);
-                        RayTraceResult var40 = c.world.rayTraceBlocks(var3, var39, false, false, true);
-                        if (var40.typeOfHit == Type.BLOCK && var40.getBlockPos().equals(var8)) {
-                           return new feh(var8, var7.getOpposite(), var28, new fex(var25, var37, var7.getOpposite()));
-                        }
-                     }
-                  }
-               }
+    public static feh Method674(BlockPos blockPos, double d) {
+        Vec3d vec3d = new Vec3d(fed.Field313.player.posX, fed.Field313.player.getEntityBoundingBox().minY + (double)fed.Field313.player.getEyeHeight(), fed.Field313.player.posZ);
+        for (EnumFacing enumFacing : EnumFacing.values()) {
+            BlockPos blockPos2 = blockPos.offset(enumFacing);
+            if (!feg.Method691(blockPos2)) continue;
+            Vec3d vec3d2 = new Vec3d(enumFacing.getDirectionVec());
+            for (double d2 : Field443) {
+                for (double d3 : Field444) {
+                    for (double d4 : Field445) {
+                        Vec3d vec3d3 = new Vec3d((Vec3i)blockPos).addVector(d2, d3, d4);
+                        double d5 = vec3d.squareDistanceTo(vec3d3);
+                        Vec3d vec3d4 = vec3d3.add(new Vec3d(vec3d2.x * 0.5, vec3d2.y * 0.5, vec3d2.z * 0.5));
+                        if (vec3d.squareDistanceTo(vec3d4) > 18.0 || d5 > vec3d.squareDistanceTo(vec3d3.add(vec3d2)) || fed.Field313.world.rayTraceBlocks(vec3d, vec3d4, false, true, false) != null) continue;
+                        double d6 = vec3d4.x - vec3d.x;
+                        double d7 = vec3d4.y - vec3d.y;
+                        double d8 = vec3d4.z - vec3d.z;
+                        double d9 = MathHelper.sqrt((double)(d6 * d6 + d8 * d8));
+                        Rotation rotation = new Rotation(MathHelper.wrapDegrees((float)((float)Math.toDegrees(Math.atan2(d8, d6)) - 90.0f)), MathHelper.wrapDegrees((float)((float)(-Math.toDegrees(Math.atan2(d7, d9))))));
+                        Vec3d vec3d5 = few.Method835().Method834(rotation);
+                        Vec3d vec3d6 = vec3d.addVector(vec3d5.x * 4.0, vec3d5.y * 4.0, vec3d5.z * 4.0);
+                        RayTraceResult rayTraceResult = fed.Field313.world.rayTraceBlocks(vec3d, vec3d6, false, false, true);
+                        if (rayTraceResult.typeOfHit != RayTraceResult.Type.BLOCK || !rayTraceResult.getBlockPos().equals((Object)blockPos2)) continue;
+                        return new feh(blockPos2, enumFacing.getOpposite(), vec3d4, new fex(vec3d3, rotation, enumFacing.getOpposite()));
+                    }
+                }
             }
-         }
-      }
-
-      return null;
-   }
+        }
+        return null;
+    }
 }
+

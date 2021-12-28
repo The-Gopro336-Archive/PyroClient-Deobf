@@ -1,39 +1,27 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-import com.mojang.brigadier.Command;
-import com.mojang.brigadier.arguments.StringArgumentType;
-import com.mojang.brigadier.context.CommandContext;
-import kotlin.TypeCastException;
-import org.lwjgl.input.Keyboard;
+import dev.nuker.pyro.FriendManager;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.Lambda;
 
-public class f2A implements Command {
-   // $FF: renamed from: c dev.nuker.pyro.f2A
-   public static f2A field_1972 = new f2A();
+public class f2a
+extends Lambda
+implements Function1 {
+    public static f2a Field3815 = new f2a();
 
-   public int run(CommandContext var1) {
-      String var10000 = StringArgumentType.getString(var1, "key");
-      if (var10000 != null) {
-         String var3 = var10000;
-         boolean var4 = false;
-         if (var3 == null) {
-            throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
-         }
+    public f2a() {
+        super(1);
+    }
 
-         var10000 = var3.toUpperCase();
-      } else {
-         var10000 = null;
-      }
+    public boolean Method5222(boolean bl) {
+        return FriendManager.Field2145.Method8957(bl);
+    }
 
-      String var2 = var10000;
-      int var5 = Keyboard.getKeyIndex(var2);
-      if (var2 != null) {
-         f2D.field_1979.method_3066(var5);
-      }
-
-      return 0;
-   }
+    public Object Method41(Object object) {
+        return this.Method5222((Boolean)object);
+    }
 }
+

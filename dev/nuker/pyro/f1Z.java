@@ -1,26 +1,28 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.internal.Lambda;
+import com.mojang.brigadier.CommandDispatcher;
+import com.mojang.brigadier.arguments.StringArgumentType;
+import com.mojang.brigadier.builder.LiteralArgumentBuilder;
+import dev.nuker.pyro.f1y;
+import dev.nuker.pyro.f3e;
+import org.jetbrains.annotations.NotNull;
 
-public class f1Z extends Lambda implements Function1 {
-   // $FF: renamed from: c dev.nuker.pyro.f1Z
-   public static f1Z field_8 = new f1Z();
+public class f1z {
+    public static f1z Field3791;
 
-   public f1Z() {
-      super(1);
-   }
+    public void Method5504(@NotNull CommandDispatcher commandDispatcher) {
+        commandDispatcher.Method8399((LiteralArgumentBuilder)f3e.Method5657("drawn").Method12041(f3e.Method5658("module", StringArgumentType.Method5879()).Method12044(f1y.Field3785)));
+    }
 
-   // $FF: renamed from: c (boolean) boolean
-   public boolean method_51(boolean var1) {
-      return FriendManager.Companion.saveImpactFriends(var1);
-   }
-
-   public Object invoke(Object var1) {
-      return this.method_51((Boolean)var1);
-   }
+    static {
+        f1z f1z2;
+        Field3791 = f1z2 = new f1z();
+    }
 }
+

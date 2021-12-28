@@ -1,88 +1,89 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  com.google.gson.JsonElement
+ *  com.google.gson.JsonPrimitive
+ *  org.jetbrains.annotations.NotNull
+ *  org.jetbrains.annotations.Nullable
  */
 package dev.nuker.pyro;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
+import dev.nuker.pyro.Setting;
+import dev.nuker.pyro.f0M;
+import dev.nuker.pyro.f13;
 import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class DoubleSetting extends Setting {
-   // $FF: renamed from: c double
-   public double field_2217;
-   // $FF: renamed from: 0 double
-   public double field_2218;
-   // $FF: renamed from: 1 double
-   public double field_2219;
+public class DoubleSetting
+extends Setting {
+    public double Field7567;
+    public double Field7568;
+    public double Field7569;
 
-   // $FF: renamed from: 0 () double
-   public double method_3325() {
-      return this.field_2219;
-   }
+    public double Method12507() {
+        return this.Field7569;
+    }
 
-   public double getValue() {
-      return this.field_2217;
-   }
+    public double Method12508() {
+        return this.Field7567;
+    }
 
-   @JvmOverloads
-   public DoubleSetting(@NotNull String var1, @NotNull String var2, @Nullable String var3, double var4, double var6, double var8, double var10) {
-      super(var1, var2, var3, var4);
-      this.field_2217 = var6;
-      this.field_2218 = var8;
-      this.field_2219 = var10;
-   }
+    @JvmOverloads
+    public DoubleSetting(@NotNull String string, @NotNull String string2, @Nullable String string3, double d, double d2, double d3, double d4) {
+        super(string, string2, string3, d);
+        this.Field7567 = d2;
+        this.Field7568 = d3;
+        this.Field7569 = d4;
+    }
 
-   // $FF: renamed from: 1 (double) void
-   public void method_3326(double var1) {
-      this.field_2218 = var1;
-   }
+    public void Method12509(double d) {
+        this.Field7568 = d;
+    }
 
-   // $FF: renamed from: 0 (double) void
-   public void method_3327(double var1) {
-      this.field_2217 = var1;
-   }
+    public void Method12510(double d) {
+        this.Field7567 = d;
+    }
 
-   @JvmOverloads
-   public DoubleSetting(@NotNull String var1, @NotNull String var2, @Nullable String var3, double var4, double var6, double var8) {
-      this(var1, var2, var3, var4, var6, var8, 0.0D, 64, (DefaultConstructorMarker)null);
-   }
+    @JvmOverloads
+    public DoubleSetting(@NotNull String string, @NotNull String string2, @Nullable String string3, double d, double d2, double d3) {
+        this(string, string2, string3, d, d2, d3, 0.0, 64, null);
+    }
 
-   public DoubleSetting(String var1, String var2, String var3, double var4, double var6, double var8, double var10, int var12, DefaultConstructorMarker var13) {
-      if ((var12 & 64) != 0) {
-         var10 = var8 - var6;
-      }
+    public DoubleSetting(String string, String string2, String string3, double d, double d2, double d3, double d4, int n, DefaultConstructorMarker defaultConstructorMarker) {
+        if ((n & 0x40) != 0) {
+            d4 = d3 - d2;
+        }
+        this(string, string2, string3, d, d2, d3, d4);
+    }
 
-      this(var1, var2, var3, var4, var6, var8, var10);
-   }
+    @Override
+    @NotNull
+    public f13 Method5970() {
+        return new f0M(this);
+    }
 
-   // $FF: renamed from: 2 () dev.nuker.pyro.f13
-   @NotNull
-   public f13 method_3309() {
-      return (f13)(new f0M(this));
-   }
+    public double Method12511() {
+        return this.Field7568;
+    }
 
-   // $FF: renamed from: 1 () double
-   public double method_3328() {
-      return this.field_2218;
-   }
+    @Override
+    public void Method5964(@NotNull JsonElement jsonElement) {
+        this.Method7976().Method5266(jsonElement.getAsDouble());
+    }
 
-   // $FF: renamed from: c (com.google.gson.JsonElement) void
-   public void method_3310(@NotNull JsonElement var1) {
-      this.getValue().method_3033(var1.getAsDouble());
-   }
+    public void Method12512(double d) {
+        this.Field7569 = d;
+    }
 
-   // $FF: renamed from: c (double) void
-   public void method_3329(double var1) {
-      this.field_2219 = var1;
-   }
-
-   // $FF: renamed from: 0 () com.google.gson.JsonElement
-   @NotNull
-   public JsonElement method_3316() {
-      return (JsonElement)(new JsonPrimitive((Number)this.getValue().method_3034()));
-   }
+    @Override
+    @NotNull
+    public JsonElement Method5969() {
+        return (JsonElement)new JsonPrimitive((Number)this.Method7976().Method5264());
+    }
 }
+

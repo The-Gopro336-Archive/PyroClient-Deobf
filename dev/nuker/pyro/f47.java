@@ -1,19 +1,17 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
 public class f47 {
-   // $FF: renamed from: c int
-   public int field_2130;
+    public int Field3942;
 
-   public f47(int var1) {
-      this.field_2130 = var1;
-   }
+    public f47(int n) {
+        this.Field3942 = n;
+    }
 
-   // $FF: renamed from: c () int
-   public int method_3207() {
-      return this.field_2130;
-   }
+    public int Method5635() {
+        return this.Field3942;
+    }
 }
+

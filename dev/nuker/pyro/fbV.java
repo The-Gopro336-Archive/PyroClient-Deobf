@@ -1,20 +1,37 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-public enum fbV {
-   // $FF: renamed from: c dev.nuker.pyro.fbV
-   field_1629,
-   // $FF: renamed from: 0 dev.nuker.pyro.fbV
-   field_1630;
+public class fbV
+extends Enum {
+    public static /* enum */ fbV Coords;
+    public static /* enum */ fbV Distance;
+    public static /* synthetic */ fbV[] Field2025;
 
-   // $FF: renamed from: c dev.nuker.pyro.fbV[]
-   public static fbV[] field_1631 = new fbV[]{field_1629 = new fbV("Coords", 0), field_1630 = new fbV("Distance", 1)};
+    /*
+     * WARNING - Possible parameter corruption
+     * WARNING - void declaration
+     */
+    public fbV() {
+        void var2_-1;
+        void var1_-1;
+    }
 
-   // $FF: renamed from: c (java.lang.String) dev.nuker.pyro.fbV
-   public static fbV method_2823(String var0) {
-      return (fbV)Enum.valueOf(fbV.class, var0);
-   }
+    public static fbV Method2683(String string) {
+        return Enum.valueOf(fbV.class, string);
+    }
+
+    public static fbV[] Method2684() {
+        return (fbV[])Field2025.clone();
+    }
+
+    static {
+        fbV[] arrfbV = new fbV[2];
+        fbV[] arrfbV2 = arrfbV;
+        arrfbV[0] = Coords = new fbV("Coords", 0);
+        arrfbV[1] = Distance = new fbV("Distance", 1);
+        Field2025 = arrfbV;
+    }
 }
+

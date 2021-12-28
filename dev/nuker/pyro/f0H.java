@@ -1,156 +1,104 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  com.google.common.collect.Multimap
+ *  com.google.common.collect.Multimaps
  */
 package dev.nuker.pyro;
 
-import kotlin.jvm.JvmField;
-import org.jetbrains.annotations.NotNull;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.Multimaps;
+import dev.nuker.pyro.f0f;
+import dev.nuker.pyro.f0g;
+import dev.nuker.pyro.f0i;
+import dev.nuker.pyro.f0j;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Consumer;
+import java.util.stream.Stream;
 
-public class f0H {
-   // $FF: renamed from: c dev.nuker.pyro.f00
-   @NotNull
-   public static f00 field_2329;
-   // $FF: renamed from: 0 dev.nuker.pyro.f00
-   @NotNull
-   public static f00 field_2330;
-   // $FF: renamed from: 1 dev.nuker.pyro.f00
-   @NotNull
-   public static f00 field_2331;
-   // $FF: renamed from: 2 dev.nuker.pyro.f00
-   @NotNull
-   public static f00 field_2332;
-   // $FF: renamed from: 3 dev.nuker.pyro.f00
-   @NotNull
-   public static f00 field_2333;
-   // $FF: renamed from: 4 dev.nuker.pyro.f00
-   @NotNull
-   public static f00 field_2334;
-   // $FF: renamed from: c int
-   @JvmField
-   public static int field_2335;
-   // $FF: renamed from: c dev.nuker.pyro.f0G
-   @JvmField
-   @NotNull
-   public static f0G field_2336;
-   // $FF: renamed from: c double
-   @JvmField
-   public static double field_2337;
-   // $FF: renamed from: c dev.nuker.pyro.f0H
-   public static f0H field_2338;
+public class f0h
+implements f0f {
+    public Multimap<Class<?>, f0i> Field5581 = Multimaps.newSetMultimap(new ConcurrentHashMap(), ConcurrentHashMap::newKeySet);
+    public Multimap<Object, f0i> Field5582 = Multimaps.newSetMultimap(new ConcurrentHashMap(), ConcurrentHashMap::newKeySet);
+    public static Multimap<String, f0i> Field5583 = Multimaps.newSetMultimap(new ConcurrentHashMap(), ConcurrentHashMap::newKeySet);
 
-   // $FF: renamed from: 7 () dev.nuker.pyro.f00
-   @NotNull
-   public f00 method_3487() {
-      return field_2329;
-   }
+    public void Method7914(Object object, Method method, int n) {
+        boolean bl = method.isAccessible();
+        method.setAccessible(true);
+        f0j f0j2 = new f0j(object, method);
+        f0j2.Method7923(n);
+        method.setAccessible(bl);
+        if (f0j2 != null) {
+            if (!this.Field5582.containsEntry(object, (Object)f0j2)) {
+                this.Field5582.get(object).add(f0j2);
+            }
+            this.Field5581.get((Object)f0j2.Method7925()).add(f0j2);
+        }
+    }
 
-   // $FF: renamed from: 5 () int
-   public int method_3488() {
-      return field_2331.meth1();
-   }
+    @Override
+    public void Method7915(Object object) {
+        Arrays.stream(object.getClass().getDeclaredMethods()).filter(f0h::Method7917).forEach(arg_0 -> this.Method7916(object, arg_0));
+        if (Field5583.containsKey((Object)object.getClass().getName())) {
+            for (f0i f0i2 : Field5583.get((Object)object.getClass().getName())) {
+                if (!this.Field5582.containsEntry(object, (Object)f0i2)) {
+                    this.Field5582.get(object).add(f0i2);
+                }
+                this.Field5581.get((Object)f0i2.Method7925()).add(f0i2);
+            }
+        }
+    }
 
-   // $FF: renamed from: 4 (dev.nuker.pyro.f00) void
-   public void method_3489(@NotNull f00 var1) {
-      field_2330 = var1;
-   }
+    public void Method7916(Object object, Method method) {
+        this.Method7914(object, method, method.getAnnotation(f0g.class).Method7913());
+    }
 
-   // $FF: renamed from: a () int
-   public int method_3490() {
-      return field_2333.meth1();
-   }
+    public static boolean Method7917(Method method) {
+        return method.isAnnotationPresent(f0g.class) && method.getParameterCount() == 1;
+    }
 
-   // $FF: renamed from: 9 () int
-   public int method_3491() {
-      return field_2332.meth1();
-   }
+    @Override
+    public void Method7918(Object object) {
+        Multimap<Class<?>, f0i> multimap = this.Field5581;
+        Object object2 = object;
+        Class<?> class_ = object2.getClass();
+        Collection collection = multimap.get(class_);
+        Stream stream = collection.stream();
+        Comparator comparator = f0h::Method7922;
+        Stream stream2 = stream.sorted(comparator);
+        Consumer<f0i> consumer = arg_0 -> f0h.Method7919(object, arg_0);
+        try {
+            stream2.forEach(consumer);
+        }
+        catch (Exception exception) {
+            exception.printStackTrace();
+        }
+    }
 
-   static {
-      f0H var0 = new f0H();
-      field_2338 = var0;
-      field_2329 = f00.field_2296.method_3696(16777215);
-      field_2330 = f00.field_2296.method_3696(2061041919);
-      field_2331 = f00.field_2296.method_3687(0, 167, 72, 255);
-      field_2332 = f00.field_2296.method_3687(200, 200, 200, 255);
-      field_2333 = f00.field_2296.method_3687(0, 0, 0, 148);
-      field_2334 = f00.field_2296.method_3696(-1728053248);
-      field_2335 = 3;
-      field_2336 = f0G.field_2325;
-      field_2337 = 1.0D;
-   }
+    public static void Method7919(Object object, f0i f0i2) {
+        f0i2.accept(object);
+    }
 
-   // $FF: renamed from: 4 () double
-   public double method_3492() {
-      return field_2337;
-   }
+    public void Method7920(f0i f0i2) {
+        ArrayList arrayList = new ArrayList(this.Field5581.keySet());
+        for (Class class_ : arrayList) {
+            this.Field5581.get((Object)class_).remove(f0i2);
+        }
+    }
 
-   // $FF: renamed from: 1 (dev.nuker.pyro.f00) void
-   public void method_3493(@NotNull f00 var1) {
-      field_2334 = var1;
-   }
+    @Override
+    public void Method7921(Object object) {
+        this.Field5582.get(object).forEach(this::Method7920);
+    }
 
-   // $FF: renamed from: b () int
-   public int method_3494() {
-      return field_2329.meth1();
-   }
-
-   // $FF: renamed from: 2 (dev.nuker.pyro.f00) void
-   public void method_3495(@NotNull f00 var1) {
-      field_2331 = var1;
-   }
-
-   // $FF: renamed from: 1 () dev.nuker.pyro.f00
-   @NotNull
-   public f00 method_3496() {
-      return field_2330;
-   }
-
-   // $FF: renamed from: 0 () dev.nuker.pyro.f00
-   @NotNull
-   public f00 method_3497() {
-      return field_2333;
-   }
-
-   // $FF: renamed from: 3 (dev.nuker.pyro.f00) void
-   public void method_3498(@NotNull f00 var1) {
-      field_2333 = var1;
-   }
-
-   // $FF: renamed from: c () int
-   public int method_3499() {
-      return field_2334.meth1();
-   }
-
-   // $FF: renamed from: 3 () dev.nuker.pyro.f00
-   @NotNull
-   public f00 method_3500() {
-      return field_2332;
-   }
-
-   // $FF: renamed from: 2 () dev.nuker.pyro.f00
-   @NotNull
-   public f00 method_3501() {
-      return field_2334;
-   }
-
-   // $FF: renamed from: c (dev.nuker.pyro.f00) void
-   public void method_3502(@NotNull f00 var1) {
-      field_2332 = var1;
-   }
-
-   // $FF: renamed from: 0 (dev.nuker.pyro.f00) void
-   public void method_3503(@NotNull f00 var1) {
-      field_2329 = var1;
-   }
-
-   // $FF: renamed from: 6 () dev.nuker.pyro.f00
-   @NotNull
-   public f00 method_3504() {
-      return field_2331;
-   }
-
-   // $FF: renamed from: 8 () int
-   public int method_3505() {
-      return field_2330.meth1();
-   }
+    public static int Method7922(f0i f0i2, f0i f0i3) {
+        return Integer.compare(f0i3.Method7924(), f0i2.Method7924());
+    }
 }
+

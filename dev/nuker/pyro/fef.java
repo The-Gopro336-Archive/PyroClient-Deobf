@@ -1,6 +1,9 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.block.Block
+ *  org.jetbrains.annotations.Nullable
  */
 package dev.nuker.pyro;
 
@@ -8,8 +11,8 @@ import net.minecraft.block.Block;
 import org.jetbrains.annotations.Nullable;
 
 public interface fef {
-   // $FF: renamed from: c (net.minecraft.block.Block) boolean
-   default boolean method_0(@Nullable Block var1) {
-      throw new UnsupportedOperationException("Please report this to the binscure obfuscator developers");
-   }
+    default public boolean Method680(@Nullable Block block) {
+        throw new UnsupportedOperationException("Please report this to the binscure obfuscator developers");
+    }
 }
+

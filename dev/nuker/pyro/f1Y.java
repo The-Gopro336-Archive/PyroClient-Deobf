@@ -1,41 +1,42 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  com.mojang.realmsclient.gui.ChatFormatting
+ *  org.jetbrains.annotations.Nullable
  */
 package dev.nuker.pyro;
 
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
-import java.util.List;
+import com.mojang.realmsclient.gui.ChatFormatting;
+import dev.nuker.pyro.Class34;
+import dev.nuker.pyro.Class8;
+import dev.nuker.pyro.Module;
+import dev.nuker.pyro.Pyro;
 import kotlin.text.StringsKt;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.Style;
-import net.minecraft.util.text.TextComponentString;
-import net.minecraft.util.text.TextFormatting;
-import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-public class f1Y implements Command {
-   // $FF: renamed from: c dev.nuker.pyro.f1Y
-   public static f1Y field_2447 = new f1Y();
+public class f1y
+implements Command {
+    public static f1y Field3785 = new f1y();
 
-   public int run(@NotNull CommandContext var1) {
-      String var2 = StringArgumentType.getString(var1, "name");
-      List var3 = StringsKt.split$default((CharSequence)var2, new String[]{" "}, false, 0, 6, (Object)null);
-      if (var3 != null && var3.size() > 1) {
-         if (FriendManager.Companion.isFriend((String)var3.get(0))) {
-            ((f1s)var1.getSource()).method_3083((new TextComponentString("Already friend: ")).appendSibling((new TextComponentString((String)var3.get(0))).setStyle((new Style()).setColor(TextFormatting.DARK_AQUA))));
-         } else {
-            ((f1s)var1.getSource()).method_3083((new TextComponentString("Added friend: ")).appendSibling((new TextComponentString((String)var3.get(0))).setStyle((new Style()).setColor(TextFormatting.DARK_AQUA))).appendSibling((ITextComponent)(new TextComponentString(" with alias "))).appendSibling((new TextComponentString((String)var3.get(1))).setStyle((new Style()).setColor(TextFormatting.DARK_AQUA))));
-            FriendManager.Companion.addFriend((String)var3.get(0), (String)var3.get(1));
-         }
-      } else if (FriendManager.Companion.isFriend(var2)) {
-         ((f1s)var1.getSource()).method_3083((new TextComponentString("Already friend: ")).appendSibling((new TextComponentString(var2)).setStyle((new Style()).setColor(TextFormatting.DARK_AQUA))));
-      } else {
-         ((f1s)var1.getSource()).method_3083((new TextComponentString("Added friend: ")).appendSibling((new TextComponentString(var2)).setStyle((new Style()).setColor(TextFormatting.DARK_AQUA))));
-         FriendManager.Companion.addFriend(var2);
-      }
-
-      return 0;
-   }
+    public int Method152(@Nullable CommandContext commandContext) {
+        String string = StringArgumentType.Method5880(commandContext, "module");
+        for (Module module : Class34.Field4599.Method6756()) {
+            String string2 = module.Method7265();
+            if (!StringsKt.Method9997(string2, string, true)) continue;
+            module.Method7269().Method5266((Boolean)module.Method7269().Method5264() == false);
+            if (((Boolean)module.Method7269().Method5264()).booleanValue()) {
+                Pyro.Field6182.Method8989("" + module.Method7265() + " is now " + (Object)ChatFormatting.RED + "hidden.");
+            } else {
+                Pyro.Field6182.Method8989(module.Method7265() + " is now " + (Object)ChatFormatting.GREEN + "shown.");
+            }
+            Class8.Field5278.Method5760(module);
+            break;
+        }
+        return 0;
+    }
 }
+

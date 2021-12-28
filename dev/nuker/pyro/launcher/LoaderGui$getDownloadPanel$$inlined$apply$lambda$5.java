@@ -1,6 +1,8 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  org.jetbrains.annotations.Nullable
  */
 package dev.nuker.pyro.launcher;
 
@@ -14,41 +16,33 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function2;
 import org.jetbrains.annotations.Nullable;
 
-@Metadata(
-   mv = {1, 1, 15},
-   bv = {1, 0, 3},
-   k = 1,
-   d1 = {"\u0000%\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\b\u0002\n\u0002\b\u0002\n\u0002\b\u0003*\u0001\u0000\b\n\u0018\u00002\u00020\u0001J\u0012\u0010\u0002\u001a\u00020\u00032\b\u0010\u0004\u001a\u0004\u0018\u00010\u0005H\u0016J\u0012\u0010\u0006\u001a\u00020\u00032\b\u0010\u0004\u001a\u0004\u0018\u00010\u0005H\u0016¨\u0006\u0007¸\u0006\b"},
-   d2 = {"dev/nuker/pyro/launcher/LoaderGui$getDownloadPanel$1$1$7", "Ljava/awt/event/FocusListener;", "focusGained", "", "e", "Ljava/awt/event/FocusEvent;", "focusLost", "pyroclient", "dev/nuker/pyro/launcher/LoaderGui$$special$$inlined$apply$lambda$9"}
-)
-public final class LoaderGui$getDownloadPanel$$inlined$apply$lambda$5 implements FocusListener {
-   // $FF: synthetic field
-   final JComboBox $channelBox$inlined;
-   // $FF: synthetic field
-   final JComboBox $versionBox$inlined;
-   // $FF: synthetic field
-   final JButton $button$inlined;
-   // $FF: synthetic field
-   final Map $versionmap$inlined;
-   // $FF: synthetic field
-   final Function0 $stopCallback$inlined;
-   // $FF: synthetic field
-   final Function2 $selectCallback$inlined;
+@Metadata(mv={1, 1, 15}, bv={1, 0, 3}, k=1, d1={"\u0000%\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\b\u0002\n\u0002\b\u0002\n\u0002\b\u0003*\u0001\u0000\b\n\u0018\u00002\u00020\u0001J\u0012\u0010\u0002\u001a\u00020\u00032\b\u0010\u0004\u001a\u0004\u0018\u00010\u0005H\u0016J\u0012\u0010\u0006\u001a\u00020\u00032\b\u0010\u0004\u001a\u0004\u0018\u00010\u0005H\u0016\u00a8\u0006\u0007\u00b8\u0006\b"}, d2={"dev/nuker/pyro/launcher/LoaderGui$getDownloadPanel$1$1$7", "Ljava/awt/event/FocusListener;", "focusGained", "", "e", "Ljava/awt/event/FocusEvent;", "focusLost", "pyroclient", "dev/nuker/pyro/launcher/LoaderGui$$special$$inlined$apply$lambda$9"})
+public final class LoaderGui$getDownloadPanel$$inlined$apply$lambda$5
+implements FocusListener {
+    final /* synthetic */ JComboBox Field972;
+    final /* synthetic */ JComboBox Field973;
+    final /* synthetic */ JButton Field974;
+    final /* synthetic */ Map Field975;
+    final /* synthetic */ Function0 Field976;
+    final /* synthetic */ Function2 Field977;
 
-   LoaderGui$getDownloadPanel$$inlined$apply$lambda$5(JComboBox var1, JComboBox var2, JButton var3, Map var4, Function0 var5, Function2 var6) {
-      this.$channelBox$inlined = var1;
-      this.$versionBox$inlined = var2;
-      this.$button$inlined = var3;
-      this.$versionmap$inlined = var4;
-      this.$stopCallback$inlined = var5;
-      this.$selectCallback$inlined = var6;
-   }
+    LoaderGui$getDownloadPanel$$inlined$apply$lambda$5(JComboBox jComboBox, JComboBox jComboBox2, JButton jButton, Map map, Function0 function0, Function2 function2) {
+        this.Field972 = jComboBox;
+        this.Field973 = jComboBox2;
+        this.Field974 = jButton;
+        this.Field975 = map;
+        this.Field976 = function0;
+        this.Field977 = function2;
+    }
 
-   public void focusLost(@Nullable FocusEvent e) {
-   }
+    @Override
+    public void focusLost(@Nullable FocusEvent e) {
+    }
 
-   public void focusGained(@Nullable FocusEvent e) {
-      this.$stopCallback$inlined.invoke();
-      this.$button$inlined.setEnabled(true);
-   }
+    @Override
+    public void focusGained(@Nullable FocusEvent e) {
+        this.Field976.Method945();
+        this.Field974.setEnabled(true);
+    }
 }
+

@@ -1,24 +1,50 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  org.jetbrains.annotations.NotNull
+ *  org.jetbrains.annotations.Nullable
  */
 package dev.nuker.pyro;
 
-import com.mojang.brigadier.SingleRedirectModifier;
 import com.mojang.brigadier.context.CommandContext;
+import com.mojang.brigadier.suggestion.SuggestionProvider;
+import com.mojang.brigadier.suggestion.SuggestionsBuilder;
+import dev.nuker.pyro.PyroStatic;
+import java.util.Iterator;
+import java.util.concurrent.CompletableFuture;
+import kotlin.TypeCastException;
+import kotlin.text.StringsKt;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-public class f1Q implements SingleRedirectModifier {
-   // $FF: renamed from: c dev.nuker.pyro.f1Q
-   public static f1Q field_2434 = new f1Q();
+public class f1q
+implements SuggestionProvider {
+    public static f1q Field3763 = new f1q();
 
-   public Object apply(CommandContext var1) {
-      return this.method_3700(var1);
-   }
-
-   // $FF: renamed from: c (com.mojang.brigadier.context.CommandContext) dev.nuker.pyro.f1s
-   @NotNull
-   public f1s method_3700(CommandContext var1) {
-      return ((f1s)var1.getSource()).method_3084("modsignore", true);
-   }
+    public CompletableFuture Method5478(@Nullable CommandContext commandContext, @NotNull SuggestionsBuilder suggestionsBuilder) {
+        Iterator iterator2 = PyroStatic.Field6531.Method5348().Method5367().iterator();
+        while (iterator2.hasNext()) {
+            String string;
+            String string2;
+            String string3 = string2 = (String)iterator2.next();
+            boolean bl = false;
+            String string4 = string3;
+            if (string4 == null) {
+                throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
+            }
+            string3 = suggestionsBuilder.Method2698();
+            String string5 = StringsKt.Method11419(string4.toLowerCase(), "minecraft:", null, 2, null);
+            bl = false;
+            String string6 = string3;
+            if (string6 == null) {
+                throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
+            }
+            string6.toLowerCase();
+            if (!StringsKt.Method9998(string5, StringsKt.Method11419(string, "minecraft:", null, 2, null), false, 2, null)) continue;
+            suggestionsBuilder.Method2701(string2);
+        }
+        return suggestionsBuilder.Method2700();
+    }
 }
+

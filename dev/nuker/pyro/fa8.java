@@ -1,17 +1,18 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-public class fa8 {
-   // $FF: renamed from: c int[]
-   public static int[] field_1442 = new int[fa7.values().length];
+import dev.nuker.pyro.fa7;
 
-   static {
-      field_1442[fa7.field_1465.ordinal()] = 1;
-      field_1442[fa7.field_1466.ordinal()] = 2;
-      field_1442[fa7.field_1467.ordinal()] = 3;
-      field_1442[fa7.field_1468.ordinal()] = 4;
-   }
+public class fa8 {
+    public static int[] Field1622 = new int[fa7.Method2362().length];
+
+    static /* synthetic */ {
+        fa8.Field1622[fa7.Instant.ordinal()] = 1;
+        fa8.Field1622[fa7.Add.ordinal()] = 2;
+        fa8.Field1622[fa7.Multiply.ordinal()] = 3;
+        fa8.Field1622[fa7.Ace.ordinal()] = 4;
+    }
 }
+

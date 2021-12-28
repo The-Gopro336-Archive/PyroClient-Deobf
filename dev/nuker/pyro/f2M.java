@@ -1,50 +1,57 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
-import com.mojang.brigadier.Command;
 import com.mojang.brigadier.CommandDispatcher;
-import com.mojang.brigadier.arguments.ArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
-import com.mojang.brigadier.suggestion.SuggestionProvider;
-import java.util.Optional;
-import java.util.function.Function;
-import java.util.function.Predicate;
+import com.mojang.brigadier.builder.RequiredArgumentBuilder;
+import dev.nuker.pyro.f1U;
+import dev.nuker.pyro.f1V;
+import dev.nuker.pyro.f1W;
+import dev.nuker.pyro.f1X;
+import dev.nuker.pyro.f1Y;
+import dev.nuker.pyro.f1Z;
+import dev.nuker.pyro.f20;
+import dev.nuker.pyro.f21;
+import dev.nuker.pyro.f22;
+import dev.nuker.pyro.f23;
+import dev.nuker.pyro.f24;
+import dev.nuker.pyro.f2b;
+import dev.nuker.pyro.f2c;
+import dev.nuker.pyro.f2d;
+import dev.nuker.pyro.f2e;
+import dev.nuker.pyro.f2f;
+import dev.nuker.pyro.f2g;
+import dev.nuker.pyro.f2h;
+import dev.nuker.pyro.f2i;
+import dev.nuker.pyro.f2j;
+import dev.nuker.pyro.f2k;
+import dev.nuker.pyro.f2l;
+import dev.nuker.pyro.f3e;
 import kotlin.jvm.JvmStatic;
+import kotlin.jvm.functions.Function1;
 import org.jetbrains.annotations.NotNull;
 
-public class f2M {
-   // $FF: renamed from: c dev.nuker.pyro.f2M
-   public static f2M field_2009;
+public class f2m {
+    public static f2m Field3905;
 
-   // $FF: renamed from: c (java.lang.String) java.util.Optional
-   public Optional method_3090(String var1) {
-      return class_37.field_2633.method_3981().stream().filter((Predicate)(new f2F(var1))).findFirst();
-   }
+    @JvmStatic
+    public static void Method5605(@NotNull CommandDispatcher commandDispatcher) {
+        commandDispatcher.Method8399((LiteralArgumentBuilder)((LiteralArgumentBuilder)((LiteralArgumentBuilder)((LiteralArgumentBuilder)((LiteralArgumentBuilder)((LiteralArgumentBuilder)((LiteralArgumentBuilder)f3e.Method5657("friend").Method12041(f3e.Method5657("add").Method12041(f3e.Method5658("name", StringArgumentType.Method5879()).Method12044(f1Y.Field5634)))).Method12041(f3e.Method5657("del").Method12041(((RequiredArgumentBuilder)f3e.Method5658("name", StringArgumentType.Method5878()).Method12044(f2e.Field3873)).Method1114(f2f.Field3875)))).Method12041(f3e.Method5657("list").Method12044(f2g.Field3879))).Method12041(f3e.Method5657("clear").Method12044(f2h.Field3881))).Method12041(f3e.Method5657("reload").Method12044(f2i.Field3865))).Method12041(((LiteralArgumentBuilder)((LiteralArgumentBuilder)((LiteralArgumentBuilder)((LiteralArgumentBuilder)((LiteralArgumentBuilder)f3e.Method5657("sync").Method12041(Field3905.Method5606("future", f2j.Field3867, f2k.Field3869))).Method12041(Field3905.Method5606("impact", f2l.Field3871, f1Z.Field5636))).Method12041(Field3905.Method5606("summit", f2c.Field3820, f20.Field5624))).Method12041(Field3905.Method5606("salhack", f21.Field5601, f22.Field5603))).Method12041(Field3905.Method5606("ares", f23.Field5611, f24.Field5615))).Method12041(f3e.Method5657("overwrite_all").Method12044(f2b.Field3818)))).Method12041(f3e.Method5657("alias").Method12041(f3e.Method5658("name", StringArgumentType.Method5879()).Method12044(f2d.Field3822))));
+    }
 
-   // $FF: renamed from: c (java.util.function.Function) com.mojang.brigadier.suggestion.SuggestionProvider
-   public SuggestionProvider method_3091(Function var1) {
-      return (SuggestionProvider)(new f2E(var1));
-   }
+    static {
+        f2m f2m2;
+        Field3905 = f2m2 = new f2m();
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.f2M, java.lang.String) java.util.Optional
-   public static Optional method_3092(f2M var0, String var1) {
-      return var0.method_3090(var1);
-   }
-
-   // $FF: renamed from: c (com.mojang.brigadier.CommandDispatcher) void
-   @JvmStatic
-   public static void method_3093(@NotNull CommandDispatcher var0) {
-      var0.register((LiteralArgumentBuilder)f3e.method_3215("enable").then(f3e.method_3216("module", (ArgumentType)StringArgumentType.string()).suggests(field_2009.method_3091((Function)f2G.field_1993)).executes((Command)f2H.field_1995)));
-      var0.register((LiteralArgumentBuilder)f3e.method_3215("disable").then(f3e.method_3216("module", (ArgumentType)StringArgumentType.string()).suggests(field_2009.method_3091((Function)f2I.field_1981)).executes((Command)f2J.field_1983)));
-      var0.register((LiteralArgumentBuilder)f3e.method_3215("toggle").then(f3e.method_3216("module", (ArgumentType)StringArgumentType.string()).suggests(field_2009.method_3091((Function)f2K.field_1985)).executes((Command)f2L.field_1987)));
-   }
-
-   static {
-      f2M var0 = new f2M();
-      field_2009 = var0;
-   }
+    public LiteralArgumentBuilder Method5606(String string, Function1 function1, Function1 function12) {
+        return (LiteralArgumentBuilder)((LiteralArgumentBuilder)f3e.Method5657(string).Method12041(((LiteralArgumentBuilder)f3e.Method5657("load").Method12044(new f1U(function1, string))).Method12041(f3e.Method5657("overwrite").Method12044(new f1V(function1, string))))).Method12041(((LiteralArgumentBuilder)f3e.Method5657("save").Method12044(new f1W(function12, string))).Method12041(f3e.Method5657("overwrite").Method12044(new f1X(function12, string))));
+    }
 }
+

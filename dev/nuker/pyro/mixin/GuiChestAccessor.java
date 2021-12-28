@@ -1,6 +1,9 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.gui.inventory.GuiChest
+ *  net.minecraft.inventory.IInventory
  */
 package dev.nuker.pyro.mixin;
 
@@ -9,11 +12,12 @@ import net.minecraft.inventory.IInventory;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
-@Mixin({GuiChest.class})
+@Mixin(value={GuiChest.class})
 public interface GuiChestAccessor {
-   @Accessor("lowerChestInventory")
-   IInventory getLowerChestInventory();
+    @Accessor(value="lowerChestInventory")
+    public IInventory Method787();
 
-   @Accessor("upperChestInventory")
-   IInventory getUpperChestInventory();
+    @Accessor(value="upperChestInventory")
+    public IInventory Method788();
 }
+

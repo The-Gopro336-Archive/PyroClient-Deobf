@@ -1,49 +1,52 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro.layer;
 
+import dev.nuker.pyro.layer.SecondLayer$run$1$1$handlers$1;
+import dev.nuker.pyro.layer.SecondLayer$run$1$1$handlers$2;
+import dev.nuker.pyro.layer.SecondLayer$run$1$1$handlers$3;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.Ref;
 import net.arikia.dev.drpc.DiscordEventHandlers;
 import net.arikia.dev.drpc.DiscordRPC;
-import net.arikia.dev.drpc.callbacks.DisconnectedCallback;
-import net.arikia.dev.drpc.callbacks.ErroredCallback;
-import net.arikia.dev.drpc.callbacks.ReadyCallback;
 
-public class SecondLayer$run$1$1 extends Lambda implements Function0 {
-   public Ref.ObjectRef $discord;
-   // $FF: renamed from: $t java.lang.Thread
-   public Thread field_3;
+public class SecondLayer$run$1$1
+extends Lambda
+implements Function0 {
+    public Ref.ObjectRef Field7046;
+    public Thread Field7047;
 
-   public void invoke() {
-      DiscordEventHandlers var1 = (new DiscordEventHandlers.Builder()).setReadyEventHandler((ReadyCallback)(new SecondLayer$run$1$1$handlers$1(this))).setErroredEventHandler((ErroredCallback)SecondLayer$run$1$1$handlers$2.INSTANCE).setDisconnectedEventHandler((DisconnectedCallback)SecondLayer$run$1$1$handlers$3.INSTANCE).build();
-      DiscordRPC.discordInitialize("740056531286098001", var1, true);
-      int var2 = 0;
+    /*
+     * WARNING - void declaration
+     */
+    public void Method3860() {
+        DiscordEventHandlers handlers2 = new DiscordEventHandlers.Builder().Method6013(new SecondLayer$run$1$1$handlers$1(this)).Method6015(SecondLayer$run$1$1$handlers$2.Field7382).Method6014(SecondLayer$run$1$1$handlers$3.Field7381).Method6019();
+        DiscordRPC.Method5998("740056531286098001", handlers2, true);
+        int n = 0;
+        int n2 = 30;
+        while (n <= n2) {
+            void i;
+            Thread.sleep((long)595741596 ^ 0x23824BF8L);
+            DiscordRPC.Method6004();
+            if ((String)this.Field7046.Field5552 != null) break;
+            ++i;
+        }
+        DiscordRPC.Method6003();
+        this.Field7047.resume();
+    }
 
-      for(byte var3 = 30; var2 <= var3; ++var2) {
-         Thread.sleep((long)595741596 ^ 595741688L);
-         DiscordRPC.discordRunCallbacks();
-         if ((String)this.$discord.element != null) {
-            break;
-         }
-      }
+    public Object Method945() {
+        this.Method3860();
+        return Unit.Field4531;
+    }
 
-      DiscordRPC.discordShutdown();
-      this.field_3.resume();
-   }
-
-   public Object invoke() {
-      this.invoke();
-      return Unit.INSTANCE;
-   }
-
-   public SecondLayer$run$1$1(Ref.ObjectRef var1, Thread var2) {
-      this.$discord = var1;
-      this.field_3 = var2;
-      super(0);
-   }
+    public SecondLayer$run$1$1(Ref.ObjectRef objectRef, Thread thread2) {
+        this.Field7046 = objectRef;
+        this.Field7047 = thread2;
+        super(0);
+    }
 }
+

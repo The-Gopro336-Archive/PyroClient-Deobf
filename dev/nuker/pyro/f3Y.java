@@ -1,21 +1,17 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-import java.util.List;
-import org.jetbrains.annotations.NotNull;
+import com.mojang.brigadier.Command;
+import com.mojang.brigadier.context.CommandContext;
 
-public class f3Y {
-   // $FF: renamed from: c () java.util.List
-   @NotNull
-   public List method_2976() {
-      throw new UnsupportedOperationException("Please report this to the binscure obfuscator developers");
-   }
+public class f3y
+implements Command {
+    public static f3y Field4120 = new f3y();
 
-   // $FF: renamed from: c (java.util.List) void
-   public void method_2977(@NotNull List var1) {
-      throw new UnsupportedOperationException("Please report this to the binscure obfuscator developers");
-   }
+    public int Method152(CommandContext commandContext) {
+        return 0;
+    }
 }
+

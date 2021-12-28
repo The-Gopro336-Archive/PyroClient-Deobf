@@ -1,61 +1,47 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.gui.ScaledResolution
  */
 package dev.nuker.pyro;
 
-import com.mojang.realmsclient.gui.ChatFormatting;
-import dev.nuker.pyro.security.inject.LauncherEventHide;
-import kotlin.jvm.internal.Intrinsics;
+import dev.nuker.pyro.Class8;
+import dev.nuker.pyro.f4P;
+import dev.nuker.pyro.f4U;
 import net.minecraft.client.gui.ScaledResolution;
-import net.minecraft.client.network.NetHandlerPlayClient;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
-public class f5J extends f5T {
-   // $FF: renamed from: 1 java.lang.String
-   @NotNull
-   public String field_1065 = "";
+public class f5j
+extends f4P {
+    public f5j() {
+        this.Field4077 = 120;
+        this.Field4078.add(new f4U("Combat", this.Method5679(), 10.0f));
+        this.Field4078.add(new f4U("General", this.Method5679(), 10.0f));
+        this.Field4078.add(new f4U("Misc", this.Method5679(), 10.0f));
+    }
 
-   // $FF: renamed from: c (net.minecraft.client.gui.ScaledResolution, float, float) int
-   public int method_1558(@Nullable ScaledResolution var1, float var2, float var3) {
-      return 11184810;
-   }
+    @Override
+    public void mouseReleased(int n, int n2, int n3) {
+        super.mouseReleased(n, n2, n3);
+        Class8.Field5278.Method462();
+    }
 
-   // $FF: renamed from: 4 () java.lang.String
-   @NotNull
-   public String method_1559() {
-      return this.field_1065;
-   }
+    @Override
+    public boolean doesGuiPauseGame() {
+        return false;
+    }
 
-   public f5J() {
-      super("ping");
-   }
+    @Override
+    public void mouseClicked(int n, int n2, int n3) {
+        super.mouseClicked(n, n2, n3);
+        Class8.Field5278.Method4810(n, n2, n3);
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.f43) void
-   @f0g
-   @LauncherEventHide
-   public void method_1577(@NotNull f43 var1) {
-      if (var1.c() == f41.field_2120 && fdZ.field_976.world != null && fdZ.field_976.player != null) {
-         if (fdZ.field_976.getConnection() != null) {
-            NetHandlerPlayClient var10000 = fdZ.field_976.getConnection();
-            if (var10000 == null) {
-               Intrinsics.throwNpe();
-            }
-
-            if (var10000.getPlayerInfo(fdZ.field_976.player.getUniqueID()) != null) {
-               StringBuilder var10001 = (new StringBuilder("Ping ")).append(ChatFormatting.WHITE);
-               NetHandlerPlayClient var10002 = fdZ.field_976.getConnection();
-               if (var10002 == null) {
-                  Intrinsics.throwNpe();
-               }
-
-               this.field_1065 = var10001.append(var10002.getPlayerInfo(fdZ.field_976.player.getUniqueID()).getResponseTime()).toString();
-               return;
-            }
-         }
-
-         this.field_1065 = "Ping 69";
-      }
-   }
+    @Override
+    public void drawScreen(int n, int n2, float f) {
+        super.drawScreen(n, n2, f);
+        ScaledResolution scaledResolution = new ScaledResolution(this.mc);
+        Class8.Field5278.Method7302(scaledResolution, n, n2, true);
+    }
 }
+

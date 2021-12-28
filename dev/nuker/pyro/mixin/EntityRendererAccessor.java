@@ -1,6 +1,10 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.renderer.EntityRenderer
+ *  net.minecraft.client.renderer.texture.DynamicTexture
+ *  net.minecraft.entity.EntityLivingBase
  */
 package dev.nuker.pyro.mixin;
 
@@ -11,32 +15,33 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 import org.spongepowered.asm.mixin.gen.Invoker;
 
-@Mixin({EntityRenderer.class})
+@Mixin(value={EntityRenderer.class})
 public interface EntityRendererAccessor {
-   @Invoker("orientCamera")
-   void orientCam(float var1);
+    @Invoker(value="orientCamera")
+    public void Method4464(float var1);
 
-   @Invoker("applyBobbing")
-   void viewBob(float var1);
+    @Invoker(value="applyBobbing")
+    public void Method4465(float var1);
 
-   @Accessor("lightmapColors")
-   int[] getLightmapColors();
+    @Accessor(value="lightmapColors")
+    public int[] Method4466();
 
-   @Accessor("lightmapTexture")
-   DynamicTexture getLightmapTexture();
+    @Accessor(value="lightmapTexture")
+    public DynamicTexture Method4467();
 
-   @Accessor("torchFlickerX")
-   float getTorchFlickerX();
+    @Accessor(value="torchFlickerX")
+    public float Method4468();
 
-   @Accessor("bossColorModifier")
-   float getBossColorModifier();
+    @Accessor(value="bossColorModifier")
+    public float Method4469();
 
-   @Accessor("bossColorModifierPrev")
-   float getBossColorModifierPrev();
+    @Accessor(value="bossColorModifierPrev")
+    public float Method4470();
 
-   @Invoker("getNightVisionBrightness")
-   float invokeGetNightVisionBrightness(EntityLivingBase var1, float var2);
+    @Invoker(value="getNightVisionBrightness")
+    public float Method4471(EntityLivingBase var1, float var2);
 
-   @Invoker("setupCameraTransform")
-   void invokeSetupCameraTransform(float var1, int var2);
+    @Invoker(value="setupCameraTransform")
+    public void Method4472(float var1, int var2);
 }
+

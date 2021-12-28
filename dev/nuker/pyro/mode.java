@@ -1,23 +1,41 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-public enum mode {
-   packet,
-   // $FF: renamed from: 0 dev.nuker.pyro.mode
-   field_1409,
-   // $FF: renamed from: 1 dev.nuker.pyro.mode
-   field_1410,
-   // $FF: renamed from: 2 dev.nuker.pyro.mode
-   field_1411;
+public class mode
+extends Enum {
+    public static /* enum */ mode Packet;
+    public static /* enum */ mode Jump;
+    public static /* enum */ mode Mini;
+    public static /* enum */ mode OldNCP;
+    public static /* synthetic */ mode[] Field1352;
 
-   // $FF: renamed from: c dev.nuker.pyro.mode[]
-   public static mode[] field_1412 = new mode[]{packet = new mode("Packet", 0), field_1409 = new mode("Jump", 1), field_1410 = new mode("Mini", 2), field_1411 = new mode("OldNCP", 3)};
+    /*
+     * WARNING - Possible parameter corruption
+     * WARNING - void declaration
+     */
+    public mode() {
+        void var2_-1;
+        void var1_-1;
+    }
 
-   // $FF: renamed from: c (java.lang.String) dev.nuker.pyro.mode
-   public static mode method_2600(String var0) {
-      return (mode)Enum.valueOf(mode.class, var0);
-   }
+    static {
+        mode[] arrmode = new mode[4];
+        mode[] arrmode2 = arrmode;
+        arrmode[0] = Packet = new mode("Packet", 0);
+        arrmode[1] = Jump = new mode("Jump", 1);
+        arrmode[2] = Mini = new mode("Mini", 2);
+        arrmode[3] = OldNCP = new mode("OldNCP", 3);
+        Field1352 = arrmode;
+    }
+
+    public static mode[] Method1982() {
+        return (mode[])Field1352.clone();
+    }
+
+    public static mode Method1983(String string) {
+        return Enum.valueOf(mode.class, string);
+    }
 }
+

@@ -1,52 +1,48 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.item.ItemStack
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.f42;
 import net.minecraft.item.ItemStack;
 
-public class f4F extends f42 {
-   // $FF: renamed from: c net.minecraft.item.ItemStack
-   public ItemStack field_2085;
-   // $FF: renamed from: c int
-   public int field_2086;
-   // $FF: renamed from: 0 int
-   public int field_2087;
+public class f4F
+extends f42 {
+    public ItemStack Field4002;
+    public int Field4003;
+    public int Field4004;
 
-   // $FF: renamed from: 0 () int
-   public int method_3159() {
-      return this.field_2087;
-   }
+    public int Method5661() {
+        return this.Field4004;
+    }
 
-   // $FF: renamed from: c (int) void
-   public void method_3160(int var1) {
-      this.field_2086 = var1;
-   }
+    public void Method5662(int n) {
+        this.Field4003 = n;
+    }
 
-   // $FF: renamed from: 1 () net.minecraft.item.ItemStack
-   public ItemStack method_3161() {
-      return this.field_2085;
-   }
+    public ItemStack Method5663() {
+        return this.Field4002;
+    }
 
-   // $FF: renamed from: 0 (int) void
-   public void method_3162(int var1) {
-      this.field_2087 = var1;
-   }
+    public void Method5664(int n) {
+        this.Field4004 = n;
+    }
 
-   // $FF: renamed from: c (net.minecraft.item.ItemStack) void
-   public void method_3163(ItemStack var1) {
-      this.field_2085 = var1;
-   }
+    public void Method5665(ItemStack itemStack) {
+        this.Field4002 = itemStack;
+    }
 
-   // $FF: renamed from: c () int
-   public int method_3164() {
-      return this.field_2086;
-   }
+    public int Method5666() {
+        return this.Field4003;
+    }
 
-   public f4F(ItemStack var1, int var2, int var3) {
-      this.field_2085 = var1;
-      this.field_2086 = var2;
-      this.field_2087 = var3;
-   }
+    public f4F(ItemStack itemStack, int n, int n2) {
+        this.Field4002 = itemStack;
+        this.Field4003 = n;
+        this.Field4004 = n2;
+    }
 }
+

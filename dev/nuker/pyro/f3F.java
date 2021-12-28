@@ -1,27 +1,28 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
-import com.mojang.brigadier.Command;
 import com.mojang.brigadier.CommandDispatcher;
-import com.mojang.brigadier.arguments.ArgumentType;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
+import dev.nuker.pyro.f3E;
+import dev.nuker.pyro.f3e;
 import org.jetbrains.annotations.NotNull;
 
 public class f3F {
-   // $FF: renamed from: c dev.nuker.pyro.f3F
-   public static f3F field_2048;
+    public static f3F Field3874;
 
-   static {
-      f3F var0 = new f3F();
-      field_2048 = var0;
-   }
+    static {
+        f3F f3F2;
+        Field3874 = f3F2 = new f3F();
+    }
 
-   // $FF: renamed from: c (com.mojang.brigadier.CommandDispatcher) void
-   public void method_3105(@NotNull CommandDispatcher var1) {
-      var1.register((LiteralArgumentBuilder)f3e.method_3215("vclip").then(f3e.method_3216("distance", (ArgumentType)IntegerArgumentType.integer()).executes((Command)f3E.field_2040)));
-   }
+    public void Method5584(@NotNull CommandDispatcher commandDispatcher) {
+        commandDispatcher.Method8399((LiteralArgumentBuilder)f3e.Method5657("vclip").Method12041(f3e.Method5658("distance", IntegerArgumentType.Method9835()).Method12044(f3E.Field3823)));
+    }
 }
+

@@ -1,27 +1,25 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.fd6;
 import java.util.function.Consumer;
-import net.minecraft.util.math.BlockPos;
 
-public class fd5 implements Consumer {
-   // $FF: renamed from: c dev.nuker.pyro.fd6
-   public fd6 field_956;
+public class fd5
+implements Consumer {
+    public fd6 Field123;
 
-   public void accept(Object var1) {
-      this.method_1403((Boolean)var1);
-   }
+    public void accept(Object object) {
+        this.Method182((Boolean)object);
+    }
 
-   // $FF: renamed from: c (java.lang.Boolean) void
-   public void method_1403(Boolean var1) {
-      this.field_956.method_1370((BlockPos)null);
-   }
+    public void Method182(Boolean bl) {
+        this.Field123.Method209(null);
+    }
 
-   public fd5(fd6 var1) {
-      this.field_956 = var1;
-      super();
-   }
+    public fd5(fd6 fd62) {
+        this.Field123 = fd62;
+    }
 }
+

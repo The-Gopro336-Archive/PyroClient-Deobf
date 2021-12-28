@@ -1,20 +1,37 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-public enum faM {
-   // $FF: renamed from: c dev.nuker.pyro.faM
-   field_1478,
-   // $FF: renamed from: 0 dev.nuker.pyro.faM
-   field_1479;
+public class faM
+extends Enum {
+    public static /* enum */ faM Gamma;
+    public static /* enum */ faM NightVision;
+    public static /* synthetic */ faM[] Field1722;
 
-   // $FF: renamed from: c dev.nuker.pyro.faM[]
-   public static faM[] field_1480 = new faM[]{field_1478 = new faM("Gamma", 0), field_1479 = new faM("NightVision", 1)};
+    /*
+     * WARNING - Possible parameter corruption
+     * WARNING - void declaration
+     */
+    public faM() {
+        void var2_-1;
+        void var1_-1;
+    }
 
-   // $FF: renamed from: c (java.lang.String) dev.nuker.pyro.faM
-   public static faM method_2654(String var0) {
-      return (faM)Enum.valueOf(faM.class, var0);
-   }
+    public static faM[] Method2417() {
+        return (faM[])Field1722.clone();
+    }
+
+    public static faM Method2418(String string) {
+        return Enum.valueOf(faM.class, string);
+    }
+
+    static {
+        faM[] arrfaM = new faM[2];
+        faM[] arrfaM2 = arrfaM;
+        arrfaM[0] = Gamma = new faM("Gamma", 0);
+        arrfaM[1] = NightVision = new faM("NightVision", 1);
+        Field1722 = arrfaM;
+    }
 }
+

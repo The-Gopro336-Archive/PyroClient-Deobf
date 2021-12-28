@@ -1,20 +1,37 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-public enum f9R {
-   // $FF: renamed from: c dev.nuker.pyro.f9R
-   field_1924,
-   // $FF: renamed from: 0 dev.nuker.pyro.f9R
-   field_1925;
+public class f9R
+extends Enum {
+    public static /* enum */ f9R Vanilla;
+    public static /* enum */ f9R BHop;
+    public static /* synthetic */ f9R[] Field3603;
 
-   // $FF: renamed from: c dev.nuker.pyro.f9R[]
-   public static f9R[] field_1926 = new f9R[]{field_1924 = new f9R("Vanilla", 0), field_1925 = new f9R("BHop", 1)};
+    public static f9R[] Method5380() {
+        return (f9R[])Field3603.clone();
+    }
 
-   // $FF: renamed from: c (java.lang.String) dev.nuker.pyro.f9R
-   public static f9R method_3053(String var0) {
-      return (f9R)Enum.valueOf(f9R.class, var0);
-   }
+    /*
+     * WARNING - Possible parameter corruption
+     * WARNING - void declaration
+     */
+    public f9R() {
+        void var2_-1;
+        void var1_-1;
+    }
+
+    public static f9R Method5381(String string) {
+        return Enum.valueOf(f9R.class, string);
+    }
+
+    static {
+        f9R[] arrf9R = new f9R[2];
+        f9R[] arrf9R2 = arrf9R;
+        arrf9R[0] = Vanilla = new f9R("Vanilla", 0);
+        arrf9R[1] = BHop = new f9R("BHop", 1);
+        Field3603 = arrf9R;
+    }
 }
+

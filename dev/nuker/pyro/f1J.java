@@ -1,26 +1,30 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.util.math.Vec3d
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
 import com.mojang.brigadier.SingleRedirectModifier;
 import com.mojang.brigadier.arguments.DoubleArgumentType;
 import com.mojang.brigadier.context.CommandContext;
+import dev.nuker.pyro.f1s;
 import net.minecraft.util.math.Vec3d;
 import org.jetbrains.annotations.NotNull;
 
-public class f1J implements SingleRedirectModifier {
-   // $FF: renamed from: c dev.nuker.pyro.f1J
-   public static f1J field_2427 = new f1J();
+public class f1J
+implements SingleRedirectModifier {
+    public static f1J Field5586 = new f1J();
 
-   // $FF: renamed from: c (com.mojang.brigadier.context.CommandContext) dev.nuker.pyro.f1s
-   @NotNull
-   public f1s method_3682(CommandContext var1) {
-      return ((f1s)var1.getSource()).method_3084("position", new Vec3d(DoubleArgumentType.getDouble(var1, "x"), DoubleArgumentType.getDouble(var1, "y"), DoubleArgumentType.getDouble(var1, "z")));
-   }
+    @NotNull
+    public f1s Method7926(CommandContext commandContext) {
+        return ((f1s)commandContext.Method6876()).Method5490("position", (Object)new Vec3d(DoubleArgumentType.Method8094(commandContext, "x"), DoubleArgumentType.Method8094(commandContext, "y"), DoubleArgumentType.Method8094(commandContext, "z")));
+    }
 
-   public Object apply(CommandContext var1) {
-      return this.method_3682(var1);
-   }
+    public Object Method4086(CommandContext commandContext) {
+        return this.Method7926(commandContext);
+    }
 }
+

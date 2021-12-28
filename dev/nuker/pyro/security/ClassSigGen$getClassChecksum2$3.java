@@ -1,19 +1,25 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro.security;
 
 import java.util.Comparator;
 
-public class ClassSigGen$getClassChecksum2$3 implements Comparator {
-   public static ClassSigGen$getClassChecksum2$3 INSTANCE = new ClassSigGen$getClassChecksum2$3();
+public class ClassSigGen$getClassChecksum2$3
+implements Comparator {
+    public static ClassSigGen$getClassChecksum2$3 Field7245 = new ClassSigGen$getClassChecksum2$3();
 
-   public int compare(String a, String b) {
-      return a.compareTo(b);
-   }
+    /*
+     * WARNING - void declaration
+     */
+    public int Method12057(String string, String string2) {
+        void b;
+        void a;
+        return a.compareTo((String)b);
+    }
 
-   public int compare(Object var1, Object var2) {
-      return this.compare((String)var1, (String)var2);
-   }
+    public int compare(Object object, Object object2) {
+        return this.Method12057((String)object, (String)object2);
+    }
 }
+

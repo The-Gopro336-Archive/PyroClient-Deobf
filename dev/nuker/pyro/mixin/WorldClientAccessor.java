@@ -1,6 +1,9 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.multiplayer.WorldClient
+ *  net.minecraft.client.network.NetHandlerPlayClient
  */
 package dev.nuker.pyro.mixin;
 
@@ -9,8 +12,9 @@ import net.minecraft.client.network.NetHandlerPlayClient;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
-@Mixin({WorldClient.class})
+@Mixin(value={WorldClient.class})
 public interface WorldClientAccessor {
-   @Accessor("connection")
-   void setConnection(NetHandlerPlayClient var1);
+    @Accessor(value="connection")
+    public void Method6543(NetHandlerPlayClient var1);
 }
+

@@ -1,19 +1,24 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.f17;
 import org.jetbrains.annotations.NotNull;
 
-public class f18 extends f17 {
-   // $FF: renamed from: c (double, double) dev.nuker.pyro.f17
-   @NotNull
-   public f17 method_3648(double var1, double var3) {
-      return (f17)(new f18(this.5() - var1, this.3() - var3, this.4()));
-   }
+public class f18
+extends f17 {
+    @Override
+    @NotNull
+    public f17 Method7865(double d, double d2) {
+        return new f18(this.Method7897() - d, this.Method7896() - d2, this.Method7895());
+    }
 
-   public f18(double var1, double var3, int var5) {
-      super(var1, var3, var5);
-   }
+    public f18(double d, double d2, int n) {
+        super(d, d2, n);
+    }
 }
+

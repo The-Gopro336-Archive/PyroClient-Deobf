@@ -1,48 +1,43 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  com.google.gson.JsonElement
+ *  com.google.gson.JsonNull
+ *  org.jetbrains.annotations.NotNull
+ *  org.jetbrains.annotations.Nullable
  */
 package dev.nuker.pyro;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonNull;
+import dev.nuker.pyro.Setting;
+import dev.nuker.pyro.f0N;
+import dev.nuker.pyro.f13;
+import kotlin.Unit;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-public class f0N extends f0Y {
-   // $FF: renamed from: c java.lang.String
-   @NotNull
-   public String field_2359;
+public class f0n
+extends Setting {
+    @Override
+    @NotNull
+    public f13 Method5970() {
+        return new f0N(this);
+    }
 
-   // $FF: renamed from: 0 (dev.nuker.pyro.f0F, double, double, dev.nuker.pyro.f0H) void
-   public void method_28(@NotNull f0F var1, double var2, double var4, @NotNull f0H var6) {
-      super.method_28(var1, var2, var4, var6);
-   }
+    @Override
+    public void Method5964(@NotNull JsonElement jsonElement) {
+    }
 
-   // $FF: renamed from: 0 (dev.nuker.pyro.f0F, dev.nuker.pyro.f0H) int
-   public int method_26(@NotNull f0F var1, @NotNull f0H var2) {
-      return var1.method_3582().FONT_HEIGHT + f0H.field_2335 * 2;
-   }
+    public f0n(@NotNull String string, @NotNull String string2, @Nullable String string3) {
+        super(string, string2, string3, Unit.Field4531);
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.f0F, dev.nuker.pyro.f0H) int
-   public int method_29(@NotNull f0F var1, @NotNull f0H var2) {
-      return var1.method_3582().getStringWidth(this.field_2359) + f0H.field_2335 * 2 + (var1.method_3583() - f0H.field_2335 * 2) * 2 + 2;
-   }
-
-   // $FF: renamed from: 0 (dev.nuker.pyro.f0F, dev.nuker.pyro.f0H, dev.nuker.pyro.f17) void
-   public void method_24(@NotNull f0F var1, @NotNull f0H var2, @NotNull f17 var3) {
-   }
-
-   // $FF: renamed from: c (java.lang.String) void
-   public void method_3591(@NotNull String var1) {
-      this.field_2359 = var1;
-   }
-
-   public f0N(@NotNull f0n var1) {
-      super((f0w)var1);
-      this.field_2359 = var1.c();
-   }
-
-   // $FF: renamed from: c () java.lang.String
-   @NotNull
-   public String method_3592() {
-      return this.field_2359;
-   }
+    @Override
+    @NotNull
+    public JsonElement Method5969() {
+        return (JsonElement)JsonNull.INSTANCE;
+    }
 }
+

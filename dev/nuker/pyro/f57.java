@@ -1,73 +1,82 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  org.lwjgl.input.Keyboard
+ *  org.lwjgl.input.Mouse
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.BindSetting;
+import dev.nuker.pyro.PyroRenderUtil;
+import dev.nuker.pyro.f0H;
+import dev.nuker.pyro.f0w;
+import dev.nuker.pyro.f58;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 
-public class f57 extends f58 {
-   // $FF: renamed from: 1 boolean
-   public boolean field_1116 = false;
+public class f57
+extends f58 {
+    public boolean Field4072 = false;
 
-   // $FF: renamed from: 0 (int, int, int) void
-   public void method_1622(int var1, int var2, int var3) {
-      super.0(var1, var2, var3);
-      if (var3 == 0) {
-         this.field_1116 = !this.field_1116;
-      }
+    @Override
+    public void Method4796(int n, int n2, int n3) {
+        super.Method4796(n, n2, n3);
+        if (n3 == 0) {
+            boolean bl = this.Field4072 = !this.Field4072;
+        }
+        if (this.Field4072) {
+            switch (n3) {
+                case 0: 
+                case 1: {
+                    break;
+                }
+                default: {
+                    BindSetting bindSetting = (BindSetting)this.Field4111;
+                    bindSetting.Method7975(-n3);
+                    this.Field4072 = false;
+                }
+            }
+        }
+    }
 
-      if (this.field_1116) {
-         switch(var3) {
-         case 0:
-         case 1:
-            break;
-         default:
-            BindSetting var4 = (BindSetting)this.c;
-            var4.c(-var3);
-            this.field_1116 = false;
-         }
-      }
+    @Override
+    public String Method4820() {
+        if (this.Field4072) {
+            return "Listening";
+        }
+        BindSetting bindSetting = (BindSetting)this.Field4111;
+        if ((Integer)bindSetting.Method7979() == 0 || (Integer)bindSetting.Method7979() == -1) {
+            return bindSetting.Method5989() + ": NONE";
+        }
+        return bindSetting.Method5989() + ": " + ((Integer)bindSetting.Method7979() > 0 ? Keyboard.getKeyName((int)((Integer)bindSetting.Method7979())) : Mouse.getButtonName((int)(-((Integer)bindSetting.Method7979()).intValue())));
+    }
 
-   }
+    @Override
+    public boolean Method4797(float f, float f2, float f3) {
+        if (this.Field4072) {
+            PyroRenderUtil.Method12316(this.Method4828() + 3.0f, this.Method4906() - 2.0f, -this.Method4828() + this.Method5094() - 2.0f, this.Method4906() + this.Method4908() - 3.0f, f0H.Field5479.Method7719());
+        }
+        PyroRenderUtil.Method12313(this.Method4820(), this.Method4828() + 5.0f, this.Method4906(), f0H.Field5479.Method7708());
+        return false;
+    }
 
-   // $FF: renamed from: 8 () java.lang.String
-   public String method_1630() {
-      if (this.field_1116) {
-         return "Listening";
-      } else {
-         BindSetting var1 = (BindSetting)this.c;
-         return (Integer)var1.c() != 0 && (Integer)var1.c() != -1 ? var1.c() + ": " + ((Integer)var1.c() > 0 ? Keyboard.getKeyName((Integer)var1.c()) : Mouse.getButtonName(-(Integer)var1.c())) : var1.c() + ": NONE";
-      }
-   }
+    @Override
+    public void Method4798(char c, int n) {
+        super.Method4798(c, n);
+        if (this.Field4072) {
+            this.Field4072 = false;
+            BindSetting bindSetting = (BindSetting)this.Field4111;
+            if (Keyboard.getKeyName((int)n).equals("BACK")) {
+                bindSetting.Method7975(-1);
+            } else {
+                bindSetting.Method7975(n);
+            }
+        }
+    }
 
-   // $FF: renamed from: c (float, float, float) boolean
-   public boolean method_1639(float var1, float var2, float var3) {
-      if (this.field_1116) {
-         PyroRenderUtil.meth0(this.2() + 3.0F, this.7() - 2.0F, -this.2() + this.c() - 2.0F, this.7() + this.meth4() - 3.0F, f0H.field_2338.method_3505());
-      }
-
-      PyroRenderUtil.meth1(this.method_1630(), this.2() + 5.0F, this.7(), f0H.field_2338.method_3494());
-      return false;
-   }
-
-   // $FF: renamed from: c (char, int) void
-   public void method_1632(char var1, int var2) {
-      super.c(var1, var2);
-      if (this.field_1116) {
-         this.field_1116 = false;
-         BindSetting var3 = (BindSetting)this.c;
-         if (Keyboard.getKeyName(var2).equals("BACK")) {
-            var3.c(-1);
-         } else {
-            var3.c(var2);
-         }
-      }
-
-   }
-
-   public f57(f0w var1, float var2, float var3) {
-      super(var1, var2, var3);
-   }
+    public f57(f0w f0w2, float f, float f2) {
+        super(f0w2, f, f2);
+    }
 }
+

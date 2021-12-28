@@ -1,6 +1,9 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  org.jetbrains.annotations.NotNull
+ *  org.jetbrains.annotations.Nullable
  */
 package dev.nuker.pyro.launcher;
 
@@ -16,84 +19,95 @@ import org.spongepowered.asm.mixin.MixinEnvironment;
 import org.spongepowered.asm.mixin.Mixins;
 
 public class LoadingPluginImpl {
-   // $FF: renamed from: mf java.io.File
-   @NotNull
-   public static File field_1666;
-   @NotNull
-   public static List mixins;
-   public static LoadingPluginImpl INSTANCE;
+    @NotNull
+    public static File Field2879;
+    @NotNull
+    public static List<String> Field2880;
+    public static LoadingPluginImpl Field2881;
 
-   @JvmStatic
-   @Nullable
-   public static String getAccessTransformerClass() {
-      return null;
-   }
+    @JvmStatic
+    @Nullable
+    public static String Method4775() {
+        return null;
+    }
 
-   static {
-      LoadingPluginImpl var0 = new LoadingPluginImpl();
-      INSTANCE = var0;
-   }
+    static {
+        LoadingPluginImpl loadingPluginImpl;
+        Field2881 = loadingPluginImpl = new LoadingPluginImpl();
+    }
 
-   @JvmStatic
-   public static void init(@NotNull List mixins, @NotNull File mf) {
-      LoadingPluginImpl.mixins = mixins;
-      field_1666 = mf;
-   }
+    /*
+     * WARNING - void declaration
+     */
+    @JvmStatic
+    public static void Method4776(@NotNull List list, @NotNull File file) {
+        void mf;
+        List mixins;
+        Field2880 = mixins;
+        Field2879 = mf;
+    }
 
-   @JvmStatic
-   @Nullable
-   public static String getModContainerClass() {
-      return null;
-   }
+    @JvmStatic
+    @Nullable
+    public static String Method4777() {
+        return null;
+    }
 
-   @JvmStatic
-   @Nullable
-   public static String getSetupClass() {
-      return null;
-   }
+    @JvmStatic
+    @Nullable
+    public static String Method4778() {
+        return null;
+    }
 
-   public void setMixins(@NotNull List var1) {
-      mixins = var1;
-   }
+    /*
+     * WARNING - void declaration
+     */
+    public void Method4779(@NotNull List list) {
+        void <set-?>;
+        Field2880 = <set-?>;
+    }
 
-   @NotNull
-   public List getMixins() {
-      List var10000 = mixins;
-      if (var10000 == null) {
-         Intrinsics.throwUninitializedPropertyAccessException("mixins");
-      }
+    @NotNull
+    public List Method4780() {
+        List<String> list = Field2880;
+        if (list == null) {
+            Intrinsics.Method6554("mixins");
+        }
+        return list;
+    }
 
-      return var10000;
-   }
+    @JvmStatic
+    @Nullable
+    public static String[] Method4781() {
+        return new String[]{null};
+    }
 
-   @JvmStatic
-   @Nullable
-   public static String[] getASMTransformerClass() {
-      return new String[]{null};
-   }
+    @NotNull
+    public File Method4782() {
+        File file = Field2879;
+        if (file == null) {
+            Intrinsics.Method6554("mf");
+        }
+        return file;
+    }
 
-   @NotNull
-   public File getMf() {
-      File var10000 = field_1666;
-      if (var10000 == null) {
-         Intrinsics.throwUninitializedPropertyAccessException("mf");
-      }
+    /*
+     * WARNING - void declaration
+     */
+    public void Method4783(@NotNull File file) {
+        void <set-?>;
+        Field2879 = <set-?>;
+    }
 
-      return var10000;
-   }
-
-   public void setMf(@NotNull File var1) {
-      field_1666 = var1;
-   }
-
-   @JvmStatic
-   public static void injectData(@Nullable Map data) {
-      MixinBootstrap.init();
-      System.out.println("Initialized Mixin Bootstrap");
-      MixinEnvironment.getDefaultEnvironment().setObfuscationContext("searge");
-      MixinEnvironment.getDefaultEnvironment().setSide(MixinEnvironment.Side.CLIENT);
-      System.out.println("Loading Pyro Mixin Config");
-      Mixins.addConfiguration("mixins.pyroclient.json");
-      System.out.println("Binscure won't save your terrible security solution! - Crystallinqq");
-   }
+    @JvmStatic
+    public static void Method4784(@Nullable Map data) {
+        MixinBootstrap.Method3899();
+        System.out.println("Initialized Mixin Bootstrap");
+        MixinEnvironment.Method992().Method981("searge");
+        MixinEnvironment.Method992().Method974(MixinEnvironment.Side.CLIENT);
+        System.out.println("Loading Pyro Mixin Config");
+        Mixins.Method11756("mixins.pyroclient.json");
+        System.out.println("Binscure won't save your terrible security solution! - Crystallinqq");
+    }
 }
+

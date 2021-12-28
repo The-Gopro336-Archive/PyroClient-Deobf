@@ -1,27 +1,30 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.f0w;
+import dev.nuker.pyro.fbc;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.NotNull;
 
-public class faT implements Consumer {
-   // $FF: renamed from: c dev.nuker.pyro.fbc
-   public fbc field_1486;
+public class faT
+implements Consumer {
+    public fbc Field1742;
 
-   public void accept(Object var1) {
-      this.method_2659((f0w)var1);
-   }
+    public void accept(Object object) {
+        this.Method374((f0w)object);
+    }
 
-   public faT(fbc var1) {
-      this.field_1486 = var1;
-      super();
-   }
+    public faT(fbc fbc2) {
+        this.Field1742 = fbc2;
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.f0w) void
-   public void method_2659(@NotNull f0w var1) {
-      this.field_1486.method_1008();
-   }
+    public void Method374(@NotNull f0w f0w2) {
+        this.Field1742.Method2731();
+    }
 }
+

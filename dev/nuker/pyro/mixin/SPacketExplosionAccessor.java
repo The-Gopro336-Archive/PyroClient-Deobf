@@ -1,6 +1,8 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.network.play.server.SPacketExplosion
  */
 package dev.nuker.pyro.mixin;
 
@@ -8,23 +10,24 @@ import net.minecraft.network.play.server.SPacketExplosion;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
-@Mixin({SPacketExplosion.class})
+@Mixin(value={SPacketExplosion.class})
 public interface SPacketExplosionAccessor {
-   @Accessor("motionX")
-   float getMotionX();
+    @Accessor(value="motionX")
+    public float Method2004();
 
-   @Accessor("motionX")
-   void setMotionX(float var1);
+    @Accessor(value="motionX")
+    public void Method2005(float var1);
 
-   @Accessor("motionY")
-   float getMotionY();
+    @Accessor(value="motionY")
+    public float Method2006();
 
-   @Accessor("motionY")
-   void setMotionY(float var1);
+    @Accessor(value="motionY")
+    public void Method2007(float var1);
 
-   @Accessor("motionZ")
-   float getMotionZ();
+    @Accessor(value="motionZ")
+    public float Method2008();
 
-   @Accessor("motionZ")
-   void setMotionZ(float var1);
+    @Accessor(value="motionZ")
+    public void Method2009(float var1);
 }
+

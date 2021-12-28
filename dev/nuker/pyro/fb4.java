@@ -1,13 +1,44 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.Minecraft
+ *  net.minecraft.client.entity.EntityOtherPlayerMP
+ *  net.minecraft.client.entity.EntityPlayerSP
+ *  net.minecraft.client.settings.GameSettings
+ *  net.minecraft.entity.Entity
+ *  net.minecraft.entity.MoverType
+ *  net.minecraft.entity.player.EntityPlayer
+ *  net.minecraft.network.Packet
+ *  net.minecraft.network.play.client.CPacketInput
+ *  net.minecraft.network.play.client.CPacketPlayer
+ *  net.minecraft.network.play.client.CPacketUseEntity
+ *  net.minecraft.network.play.client.CPacketVehicleMove
+ *  net.minecraft.util.MovementInputFromOptions
+ *  net.minecraft.util.math.MathHelper
+ *  net.minecraft.world.World
+ *  org.jetbrains.annotations.NotNull
+ *  org.jetbrains.annotations.Nullable
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.BooleanSetting;
+import dev.nuker.pyro.DoubleSetting;
+import dev.nuker.pyro.Module;
+import dev.nuker.pyro.PyroStatic;
+import dev.nuker.pyro.f0g;
+import dev.nuker.pyro.f0z;
+import dev.nuker.pyro.f41;
+import dev.nuker.pyro.f43;
+import dev.nuker.pyro.f49;
+import dev.nuker.pyro.f4x;
+import dev.nuker.pyro.fb1;
+import dev.nuker.pyro.fb2;
+import dev.nuker.pyro.fb3;
+import dev.nuker.pyro.fe4;
 import dev.nuker.pyro.mixin.EntityFlagAccessor;
 import dev.nuker.pyro.security.inject.LauncherEventHide;
 import java.util.List;
-import java.util.function.Consumer;
 import kotlin.TypeCastException;
 import kotlin.collections.CollectionsKt;
 import kotlin.jvm.JvmField;
@@ -30,585 +61,553 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class fb4 extends Module {
-   // $FF: renamed from: c net.minecraft.entity.Entity
-   @Nullable
-   public Entity field_765;
-   // $FF: renamed from: c boolean
-   public boolean field_766;
-   // $FF: renamed from: c double
-   public double field_767;
-   // $FF: renamed from: 0 double
-   public double field_768;
-   // $FF: renamed from: 1 double
-   public double field_769;
-   // $FF: renamed from: c float
-   public float field_770;
-   // $FF: renamed from: 0 float
-   public float field_771;
-   // $FF: renamed from: 1 float
-   @JvmField
-   public float field_772;
-   // $FF: renamed from: 2 float
-   @JvmField
-   public float field_773;
-   // $FF: renamed from: c net.minecraft.util.MovementInputFromOptions
-   @NotNull
-   public MovementInputFromOptions field_774;
-   // $FF: renamed from: c net.minecraft.client.entity.EntityOtherPlayerMP
-   @JvmField
-   @Nullable
-   public EntityOtherPlayerMP field_775;
-   // $FF: renamed from: c dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_776;
-   // $FF: renamed from: c dev.nuker.pyro.f0z
-   @JvmField
-   @NotNull
-   public f0z field_777;
-   // $FF: renamed from: c dev.nuker.pyro.DoubleSetting
-   @NotNull
-   public DoubleSetting field_778;
-   // $FF: renamed from: 0 boolean
-   public boolean field_779;
-   // $FF: renamed from: 3 float
-   public float field_780;
-   // $FF: renamed from: 4 float
-   public float field_781;
-   // $FF: renamed from: 5 float
-   public float field_782;
-   // $FF: renamed from: 1 boolean
-   public boolean field_783;
+public class fb4
+extends Module {
+    @Nullable
+    public Entity Field1702;
+    public boolean Field1703;
+    public double Field1704;
+    public double Field1705;
+    public double Field1706;
+    public float Field1707;
+    public float Field1708;
+    @JvmField
+    public float Field1709;
+    @JvmField
+    public float Field1710;
+    @NotNull
+    public MovementInputFromOptions Field1711;
+    @JvmField
+    @Nullable
+    public EntityOtherPlayerMP Field1712;
+    @NotNull
+    public BooleanSetting Field1713;
+    @JvmField
+    @NotNull
+    public f0z<fb2> Field1714;
+    @NotNull
+    public DoubleSetting Field1715;
+    public boolean Field1716;
+    public float Field1717;
+    public float Field1718;
+    public float Field1719;
+    public boolean Field1720;
 
-   // $FF: renamed from: 1 (double) void
-   public void method_1130(double var1) {
-      this.field_768 = var1;
-   }
+    public void Method2389(double d) {
+        this.Field1705 = d;
+    }
 
-   // $FF: renamed from: 2 () boolean
-   public boolean method_1131() {
-      return this.field_783;
-   }
+    public boolean Method2390() {
+        return this.Field1720;
+    }
 
-   // $FF: renamed from: c (net.minecraft.util.MovementInputFromOptions) void
-   public void method_1132(@NotNull MovementInputFromOptions var1) {
-      this.field_774 = var1;
-   }
+    public void Method2391(@NotNull MovementInputFromOptions movementInputFromOptions) {
+        this.Field1711 = movementInputFromOptions;
+    }
 
-   // $FF: renamed from: g () void
-   public void method_1133() {
-      EntityOtherPlayerMP var10000 = this.field_775;
-      if (var10000 == null) {
-         Intrinsics.throwNpe();
-      }
+    public void Method2392() {
+        if (this.Field1712 == null) {
+            Intrinsics.Method6551();
+        }
+        EntityOtherPlayerMP entityOtherPlayerMP = this.Field1712;
+        if (entityOtherPlayerMP == null) {
+            Intrinsics.Method6551();
+        }
+        this.Field1712.lastTickPosX = entityOtherPlayerMP.posX;
+        if (this.Field1712 == null) {
+            Intrinsics.Method6551();
+        }
+        EntityOtherPlayerMP entityOtherPlayerMP2 = this.Field1712;
+        if (entityOtherPlayerMP2 == null) {
+            Intrinsics.Method6551();
+        }
+        this.Field1712.prevPosX = entityOtherPlayerMP2.lastTickPosX;
+        if (this.Field1712 == null) {
+            Intrinsics.Method6551();
+        }
+        EntityOtherPlayerMP entityOtherPlayerMP3 = this.Field1712;
+        if (entityOtherPlayerMP3 == null) {
+            Intrinsics.Method6551();
+        }
+        this.Field1712.lastTickPosY = entityOtherPlayerMP3.posY;
+        if (this.Field1712 == null) {
+            Intrinsics.Method6551();
+        }
+        EntityOtherPlayerMP entityOtherPlayerMP4 = this.Field1712;
+        if (entityOtherPlayerMP4 == null) {
+            Intrinsics.Method6551();
+        }
+        this.Field1712.prevPosY = entityOtherPlayerMP4.lastTickPosY;
+        if (this.Field1712 == null) {
+            Intrinsics.Method6551();
+        }
+        EntityOtherPlayerMP entityOtherPlayerMP5 = this.Field1712;
+        if (entityOtherPlayerMP5 == null) {
+            Intrinsics.Method6551();
+        }
+        this.Field1712.lastTickPosZ = entityOtherPlayerMP5.posZ;
+        if (this.Field1712 == null) {
+            Intrinsics.Method6551();
+        }
+        EntityOtherPlayerMP entityOtherPlayerMP6 = this.Field1712;
+        if (entityOtherPlayerMP6 == null) {
+            Intrinsics.Method6551();
+        }
+        this.Field1712.prevPosZ = entityOtherPlayerMP6.lastTickPosZ;
+    }
 
-      EntityOtherPlayerMP var10001 = this.field_775;
-      if (var10001 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      var10000.lastTickPosX = var10001.posX;
-      var10000 = this.field_775;
-      if (var10000 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      var10001 = this.field_775;
-      if (var10001 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      var10000.prevPosX = var10001.lastTickPosX;
-      var10000 = this.field_775;
-      if (var10000 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      var10001 = this.field_775;
-      if (var10001 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      var10000.lastTickPosY = var10001.posY;
-      var10000 = this.field_775;
-      if (var10000 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      var10001 = this.field_775;
-      if (var10001 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      var10000.prevPosY = var10001.lastTickPosY;
-      var10000 = this.field_775;
-      if (var10000 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      var10001 = this.field_775;
-      if (var10001 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      var10000.lastTickPosZ = var10001.posZ;
-      var10000 = this.field_775;
-      if (var10000 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      var10001 = this.field_775;
-      if (var10001 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      var10000.prevPosZ = var10001.lastTickPosZ;
-   }
-
-   // $FF: renamed from: c (dev.nuker.pyro.f49) void
-   @f0g
-   @LauncherEventHide
-   public void method_1134(@NotNull f49 var1) {
-      if (var1.c() == f41.field_2120 && var1.c() instanceof CPacketUseEntity) {
-         Packet var10000 = var1.c();
-         if (var10000 == null) {
-            throw new TypeCastException("null cannot be cast to non-null type net.minecraft.network.play.client.CPacketUseEntity");
-         }
-
-         if (Intrinsics.areEqual((Object)((CPacketUseEntity)var10000).getEntityFromWorld((World)this.c.world), (Object)this.c.player)) {
-            var1.0();
-         }
-      }
-
-      if (var1.c() == f41.field_2120 && (Boolean)PyroStatic.field_2481.c.method_3034() && (fb2)PyroStatic.field_2481.field_777.method_3334().c() == fb2.field_1472) {
-         Packet var2 = var1.c();
-         if ((Boolean)PyroStatic.field_2481.field_776.c() && (var2 instanceof CPacketPlayer || var2 instanceof CPacketInput)) {
-            var1.0();
-         }
-
-         if ((Boolean)PyroStatic.field_2481.field_776.c() && (var2 instanceof CPacketUseEntity || var2 instanceof CPacketVehicleMove)) {
-            var1.0();
-         }
-      }
-
-   }
-
-   // $FF: renamed from: 5 () float
-   public float method_1135() {
-      return this.field_770;
-   }
-
-   // $FF: renamed from: b () double
-   public double method_1136() {
-      return this.field_767;
-   }
-
-   public fb4() {
-      super("freecam", "Freecam", "Free your eyes from your body");
-      this.field_774 = new MovementInputFromOptions(this.c.gameSettings);
-      this.field_776 = new BooleanSetting("packet_cancel", "Riding Packet Cancel", "Cancel riding packets", false);
-      Enum var10005 = (Enum)fb2.field_1471;
-      List[] var10006 = new List[2];
-      byte var12 = 0;
-      List[] var11 = var10006;
-      List[] var10 = var10006;
-      Enum var9 = var10005;
-      String var8 = "Camera mode moves the camera, Packet mode desynchronizes position";
-      String var7 = "Mode";
-      String var6 = "mode";
-      boolean var1 = false;
-      List var13 = CollectionsKt.emptyList();
-      var11[var12] = var13;
-      var10[1] = CollectionsKt.listOf(this.field_776);
-      this.field_777 = (f0z)this.register((f0w)(new f0z(var6, var7, var8, var9, var10)));
-      this.field_778 = (DoubleSetting)this.register((f0w)(new DoubleSetting("speed", "Speed", (String)null, 20.0D, 0.0D, 50.0D, 25.0D)));
-      this.field_777.method_3334().c((Consumer)(new fb1(this)));
-   }
-
-   // $FF: renamed from: 0 (float, float, float) float
-   public float method_1137(float var1, float var2, float var3) {
-      float var4 = var1;
-      float var5 = var3;
-      if (var2 != 0.0F) {
-         if (var2 < (float)0) {
-            var5 = var3 * -1.0F;
-         }
-
-         if (var2 < (float)0 != var1 < (float)0) {
-            var4 = 0.0F;
-         }
-
-         var4 = MathHelper.clamp(var4 + var5, -1.0F, 1.0F);
-      } else {
-         var4 = var1 * 0.5F;
-      }
-
-      return var4;
-   }
-
-   // $FF: renamed from: 4 () float
-   public float method_1138() {
-      return this.field_782;
-   }
-
-   // $FF: renamed from: d () float
-   public float method_1139() {
-      return this.field_771;
-   }
-
-   // $FF: renamed from: c (dev.nuker.pyro.f43) void
-   @f0g
-   @LauncherEventHide
-   public void method_1140(@NotNull f43 var1) {
-      // $FF: Couldn't be decompiled
-   }
-
-   // $FF: renamed from: 2 (boolean) void
-   public void method_1141(boolean var1) {
-      if (var1) {
-         this.field_767 = this.c.player.posX;
-         this.field_768 = this.c.player.posY;
-         this.field_769 = this.c.player.posZ;
-         if (this.c.player.getRidingEntity() != null) {
-            this.field_765 = this.c.player.getRidingEntity();
-            this.c.player.dismountRidingEntity();
-         }
-
-         this.field_770 = this.c.player.rotationPitch;
-         this.field_771 = this.c.player.rotationYaw;
-         this.field_766 = this.c.player.isElytraFlying();
-         this.field_775 = fe4.field_1243.method_1897((EntityPlayer)this.c.player, -6969, false);
-         this.field_779 = false;
-      } else {
-         this.c.player.setPositionAndRotation(this.field_767, this.field_768, this.field_769, this.field_771, this.field_770);
-         this.field_769 = 0.0D;
-         this.field_768 = this.field_769;
-         this.field_767 = this.field_768;
-         this.field_771 = 0.0F;
-         this.field_770 = this.field_771;
-         EntityPlayerSP var10000 = this.c.player;
-         if (var10000 == null) {
-            throw new TypeCastException("null cannot be cast to non-null type dev.nuker.pyro.mixin.EntityFlagAccessor");
-         }
-
-         ((EntityFlagAccessor)var10000).set(7, this.field_766);
-         this.c.player.motionZ = 0.0D;
-         this.c.player.motionY = this.c.player.motionZ;
-         this.c.player.motionX = this.c.player.motionY;
-         EntityOtherPlayerMP var10001;
-         if (this.field_765 != null) {
-            EntityOtherPlayerMP var2 = this.field_775;
-            if (var2 == null) {
-               Intrinsics.throwNpe();
+    @f0g
+    @LauncherEventHide
+    public void Method2393(@NotNull f49 f492) {
+        if (f492.Method5619() == f41.Pre && f492.Method5784() instanceof CPacketUseEntity) {
+            Packet packet = f492.Method5784();
+            if (packet == null) {
+                throw new TypeCastException("null cannot be cast to non-null type net.minecraft.network.play.client.CPacketUseEntity");
             }
-
-            if (var2.getRidingEntity() != null) {
-               var10000 = this.c.player;
-               var10001 = this.field_775;
-               if (var10001 == null) {
-                  Intrinsics.throwNpe();
-               }
-
-               var10000.startRiding(var10001.getRidingEntity(), true);
-               this.field_765 = (Entity)null;
+            if (Intrinsics.Method6572((Object)((CPacketUseEntity)packet).getEntityFromWorld((World)this.Field5233.world), (Object)this.Field5233.player)) {
+                f492.Method7948();
             }
-         }
-
-         fe4 var3 = fe4.field_1243;
-         var10001 = this.field_775;
-         if (var10001 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         var3.method_1896(var10001);
-      }
-
-      this.c.player.capabilities.isFlying = var1;
-      this.c.player.capabilities.setFlySpeed(var1 ? (float)(((Number)this.field_778.c()).doubleValue() / (double)100.0F) : 0.05F);
-      this.c.player.noClip = var1 || this.c.player.isSpectator();
-   }
-
-   // $FF: renamed from: e () double
-   public double method_1142() {
-      return this.field_768;
-   }
-
-   // $FF: renamed from: c (double) void
-   public void method_1143(double var1) {
-      this.field_769 = var1;
-   }
-
-   // $FF: renamed from: c (boolean, net.minecraft.client.entity.EntityPlayerSP, net.minecraft.world.World) void
-   public void method_116(boolean var1, @Nullable EntityPlayerSP var2, @Nullable World var3) {
-      // $FF: Couldn't be decompiled
-   }
-
-   // $FF: renamed from: 0 (boolean) void
-   public void method_1144(boolean var1) {
-      this.field_766 = var1;
-   }
-
-   // $FF: renamed from: 3 () float
-   public float method_1145() {
-      return this.field_780;
-   }
-
-   // $FF: renamed from: c (float, float, float) void
-   public void method_1146(float var1, float var2, float var3) {
-      EntityOtherPlayerMP var10000 = this.field_775;
-      if (var10000 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      double var4 = Math.sin((double)var10000.rotationYaw * 3.141592653589793D / 180.0D);
-      var10000 = this.field_775;
-      if (var10000 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      double var6 = Math.cos((double)var10000.rotationYaw * 3.141592653589793D / 180.0D);
-      double var8 = this.method_1152();
-      var10000 = this.field_775;
-      if (var10000 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      var10000.motionX = ((double)var3 * var6 - (double)var1 * var4) * var8;
-      var10000 = this.field_775;
-      if (var10000 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      var10000.motionY = (double)var2 * var8;
-      var10000 = this.field_775;
-      if (var10000 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      var10000.motionZ = ((double)var1 * var6 + (double)var3 * var4) * var8;
-      var10000 = this.field_775;
-      if (var10000 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      var10000.noClip = true;
-      var10000 = this.field_775;
-      if (var10000 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      MoverType var10001 = MoverType.SELF;
-      EntityOtherPlayerMP var10002 = this.field_775;
-      if (var10002 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      double var10 = var10002.motionX;
-      EntityOtherPlayerMP var10003 = this.field_775;
-      if (var10003 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      double var11 = var10003.motionY;
-      EntityOtherPlayerMP var10004 = this.field_775;
-      if (var10004 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      var10000.move(var10001, var10, var11, var10004.motionZ);
-   }
-
-   // $FF: renamed from: c () net.minecraft.util.MovementInputFromOptions
-   @NotNull
-   public MovementInputFromOptions method_1147() {
-      return this.field_774;
-   }
-
-   // $FF: renamed from: 1 (boolean) void
-   public void method_1148(boolean var1) {
-      if (var1) {
-         this.field_772 = this.c.player.rotationPitch;
-         this.field_773 = this.c.player.rotationYaw;
-         this.field_775 = fe4.field_1243.method_1899((EntityPlayer)this.c.player, -6969, false);
-         EntityOtherPlayerMP var10000 = this.field_775;
-         if (var10000 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         var10000.posX = this.c.player.posX;
-         var10000 = this.field_775;
-         if (var10000 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         var10000.posY = this.c.player.posY;
-         var10000 = this.field_775;
-         if (var10000 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         var10000.posZ = this.c.player.posZ;
-         this.c.setRenderViewEntity((Entity)this.field_775);
-      } else {
-         this.c.setRenderViewEntity((Entity)this.c.player);
-         if (this.field_775 != null) {
-            fe4 var2 = fe4.field_1243;
-            EntityOtherPlayerMP var10001 = this.field_775;
-            if (var10001 == null) {
-               Intrinsics.throwNpe();
+        }
+        if (f492.Method5619() == f41.Pre) {
+            if (((Boolean)PyroStatic.Field6417.Field5236.Method5264()).booleanValue() && (fb2)((Object)PyroStatic.Field6417.Field1714.Method7991().Method7979()) == fb2.PACKET) {
+                Packet packet = f492.Method5784();
+                if (((Boolean)PyroStatic.Field6417.Field1713.Method7979()).booleanValue() && (packet instanceof CPacketPlayer || packet instanceof CPacketInput)) {
+                    f492.Method7948();
+                }
+                if (((Boolean)PyroStatic.Field6417.Field1713.Method7979()).booleanValue()) {
+                    if (packet instanceof CPacketUseEntity || packet instanceof CPacketVehicleMove) {
+                        f492.Method7948();
+                    }
+                }
             }
+        }
+    }
 
-            var2.method_1896(var10001);
-         }
+    public float Method2394() {
+        return this.Field1707;
+    }
 
-         this.field_775 = (EntityOtherPlayerMP)null;
-      }
+    public double Method2395() {
+        return this.Field1704;
+    }
 
-   }
+    public fb4() {
+        super("freecam", "Freecam", "Free your eyes from your body");
+        List list;
+        List[] arrlist;
+        this.Field1711 = new MovementInputFromOptions(this.Field5233.gameSettings);
+        this.Field1713 = new BooleanSetting("packet_cancel", "Riding Packet Cancel", "Cancel riding packets", false);
+        int n = 0;
+        List[] arrlist2 = arrlist = new List[2];
+        Enum enum_ = fb2.CAMERA;
+        String string = "Camera mode moves the camera, Packet mode desynchronizes position";
+        String string2 = "Mode";
+        String string3 = "mode";
+        fb4 fb42 = this;
+        fb4 fb43 = this;
+        boolean bl = false;
+        arrlist[n] = list = CollectionsKt.Method1013();
+        arrlist2[1] = CollectionsKt.Method9007(this.Field1713);
+        List[] arrlist3 = arrlist2;
+        Enum enum_2 = enum_;
+        String string4 = string;
+        String string5 = string2;
+        String string6 = string3;
+        fb43.Field1714 = (f0z)fb42.Method7264(new f0z(string6, string5, string4, enum_2, arrlist3));
+        this.Field1715 = (DoubleSetting)this.Method7264(new DoubleSetting("speed", "Speed", null, 20.0, 0.0, 50.0, 25.0));
+        this.Field1714.Method7991().Method7980(new fb1(this));
+    }
 
-   // $FF: renamed from: c (net.minecraft.entity.Entity) void
-   public void method_1149(@Nullable Entity var1) {
-      this.field_765 = var1;
-   }
+    public float Method2396(float f, float f2, float f3) {
+        float f4 = f;
+        float f5 = f3;
+        if (f2 != 0.0f) {
+            if (f2 < 0.0f) {
+                f5 *= -1.0f;
+            }
+            if (f2 < 0.0f != f4 < 0.0f) {
+                f4 = 0.0f;
+            }
+            f4 = MathHelper.clamp((float)(f4 + f5), (float)-1.0f, (float)1.0f);
+        } else {
+            f4 *= 0.5f;
+        }
+        return f4;
+    }
 
-   // $FF: renamed from: 0 (float) void
-   public void method_1150(float var1) {
-      this.field_781 = var1;
-   }
+    public float Method2397() {
+        return this.Field1719;
+    }
 
-   // $FF: renamed from: 1 () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_1151() {
-      return this.field_776;
-   }
+    public float Method2398() {
+        return this.Field1708;
+    }
 
-   // $FF: renamed from: 8 () double
-   public double method_1152() {
-      return ((Number)this.field_778.c()).doubleValue() / (double)9;
-   }
+    @f0g
+    @LauncherEventHide
+    public void Method277(@NotNull f43 f432) {
+        if (this.Field5233.player == null) {
+            return;
+        }
+        if (f432.Method5619() == f41.Pre && this.Field1712 != null && (fb2)((Object)this.Field1714.Method7991().Method7979()) == fb2.CAMERA) {
+            this.Method2392();
+        } else {
+            switch (fb3.Field1694[((fb2)((Object)this.Field1714.Method7991().Method7979())).ordinal()]) {
+                case 1: {
+                    this.Field5233.setRenderViewEntity((Entity)this.Field1712);
+                    this.Method2392();
+                    this.Method2411(this.Field5233.player.movementInput.sneak, this.Field5233.player.movementInput.jump);
+                    break;
+                }
+                case 2: {
+                    this.Field5233.player.capabilities.isFlying = true;
+                    this.Field5233.player.capabilities.setFlySpeed((float)(((Number)this.Field1715.Method7979()).doubleValue() / (double)100.0f));
+                    this.Field5233.player.onGround = false;
+                    this.Field5233.player.noClip = true;
+                    this.Field5233.player.fallDistance = 0.0f;
+                    if (this.Field1702 != null) {
+                        EntityOtherPlayerMP entityOtherPlayerMP = this.Field1712;
+                        if (entityOtherPlayerMP == null) {
+                            Intrinsics.Method6551();
+                        }
+                        if (entityOtherPlayerMP.getRidingEntity() != this.Field1702) {
+                            if (!this.Field1716) {
+                                EntityOtherPlayerMP entityOtherPlayerMP2 = this.Field1712;
+                                if (entityOtherPlayerMP2 == null) {
+                                    Intrinsics.Method6551();
+                                }
+                                entityOtherPlayerMP2.startRiding(this.Field1702, true);
+                                break;
+                            }
+                        }
+                    }
+                    EntityOtherPlayerMP entityOtherPlayerMP = this.Field1712;
+                    if (entityOtherPlayerMP == null) {
+                        Intrinsics.Method6551();
+                    }
+                    if (entityOtherPlayerMP.getRidingEntity() != this.Field1702) break;
+                    this.Field1716 = true;
+                }
+            }
+            try {
+                EntityOtherPlayerMP entityOtherPlayerMP = this.Field1712;
+                if (entityOtherPlayerMP == null) {
+                    Intrinsics.Method6551();
+                }
+                entityOtherPlayerMP.inventory.copyInventory(this.Field5233.player.inventory);
+            }
+            catch (NullPointerException nullPointerException) {
+                // empty catch block
+            }
+        }
+    }
 
-   // $FF: renamed from: 3 (float) void
-   public void method_1153(float var1) {
-      this.field_782 = var1;
-   }
+    /*
+     * Unable to fully structure code
+     * Enabled aggressive block sorting
+     * Lifted jumps to return sites
+     */
+    public void Method2399(boolean var1_1) {
+        if (var1_1) {
+            this.Field1704 = this.Field5233.player.posX;
+            this.Field1705 = this.Field5233.player.posY;
+            this.Field1706 = this.Field5233.player.posZ;
+            if (this.Field5233.player.getRidingEntity() != null) {
+                this.Field1702 = this.Field5233.player.getRidingEntity();
+                this.Field5233.player.dismountRidingEntity();
+            }
+            this.Field1707 = this.Field5233.player.rotationPitch;
+            this.Field1708 = this.Field5233.player.rotationYaw;
+            this.Field1703 = this.Field5233.player.isElytraFlying();
+            this.Field1712 = fe4.Field250.Method390((EntityPlayer)this.Field5233.player, -6969, false);
+            this.Field1716 = false;
+        } else {
+            this.Field5233.player.setPositionAndRotation(this.Field1704, this.Field1705, this.Field1706, this.Field1708, this.Field1707);
+            this.Field1704 = this.Field1705 = (this.Field1706 = 0.0);
+            this.Field1707 = this.Field1708 = 0.0f;
+            v0 = this.Field5233.player;
+            if (v0 == null) {
+                throw new TypeCastException("null cannot be cast to non-null type dev.nuker.pyro.mixin.EntityFlagAccessor");
+            }
+            ((EntityFlagAccessor)v0).Method2970(7, this.Field1703);
+            this.Field5233.player.motionX = this.Field5233.player.motionY = (this.Field5233.player.motionZ = 0.0);
+            if (this.Field1702 != null) {
+                v1 = this.Field1712;
+                if (v1 == null) {
+                    Intrinsics.Method6551();
+                }
+                if (v1.getRidingEntity() != null) {
+                    v2 = this.Field1712;
+                    if (v2 == null) {
+                        Intrinsics.Method6551();
+                    }
+                    this.Field5233.player.startRiding(v2.getRidingEntity(), true);
+                    this.Field1702 = null;
+                }
+            }
+            v3 = this.Field1712;
+            if (v3 == null) {
+                Intrinsics.Method6551();
+            }
+            fe4.Field250.Method389(v3);
+        }
+        this.Field5233.player.capabilities.isFlying = var1_1;
+        this.Field5233.player.capabilities.setFlySpeed(var1_1 != false ? (float)(((Number)this.Field1715.Method7979()).doubleValue() / (double)100.0f) : 0.05f);
+        if (var1_1) ** GOTO lbl-1000
+        if (this.Field5233.player.isSpectator()) lbl-1000:
+        // 2 sources
 
-   // $FF: renamed from: 1 (float) void
-   public void method_1154(float var1) {
-      this.field_770 = var1;
-   }
+        {
+            v4 = true;
+        } else {
+            v4 = false;
+        }
+        this.Field5233.player.noClip = v4;
+    }
 
-   // $FF: renamed from: 9 () dev.nuker.pyro.DoubleSetting
-   @NotNull
-   public DoubleSetting method_1155() {
-      return this.field_778;
-   }
+    public double Method2400() {
+        return this.Field1705;
+    }
 
-   // $FF: renamed from: 2 (float) void
-   public void method_1156(float var1) {
-      this.field_780 = var1;
-   }
+    public void Method2401(double d) {
+        this.Field1706 = d;
+    }
 
-   // $FF: renamed from: a () double
-   public double method_1157() {
-      return this.field_769;
-   }
+    @Override
+    public void Method205(boolean bl, @Nullable EntityPlayerSP entityPlayerSP, @Nullable World world) {
+        super.Method205(bl, entityPlayerSP, world);
+        if (entityPlayerSP != null) {
+            switch (fb3.Field1693[((fb2)((Object)this.Field1714.Method7991().Method7979())).ordinal()]) {
+                case 1: {
+                    this.Method2406(bl);
+                    break;
+                }
+                case 2: {
+                    this.Method2399(bl);
+                    break;
+                }
+            }
+        }
+    }
 
-   // $FF: renamed from: c (boolean, boolean) void
-   public void method_1158(boolean var1, boolean var2) {
-      EntityOtherPlayerMP var3 = this.field_775;
-      if (var3 != null) {
-         Minecraft var4 = Minecraft.getMinecraft();
-         float var5 = 0.0F;
-         float var6 = 0.0F;
-         float var7 = 0.0F;
-         GameSettings var8 = var4.gameSettings;
-         if (var8.keyBindForward.isKeyDown()) {
-            ++var5;
-         }
+    public void Method2402(boolean bl) {
+        this.Field1703 = bl;
+    }
 
-         if (var8.keyBindBack.isKeyDown()) {
-            var5 += -1.0F;
-         }
+    public float Method2403() {
+        return this.Field1717;
+    }
 
-         if (var8.keyBindLeft.isKeyDown()) {
-            ++var7;
-         }
+    public void Method2404(float f, float f2, float f3) {
+        EntityOtherPlayerMP entityOtherPlayerMP = this.Field1712;
+        if (entityOtherPlayerMP == null) {
+            Intrinsics.Method6551();
+        }
+        double d = Math.sin((double)entityOtherPlayerMP.rotationYaw * Math.PI / 180.0);
+        EntityOtherPlayerMP entityOtherPlayerMP2 = this.Field1712;
+        if (entityOtherPlayerMP2 == null) {
+            Intrinsics.Method6551();
+        }
+        double d2 = Math.cos((double)entityOtherPlayerMP2.rotationYaw * Math.PI / 180.0);
+        double d3 = this.Method229();
+        if (this.Field1712 == null) {
+            Intrinsics.Method6551();
+        }
+        this.Field1712.motionX = ((double)f3 * d2 - (double)f * d) * d3;
+        if (this.Field1712 == null) {
+            Intrinsics.Method6551();
+        }
+        this.Field1712.motionY = (double)f2 * d3;
+        if (this.Field1712 == null) {
+            Intrinsics.Method6551();
+        }
+        this.Field1712.motionZ = ((double)f * d2 + (double)f3 * d) * d3;
+        if (this.Field1712 == null) {
+            Intrinsics.Method6551();
+        }
+        this.Field1712.noClip = true;
+        EntityOtherPlayerMP entityOtherPlayerMP3 = this.Field1712;
+        if (entityOtherPlayerMP3 == null) {
+            Intrinsics.Method6551();
+        }
+        EntityOtherPlayerMP entityOtherPlayerMP4 = this.Field1712;
+        if (entityOtherPlayerMP4 == null) {
+            Intrinsics.Method6551();
+        }
+        EntityOtherPlayerMP entityOtherPlayerMP5 = this.Field1712;
+        if (entityOtherPlayerMP5 == null) {
+            Intrinsics.Method6551();
+        }
+        EntityOtherPlayerMP entityOtherPlayerMP6 = this.Field1712;
+        if (entityOtherPlayerMP6 == null) {
+            Intrinsics.Method6551();
+        }
+        entityOtherPlayerMP3.move(MoverType.SELF, entityOtherPlayerMP4.motionX, entityOtherPlayerMP5.motionY, entityOtherPlayerMP6.motionZ);
+    }
 
-         if (var8.keyBindRight.isKeyDown()) {
-            var7 += -1.0F;
-         }
+    @NotNull
+    public MovementInputFromOptions Method2405() {
+        return this.Field1711;
+    }
 
-         if (var8.keyBindJump.isKeyDown()) {
-            ++var6;
-         }
+    public void Method2406(boolean bl) {
+        if (bl) {
+            this.Field1709 = this.Field5233.player.rotationPitch;
+            this.Field1710 = this.Field5233.player.rotationYaw;
+            this.Field1712 = fe4.Field250.Method392((EntityPlayer)this.Field5233.player, -6969, false);
+            if (this.Field1712 == null) {
+                Intrinsics.Method6551();
+            }
+            this.Field1712.posX = this.Field5233.player.posX;
+            if (this.Field1712 == null) {
+                Intrinsics.Method6551();
+            }
+            this.Field1712.posY = this.Field5233.player.posY;
+            if (this.Field1712 == null) {
+                Intrinsics.Method6551();
+            }
+            this.Field1712.posZ = this.Field5233.player.posZ;
+            this.Field5233.setRenderViewEntity((Entity)this.Field1712);
+        } else {
+            this.Field5233.setRenderViewEntity((Entity)this.Field5233.player);
+            if (this.Field1712 != null) {
+                EntityOtherPlayerMP entityOtherPlayerMP = this.Field1712;
+                if (entityOtherPlayerMP == null) {
+                    Intrinsics.Method6551();
+                }
+                fe4.Field250.Method389(entityOtherPlayerMP);
+            }
+            this.Field1712 = null;
+        }
+    }
 
-         if (var8.keyBindSneak.isKeyDown()) {
-            var6 += -1.0F;
-         }
+    public void Method2407(@Nullable Entity entity) {
+        this.Field1702 = entity;
+    }
 
-         if (var8.keyBindSprint.isKeyDown()) {
-            this.field_783 = true;
-         } else if (var5 == 0.0F) {
-            this.field_783 = false;
-         }
+    public void Method540(float f) {
+        this.Field1718 = f;
+    }
 
-         float var9 = 0.15F;
-         float var10 = var7 * var7 + var5 * var5;
-         var10 = var5 != 0.0F && var7 != 0.0F ? (float)Math.sqrt((double)var10 * 0.6D) : 1.0F;
-         this.field_780 = this.method_1137(this.field_780, var5, var9) / var10;
-         this.field_782 = this.method_1137(this.field_782, var6, var9);
-         this.field_781 = this.method_1137(this.field_781, var7, var9) / var10;
-         var5 = this.field_783 ? this.field_780 * (float)2 : this.field_780;
-         this.method_1146(var5, this.field_782, this.field_781);
-      }
+    @NotNull
+    public BooleanSetting Method213() {
+        return this.Field1713;
+    }
 
-   }
+    public double Method229() {
+        return ((Number)this.Field1715.Method7979()).doubleValue() / (double)9;
+    }
 
-   // $FF: renamed from: 0 () boolean
-   public boolean method_1159() {
-      return this.field_766;
-   }
+    public void Method2408(float f) {
+        this.Field1719 = f;
+    }
 
-   // $FF: renamed from: 6 () boolean
-   public boolean method_1160() {
-      return this.field_779;
-   }
+    public void Method2409(float f) {
+        this.Field1707 = f;
+    }
 
-   // $FF: renamed from: c (float) void
-   public void method_1161(float var1) {
-      this.field_771 = var1;
-   }
+    @NotNull
+    public DoubleSetting Method233() {
+        return this.Field1715;
+    }
 
-   // $FF: renamed from: c (boolean) void
-   public void method_1162(boolean var1) {
-      this.field_779 = var1;
-   }
+    public void Method2410(float f) {
+        this.Field1717 = f;
+    }
 
-   // $FF: renamed from: 3 (boolean) void
-   public void method_1163(boolean var1) {
-      this.field_783 = var1;
-   }
+    public double Method221() {
+        return this.Field1706;
+    }
 
-   // $FF: renamed from: f () float
-   public float method_1164() {
-      return this.field_781;
-   }
+    /*
+     * Enabled aggressive block sorting
+     */
+    public void Method2411(boolean bl, boolean bl2) {
+        EntityOtherPlayerMP entityOtherPlayerMP = this.Field1712;
+        if (entityOtherPlayerMP != null) {
+            float f;
+            Minecraft minecraft = Minecraft.getMinecraft();
+            float f2 = 0.0f;
+            float f3 = 0.0f;
+            float f4 = 0.0f;
+            GameSettings gameSettings = minecraft.gameSettings;
+            if (gameSettings.keyBindForward.isKeyDown()) {
+                f = f2;
+                f2 = f + 1.0f;
+            }
+            if (gameSettings.keyBindBack.isKeyDown()) {
+                f = f2;
+                f2 = f + -1.0f;
+            }
+            if (gameSettings.keyBindLeft.isKeyDown()) {
+                f = f4;
+                f4 = f + 1.0f;
+            }
+            if (gameSettings.keyBindRight.isKeyDown()) {
+                f = f4;
+                f4 = f + -1.0f;
+            }
+            if (gameSettings.keyBindJump.isKeyDown()) {
+                f = f3;
+                f3 = f + 1.0f;
+            }
+            if (gameSettings.keyBindSneak.isKeyDown()) {
+                f = f3;
+                f3 = f + -1.0f;
+            }
+            if (gameSettings.keyBindSprint.isKeyDown()) {
+                this.Field1720 = true;
+            } else if (f2 == 0.0f) {
+                this.Field1720 = false;
+            }
+            f = 0.15f;
+            float f5 = f4 * f4 + f2 * f2;
+            f5 = f2 != 0.0f && f4 != 0.0f ? (float)Math.sqrt((double)f5 * 0.6) : 1.0f;
+            this.Field1717 = this.Method2396(this.Field1717, f2, f) / f5;
+            this.Field1719 = this.Method2396(this.Field1719, f3, f);
+            this.Field1718 = this.Method2396(this.Field1718, f4, f) / f5;
+            f2 = this.Field1720 ? this.Field1717 * (float)2 : this.Field1717;
+            this.Method2404(f2, this.Field1719, this.Field1718);
+        }
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.f4x) void
-   @f0g
-   @LauncherEventHide
-   public void method_1165(@NotNull f4x var1) {
-      var1.0();
-   }
+    public boolean Method2412() {
+        return this.Field1703;
+    }
 
-   // $FF: renamed from: 0 (double) void
-   public void method_1166(double var1) {
-      this.field_767 = var1;
-   }
+    public boolean Method304() {
+        return this.Field1716;
+    }
 
-   // $FF: renamed from: 7 () net.minecraft.entity.Entity
-   @Nullable
-   public Entity method_1167() {
-      return this.field_765;
-   }
+    public void Method544(float f) {
+        this.Field1708 = f;
+    }
+
+    public void Method557(boolean bl) {
+        this.Field1716 = bl;
+    }
+
+    public void Method2413(boolean bl) {
+        this.Field1720 = bl;
+    }
+
+    public float Method2414() {
+        return this.Field1718;
+    }
+
+    @f0g
+    @LauncherEventHide
+    public void Method556(@NotNull f4x f4x2) {
+        f4x2.Method7948();
+    }
+
+    public void Method2415(double d) {
+        this.Field1704 = d;
+    }
+
+    @Nullable
+    public Entity Method2416() {
+        return this.Field1702;
+    }
 }
+

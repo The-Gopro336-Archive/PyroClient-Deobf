@@ -1,20 +1,33 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-public enum f7U {
-   // $FF: renamed from: c dev.nuker.pyro.f7U
-   field_1821,
-   // $FF: renamed from: 0 dev.nuker.pyro.f7U
-   field_1822;
+public class f7U
+extends Enum {
+    public static /* enum */ f7U Always = new f7U("Always", 0);
+    public static /* enum */ f7U Old = new f7U("Old", 1);
+    public static /* synthetic */ f7U[] Field3323;
 
-   // $FF: renamed from: c dev.nuker.pyro.f7U[]
-   public static f7U[] field_1823 = new f7U[]{field_1821, field_1822};
+    public static f7U[] Method5160() {
+        return (f7U[])Field3323.clone();
+    }
 
-   // $FF: renamed from: c (java.lang.String) dev.nuker.pyro.f7U
-   public static f7U method_3009(String var0) {
-      return (f7U)Enum.valueOf(f7U.class, var0);
-   }
+    /*
+     * WARNING - Possible parameter corruption
+     * WARNING - void declaration
+     */
+    public f7U() {
+        void var2_-1;
+        void var1_-1;
+    }
+
+    public static f7U Method5161(String string) {
+        return Enum.valueOf(f7U.class, string);
+    }
+
+    static {
+        Field3323 = new f7U[]{Always, Old};
+    }
 }
+

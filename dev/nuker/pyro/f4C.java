@@ -1,19 +1,35 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
-public class f4C {
-   // $FF: renamed from: c float
-   public float field_2138;
+import dev.nuker.pyro.f3Y;
+import java.util.List;
+import org.jetbrains.annotations.NotNull;
 
-   // $FF: renamed from: c () float
-   public float method_3211() {
-      return this.field_2138;
-   }
+public class f4c {
+    @NotNull
+    public List<Class<? extends f3Y>> Field4121;
 
-   public f4C(float var1) {
-      this.field_2138 = var1;
-   }
+    public void Method5762(@NotNull List list) {
+        this.Field4121 = list;
+    }
+
+    @NotNull
+    public List Method5763() {
+        return this.Field4121;
+    }
+
+    @NotNull
+    public f3Y Method5764(int n) {
+        return this.Field4121.get(n).newInstance();
+    }
+
+    public f4c(@NotNull List list) {
+        this.Field4121 = list;
+    }
 }
+

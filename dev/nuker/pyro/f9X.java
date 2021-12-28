@@ -1,22 +1,34 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-public enum f9X {
-   // $FF: renamed from: c dev.nuker.pyro.f9X
-   field_1949,
-   // $FF: renamed from: 0 dev.nuker.pyro.f9X
-   field_1950,
-   // $FF: renamed from: 1 dev.nuker.pyro.f9X
-   field_1951;
+public class f9X
+extends Enum {
+    public static /* enum */ f9X NCP = new f9X("NCP", 0);
+    public static /* enum */ f9X Legit = new f9X("Legit", 1);
+    public static /* enum */ f9X Vanilla = new f9X("Vanilla", 2);
+    public static /* synthetic */ f9X[] Field3621;
 
-   // $FF: renamed from: c dev.nuker.pyro.f9X[]
-   public static f9X[] field_1952 = new f9X[]{field_1949, field_1950, field_1951};
+    static {
+        Field3621 = new f9X[]{NCP, Legit, Vanilla};
+    }
 
-   // $FF: renamed from: c (java.lang.String) dev.nuker.pyro.f9X
-   public static f9X method_3061(String var0) {
-      return (f9X)Enum.valueOf(f9X.class, var0);
-   }
+    /*
+     * WARNING - Possible parameter corruption
+     * WARNING - void declaration
+     */
+    public f9X() {
+        void var2_-1;
+        void var1_-1;
+    }
+
+    public static f9X[] Method5397() {
+        return (f9X[])Field3621.clone();
+    }
+
+    public static f9X Method5398(String string) {
+        return Enum.valueOf(f9X.class, string);
+    }
 }
+

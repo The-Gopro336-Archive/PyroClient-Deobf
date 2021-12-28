@@ -1,85 +1,88 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-import dev.nuker.pyro.security.inject.LauncherEventHide;
-import java.util.function.Consumer;
-import kotlin.ranges.RangesKt;
-import net.minecraft.client.entity.EntityPlayerSP;
-import net.minecraft.init.MobEffects;
-import net.minecraft.potion.PotionEffect;
-import net.minecraft.world.World;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import dev.nuker.pyro.PyroStatic;
+import dev.nuker.pyro.f07;
+import dev.nuker.pyro.f0b;
+import dev.nuker.pyro.f41;
+import dev.nuker.pyro.f4p;
+import dev.nuker.pyro.f4u;
+import dev.nuker.pyro.far;
+import dev.nuker.pyro.fec;
 
-public class faN extends Module {
-   // $FF: renamed from: c dev.nuker.pyro.f0o
-   @NotNull
-   public f0o field_763;
-   // $FF: renamed from: c float
-   public float field_764;
+public class fan
+extends far {
+    public double Field1990;
+    public double Field1991;
+    public int Field1992 = 0;
+    public int Field1993 = 0;
 
-   // $FF: renamed from: 0 () dev.nuker.pyro.f0o
-   @NotNull
-   public f0o method_1126() {
-      return this.field_763;
-   }
+    /*
+     * Enabled aggressive block sorting
+     */
+    @Override
+    public void Method2364(f4p f4p2) {
+        if (f4p2.Method7947() || f4p2.Method5619() != f41.Pre) {
+            return;
+        }
+        if (fec.Method725().collidedHorizontally || this.Field1993 > 0 || fec.Method725().moveForward == 0.0f && fec.Method725().moveStrafing == 0.0f) {
+            if (this.Field1993 > 0) {
+                --this.Field1993;
+            }
+            this.Field1992 = 0;
+            this.Field1990 = 0.0;
+            this.Field1991 = 0.0;
+            f4p2.Method7948();
+            f4p2.Method5837(0.0);
+            f4p2.Method5820(0.0);
+            f0b.Field5568.Method7904("longjump");
+            return;
+        }
+        if (((Boolean)PyroStatic.Field6455.Method276().Method7979()).booleanValue()) {
+            f0b.Field5568.Method7902("longjump", f07.MULTIPLY, 2.5f);
+        }
+        if (this.Field1992 == 1 && fec.Method725().collidedVertically) {
+            this.Field1990 = 1.0 + far.Method2606() - 0.05;
+        } else if (this.Field1992 == 2 && fec.Method725().collidedVertically) {
+            fec.Method725().motionY = 0.415;
+            f4p2.Method5834(0.415);
+            this.Field1990 *= ((Double)PyroStatic.Field6455.Method5279().Method7979()).doubleValue();
+        } else if (this.Field1992 == 3) {
+            double d = 0.66 * (this.Field1991 - far.Method2606());
+            this.Field1990 = this.Field1991 - d;
+        } else {
+            this.Field1990 = this.Field1991 - this.Field1991 / 159.0;
+            if (fec.Method725().collidedVertically && this.Field1992 > 3) {
+                this.Field1993 = 10;
+                this.Field1992 = 1;
+            }
+        }
+        f4p2.Method7948();
+        this.Field1990 = Math.max(this.Field1990, fan.Method2606());
+        fec.Method744(f4p2, this.Field1990);
+        ++this.Field1992;
+    }
 
-   // $FF: renamed from: c (boolean, net.minecraft.client.entity.EntityPlayerSP, net.minecraft.world.World) void
-   public void method_116(boolean var1, @Nullable EntityPlayerSP var2, @Nullable World var3) {
-      super.method_116(var1, var2, var3);
-      if (var1 && (faM)this.field_763.c() == faM.field_1478) {
-         this.field_764 = this.c.gameSettings.gammaSetting;
-      } else {
-         this.c.gameSettings.gammaSetting = this.field_764;
-      }
+    @Override
+    public void Method455() {
+    }
 
-      if ((faM)this.field_763.c() == faM.field_1479) {
-         if (var1) {
-            this.c.player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION));
-         } else {
-            this.c.player.removePotionEffect(MobEffects.NIGHT_VISION);
-         }
-      }
+    @Override
+    public void Method461() {
+    }
 
-      if (!var1) {
-         this.c.gameSettings.gammaSetting = RangesKt.coerceAtMost(1.0F, this.c.gameSettings.gammaSetting);
-      }
-
-   }
-
-   // $FF: renamed from: c (dev.nuker.pyro.f4t) void
-   @f0g
-   @LauncherEventHide
-   public void method_1127(@NotNull f4t var1) {
-      if ((faM)this.field_763.c() == faM.field_1478) {
-         this.c.player.removePotionEffect(MobEffects.NIGHT_VISION);
-         if (this.c.gameSettings.gammaSetting <= 100.0F) {
-            ++this.c.gameSettings.gammaSetting;
-         }
-      }
-
-      if ((faM)this.field_763.c() == faM.field_1479) {
-         this.c.player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 300));
-      }
-
-   }
-
-   public faN() {
-      super("brightness", "Brightness", "Allows you to see even the darkest spots");
-      this.field_763 = (f0o)this.register((f0w)(new f0o("mode", "Mode", (String)null, (Enum)faM.field_1478)));
-      this.field_763.c((Consumer)(new faL(this)));
-   }
-
-   // $FF: renamed from: c (float) void
-   public void method_1128(float var1) {
-      this.field_764 = var1;
-   }
-
-   // $FF: renamed from: c () float
-   public float method_1129() {
-      return this.field_764;
-   }
+    @Override
+    public void Method2363(f4u f4u2) {
+        if (f4u2.Method5619() != f41.Pre) {
+            return;
+        }
+        double d = fan.Field313.player.posX - fan.Field313.player.prevPosX;
+        double d2 = fan.Field313.player.posZ - fan.Field313.player.prevPosZ;
+        this.Field1991 = Math.sqrt(d * d + d2 * d2);
+        f4u2.Method7948();
+        f4u2.Method5597(true);
+    }
 }
+

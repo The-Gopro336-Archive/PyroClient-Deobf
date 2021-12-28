@@ -1,231 +1,237 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro.security;
 
-import java.lang.reflect.Field;
-import java.nio.charset.Charset;
 import java.security.MessageDigest;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Map.Entry;
-import kotlin.TypeCastException;
 import kotlin.collections.CollectionsKt;
 import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.random.Random;
 import kotlin.random.RandomKt;
 import kotlin.text.Charsets;
 import org.jetbrains.annotations.NotNull;
 import sun.misc.Unsafe;
 
 public class Clientfiles {
-   @NotNull
-   public static Map indextable;
-   public static Clientfiles INSTANCE;
+    @NotNull
+    public static Map<byte[], long[]> Field1321;
+    public static Clientfiles Field1322;
 
-   static {
-      Clientfiles var0 = new Clientfiles();
-      INSTANCE = var0;
-      boolean var1 = false;
-      indextable = (Map)(new LinkedHashMap());
-   }
+    static {
+        Clientfiles clientfiles;
+        Field1322 = clientfiles = new Clientfiles();
+        boolean bl = false;
+        Field1321 = new LinkedHashMap();
+    }
 
-   @NotNull
-   public Map getIndextable() {
-      return indextable;
-   }
+    @NotNull
+    public Map Method1879() {
+        return Field1321;
+    }
 
-   @JvmStatic
-   public static void store(@NotNull String file, @NotNull byte[] bytes, int byteSplit, long seed) {
-      int $i$f$store = false;
-      Map var10000 = INSTANCE.getIndextable();
-      MessageDigest var27 = MessageDigest.getInstance("MD5");
-      Map var26 = var10000;
-      Charset var7 = Charsets.UTF_8;
-      boolean var8 = false;
-      byte[] var28 = file.getBytes(var7);
-      byte[] var37 = var27.digest(var28);
-      boolean var6 = false;
-      boolean var30 = false;
+    /*
+     * Unable to fully structure code
+     * Enabled aggressive block sorting
+     * Enabled unnecessary exception pruning
+     * Enabled aggressive exception aggregation
+     * Lifted jumps to return sites
+     */
+    @JvmStatic
+    public static void Method1880(@NotNull String var0, @NotNull byte[] var1_1, int var2_2, long var3_3) {
+        $i$f$store = false;
+        var6_5 = file;
+        var27_7 = MessageDigest.getInstance("MD5");
+        var26_8 = Clientfiles.Field1322.Method1879();
+        var7_9 = Charsets.Field5722;
+        var8_12 = false;
+        var28_15 = var6_5.getBytes(var7_9);
+        var27_7 = var27_7.digest(var28_15);
+        $i$f$storeIndexedBytes = false;
+        $i$f$getUnsafe = false;
+        try {
+            v0 = Unsafe.class.getDeclaredField("theUnsafe");
+        }
+        catch (Exception e$iv$iv) {
+            throw (Throwable)new RuntimeException(e$iv$iv);
+        }
+        f$iv$iv = v0;
+        v1 = f$iv$iv;
+        v2 = true;
+        v1.setAccessible(v2);
+        v3 = f$iv$iv;
+        v4 = null;
+        v5 = v3.get(v4);
+        v6 = v5;
+        if (v5 != null) ** GOTO lbl41
+        v7 = v8;
+        v9 = v8;
+        v10 = "null cannot be cast to non-null type sun.misc.Unsafe";
+        v7(v10);
+        throw v9;
+lbl41:
+        // 1 sources
 
-      Unsafe var33;
-      Object var36;
-      try {
-         Field f$iv$iv = Unsafe.class.getDeclaredField("theUnsafe");
-         f$iv$iv.setAccessible(true);
-         var36 = f$iv$iv.get((Object)null);
-         if (var36 == null) {
-            throw new TypeCastException("null cannot be cast to non-null type sun.misc.Unsafe");
-         }
-
-         var33 = (Unsafe)var36;
-      } catch (Exception var29) {
-         throw (Throwable)(new RuntimeException((Throwable)var29));
-      }
-
-      Unsafe unsafe$iv = var33;
-      Random random$iv = RandomKt.Random(seed);
-      double var11 = (double)bytes.length / (double)byteSplit;
-      boolean var13 = false;
-      int splitcount$iv = (int)Math.ceil(var11);
-      long[] indexTable$iv = new long[splitcount$iv + 1];
-      var13 = false;
-      Map unusedIndexTable$iv = (Map)(new LinkedHashMap());
-      indexTable$iv[0] = (long)bytes.length;
-      int i$iv = 1;
-      int var15 = splitcount$iv;
-      if (i$iv <= splitcount$iv) {
-         while(true) {
-            indexTable$iv[i$iv] = unsafe$iv.allocateMemory((long)byteSplit);
-            unusedIndexTable$iv.put(i$iv, indexTable$iv[i$iv]);
-            if (i$iv == var15) {
-               break;
+        f$iv$iv = (Unsafe)v6;
+        unsafe$iv = f$iv$iv;
+        random$iv = RandomKt.Method7032((long)seed);
+        var11_20 = (double)((void)bytes).length / (double)byteSplit;
+        var13_21 = 0;
+        splitcount$iv = (int)Math.ceil(var11_20);
+        indexTable$iv = new long[splitcount$iv + 1];
+        var13_21 = 0;
+        unusedIndexTable$iv = new LinkedHashMap<K, V>();
+        indexTable$iv[0] = ((void)bytes).length;
+        var13_21 = 1;
+        var15_23 = splitcount$iv;
+        if (var13_21 <= var15_23) {
+            do {
+                indexTable$iv[++i$iv] = unsafe$iv.allocateMemory((long)byteSplit);
+                unusedIndexTable$iv.put(i$iv, indexTable$iv[i$iv]);
+            } while (i$iv != var15_23);
+        }
+        if ((i$iv = 1) <= (var15_23 = splitcount$iv)) {
+            while (true) {
+                begin$iv = (i$iv - 1) * byteSplit;
+                length$iv = byteSplit;
+                var18_26 = ((void)bytes).length;
+                var19_27 = begin$iv + length$iv;
+                var20_28 = false;
+                end$iv = Math.min(var18_26, var19_27);
+                index$iv = ((Number)CollectionsKt.Method3094((Collection)unusedIndexTable$iv.keySet(), random$iv)).intValue();
+                v11 = unusedIndexTable$iv.get(index$iv);
+                if (v11 == null) {
+                    Intrinsics.Method6551();
+                }
+                nextMem$iv = ((Number)v11).longValue();
+                unusedIndexTable$iv.remove(index$iv);
+                var24_31 = begin$iv;
+                var25_32 = end$iv;
+                while (var24_31 < var25_32) {
+                    unsafe$iv.putByte(nextMem$iv + (long)j$iv - (long)begin$iv, (byte)bytes[j$iv]);
+                    ++j$iv;
+                }
+                if (i$iv == var15_23) break;
+                ++i$iv;
             }
+        }
+        var28_16 = indexTable$iv;
+        var26_8.put(var27_7, var28_16);
+    }
 
-            ++i$iv;
-         }
-      }
-
-      i$iv = 1;
-      var15 = splitcount$iv;
-      if (i$iv <= splitcount$iv) {
-         while(true) {
-            int begin$iv = (i$iv - 1) * byteSplit;
-            int index$iv = bytes.length;
-            int var19 = begin$iv + byteSplit;
-            boolean var20 = false;
-            int end$iv = Math.min(index$iv, var19);
-            index$iv = ((Number)CollectionsKt.random((Collection)unusedIndexTable$iv.keySet(), random$iv)).intValue();
-            var36 = unusedIndexTable$iv.get(index$iv);
-            if (var36 == null) {
-               Intrinsics.throwNpe();
+    /*
+     * Unable to fully structure code
+     * Enabled aggressive block sorting
+     * Enabled unnecessary exception pruning
+     * Enabled aggressive exception aggregation
+     * Lifted jumps to return sites
+     */
+    @JvmStatic
+    @NotNull
+    public static byte[] Method1881(@NotNull String var0, int var1_1, long var2_2) {
+        block21: {
+            $i$f$retrieve = false;
+            var5_4 = Clientfiles.Field1322.Method1879();
+            var6_5 = file;
+            var24_7 = MessageDigest.getInstance("MD5");
+            var7_8 = Charsets.Field5722;
+            var8_11 = false;
+            var25_14 = var6_5.getBytes(var7_8);
+            array$iv = var24_7.digest(var25_14);
+            $i$f$getEq = false;
+            $this$firstOrNull$iv$iv = $this$getEq$iv.entrySet();
+            $i$f$firstOrNull = false;
+            for (T element$iv$iv : $this$firstOrNull$iv$iv) {
+                $dstr$a$_u24__u24$iv = (Map.Entry)element$iv$iv;
+                $i$a$-firstOrNull-UtilsKt$getEq$1$iv = false;
+                var14_25 = $dstr$a$_u24__u24$iv;
+                var15_29 = false;
+                a$iv = (byte[])var14_25.getKey();
+                var14_25 = a$iv;
+                var15_28 = array$iv;
+                var17_33 = 0;
+                if (!Arrays.equals((byte[])var14_25, var15_28)) continue;
+                v0 = element$iv$iv;
+                break block21;
             }
+            v0 = null;
+        }
+        v1 = v0;
+        v2 = v1 != null ? v1.getValue() : null;
+        if (v2 == null) {
+            Intrinsics.Method6551();
+        }
+        indexTable$iv = v2;
+        $i$f$retrieveIndexedBytes = false;
+        $i$f$getUnsafe = false;
+        try {
+            v3 = Unsafe.class.getDeclaredField("theUnsafe");
+        }
+        catch (Exception e$iv$iv) {
+            throw (Throwable)new RuntimeException(e$iv$iv);
+        }
+        f$iv$iv = v3;
+        v4 = f$iv$iv;
+        v5 = true;
+        v4.setAccessible(v5);
+        v6 = f$iv$iv;
+        v7 = null;
+        v8 = v6.get(v7);
+        v9 = v8;
+        if (v8 != null) ** GOTO lbl63
+        v10 = v11;
+        v12 = v11;
+        v13 = "null cannot be cast to non-null type sun.misc.Unsafe";
+        v10(v13);
+        throw v12;
+lbl63:
+        // 1 sources
 
-            long nextMem$iv = ((Number)var36).longValue();
+        f$iv$iv = (Unsafe)v9;
+        unsafe$iv = f$iv$iv;
+        random$iv = RandomKt.Method7032((long)seed);
+        splitcount$iv = indexTable$iv.length - 1;
+        element$iv$iv = false;
+        unusedIndexTable$iv = new LinkedHashMap<K, V>();
+        bytes$iv = new byte[(int)indexTable$iv[0]];
+        $dstr$a$_u24__u24$iv = 1;
+        var13_24 = splitcount$iv;
+        if ($dstr$a$_u24__u24$iv <= var13_24) {
+            do {
+                unusedIndexTable$iv.put(++i$iv, indexTable$iv[i$iv]);
+            } while (i$iv != var13_24);
+        }
+        i$iv = 0;
+        var13_24 = splitcount$iv;
+        while (i$iv < var13_24) {
+            begin$iv = i$iv * byteSplit;
+            length$iv = byteSplit;
+            a$iv = bytes$iv.length;
+            var17_33 = begin$iv + length$iv;
+            var18_34 = false;
+            end$iv = Math.min(a$iv, var17_33);
+            index$iv = ((Number)CollectionsKt.Method3094((Collection)unusedIndexTable$iv.keySet(), random$iv)).intValue();
+            v14 = unusedIndexTable$iv.get(index$iv);
+            if (v14 == null) {
+                Intrinsics.Method6551();
+            }
+            nextMem$iv = ((Number)v14).longValue();
             unusedIndexTable$iv.remove(index$iv);
-            int j$iv = begin$iv;
-
-            for(int var25 = end$iv; j$iv < var25; ++j$iv) {
-               unsafe$iv.putByte(nextMem$iv + (long)j$iv - (long)begin$iv, bytes[j$iv]);
+            var22_37 = begin$iv;
+            var23_38 = end$iv;
+            while (var22_37 < var23_38) {
+                bytes$iv[j$iv] = unsafe$iv.getByte(nextMem$iv + (long)j$iv - (long)begin$iv);
+                ++j$iv;
             }
-
-            if (i$iv == var15) {
-               break;
-            }
-
             ++i$iv;
-         }
-      }
-
-      var26.put(var37, indexTable$iv);
-   }
-
-   @JvmStatic
-   @NotNull
-   public static byte[] retrieve(@NotNull String file, int byteSplit, long seed) {
-      boolean var4 = false;
-      Map var5 = INSTANCE.getIndextable();
-      MessageDigest var24 = MessageDigest.getInstance("MD5");
-      Charset var7 = Charsets.UTF_8;
-      boolean var8 = false;
-      byte[] var25 = file.getBytes(var7);
-      byte[] array$iv = var24.digest(var25);
-      boolean var29 = false;
-      Iterable var31 = (Iterable)var5.entrySet();
-      boolean var9 = false;
-      Iterator var10 = var31.iterator();
-
-      Object var10000;
-      while(true) {
-         if (var10.hasNext()) {
-            Object element$iv$iv = var10.next();
-            Entry $dstr$a$_u24__u24$iv = (Entry)element$iv$iv;
-            boolean var13 = false;
-            boolean var15 = false;
-            byte[] a$iv = (byte[])$dstr$a$_u24__u24$iv.getKey();
-            boolean var17 = false;
-            if (!Arrays.equals(a$iv, array$iv)) {
-               continue;
-            }
-
-            var10000 = element$iv$iv;
-            break;
-         }
-
-         var10000 = null;
-         break;
-      }
-
-      var10000 = (Entry)var10000 != null ? ((Entry)var10000).getValue() : null;
-      if (var10000 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      long[] indexTable$iv = (long[])var10000;
-      boolean var28 = false;
-      var29 = false;
-
-      Unsafe var33;
-      try {
-         Field f$iv$iv = Unsafe.class.getDeclaredField("theUnsafe");
-         f$iv$iv.setAccessible(true);
-         var10000 = f$iv$iv.get((Object)null);
-         if (var10000 == null) {
-            throw new TypeCastException("null cannot be cast to non-null type sun.misc.Unsafe");
-         }
-
-         var33 = (Unsafe)var10000;
-      } catch (Exception var26) {
-         throw (Throwable)(new RuntimeException((Throwable)var26));
-      }
-
-      Unsafe unsafe$iv = var33;
-      Random random$iv = RandomKt.Random(seed);
-      int splitcount$iv = indexTable$iv.length - 1;
-      boolean var37 = false;
-      Map unusedIndexTable$iv = (Map)(new LinkedHashMap());
-      byte[] bytes$iv = new byte[(int)indexTable$iv[0]];
-      int i$iv = 1;
-      int var40 = splitcount$iv;
-      if (i$iv <= splitcount$iv) {
-         while(true) {
-            unusedIndexTable$iv.put(i$iv, indexTable$iv[i$iv]);
-            if (i$iv == var40) {
-               break;
-            }
-
-            ++i$iv;
-         }
-      }
-
-      i$iv = 0;
-
-      for(var40 = splitcount$iv; i$iv < var40; ++i$iv) {
-         int begin$iv = i$iv * byteSplit;
-         int index$iv = bytes$iv.length;
-         int var42 = begin$iv + byteSplit;
-         boolean var18 = false;
-         int end$iv = Math.min(index$iv, var42);
-         index$iv = ((Number)CollectionsKt.random((Collection)unusedIndexTable$iv.keySet(), random$iv)).intValue();
-         var10000 = unusedIndexTable$iv.get(index$iv);
-         if (var10000 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         long nextMem$iv = ((Number)var10000).longValue();
-         unusedIndexTable$iv.remove(index$iv);
-         int j$iv = begin$iv;
-
-         for(int var23 = end$iv; j$iv < var23; ++j$iv) {
-            bytes$iv[j$iv] = unsafe$iv.getByte(nextMem$iv + (long)j$iv - (long)begin$iv);
-         }
-      }
-
-      return bytes$iv;
-   }
+        }
+        return bytes$iv;
+    }
 }
+

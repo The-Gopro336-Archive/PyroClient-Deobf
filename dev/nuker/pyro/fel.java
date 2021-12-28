@@ -1,59 +1,53 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  org.lwjgl.opengl.GL11
  */
 package dev.nuker.pyro;
 
 import org.lwjgl.opengl.GL11;
 
 public class fel {
-   // $FF: renamed from: c int
-   public int field_1349;
-   // $FF: renamed from: c long
-   public long field_1350;
-   // $FF: renamed from: c boolean
-   public boolean field_1351 = false;
+    public int Field460;
+    public long Field461;
+    public boolean Field462 = false;
 
-   public void finalize() {
-      if (!this.field_1351) {
-         GL11.glDeleteLists(this.field_1349, 1);
-      }
+    public void finalize() {
+        if (!this.Field462) {
+            GL11.glDeleteLists((int)this.Field460, (int)1);
+        }
+    }
 
-   }
+    public void Method746(boolean bl) {
+        this.Field462 = bl;
+    }
 
-   // $FF: renamed from: c (boolean) void
-   public void method_2013(boolean var1) {
-      this.field_1351 = var1;
-   }
+    public void Method747(long l) {
+        this.Field461 = l;
+    }
 
-   // $FF: renamed from: c (long) void
-   public void method_2014(long var1) {
-      this.field_1350 = var1;
-   }
+    public fel(int n, long l, boolean bl) {
+        this.Field460 = n;
+        this.Field461 = l;
+        this.Field462 = bl;
+    }
 
-   public fel(int var1, long var2, boolean var4) {
-      this.field_1349 = var1;
-      this.field_1350 = var2;
-      this.field_1351 = var4;
-   }
+    public int Method748() {
+        return this.Field460;
+    }
 
-   // $FF: renamed from: c () int
-   public int method_2015() {
-      return this.field_1349;
-   }
+    public fel(int n, long l) {
+        this.Field460 = n;
+        this.Field461 = l;
+    }
 
-   public fel(int var1, long var2) {
-      this.field_1349 = var1;
-      this.field_1350 = var2;
-   }
+    public boolean Method749() {
+        return this.Field462;
+    }
 
-   // $FF: renamed from: 0 () boolean
-   public boolean method_2016() {
-      return this.field_1351;
-   }
-
-   // $FF: renamed from: 1 () long
-   public long method_2017() {
-      return this.field_1350;
-   }
+    public long Method750() {
+        return this.Field461;
+    }
 }
+

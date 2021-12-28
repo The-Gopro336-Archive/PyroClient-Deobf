@@ -1,28 +1,43 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.internal.Lambda;
-import net.minecraft.item.ItemStack;
-import org.jetbrains.annotations.NotNull;
+public class fdb
+extends Enum {
+    public static /* enum */ fdb Creative;
+    public static /* enum */ fdb Survival;
+    public static /* enum */ fdb Selective;
+    public static /* enum */ fdb Farm;
+    public static /* enum */ fdb Lawnmower;
+    public static /* synthetic */ fdb[] Field321;
 
-public class fdB extends Lambda implements Function1 {
-   // $FF: renamed from: c dev.nuker.pyro.fdB
-   public static fdB field_71 = new fdB();
+    public static fdb[] Method533() {
+        return (fdb[])Field321.clone();
+    }
 
-   public Object invoke(Object var1) {
-      return this.method_106((ItemStack)var1);
-   }
+    /*
+     * WARNING - Possible parameter corruption
+     * WARNING - void declaration
+     */
+    public fdb() {
+        void var2_-1;
+        void var1_-1;
+    }
 
-   public fdB() {
-      super(1);
-   }
+    public static fdb Method534(String string) {
+        return Enum.valueOf(fdb.class, string);
+    }
 
-   // $FF: renamed from: c (net.minecraft.item.ItemStack) boolean
-   public boolean method_106(@NotNull ItemStack var1) {
-      return var1.isEmpty();
-   }
+    static {
+        fdb[] arrfdb = new fdb[5];
+        fdb[] arrfdb2 = arrfdb;
+        arrfdb[0] = Creative = new fdb("Creative", 0);
+        arrfdb[1] = Survival = new fdb("Survival", 1);
+        arrfdb[2] = Selective = new fdb("Selective", 2);
+        arrfdb[3] = Farm = new fdb("Farm", 3);
+        arrfdb[4] = Lawnmower = new fdb("Lawnmower", 4);
+        Field321 = arrfdb;
+    }
 }
+

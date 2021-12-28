@@ -1,20 +1,44 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.multiplayer.WorldClient
+ *  net.minecraft.client.renderer.EntityRenderer
+ *  net.minecraft.client.renderer.GlStateManager
+ *  net.minecraft.client.renderer.entity.RenderManager
+ *  net.minecraft.entity.Entity
+ *  net.minecraft.entity.EnumCreatureType
+ *  net.minecraft.entity.boss.EntityDragon
+ *  net.minecraft.entity.boss.EntityWither
+ *  net.minecraft.entity.item.EntityItem
+ *  net.minecraft.entity.player.EntityPlayer
+ *  net.minecraft.util.math.MathHelper
+ *  net.minecraft.util.math.Vec3d
+ *  org.jetbrains.annotations.NotNull
+ *  org.jetbrains.annotations.Nullable
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.BooleanSetting;
+import dev.nuker.pyro.DoubleSetting;
+import dev.nuker.pyro.FriendManager;
+import dev.nuker.pyro.IntegerSetting;
+import dev.nuker.pyro.Module;
+import dev.nuker.pyro.PyroRenderUtil;
+import dev.nuker.pyro.Rotation;
+import dev.nuker.pyro.f00;
+import dev.nuker.pyro.f0l;
+import dev.nuker.pyro.f0t;
+import dev.nuker.pyro.f0w;
+import dev.nuker.pyro.fbv;
 import dev.nuker.pyro.mixin.EntityRendererAccessor;
 import dev.nuker.pyro.mixin.RenderManagerAccessor;
 import java.util.Arrays;
-import java.util.Iterator;
 import kotlin.TypeCastException;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.culling.ICamera;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureType;
@@ -27,300 +51,261 @@ import net.minecraft.util.math.Vec3d;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class Radar extends Module {
-   public BooleanSetting players = new BooleanSetting("players", "Players", (String)null, true);
-   public BooleanSetting friends = new BooleanSetting("friends", "Friends", (String)null, true);
-   public BooleanSetting bosses = new BooleanSetting("bosses", "Bosses", (String)null, true);
-   public BooleanSetting hostiles = new BooleanSetting("hostiles", "Hostiles", (String)null, true);
-   public BooleanSetting passives = new BooleanSetting("passives", "Passives", (String)null, true);
-   public BooleanSetting items = new BooleanSetting("items", "Items", (String)null, false);
-   public BooleanSetting other = new BooleanSetting("other", "Other", (String)null, false);
-   // $FF: renamed from: c dev.nuker.pyro.f0t
-   public f0t field_826;
-   public f0t var0;
-   public f0t var1;
-   public f0t var2;
-   public f0t var3;
-   public f0t var4;
-   public f0t var5;
-   public DoubleSetting scale;
-   public DoubleSetting distance;
-   public DoubleSetting changeradius;
-   public BooleanSetting hideFrustrum;
-   public IntegerSetting tilt;
-   public BooleanSetting unlockTilt;
-   // $FF: renamed from: c dev.nuker.pyro.fbv
-   public static fbv field_827 = new fbv((DefaultConstructorMarker)null);
+public class Radar
+extends Module {
+    public BooleanSetting Field1007 = new BooleanSetting("players", "Players", null, true);
+    public BooleanSetting Field1008 = new BooleanSetting("friends", "Friends", null, true);
+    public BooleanSetting Field1009 = new BooleanSetting("bosses", "Bosses", null, true);
+    public BooleanSetting Field1010 = new BooleanSetting("hostiles", "Hostiles", null, true);
+    public BooleanSetting Field1011 = new BooleanSetting("passives", "Passives", null, true);
+    public BooleanSetting Field1012 = new BooleanSetting("items", "Items", null, false);
+    public BooleanSetting Field1013 = new BooleanSetting("other", "Other", null, false);
+    public f0t Field1014;
+    public f0t Field1015;
+    public f0t Field1016;
+    public f0t Field1017;
+    public f0t Field1018;
+    public f0t Field1019;
+    public f0t Field1020;
+    public DoubleSetting Field1021;
+    public DoubleSetting Field1022;
+    public DoubleSetting Field1023;
+    public BooleanSetting Field1024;
+    public IntegerSetting Field1025;
+    public BooleanSetting Field1026;
+    public static fbv Field1027 = new fbv(null);
 
-   // $FF: renamed from: c (net.minecraft.util.math.Vec3d, float) void
-   public void method_123(@Nullable Vec3d var1x, float var2x) {
-      if (this.c.player != null) {
-         ICamera var10000 = PyroRenderUtil.field_983;
-         Entity var10001 = this.c.getRenderViewEntity();
-         if (var10001 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         double var6 = var10001.posX;
-         Entity var10002 = this.c.getRenderViewEntity();
-         if (var10002 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         double var7 = var10002.posY;
-         Entity var10003 = this.c.getRenderViewEntity();
-         if (var10003 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         var10000.setPosition(var6, var7, var10003.posZ);
-         GlStateManager.pushMatrix();
-         WorldClient var5x = this.c.world;
-         if (var5x == null) {
-            Intrinsics.throwNpe();
-         }
-
-         Iterator var4x = var5x.loadedEntityList.iterator();
-
-         while(true) {
-            while(true) {
-               while(true) {
-                  Entity var3x;
-                  do {
-                     do {
-                        if (!var4x.hasNext()) {
-                           GlStateManager.popMatrix();
-                           return;
-                        }
-
-                        var3x = (Entity)var4x.next();
-                     } while(var3x == this.c.getRenderViewEntity());
-                  } while((Boolean)this.hideFrustrum.c() && PyroRenderUtil.field_983.isBoundingBoxInFrustum(var3x.getEntityBoundingBox()));
-
-                  if (var3x instanceof EntityPlayer) {
-                     if ((Boolean)this.friends.c() && FriendManager.Companion.isFriend((EntityPlayer)var3x)) {
-                        this.method_1223(var3x, var1x, this.var0);
-                     } else if ((Boolean)this.players.c()) {
-                        this.method_1223(var3x, var1x, this.field_826);
-                     }
-                  } else if (!(var3x instanceof EntityDragon) && !(var3x instanceof EntityWither)) {
-                     if (field_827.method_1413(var3x)) {
-                        if ((Boolean)this.passives.c()) {
-                           this.method_1223(var3x, var1x, this.var3);
-                        }
-                     } else if (var3x.isCreatureType(EnumCreatureType.MONSTER, false)) {
-                        if ((Boolean)this.hostiles.c()) {
-                           this.method_1223(var3x, var1x, this.var2);
-                        }
-                     } else if (var3x instanceof EntityItem) {
-                        if ((Boolean)this.items.c()) {
-                           this.method_1223(var3x, var1x, this.var4);
-                        }
-                     } else if ((Boolean)this.other.c()) {
-                        this.method_1223(var3x, var1x, this.var5);
-                     }
-                  } else if ((Boolean)this.bosses.c()) {
-                     this.method_1223(var3x, var1x, this.var1);
-                  }
-               }
+    @Override
+    public void Method195(@Nullable Vec3d vec3d, float f) {
+        block14: {
+            if (this.Field5233.player == null) break block14;
+            Entity entity = this.Field5233.getRenderViewEntity();
+            if (entity == null) {
+                Intrinsics.Method6551();
             }
-         }
-      }
-   }
+            Entity entity2 = this.Field5233.getRenderViewEntity();
+            if (entity2 == null) {
+                Intrinsics.Method6551();
+            }
+            Entity entity3 = this.Field5233.getRenderViewEntity();
+            if (entity3 == null) {
+                Intrinsics.Method6551();
+            }
+            PyroRenderUtil.Field7388.setPosition(entity.posX, entity2.posY, entity3.posZ);
+            GlStateManager.pushMatrix();
+            WorldClient worldClient = this.Field5233.world;
+            if (worldClient == null) {
+                Intrinsics.Method6551();
+            }
+            for (Entity entity4 : worldClient.loadedEntityList) {
+                block16: {
+                    block15: {
+                        if (entity4 == this.Field5233.getRenderViewEntity()) continue;
+                        if (((Boolean)this.Field1024.Method7979()).booleanValue()) {
+                            if (PyroRenderUtil.Field7388.isBoundingBoxInFrustum(entity4.getEntityBoundingBox())) continue;
+                        }
+                        if (entity4 instanceof EntityPlayer) {
+                            if (((Boolean)this.Field1008.Method7979()).booleanValue() && FriendManager.Field2145.Method8960((EntityPlayer)entity4)) {
+                                this.Method1715(entity4, vec3d, this.Field1015);
+                                continue;
+                            }
+                            if (!((Boolean)this.Field1007.Method7979()).booleanValue()) continue;
+                            this.Method1715(entity4, vec3d, this.Field1014);
+                            continue;
+                        }
+                        if (entity4 instanceof EntityDragon) break block15;
+                        if (!(entity4 instanceof EntityWither)) break block16;
+                    }
+                    if (!((Boolean)this.Field1009.Method7979()).booleanValue()) continue;
+                    this.Method1715(entity4, vec3d, this.Field1016);
+                    continue;
+                }
+                if (Field1027.Method288(entity4)) {
+                    if (!((Boolean)this.Field1011.Method7979()).booleanValue()) continue;
+                    this.Method1715(entity4, vec3d, this.Field1018);
+                    continue;
+                }
+                if (entity4.isCreatureType(EnumCreatureType.MONSTER, false)) {
+                    if (!((Boolean)this.Field1010.Method7979()).booleanValue()) continue;
+                    this.Method1715(entity4, vec3d, this.Field1017);
+                    continue;
+                }
+                if (entity4 instanceof EntityItem) {
+                    if (!((Boolean)this.Field1012.Method7979()).booleanValue()) continue;
+                    this.Method1715(entity4, vec3d, this.Field1019);
+                    continue;
+                }
+                if (!((Boolean)this.Field1013.Method7979()).booleanValue()) continue;
+                this.Method1715(entity4, vec3d, this.Field1020);
+            }
+            GlStateManager.popMatrix();
+        }
+    }
 
-   // $FF: renamed from: c (net.minecraft.util.math.Vec3d, net.minecraft.util.math.Vec3d) dev.nuker.pyro.Rotation
-   @NotNull
-   public Rotation method_1220(@NotNull Vec3d var1x, @NotNull Vec3d var2x) {
-      double var3x = var2x.x - var1x.x;
-      double var5x = var2x.y - var1x.y;
-      double var7 = var2x.z - var1x.z;
-      double var9 = (double)MathHelper.sqrt(var3x * var3x + var7 * var7);
-      return new Rotation(MathHelper.wrapDegrees((float)Math.toDegrees(MathHelper.atan2(var7, var3x)) - 90.0F), MathHelper.wrapDegrees((float)(-Math.toDegrees(MathHelper.atan2(var5x, var9)))));
-   }
+    @NotNull
+    public Rotation Method1713(@NotNull Vec3d vec3d, @NotNull Vec3d vec3d2) {
+        double d = vec3d2.x - vec3d.x;
+        double d2 = vec3d2.y - vec3d.y;
+        double d3 = vec3d2.z - vec3d.z;
+        double d4 = MathHelper.sqrt((double)(d * d + d3 * d3));
+        return new Rotation(MathHelper.wrapDegrees((float)((float)Math.toDegrees(MathHelper.atan2((double)d3, (double)d)) - 90.0f)), MathHelper.wrapDegrees((float)((float)(-Math.toDegrees(MathHelper.atan2((double)d2, (double)d4))))));
+    }
 
-   // $FF: renamed from: c (net.minecraft.entity.Entity) net.minecraft.util.math.Vec3d
-   @NotNull
-   public Vec3d method_1221(@NotNull Entity var1x) {
-      double var10000 = this.method_1224(var1x.posX, var1x.lastTickPosX);
-      RenderManager var10001 = this.c.getRenderManager();
-      if (var10001 == null) {
-         throw new TypeCastException("null cannot be cast to non-null type dev.nuker.pyro.mixin.RenderManagerAccessor");
-      } else {
-         double var2x = var10000 - ((RenderManagerAccessor)var10001).getRenderPosX();
-         var10000 = this.method_1224(var1x.posY, var1x.lastTickPosY);
-         var10001 = this.c.getRenderManager();
-         if (var10001 == null) {
+    @NotNull
+    public Vec3d Method260(@NotNull Entity entity) {
+        RenderManager renderManager = this.Field5233.getRenderManager();
+        if (renderManager == null) {
             throw new TypeCastException("null cannot be cast to non-null type dev.nuker.pyro.mixin.RenderManagerAccessor");
-         } else {
-            double var4x = var10000 - ((RenderManagerAccessor)var10001).getRenderPosY();
-            var10000 = this.method_1224(var1x.posZ, var1x.lastTickPosZ);
-            var10001 = this.c.getRenderManager();
-            if (var10001 == null) {
-               throw new TypeCastException("null cannot be cast to non-null type dev.nuker.pyro.mixin.RenderManagerAccessor");
-            } else {
-               double var6 = var10000 - ((RenderManagerAccessor)var10001).getRenderPosZ();
-               return new Vec3d(var2x, var4x, var6);
+        }
+        double d = this.Method259(entity.posX, entity.lastTickPosX) - ((RenderManagerAccessor)renderManager).Method2421();
+        RenderManager renderManager2 = this.Field5233.getRenderManager();
+        if (renderManager2 == null) {
+            throw new TypeCastException("null cannot be cast to non-null type dev.nuker.pyro.mixin.RenderManagerAccessor");
+        }
+        double d2 = this.Method259(entity.posY, entity.lastTickPosY) - ((RenderManagerAccessor)renderManager2).Method2422();
+        RenderManager renderManager3 = this.Field5233.getRenderManager();
+        if (renderManager3 == null) {
+            throw new TypeCastException("null cannot be cast to non-null type dev.nuker.pyro.mixin.RenderManagerAccessor");
+        }
+        double d3 = this.Method259(entity.posZ, entity.lastTickPosZ) - ((RenderManagerAccessor)renderManager3).Method2423();
+        return new Vec3d(d, d2, d3);
+    }
+
+    public void Method1714(float f, float f2, float f3, float f4) {
+        GlStateManager.glBegin((int)6);
+        GlStateManager.glVertex3f((float)f, (float)f2, (float)f3);
+        GlStateManager.glVertex3f((float)(f + 0.1f * f4), (float)f2, (float)(f3 - 0.2f * f4));
+        GlStateManager.glVertex3f((float)f, (float)f2, (float)(f3 - 0.12f * f4));
+        GlStateManager.glVertex3f((float)(f - 0.1f * f4), (float)f2, (float)(f3 - 0.2f * f4));
+        GlStateManager.glEnd();
+    }
+
+    public void Method1715(Entity entity, Vec3d vec3d, f0t f0t2) {
+        f00 f002;
+        if (this.Field5233.entityRenderer == null) {
+            return;
+        }
+        f0w f0w2 = this.Method7258(f0t2.Method7977() + ".far_color");
+        if (f0w2 == null) {
+            Intrinsics.Method6551();
+        }
+        f00 f003 = (f00)((f0l)f0w2).Method7979();
+        f0w f0w3 = this.Method7258(f0t2.Method7977() + ".flat_color");
+        if (f0w3 == null) {
+            Intrinsics.Method6551();
+        }
+        if (((Boolean)((BooleanSetting)f0w3).Method7979()).booleanValue()) {
+            f002 = f003;
+        } else {
+            f0w f0w4 = this.Method7258(f0t2.Method7977() + ".near_color");
+            if (f0w4 == null) {
+                Intrinsics.Method6551();
             }
-         }
-      }
-   }
-
-   // $FF: renamed from: c (float, float, float, float) void
-   public void method_1222(float var1x, float var2x, float var3x, float var4x) {
-      GlStateManager.glBegin(6);
-      GlStateManager.glVertex3f(var1x, var2x, var3x);
-      GlStateManager.glVertex3f(var1x + 0.1F * var4x, var2x, var3x - 0.2F * var4x);
-      GlStateManager.glVertex3f(var1x, var2x, var3x - 0.12F * var4x);
-      GlStateManager.glVertex3f(var1x - 0.1F * var4x, var2x, var3x - 0.2F * var4x);
-      GlStateManager.glEnd();
-   }
-
-   // $FF: renamed from: c (net.minecraft.entity.Entity, net.minecraft.util.math.Vec3d, dev.nuker.pyro.f0t) void
-   public void method_1223(Entity var1x, Vec3d var2x, f0t var3x) {
-      if (this.c.entityRenderer != null) {
-         f0w var10000 = this.1(var3x.3() + ".far_color");
-         if (var10000 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         f00 var4x = (f00)((f0l)var10000).c();
-         var10000 = this.1(var3x.3() + ".flat_color");
-         if (var10000 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         f00 var15;
-         if ((Boolean)((BooleanSetting)var10000).c()) {
-            var15 = var4x;
-         } else {
-            var10000 = this.1(var3x.3() + ".near_color");
-            if (var10000 == null) {
-               Intrinsics.throwNpe();
-            }
-
-            var15 = (f00)((f0l)var10000).c();
-         }
-
-         f00 var5x = var15;
-         Rotation var8 = this.method_1220(Vec3d.ZERO, this.method_1221(var1x));
-         float var6 = var8.meth2();
-         float var7 = var8.getPitch();
-         float var16 = (float)180 - var6;
-         Entity var10001 = this.c.getRenderViewEntity();
-         if (var10001 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         var6 = var16 + var10001.rotationYaw;
-         Vec3d var14 = (new Vec3d(0.0D, 0.0D, 1.0D)).rotateYaw((float)Math.toRadians((double)var6)).rotatePitch((float)Math.toRadians(180.0D));
-         GlStateManager.blendFunc(770, 771);
-         GlStateManager.disableTexture2D();
-         GlStateManager.depthMask(false);
-         GlStateManager.disableDepth();
-         float var9 = (float)((double)var1x.getDistance(this.c.getRenderViewEntity()) / ((Number)this.changeradius.c()).doubleValue());
-         GlStateManager.color(var4x.meth7() * var9 + var5x.meth7() * (1.0F - var9), var4x.method_3446() * var9 + var5x.method_3446() * (1.0F - var9), var4x.meth22() * var9 + var5x.meth22() * (1.0F - var9), var4x.meth9() * var9 + var5x.meth9() * (1.0F - var9));
-         GlStateManager.disableLighting();
-         GlStateManager.loadIdentity();
-         EntityRenderer var17 = this.c.entityRenderer;
-         if (var17 == null) {
+            f002 = (f00)((f0l)f0w4).Method7979();
+        }
+        f00 f004 = f002;
+        Rotation rotation = this.Method1713(Vec3d.ZERO, this.Method260(entity));
+        float f = rotation.Method6938();
+        float f2 = rotation.Method6933();
+        float f3 = (float)180 - f;
+        Entity entity2 = this.Field5233.getRenderViewEntity();
+        if (entity2 == null) {
+            Intrinsics.Method6551();
+        }
+        f = f3 + entity2.rotationYaw;
+        rotation = new Vec3d(0.0, 0.0, 1.0).rotateYaw((float)Math.toRadians(f)).rotatePitch((float)Math.toRadians(180.0));
+        GlStateManager.blendFunc((int)770, (int)771);
+        GlStateManager.disableTexture2D();
+        GlStateManager.depthMask((boolean)false);
+        GlStateManager.disableDepth();
+        float f4 = (float)((double)entity.getDistance(this.Field5233.getRenderViewEntity()) / ((Number)this.Field1023.Method7979()).doubleValue());
+        GlStateManager.color((float)(f003.Method7514() * f4 + f004.Method7514() * (1.0f - f4)), (float)(f003.Method7517() * f4 + f004.Method7517() * (1.0f - f4)), (float)(f003.Method7531() * f4 + f004.Method7531() * (1.0f - f4)), (float)(f003.Method7522() * f4 + f004.Method7522() * (1.0f - f4)));
+        GlStateManager.disableLighting();
+        GlStateManager.loadIdentity();
+        EntityRenderer entityRenderer = this.Field5233.entityRenderer;
+        if (entityRenderer == null) {
             throw new TypeCastException("null cannot be cast to non-null type dev.nuker.pyro.mixin.EntityRendererAccessor");
-         } else {
-            ((EntityRendererAccessor)var17).orientCam(this.c.getRenderPartialTicks());
-            float var10 = (float)((Number)this.scale.c()).doubleValue() * 0.2F;
-            float var11 = (float)((Number)this.distance.c()).doubleValue() * 0.2F;
-            var10001 = this.c.getRenderViewEntity();
-            if (var10001 == null) {
-               Intrinsics.throwNpe();
+        }
+        ((EntityRendererAccessor)entityRenderer).Method4464(this.Field5233.getRenderPartialTicks());
+        float f5 = (float)((Number)this.Field1021.Method7979()).doubleValue() * 0.2f;
+        float f6 = (float)((Number)this.Field1022.Method7979()).doubleValue() * 0.2f;
+        Entity entity3 = this.Field5233.getRenderViewEntity();
+        if (entity3 == null) {
+            Intrinsics.Method6551();
+        }
+        GlStateManager.translate((float)0.0f, (float)entity3.getEyeHeight(), (float)0.0f);
+        Entity entity4 = this.Field5233.getRenderViewEntity();
+        if (entity4 == null) {
+            Intrinsics.Method6551();
+        }
+        GlStateManager.rotate((float)(-entity4.rotationYaw), (float)0.0f, (float)1.0f, (float)0.0f);
+        Entity entity5 = this.Field5233.getRenderViewEntity();
+        if (entity5 == null) {
+            Intrinsics.Method6551();
+        }
+        GlStateManager.rotate((float)entity5.rotationPitch, (float)1.0f, (float)0.0f, (float)0.0f);
+        GlStateManager.translate((float)0.0f, (float)0.0f, (float)1.0f);
+        float f7 = ((Number)this.Field1025.Method7979()).intValue();
+        if (((Boolean)this.Field1026.Method7979()).booleanValue()) {
+            float f8 = 90;
+            Entity entity6 = this.Field5233.getRenderViewEntity();
+            if (entity6 == null) {
+                Intrinsics.Method6551();
             }
-
-            GlStateManager.translate(0.0F, var10001.getEyeHeight(), 0.0F);
-            Entity var18 = this.c.getRenderViewEntity();
-            if (var18 == null) {
-               Intrinsics.throwNpe();
+            if (f8 - entity6.rotationPitch < f7) {
+                float f9 = 90;
+                Entity entity7 = this.Field5233.getRenderViewEntity();
+                if (entity7 == null) {
+                    Intrinsics.Method6551();
+                }
+                f7 = f9 - entity7.rotationPitch;
             }
+        }
+        GlStateManager.rotate((float)f7, (float)1.0f, (float)0.0f, (float)0.0f);
+        GlStateManager.rotate((float)180.0f, (float)0.0f, (float)0.0f, (float)1.0f);
+        GlStateManager.rotate((float)-90.0f, (float)1.0f, (float)0.0f, (float)0.0f);
+        GlStateManager.translate((float)0.0f, (float)0.0f, (float)1.0f);
+        GlStateManager.rotate((float)f, (float)0.0f, (float)1.0f, (float)0.0f);
+        GlStateManager.translate((float)0.0f, (float)0.0f, (float)f6);
+        f0w f0w5 = this.Method7258(f0t2.Method7977() + ".scale");
+        if (f0w5 == null) {
+            Intrinsics.Method6551();
+        }
+        float f64 = (float)((Number)((DoubleSetting)f0w5).Method7979()).doubleValue() * (f5 * 2.0f);
+        this.Method1714((float)((Vec3d)rotation).x, (float)((Vec3d)rotation).y, (float)((Vec3d)rotation).z, f64);
+        GlStateManager.enableTexture2D();
+        GlStateManager.depthMask((boolean)true);
+        GlStateManager.enableDepth();
+        GlStateManager.color((float)1.0f, (float)1.0f, (float)1.0f, (float)1.0f);
+        GlStateManager.enableLighting();
+    }
 
-            GlStateManager.rotate(-var18.rotationYaw, 0.0F, 1.0F, 0.0F);
-            var18 = this.c.getRenderViewEntity();
-            if (var18 == null) {
-               Intrinsics.throwNpe();
-            }
+    public double Method259(double d, double d2) {
+        return d2 + (d - d2) * (double)this.Field5233.getRenderPartialTicks();
+    }
 
-            GlStateManager.rotate(var18.rotationPitch, 1.0F, 0.0F, 0.0F);
-            GlStateManager.translate(0.0F, 0.0F, 1.0F);
-            float var12 = (float)((Number)this.tilt.c()).intValue();
-            if ((Boolean)this.unlockTilt.c()) {
-               var16 = (float)90;
-               var10001 = this.c.getRenderViewEntity();
-               if (var10001 == null) {
-                  Intrinsics.throwNpe();
-               }
-
-               if (var16 - var10001.rotationPitch < var12) {
-                  var16 = (float)90;
-                  var10001 = this.c.getRenderViewEntity();
-                  if (var10001 == null) {
-                     Intrinsics.throwNpe();
-                  }
-
-                  var12 = var16 - var10001.rotationPitch;
-               }
-            }
-
-            GlStateManager.rotate(var12, 1.0F, 0.0F, 0.0F);
-            GlStateManager.rotate(180.0F, 0.0F, 0.0F, 1.0F);
-            GlStateManager.rotate(-90.0F, 1.0F, 0.0F, 0.0F);
-            GlStateManager.translate(0.0F, 0.0F, 1.0F);
-            GlStateManager.rotate(var6, 0.0F, 1.0F, 0.0F);
-            GlStateManager.translate(0.0F, 0.0F, var11);
-            var10000 = this.1(var3x.3() + ".scale");
-            if (var10000 == null) {
-               Intrinsics.throwNpe();
-            }
-
-            float var13 = (float)((Number)((DoubleSetting)var10000).c()).doubleValue() * var10 * 2.0F;
-            this.method_1222((float)var14.x, (float)var14.y, (float)var14.z, var13);
-            GlStateManager.enableTexture2D();
-            GlStateManager.depthMask(true);
-            GlStateManager.enableDepth();
-            GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-            GlStateManager.enableLighting();
-         }
-      }
-   }
-
-   // $FF: renamed from: c (double, double) double
-   public double method_1224(double var1x, double var3x) {
-      return var3x + (var1x - var3x) * (double)this.c.getRenderPartialTicks();
-   }
-
-   public Radar() {
-      super("radar", "Radar", "See nearby entities");
-      f0w var10004 = (f0w)this.players;
-      f0w[] var10005 = fbv.method_1414(field_827, new f00(0.43F, 1.0F, 1.0F, 1.0F), new f00(0.8F, 1.0F, 1.0F, 1.0F), 0.75D);
-      this.field_826 = (f0t)this.register((f0w)(new f0t(var10004, (f0w[])Arrays.copyOf(var10005, var10005.length))));
-      var10004 = (f0w)this.friends;
-      var10005 = fbv.method_1414(field_827, new f00(0.51F, 1.0F, 1.0F, 1.0F), new f00(0.62F, 1.0F, 1.0F, 1.0F), 0.75D);
-      this.var0 = (f0t)this.register((f0w)(new f0t(var10004, (f0w[])Arrays.copyOf(var10005, var10005.length))));
-      var10004 = (f0w)this.bosses;
-      var10005 = fbv.method_1414(field_827, new f00(0.0F, 1.0F, 0.56F, 0.56F), new f00(0, 1, 1, 1), 0.75D);
-      this.var1 = (f0t)this.register((f0w)(new f0t(var10004, (f0w[])Arrays.copyOf(var10005, var10005.length))));
-      var10004 = (f0w)this.hostiles;
-      var10005 = fbv.method_1414(field_827, new f00(0.16F, 1.0F, 1.0F, 0.17F), new f00(0.08F, 1.0F, 1.0F, 0.88F), 0.5D);
-      this.var2 = (f0t)this.register((f0w)(new f0t(var10004, (f0w[])Arrays.copyOf(var10005, var10005.length))));
-      var10004 = (f0w)this.passives;
-      var10005 = fbv.method_1414(field_827, new f00(0.33F, 0.55F, 1.0F, 0.1F), new f00(0.33F, 0.6F, 1.0F, 0.44F), 0.5D);
-      this.var3 = (f0t)this.register((f0w)(new f0t(var10004, (f0w[])Arrays.copyOf(var10005, var10005.length))));
-      var10004 = (f0w)this.items;
-      var10005 = fbv.method_1414(field_827, new f00(0.5F, 1.0F, 1.0F, 0.3F), new f00(0.5F, 1.0F, 1.0F, 1.0F), 0.3D);
-      this.var4 = (f0t)this.register((f0w)(new f0t(var10004, (f0w[])Arrays.copyOf(var10005, var10005.length))));
-      var10004 = (f0w)this.other;
-      var10005 = fbv.method_1414(field_827, new f00(0.6F, 1.0F, 1.0F, 0.17F), new f00(0.6F, 1.0F, 1.0F, 1.0F), 0.5D);
-      this.var5 = (f0t)this.register((f0w)(new f0t(var10004, (f0w[])Arrays.copyOf(var10005, var10005.length))));
-      this.scale = (DoubleSetting)this.register((f0w)(new DoubleSetting("scale", "Scale", (String)null, 1.0D, 0.0D, 10.0D, 0.0D, 64, (DefaultConstructorMarker)null)));
-      this.distance = (DoubleSetting)this.register((f0w)(new DoubleSetting("distance", "Distance", (String)null, 1.0D, 0.0D, 10.0D, 0.0D, 64, (DefaultConstructorMarker)null)));
-      this.changeradius = (DoubleSetting)this.register((f0w)(new DoubleSetting("change_radius", "Color Change Radius", (String)null, 75.0D, 0.0D, 1000.0D, 0.0D, 64, (DefaultConstructorMarker)null)));
-      this.hideFrustrum = (BooleanSetting)this.register((f0w)(new BooleanSetting("hide_frustrum", "Hide In Frustrum", "Hide entities you can see", false)));
-      this.tilt = (IntegerSetting)this.register((f0w)(new IntegerSetting("tilt", "Tilt", (String)null, 50, -90, 90, 0, 64, (DefaultConstructorMarker)null)));
-      this.unlockTilt = (BooleanSetting)this.register((f0w)(new BooleanSetting("unlockTilt", "Unlock Tilt", "Unlock tilt when you look down", false)));
-   }
+    public Radar() {
+        super("radar", "Radar", "See nearby entities");
+        f0w[] arrf0w = fbv.Method289(Field1027, new f00(0.43f, 1.0f, 1.0f, 1.0f), new f00(0.8f, 1.0f, 1.0f, 1.0f), 0.75);
+        this.Field1014 = (f0t)this.Method7264(new f0t(this.Field1007, Arrays.copyOf(arrf0w, arrf0w.length)));
+        f0w[] arrf0w2 = fbv.Method289(Field1027, new f00(0.51f, 1.0f, 1.0f, 1.0f), new f00(0.62f, 1.0f, 1.0f, 1.0f), 0.75);
+        this.Field1015 = (f0t)this.Method7264(new f0t(this.Field1008, Arrays.copyOf(arrf0w2, arrf0w2.length)));
+        f0w[] arrf0w3 = fbv.Method289(Field1027, new f00(0.0f, 1.0f, 0.56f, 0.56f), new f00(0, 1, 1, 1), 0.75);
+        this.Field1016 = (f0t)this.Method7264(new f0t(this.Field1009, Arrays.copyOf(arrf0w3, arrf0w3.length)));
+        f0w[] arrf0w4 = fbv.Method289(Field1027, new f00(0.16f, 1.0f, 1.0f, 0.17f), new f00(0.08f, 1.0f, 1.0f, 0.88f), 0.5);
+        this.Field1017 = (f0t)this.Method7264(new f0t(this.Field1010, Arrays.copyOf(arrf0w4, arrf0w4.length)));
+        f0w[] arrf0w5 = fbv.Method289(Field1027, new f00(0.33f, 0.55f, 1.0f, 0.1f), new f00(0.33f, 0.6f, 1.0f, 0.44f), 0.5);
+        this.Field1018 = (f0t)this.Method7264(new f0t(this.Field1011, Arrays.copyOf(arrf0w5, arrf0w5.length)));
+        f0w[] arrf0w6 = fbv.Method289(Field1027, new f00(0.5f, 1.0f, 1.0f, 0.3f), new f00(0.5f, 1.0f, 1.0f, 1.0f), 0.3);
+        this.Field1019 = (f0t)this.Method7264(new f0t(this.Field1012, Arrays.copyOf(arrf0w6, arrf0w6.length)));
+        f0w[] arrf0w7 = fbv.Method289(Field1027, new f00(0.6f, 1.0f, 1.0f, 0.17f), new f00(0.6f, 1.0f, 1.0f, 1.0f), 0.5);
+        this.Field1020 = (f0t)this.Method7264(new f0t(this.Field1013, Arrays.copyOf(arrf0w7, arrf0w7.length)));
+        this.Field1021 = (DoubleSetting)this.Method7264(new DoubleSetting("scale", "Scale", null, 1.0, 0.0, 10.0, 0.0, 64, null));
+        this.Field1022 = (DoubleSetting)this.Method7264(new DoubleSetting("distance", "Distance", null, 1.0, 0.0, 10.0, 0.0, 64, null));
+        this.Field1023 = (DoubleSetting)this.Method7264(new DoubleSetting("change_radius", "Color Change Radius", null, 75.0, 0.0, 1000.0, 0.0, 64, null));
+        this.Field1024 = (BooleanSetting)this.Method7264(new BooleanSetting("hide_frustrum", "Hide In Frustrum", "Hide entities you can see", false));
+        this.Field1025 = (IntegerSetting)this.Method7264(new IntegerSetting("tilt", "Tilt", null, 50, -90, 90, 0, 64, null));
+        this.Field1026 = (BooleanSetting)this.Method7264(new BooleanSetting("unlockTilt", "Unlock Tilt", "Unlock tilt when you look down", false));
+    }
 }
+

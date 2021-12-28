@@ -1,26 +1,30 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
-import dev.nuker.pyro.security.inject.LauncherEventHide;
+import dev.nuker.pyro.f0w;
+import dev.nuker.pyro.f9h;
+import java.util.function.Consumer;
+import org.jetbrains.annotations.NotNull;
 
-public class f9F extends Module {
-   // $FF: renamed from: c (dev.nuker.pyro.f4s) void
-   @f0g
-   @LauncherEventHide
-   public void method_415(f4s var1) {
-      if (!var1.c()) {
-         if (this.c.player.onGround && !this.c.player.isSneaking() && !this.c.player.isElytraFlying()) {
-            if (this.c.world.getCollisionBoxes(this.c.player, this.c.player.getEntityBoundingBox().offset(0.0D, -0.5D, 0.0D).expand(-0.001D, 0.0D, -0.001D)).isEmpty()) {
-               this.c.player.jump();
-            }
-         }
-      }
-   }
+public class f9f
+implements Consumer {
+    public f9h Field4455;
 
-   public f9F() {
-      super("parkour", "Parkour", "Automatically jumps off the edge of the block");
-   }
+    public void Method374(@NotNull f0w f0w2) {
+        f9h.Method6322(this.Field4455);
+    }
+
+    public void accept(Object object) {
+        this.Method374((f0w)object);
+    }
+
+    public f9f(f9h f9h2) {
+        this.Field4455 = f9h2;
+    }
 }
+

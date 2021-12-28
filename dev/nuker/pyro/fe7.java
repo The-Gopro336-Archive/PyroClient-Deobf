@@ -1,47 +1,39 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
 import java.util.concurrent.TimeUnit;
 
 public class fe7 {
-   // $FF: renamed from: c long
-   public long field_1249;
+    public long Field256;
 
-   // $FF: renamed from: c () void
-   public void method_1949() {
-      this.field_1249 = System.nanoTime();
-   }
+    public void Method442() {
+        this.Field256 = System.nanoTime();
+    }
 
-   // $FF: renamed from: c (java.util.concurrent.TimeUnit) long
-   public long method_1950(TimeUnit var1) {
-      return var1.convert(System.nanoTime() - this.field_1249, TimeUnit.NANOSECONDS);
-   }
+    public long Method443(TimeUnit timeUnit) {
+        return timeUnit.convert(System.nanoTime() - this.Field256, TimeUnit.NANOSECONDS);
+    }
 
-   // $FF: renamed from: 0 () long
-   public long method_1951() {
-      return this.field_1249;
-   }
+    public long Method444() {
+        return this.Field256;
+    }
 
-   // $FF: renamed from: 1 () long
-   public long method_1952() {
-      return this.method_1950(TimeUnit.MILLISECONDS);
-   }
+    public long Method445() {
+        return this.Method443(TimeUnit.MILLISECONDS);
+    }
 
-   // $FF: renamed from: c (long) boolean
-   public boolean method_1953(long var1) {
-      return this.method_1954(var1, TimeUnit.MILLISECONDS);
-   }
+    public boolean Method446(long l) {
+        return this.Method447(l, TimeUnit.MILLISECONDS);
+    }
 
-   // $FF: renamed from: c (long, java.util.concurrent.TimeUnit) boolean
-   public boolean method_1954(long var1, TimeUnit var3) {
-      long var4;
-      if ((var4 = var3.convert(System.nanoTime() - this.field_1249, TimeUnit.NANOSECONDS)) >= var1) {
-         this.method_1949();
-      }
-
-      return var4 >= var1;
-   }
+    public boolean Method447(long l, TimeUnit timeUnit) {
+        long l2 = timeUnit.convert(System.nanoTime() - this.Field256, TimeUnit.NANOSECONDS);
+        if (l2 >= l) {
+            this.Method442();
+        }
+        return l2 >= l;
+    }
 }
+

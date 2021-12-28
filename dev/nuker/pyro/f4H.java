@@ -1,29 +1,30 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.entity.Entity
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.f41;
+import dev.nuker.pyro.f42;
 import net.minecraft.entity.Entity;
-import org.jetbrains.annotations.NotNull;
 
-public class f4H {
-   // $FF: renamed from: c net.minecraft.entity.Entity
-   @NotNull
-   public Entity field_2164;
+public class f4h
+extends f42 {
+    public Entity Field4161;
 
-   public f4H(@NotNull Entity var1) {
-      this.field_2164 = var1;
-   }
+    public Entity Method5637() {
+        return this.Field4161;
+    }
 
-   // $FF: renamed from: c (net.minecraft.entity.Entity) void
-   public void method_3241(@NotNull Entity var1) {
-      this.field_2164 = var1;
-   }
+    public f4h(f41 f412, Entity entity) {
+        super(f412);
+        this.Field4161 = entity;
+    }
 
-   // $FF: renamed from: c () net.minecraft.entity.Entity
-   @NotNull
-   public Entity method_3242() {
-      return this.field_2164;
-   }
+    public void Method5802(Entity entity) {
+        this.Field4161 = entity;
+    }
 }
+

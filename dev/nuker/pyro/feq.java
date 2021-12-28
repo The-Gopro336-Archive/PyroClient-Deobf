@@ -1,117 +1,97 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.fe8;
+import dev.nuker.pyro.feo;
 import java.util.ArrayList;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 
 public class feq {
-   // $FF: renamed from: c java.util.ArrayList
-   public ArrayList field_1382;
-   // $FF: renamed from: 0 java.util.ArrayList
-   public ArrayList field_1383;
-   // $FF: renamed from: c dev.nuker.pyro.fe8
-   public fe8 field_1384;
-   // $FF: renamed from: c int
-   public int field_1385;
-   // $FF: renamed from: c float
-   public float field_1386;
-   // $FF: renamed from: 0 float
-   public float field_1387;
-   // $FF: renamed from: 1 float
-   public float field_1388;
+    public ArrayList<Integer> Field519;
+    public ArrayList<Integer> Field520;
+    public fe8 Field521;
+    public int Field522;
+    public float Field523;
+    public float Field524;
+    public float Field525;
 
-   // $FF: renamed from: c (float) void
-   public void method_2058(float var1) {
-      this.field_1388 = var1;
-   }
+    public void Method868(float f) {
+        this.Field525 = f;
+    }
 
-   // $FF: renamed from: 0 (int) int
-   public int method_2059(int var1) {
-      int var2 = var1;
-      if (var1 > this.field_1382.size() - 1) {
-         var2 = this.field_1382.size() - 1;
-      }
+    public int Method869(int n) {
+        int n2 = n;
+        if (n2 > this.Field519.size() - 1) {
+            n2 = this.Field519.size() - 1;
+        }
+        return ((Number)this.Field520.get(((Number)this.Field519.get(n2)).intValue())).intValue();
+    }
 
-      return ((Number)this.field_1383.get(((Number)this.field_1382.get(var2)).intValue())).intValue();
-   }
+    public feq(int n, float f, float f2, float f3) {
+        this.Field522 = n;
+        this.Field523 = f;
+        this.Field524 = f2;
+        this.Field525 = f3;
+        this.Field519 = new ArrayList();
+        this.Field520 = new ArrayList();
+        this.Field521 = new fe8();
+        int n2 = 359;
+        for (int i = 0; i <= n2; ++i) {
+            this.Field520.add(feo.Method775(i, this.Field523, this.Field524, this.Field525).getRGB());
+            this.Field519.add(i);
+        }
+    }
 
-   public feq(int var1, float var2, float var3, float var4) {
-      this.field_1385 = var1;
-      this.field_1386 = var2;
-      this.field_1387 = var3;
-      this.field_1388 = var4;
-      this.field_1382 = new ArrayList();
-      this.field_1383 = new ArrayList();
-      this.field_1384 = new fe8();
-      int var5 = 0;
+    public void Method870() {
+        if (this.Field521.Method491(this.Field522)) {
+            this.Field521.Method490();
+            this.Method875();
+        }
+    }
 
-      for(short var6 = 359; var5 <= var6; ++var5) {
-         this.field_1383.add(feo.method_2034((float)var5, this.field_1386, this.field_1387, this.field_1388).getRGB());
-         this.field_1382.add(var5);
-      }
+    public void Method871(float f) {
+        this.Field524 = f;
+    }
 
-   }
+    public float Method872() {
+        return this.Field523;
+    }
 
-   // $FF: renamed from: 1 () void
-   public void method_2060() {
-      if (this.field_1384.method_1980((double)this.field_1385)) {
-         this.field_1384.method_1979();
-         this.method_2065();
-      }
+    public float Method873() {
+        return this.Field524;
+    }
 
-   }
+    public void Method874(int n) {
+        this.Field522 = n;
+    }
 
-   // $FF: renamed from: 1 (float) void
-   public void method_2061(float var1) {
-      this.field_1387 = var1;
-   }
+    public void Method875() {
+        if (this.Field519.isEmpty()) {
+            return;
+        }
+        this.Field519.remove(this.Field519.get(0));
+        int n = ((Number)this.Field519.get(this.Field519.size() - 1)).intValue() + 1;
+        if (n >= this.Field520.size() - 1) {
+            n = 0;
+        }
+        this.Field519.add(n);
+    }
 
-   // $FF: renamed from: 2 () float
-   public float method_2062() {
-      return this.field_1386;
-   }
+    public feq(int n, float f, float f2, float f3, int n2, DefaultConstructorMarker defaultConstructorMarker) {
+        if ((n2 & 8) != 0) {
+            f3 = 1.0f;
+        }
+        this(n, f, f2, f3);
+    }
 
-   // $FF: renamed from: 3 () float
-   public float method_2063() {
-      return this.field_1387;
-   }
+    public void Method876(float f) {
+        this.Field523 = f;
+    }
 
-   // $FF: renamed from: c (int) void
-   public void method_2064(int var1) {
-      this.field_1385 = var1;
-   }
-
-   // $FF: renamed from: 0 () void
-   public void method_2065() {
-      if (!this.field_1382.isEmpty()) {
-         this.field_1382.remove(this.field_1382.get(0));
-         int var1 = ((Number)this.field_1382.get(this.field_1382.size() - 1)).intValue() + 1;
-         if (var1 >= this.field_1383.size() - 1) {
-            var1 = 0;
-         }
-
-         this.field_1382.add(var1);
-      }
-   }
-
-   public feq(int var1, float var2, float var3, float var4, int var5, DefaultConstructorMarker var6) {
-      if ((var5 & 8) != 0) {
-         var4 = 1.0F;
-      }
-
-      this(var1, var2, var3, var4);
-   }
-
-   // $FF: renamed from: 0 (float) void
-   public void method_2066(float var1) {
-      this.field_1386 = var1;
-   }
-
-   // $FF: renamed from: c () float
-   public float method_2067() {
-      return this.field_1388;
-   }
+    public float Method877() {
+        return this.Field525;
+    }
 }
+

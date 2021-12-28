@@ -1,39 +1,39 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.f0F;
+import dev.nuker.pyro.f0H;
+import dev.nuker.pyro.f13;
+import dev.nuker.pyro.f17;
 import org.jetbrains.annotations.NotNull;
 
 public class f12 {
-   // $FF: renamed from: 0 (dev.nuker.pyro.f13, dev.nuker.pyro.f0F, double, double, dev.nuker.pyro.f0H) boolean
-   public static boolean method_3635(f13 var0, @NotNull f0F var1, double var2, double var4, @NotNull f0H var6) {
-      return false;
-   }
+    public static boolean Method7826(f13 f132, @NotNull f0F f0F2, double d, double d2, @NotNull f0H f0H2) {
+        return false;
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.f13, dev.nuker.pyro.f0F, dev.nuker.pyro.f0H, dev.nuker.pyro.f17) void
-   public static void method_3636(f13 var0, @NotNull f0F var1, @NotNull f0H var2, @NotNull f17 var3) {
-   }
+    public static void Method7827(f13 f132, @NotNull f0F f0F2, @NotNull f0H f0H2, @NotNull f17 f172) {
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.f13) void
-   public static void method_3637(f13 var0) {
-   }
+    public static void Method7828(f13 f132) {
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.f13, char, int) void
-   public static void method_3638(f13 var0, char var1, int var2) {
-   }
+    public static void Method7829(f13 f132, char c, int n) {
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.f13, dev.nuker.pyro.f0F, double, double, dev.nuker.pyro.f0H) void
-   public static void method_3639(f13 var0, @NotNull f0F var1, double var2, double var4, @NotNull f0H var6) {
-   }
+    public static void Method7830(f13 f132, @NotNull f0F f0F2, double d, double d2, @NotNull f0H f0H2) {
+    }
 
-   // $FF: renamed from: 1 (dev.nuker.pyro.f13, dev.nuker.pyro.f0F, double, double, dev.nuker.pyro.f0H) boolean
-   public static boolean method_3640(f13 var0, @NotNull f0F var1, double var2, double var4, @NotNull f0H var6) {
-      return false;
-   }
+    public static boolean Method7831(f13 f132, @NotNull f0F f0F2, double d, double d2, @NotNull f0H f0H2) {
+        return false;
+    }
 
-   // $FF: renamed from: 0 (dev.nuker.pyro.f13, dev.nuker.pyro.f0F, dev.nuker.pyro.f0H, dev.nuker.pyro.f17) void
-   public static void method_3641(f13 var0, @NotNull f0F var1, @NotNull f0H var2, @NotNull f17 var3) {
-   }
+    public static void Method7832(f13 f132, @NotNull f0F f0F2, @NotNull f0H f0H2, @NotNull f17 f172) {
+    }
 }
+

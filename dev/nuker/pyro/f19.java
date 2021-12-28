@@ -1,22 +1,28 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.util.text.ITextComponent
+ *  net.minecraft.util.text.TextComponentString
  */
 package dev.nuker.pyro;
 
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.context.CommandContext;
+import dev.nuker.pyro.PyroStatic;
+import dev.nuker.pyro.f1s;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
 
-public class f19 implements Command {
-   // $FF: renamed from: c dev.nuker.pyro.f19
-   public static f19 field_2404 = new f19();
+public class f19
+implements Command {
+    public static f19 Field5532 = new f19();
 
-   public int run(CommandContext var1) {
-      ((f1s)var1.getSource()).method_3083((ITextComponent)(new TextComponentString("Attempting to start server with port " + IntegerArgumentType.getInteger(var1, "port"))));
-      PyroStatic.field_2605.method_779(IntegerArgumentType.getInteger(var1, "port"));
-      return 0;
-   }
+    public int Method152(CommandContext commandContext) {
+        ((f1s)commandContext.Method6876()).Method5489((ITextComponent)new TextComponentString("Attempting to start server with port " + IntegerArgumentType.Method9838(commandContext, "port")));
+        PyroStatic.Field6541.Method541(IntegerArgumentType.Method9838(commandContext, "port"));
+        return 0;
+    }
 }
+

@@ -1,47 +1,52 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.block.Block
+ *  net.minecraft.util.ResourceLocation
+ *  org.jetbrains.annotations.NotNull
+ *  org.jetbrains.annotations.Nullable
  */
 package dev.nuker.pyro;
 
-import com.mojang.brigadier.Command;
-import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
+import com.mojang.brigadier.suggestion.SuggestionProvider;
+import com.mojang.brigadier.suggestion.SuggestionsBuilder;
+import java.util.concurrent.CompletableFuture;
+import kotlin.TypeCastException;
 import kotlin.text.StringsKt;
 import net.minecraft.block.Block;
-import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.Style;
-import net.minecraft.util.text.TextComponentString;
-import net.minecraft.util.text.TextFormatting;
-import net.minecraft.world.World;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-public class f3Q implements Command {
-   // $FF: renamed from: c dev.nuker.pyro.f3Q
-   public static f3Q field_2124 = new f3Q();
+public class f3q
+implements SuggestionProvider {
+    public static f3q Field4096 = new f3q();
 
-   public int run(CommandContext var1) {
-      String var2 = StringArgumentType.getString(var1, "block");
-      if (!StringsKt.contains$default((CharSequence)var2, (CharSequence)":", false, 2, (Object)null)) {
-         var2 = "minecraft:" + var2;
-      }
-
-      if (Block.REGISTRY.containsKey(new ResourceLocation(var2))) {
-         if (!PyroStatic.field_2488.method_1046().method_2817().contains(var2)) {
-            ((f1s)var1.getSource()).method_3083((new TextComponentString(var2 + " is not an xray block")).setStyle((new Style()).setColor(TextFormatting.RED)));
-         } else {
-            PyroStatic.field_2488.method_1046().method_2817().remove(var2);
-            ((f1s)var1.getSource()).method_3083((ITextComponent)(new TextComponentString("Removed xray block " + var2)));
-            PyroStatic.field_2488.method_1050();
-            if ((Boolean)PyroStatic.field_2488.c.method_3034()) {
-               PyroStatic.field_2488.method_116(true, (EntityPlayerSP)null, (World)null);
+    public CompletableFuture Method5478(@Nullable CommandContext commandContext, @NotNull SuggestionsBuilder suggestionsBuilder) {
+        for (Block block : Block.REGISTRY) {
+            String string;
+            String string2;
+            ((ResourceLocation)Block.REGISTRY.getNameForObject((Object)block)).toString();
+            String string3 = string2;
+            boolean bl = false;
+            String string4 = string3;
+            if (string4 == null) {
+                throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
             }
-         }
-      } else {
-         ((f1s)var1.getSource()).method_3083((new TextComponentString(var2 + " is not a valid block")).setStyle((new Style()).setColor(TextFormatting.RED)));
-      }
-
-      return 0;
-   }
+            string3 = suggestionsBuilder.Method2698();
+            String string5 = StringsKt.Method11419(string4.toLowerCase(), "minecraft:", null, 2, null);
+            bl = false;
+            String string6 = string3;
+            if (string6 == null) {
+                throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
+            }
+            string6.toLowerCase();
+            if (!StringsKt.Method9998(string5, StringsKt.Method11419(string, "minecraft:", null, 2, null), false, 2, null)) continue;
+            suggestionsBuilder.Method2701(string2);
+        }
+        return suggestionsBuilder.Method2700();
+    }
 }
+

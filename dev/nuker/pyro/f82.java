@@ -1,16 +1,16 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
 import kotlin.jvm.internal.DefaultConstructorMarker;
 
 public class f82 {
-   public f82() {
-   }
+    public f82() {
+    }
 
-   public f82(DefaultConstructorMarker var1) {
-      this();
-   }
+    public f82(DefaultConstructorMarker defaultConstructorMarker) {
+        this();
+    }
 }
+

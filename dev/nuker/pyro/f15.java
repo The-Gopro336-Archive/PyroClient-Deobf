@@ -1,72 +1,65 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.f17;
 import org.jetbrains.annotations.NotNull;
 
-public class f15 extends f17 {
-   // $FF: renamed from: c double
-   public double field_2398;
-   // $FF: renamed from: 0 double
-   public double field_2399;
-   // $FF: renamed from: 1 double
-   public double field_2400;
-   // $FF: renamed from: 2 double
-   public double field_2401;
+public class f15
+extends f17 {
+    public double Field5544;
+    public double Field5545;
+    public double Field5546;
+    public double Field5547;
 
-   public f15(double var1, double var3, double var5, double var7, double var9, double var11, int var13) {
-      super(var5, var7, var13);
-      this.field_2398 = var1;
-      this.field_2399 = var3;
-      this.field_2400 = var9;
-      this.field_2401 = var11;
-   }
+    public f15(double d, double d2, double d3, double d4, double d5, double d6, int n) {
+        super(d3, d4, n);
+        this.Field5544 = d;
+        this.Field5545 = d2;
+        this.Field5546 = d5;
+        this.Field5547 = d6;
+    }
 
-   // $FF: renamed from: 1 (double) void
-   public void method_3649(double var1) {
-      this.field_2401 = var1;
-   }
+    public void Method7874(double d) {
+        this.Field5547 = d;
+    }
 
-   // $FF: renamed from: 0 () double
-   public double method_3650() {
-      return this.field_2399;
-   }
+    public double Method7875() {
+        return this.Field5545;
+    }
 
-   // $FF: renamed from: c (double) void
-   public void method_3651(double var1) {
-      this.field_2399 = var1;
-   }
+    public void Method7876(double d) {
+        this.Field5545 = d;
+    }
 
-   // $FF: renamed from: 0 (double) void
-   public void method_3652(double var1) {
-      this.field_2398 = var1;
-   }
+    public void Method7877(double d) {
+        this.Field5544 = d;
+    }
 
-   // $FF: renamed from: 2 (double) void
-   public void method_3653(double var1) {
-      this.field_2400 = var1;
-   }
+    public void Method7878(double d) {
+        this.Field5546 = d;
+    }
 
-   // $FF: renamed from: c () double
-   public double method_3654() {
-      return this.field_2401;
-   }
+    public double Method7879() {
+        return this.Field5547;
+    }
 
-   // $FF: renamed from: c (double, double) dev.nuker.pyro.f17
-   @NotNull
-   public f17 method_3648(double var1, double var3) {
-      return (f17)(new f15(this.field_2398 - var1, this.field_2399 - var3, this.5() - var1, this.3() - var3, this.field_2400, this.field_2401, this.4()));
-   }
+    @Override
+    @NotNull
+    public f17 Method7865(double d, double d2) {
+        return new f15(this.Field5544 - d, this.Field5545 - d2, this.Method7897() - d, this.Method7896() - d2, this.Field5546, this.Field5547, this.Method7895());
+    }
 
-   // $FF: renamed from: 2 () double
-   public double method_3655() {
-      return this.field_2400;
-   }
+    public double Method7880() {
+        return this.Field5546;
+    }
 
-   // $FF: renamed from: 1 () double
-   public double method_3656() {
-      return this.field_2398;
-   }
+    public double Method7881() {
+        return this.Field5544;
+    }
 }
+

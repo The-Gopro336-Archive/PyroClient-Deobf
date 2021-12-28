@@ -1,20 +1,33 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-public enum f6X {
-   // $FF: renamed from: c dev.nuker.pyro.f6X
-   field_1720,
-   // $FF: renamed from: 0 dev.nuker.pyro.f6X
-   field_1721;
+public class f6X
+extends Enum {
+    public static /* enum */ f6X Trigger = new f6X("Trigger", 0);
+    public static /* enum */ f6X Distance = new f6X("Distance", 1);
+    public static /* synthetic */ f6X[] Field3075;
 
-   // $FF: renamed from: c dev.nuker.pyro.f6X[]
-   public static f6X[] field_1722 = new f6X[]{field_1720, field_1721};
+    public static f6X[] Method4950() {
+        return (f6X[])Field3075.clone();
+    }
 
-   // $FF: renamed from: c (java.lang.String) dev.nuker.pyro.f6X
-   public static f6X method_2967(String var0) {
-      return (f6X)Enum.valueOf(f6X.class, var0);
-   }
+    /*
+     * WARNING - Possible parameter corruption
+     * WARNING - void declaration
+     */
+    public f6X() {
+        void var2_-1;
+        void var1_-1;
+    }
+
+    static {
+        Field3075 = new f6X[]{Trigger, Distance};
+    }
+
+    public static f6X Method4951(String string) {
+        return Enum.valueOf(f6X.class, string);
+    }
 }
+

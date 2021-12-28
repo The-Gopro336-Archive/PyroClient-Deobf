@@ -1,28 +1,42 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.util.EnumFacing
+ *  net.minecraft.util.math.BlockPos
  */
 package dev.nuker.pyro;
 
-import com.mojang.brigadier.suggestion.Suggestions;
-import java.util.function.BiConsumer;
-import org.jetbrains.annotations.Nullable;
+import dev.nuker.pyro.f41;
+import dev.nuker.pyro.f42;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.BlockPos;
 
-public class f4L implements BiConsumer {
-   // $FF: renamed from: c dev.nuker.pyro.f4N
-   public f4N field_2148;
+public class f4l
+extends f42 {
+    public BlockPos Field4152;
+    public EnumFacing Field4153;
 
-   public void accept(Object var1, Object var2) {
-      this.method_3221((Suggestions)var1, (Throwable)var2);
-   }
+    public EnumFacing Method5786() {
+        return this.Field4153;
+    }
 
-   // $FF: renamed from: c (com.mojang.brigadier.suggestion.Suggestions, java.lang.Throwable) void
-   public void method_3221(@Nullable Suggestions var1, @Nullable Throwable var2) {
-      this.field_2148.method_3226(var1);
-   }
+    public BlockPos Method5787() {
+        return this.Field4152;
+    }
 
-   public f4L(f4N var1) {
-      this.field_2148 = var1;
-      super();
-   }
+    public f4l(f41 f412, BlockPos blockPos, EnumFacing enumFacing) {
+        super(f412);
+        this.Field4152 = blockPos;
+        this.Field4153 = enumFacing;
+    }
+
+    public void Method5788(BlockPos blockPos) {
+        this.Field4152 = blockPos;
+    }
+
+    public void Method5789(EnumFacing enumFacing) {
+        this.Field4153 = enumFacing;
+    }
 }
+

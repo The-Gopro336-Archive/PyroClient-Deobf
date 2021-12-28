@@ -1,20 +1,20 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-public class fbW {
-   // $FF: renamed from: c int[]
-   public static int[] field_1632 = new int[fbV.values().length];
-   // $FF: renamed from: 0 int[]
-   public static int[] field_1633;
+import dev.nuker.pyro.fbV;
 
-   static {
-      field_1632[fbV.field_1630.ordinal()] = 1;
-      field_1632[fbV.field_1629.ordinal()] = 2;
-      field_1633 = new int[fbV.values().length];
-      field_1633[fbV.field_1629.ordinal()] = 1;
-      field_1633[fbV.field_1630.ordinal()] = 2;
-   }
+public class fbW {
+    public static int[] Field2030 = new int[fbV.Method2684().length];
+    public static int[] Field2031;
+
+    static /* synthetic */ {
+        fbW.Field2030[fbV.Distance.ordinal()] = 1;
+        fbW.Field2030[fbV.Coords.ordinal()] = 2;
+        Field2031 = new int[fbV.Method2684().length];
+        fbW.Field2031[fbV.Coords.ordinal()] = 1;
+        fbW.Field2031[fbV.Distance.ordinal()] = 2;
+    }
 }
+

@@ -1,24 +1,44 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.block.Block
+ *  net.minecraft.util.math.Vec3d
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
+import net.minecraft.block.Block;
+import net.minecraft.util.math.Vec3d;
 import org.jetbrains.annotations.NotNull;
 
-public class fbZ extends Module {
-   // $FF: renamed from: c dev.nuker.pyro.f0o
-   @NotNull
-   public f0o field_699;
+public class fbz {
+    @NotNull
+    public Vec3d Field172;
+    @NotNull
+    public Block Field173;
 
-   public fbZ() {
-      super("weather", "Weather", "Sets the weather you see");
-      this.field_699 = (f0o)this.register((f0w)(new f0o("mode", "Mode", (String)null, (Enum)fbY.field_1625)));
-   }
+    public void Method261(@NotNull Vec3d vec3d) {
+        this.Field172 = vec3d;
+    }
 
-   // $FF: renamed from: c () dev.nuker.pyro.f0o
-   @NotNull
-   public f0o method_1034() {
-      return this.field_699;
-   }
+    @NotNull
+    public Block Method262() {
+        return this.Field173;
+    }
+
+    public fbz(@NotNull Vec3d vec3d, @NotNull Block block) {
+        this.Field172 = vec3d;
+        this.Field173 = block;
+    }
+
+    @NotNull
+    public Vec3d Method263() {
+        return this.Field172;
+    }
+
+    public void Method264(@NotNull Block block) {
+        this.Field173 = block;
+    }
 }
+

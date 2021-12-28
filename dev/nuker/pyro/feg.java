@@ -1,9 +1,36 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.block.Block
+ *  net.minecraft.block.BlockAnvil
+ *  net.minecraft.block.BlockBed
+ *  net.minecraft.block.BlockButton
+ *  net.minecraft.block.BlockCake
+ *  net.minecraft.block.BlockDoor
+ *  net.minecraft.block.BlockFenceGate
+ *  net.minecraft.block.BlockNote
+ *  net.minecraft.block.BlockRedstoneDiode
+ *  net.minecraft.block.BlockTrapDoor
+ *  net.minecraft.block.BlockWorkbench
+ *  net.minecraft.block.material.Material
+ *  net.minecraft.block.state.IBlockState
+ *  net.minecraft.client.multiplayer.WorldClient
+ *  net.minecraft.init.Blocks
+ *  net.minecraft.tileentity.TileEntity
+ *  net.minecraft.util.EnumFacing
+ *  net.minecraft.util.math.AxisAlignedBB
+ *  net.minecraft.util.math.BlockPos
+ *  net.minecraft.util.math.MathHelper
+ *  net.minecraft.world.IBlockAccess
+ *  org.jetbrains.annotations.NotNull
+ *  org.jetbrains.annotations.Nullable
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.fdZ;
+import dev.nuker.pyro.fee;
+import dev.nuker.pyro.fef;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -35,250 +62,239 @@ import net.minecraft.world.IBlockAccess;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class feg extends fdZ {
-   // $FF: renamed from: c java.util.List
-   @NotNull
-   public static List field_1215;
-   // $FF: renamed from: c dev.nuker.pyro.feg
-   public static feg field_1216;
+public class feg
+extends fdZ {
+    @NotNull
+    public static List<Block> Field453;
+    public static feg Field454;
 
-   // $FF: renamed from: c (int) java.lang.String
-   @NotNull
-   public String method_1777(int var1) {
-      return Block.getBlockById(var1).getLocalizedName();
-   }
+    @NotNull
+    public String Method688(int n) {
+        return Block.getBlockById((int)n).getLocalizedName();
+    }
 
-   // $FF: renamed from: 3 (net.minecraft.util.math.BlockPos) boolean
-   @JvmStatic
-   public static boolean method_1778(@NotNull BlockPos var0) {
-      double var1 = fdZ.field_976.player.posX - ((double)var0.getX() + 0.5D);
-      double var3 = fdZ.field_976.player.posY - ((double)var0.getY() + 0.5D) + 1.5D;
-      double var5 = fdZ.field_976.player.posZ - ((double)var0.getZ() + 0.5D);
-      double var7 = var1 * var1 + var3 * var3 + var5 * var5;
-      return var7 <= 36.0D;
-   }
+    @JvmStatic
+    public static boolean Method689(@NotNull BlockPos blockPos) {
+        double d = fdZ.Field313.player.posX - ((double)blockPos.getX() + 0.5);
+        double d2 = fdZ.Field313.player.posY - ((double)blockPos.getY() + 0.5) + 1.5;
+        double d3 = fdZ.Field313.player.posZ - ((double)blockPos.getZ() + 0.5);
+        double d4 = d * d + d2 * d2 + d3 * d3;
+        return d4 <= 36.0;
+    }
 
-   // $FF: renamed from: 5 (net.minecraft.util.math.BlockPos) net.minecraft.block.Block
-   @JvmStatic
-   @NotNull
-   public static Block method_1779(@Nullable BlockPos var0) {
-      return fdZ.field_976.world.getBlockState(var0).getBlock();
-   }
+    @JvmStatic
+    @NotNull
+    public static Block Method690(@Nullable BlockPos blockPos) {
+        return fdZ.Field313.world.getBlockState(blockPos).getBlock();
+    }
 
-   // $FF: renamed from: 6 (net.minecraft.util.math.BlockPos) boolean
-   @JvmStatic
-   public static boolean method_1780(@Nullable BlockPos var0) {
-      return method_1779(var0).canCollideCheck(method_1791(var0), false);
-   }
+    @JvmStatic
+    public static boolean Method691(@Nullable BlockPos blockPos) {
+        return feg.Method690(blockPos).canCollideCheck(feg.Method701(blockPos), false);
+    }
 
-   // $FF: renamed from: 0 (net.minecraft.util.math.BlockPos) boolean
-   public boolean method_1781(@Nullable BlockPos var1) {
-      AxisAlignedBB var2 = method_1791(var1).getCollisionBoundingBox((IBlockAccess)fdZ.field_976.world, var1);
-      return var2 != null && var2.maxX - var2.minX == 1.0D && var2.maxY - var2.minY == 1.0D && var2.maxZ - var2.minZ == 1.0D;
-   }
+    public boolean Method657(@Nullable BlockPos blockPos) {
+        AxisAlignedBB axisAlignedBB = feg.Method701(blockPos).getCollisionBoundingBox((IBlockAccess)fdZ.Field313.world, blockPos);
+        return axisAlignedBB != null && axisAlignedBB.maxX - axisAlignedBB.minX == 1.0 && axisAlignedBB.maxY - axisAlignedBB.minY == 1.0 && axisAlignedBB.maxZ - axisAlignedBB.minZ == 1.0;
+    }
 
-   // $FF: renamed from: c () java.util.List
-   @NotNull
-   public List method_1782() {
-      return field_1215;
-   }
+    @NotNull
+    public List Method692() {
+        return Field453;
+    }
 
-   // $FF: renamed from: 4 (net.minecraft.util.math.BlockPos) net.minecraft.block.material.Material
-   @NotNull
-   public Material method_1783(@Nullable BlockPos var1) {
-      return method_1791(var1).getMaterial();
-   }
+    @NotNull
+    public Material Method693(@Nullable BlockPos blockPos) {
+        return feg.Method701(blockPos).getMaterial();
+    }
 
-   // $FF: renamed from: 0 (int) java.util.Map
-   @NotNull
-   public Map method_1784(int var1) {
-      Map var2 = (Map)(new HashMap());
-      int var3 = var1;
-      int var4 = -var1 + 1;
-      if (var1 >= var4) {
-         while(true) {
-            int var5 = var1;
-            int var6 = -var1 + 1;
-            if (var1 >= var6) {
-               while(true) {
-                  int var7 = var1;
-                  int var8 = -var1 + 1;
-                  if (var1 >= var8) {
-                     while(true) {
-                        BlockPos var9 = new BlockPos((int)fdZ.field_976.player.posX + var3, (int)fdZ.field_976.player.posY + var5, (int)fdZ.field_976.player.posZ + var7);
-                        Block var10 = method_1779(var9);
-                        var2.put(var9, var10);
-                        if (var7 == var8) {
-                           break;
+    @NotNull
+    public Map Method694(int n) {
+        Map map = new HashMap();
+        int n2 = n;
+        int n3 = -n + 1;
+        if (n2 >= n3) {
+            while (true) {
+                int n4;
+                int n5;
+                if ((n5 = n) >= (n4 = -n + 1)) {
+                    while (true) {
+                        int n6;
+                        int n7;
+                        if ((n7 = n) >= (n6 = -n + 1)) {
+                            while (true) {
+                                BlockPos blockPos = new BlockPos((int)fdZ.Field313.player.posX + n2, (int)fdZ.Field313.player.posY + n5, (int)fdZ.Field313.player.posZ + n7);
+                                Block block = feg.Method690(blockPos);
+                                map.put(blockPos, block);
+                                if (n7 == n6) break;
+                                --n7;
+                            }
                         }
-
-                        --var7;
-                     }
-                  }
-
-                  if (var5 == var6) {
-                     break;
-                  }
-
-                  --var5;
-               }
+                        if (n5 == n4) break;
+                        --n5;
+                    }
+                }
+                if (n2 == n3) break;
+                --n2;
             }
+        }
+        return map;
+    }
 
-            if (var3 == var4) {
-               break;
+    static {
+        feg feg2;
+        Field454 = feg2 = new feg();
+        Field453 = CollectionsKt.Method1014(new Block[]{Blocks.AIR, (Block)Blocks.LAVA, (Block)Blocks.WATER, (Block)Blocks.FLOWING_LAVA, (Block)Blocks.FLOWING_WATER});
+    }
+
+    @JvmStatic
+    public static boolean Method695(@NotNull AxisAlignedBB axisAlignedBB, @NotNull fef fef2) {
+        int n = MathHelper.floor((double)fdZ.Field313.player.getEntityBoundingBox().maxX) + 1;
+        for (int i = MathHelper.floor((double)fdZ.Field313.player.getEntityBoundingBox().minX); i < n; ++i) {
+            int n2 = MathHelper.floor((double)fdZ.Field313.player.getEntityBoundingBox().maxZ) + 1;
+            for (int j = MathHelper.floor((double)fdZ.Field313.player.getEntityBoundingBox().minZ); j < n2; ++j) {
+                Block block = feg.Method690(new BlockPos((double)i, axisAlignedBB.minY, (double)j));
+                if (block == null || fef2.Method680(block)) continue;
+                return false;
             }
+        }
+        return true;
+    }
 
-            --var3;
-         }
-      }
+    /*
+     * Enabled force condition propagation
+     * Lifted jumps to return sites
+     */
+    public boolean Method696(@NotNull BlockPos blockPos) {
+        Block block = feg.Method690(blockPos);
+        boolean bl = false;
+        Iterator iterator2 = fdZ.Field313.world.loadedTileEntityList.iterator();
+        while (iterator2.hasNext()) {
+            TileEntity tileEntity = (TileEntity)iterator2.next();
+            if (!Intrinsics.Method6572((Object)tileEntity.getPos(), (Object)blockPos)) continue;
+            return false;
+        }
+        if (bl) return false;
+        if (block instanceof BlockBed) return false;
+        if (block instanceof BlockNote) return false;
+        if (block instanceof BlockDoor) return false;
+        if (block instanceof BlockTrapDoor) return false;
+        if (block instanceof BlockFenceGate) return false;
+        if (block instanceof BlockButton) return false;
+        if (block instanceof BlockAnvil) return false;
+        if (block instanceof BlockWorkbench) return false;
+        if (block instanceof BlockCake) return false;
+        if (block instanceof BlockRedstoneDiode) return false;
+        return true;
+    }
 
-      return var2;
-   }
+    @Nullable
+    public fee Method697(@NotNull BlockPos blockPos) {
+        BlockPos blockPos2 = blockPos;
+        WorldClient worldClient = fdZ.Field313.world;
+        BlockPos blockPos3 = blockPos2;
+        int n = -1;
+        int n2 = 0;
+        if (!Field453.contains((Object)worldClient.getBlockState(blockPos3.add(n2, n, n2)).getBlock())) {
+            BlockPos blockPos4 = blockPos2;
+            int n3 = -1;
+            int n4 = 0;
+            return new fee(blockPos4.add(n4, n3, n4), EnumFacing.UP);
+        }
+        if (!Field453.contains((Object)fdZ.Field313.world.getBlockState(blockPos2.add(-1, 0, 0)).getBlock())) {
+            return new fee(blockPos2.add(-1, 0, 0), EnumFacing.EAST);
+        }
+        if (!Field453.contains((Object)fdZ.Field313.world.getBlockState(blockPos2.add(1, 0, 0)).getBlock())) {
+            return new fee(blockPos2.add(1, 0, 0), EnumFacing.WEST);
+        }
+        if (!Field453.contains((Object)fdZ.Field313.world.getBlockState(blockPos2.add(0, 0, -1)).getBlock())) {
+            return new fee(blockPos2.add(0, 0, -1), EnumFacing.SOUTH);
+        }
+        if (!Field453.contains((Object)fdZ.Field313.world.getBlockState(blockPos2.add(0, 0, 1)).getBlock())) {
+            return new fee(blockPos2.add(0, 0, 1), EnumFacing.NORTH);
+        }
+        BlockPos blockPos5 = blockPos2.add(-1, 0, 0);
+        if (!Field453.contains((Object)fdZ.Field313.world.getBlockState(blockPos5.add(-1, 0, 0)).getBlock())) {
+            return new fee(blockPos5.add(-1, 0, 0), EnumFacing.EAST);
+        }
+        if (!Field453.contains((Object)fdZ.Field313.world.getBlockState(blockPos5.add(1, 0, 0)).getBlock())) {
+            return new fee(blockPos5.add(1, 0, 0), EnumFacing.WEST);
+        }
+        if (!Field453.contains((Object)fdZ.Field313.world.getBlockState(blockPos5.add(0, 0, -1)).getBlock())) {
+            return new fee(blockPos5.add(0, 0, -1), EnumFacing.SOUTH);
+        }
+        if (!Field453.contains((Object)fdZ.Field313.world.getBlockState(blockPos5.add(0, 0, 1)).getBlock())) {
+            return new fee(blockPos5.add(0, 0, 1), EnumFacing.NORTH);
+        }
+        BlockPos blockPos6 = blockPos2.add(1, 0, 0);
+        if (!Field453.contains((Object)fdZ.Field313.world.getBlockState(blockPos6.add(-1, 0, 0)).getBlock())) {
+            return new fee(blockPos6.add(-1, 0, 0), EnumFacing.EAST);
+        }
+        if (!Field453.contains((Object)fdZ.Field313.world.getBlockState(blockPos6.add(1, 0, 0)).getBlock())) {
+            return new fee(blockPos6.add(1, 0, 0), EnumFacing.WEST);
+        }
+        if (!Field453.contains((Object)fdZ.Field313.world.getBlockState(blockPos6.add(0, 0, -1)).getBlock())) {
+            return new fee(blockPos6.add(0, 0, -1), EnumFacing.SOUTH);
+        }
+        if (!Field453.contains((Object)fdZ.Field313.world.getBlockState(blockPos6.add(0, 0, 1)).getBlock())) {
+            return new fee(blockPos6.add(0, 0, 1), EnumFacing.NORTH);
+        }
+        BlockPos blockPos7 = blockPos2.add(0, 0, -1);
+        if (!Field453.contains((Object)fdZ.Field313.world.getBlockState(blockPos7.add(-1, 0, 0)).getBlock())) {
+            return new fee(blockPos7.add(-1, 0, 0), EnumFacing.EAST);
+        }
+        if (!Field453.contains((Object)fdZ.Field313.world.getBlockState(blockPos7.add(1, 0, 0)).getBlock())) {
+            return new fee(blockPos7.add(1, 0, 0), EnumFacing.WEST);
+        }
+        if (!Field453.contains((Object)fdZ.Field313.world.getBlockState(blockPos7.add(0, 0, -1)).getBlock())) {
+            return new fee(blockPos7.add(0, 0, -1), EnumFacing.SOUTH);
+        }
+        if (!Field453.contains((Object)fdZ.Field313.world.getBlockState(blockPos7.add(0, 0, 1)).getBlock())) {
+            return new fee(blockPos7.add(0, 0, 1), EnumFacing.NORTH);
+        }
+        blockPos2 = blockPos2.add(0, 0, 1);
+        if (!Field453.contains((Object)fdZ.Field313.world.getBlockState(blockPos2.add(-1, 0, 0)).getBlock())) {
+            return new fee(blockPos2.add(-1, 0, 0), EnumFacing.EAST);
+        }
+        if (!Field453.contains((Object)fdZ.Field313.world.getBlockState(blockPos2.add(1, 0, 0)).getBlock())) {
+            return new fee(blockPos2.add(1, 0, 0), EnumFacing.WEST);
+        }
+        if (!Field453.contains((Object)fdZ.Field313.world.getBlockState(blockPos2.add(0, 0, -1)).getBlock())) {
+            return new fee(blockPos2.add(0, 0, -1), EnumFacing.SOUTH);
+        }
+        return !Field453.contains((Object)fdZ.Field313.world.getBlockState(blockPos2.add(0, 0, 1)).getBlock()) ? new fee(blockPos2.add(0, 0, 1), EnumFacing.NORTH) : null;
+    }
 
-   static {
-      feg var0 = new feg();
-      field_1216 = var0;
-      field_1215 = CollectionsKt.listOf(new Block[]{Blocks.AIR, (Block)Blocks.LAVA, (Block)Blocks.WATER, (Block)Blocks.FLOWING_LAVA, (Block)Blocks.FLOWING_WATER});
-   }
+    public double Method698(@NotNull BlockPos blockPos) {
+        return fdZ.Field313.player.getDistance((double)blockPos.getX() + 0.5, (double)blockPos.getY() + 0.5, (double)blockPos.getZ() + 0.5);
+    }
 
-   // $FF: renamed from: 0 (net.minecraft.util.math.AxisAlignedBB, dev.nuker.pyro.fef) boolean
-   @JvmStatic
-   public static boolean method_1785(@NotNull AxisAlignedBB var0, @NotNull fef var1) {
-      int var2 = MathHelper.floor(fdZ.field_976.player.getEntityBoundingBox().minX);
-
-      for(int var3 = MathHelper.floor(fdZ.field_976.player.getEntityBoundingBox().maxX) + 1; var2 < var3; ++var2) {
-         int var4 = MathHelper.floor(fdZ.field_976.player.getEntityBoundingBox().minZ);
-
-         for(int var5 = MathHelper.floor(fdZ.field_976.player.getEntityBoundingBox().maxZ) + 1; var4 < var5; ++var4) {
-            Block var6 = method_1779(new BlockPos((double)var2, var0.minY, (double)var4));
-            if (var6 != null && !var1.method_0(var6)) {
-               return false;
+    public boolean Method699(@NotNull AxisAlignedBB axisAlignedBB, @NotNull fef fef2) {
+        int n = MathHelper.floor((double)fdZ.Field313.player.getEntityBoundingBox().maxX) + 1;
+        for (int i = MathHelper.floor((double)fdZ.Field313.player.getEntityBoundingBox().minX); i < n; ++i) {
+            int n2 = MathHelper.floor((double)fdZ.Field313.player.getEntityBoundingBox().maxZ) + 1;
+            for (int j = MathHelper.floor((double)fdZ.Field313.player.getEntityBoundingBox().minZ); j < n2; ++j) {
+                AxisAlignedBB axisAlignedBB2;
+                BlockPos blockPos = new BlockPos((double)i, axisAlignedBB.minY, (double)j);
+                Block block = feg.Method690(blockPos);
+                if (block == null) continue;
+                if (!fef2.Method680(block) || (axisAlignedBB2 = feg.Method701(blockPos).getCollisionBoundingBox((IBlockAccess)fdZ.Field313.world, blockPos)) == null) continue;
+                if (!fdZ.Field313.player.getEntityBoundingBox().intersects(axisAlignedBB2)) continue;
+                return true;
             }
-         }
-      }
+        }
+        return false;
+    }
 
-      return true;
-   }
+    @JvmStatic
+    public static boolean Method700(@Nullable BlockPos blockPos) {
+        return Field454.Method693(blockPos).isReplaceable();
+    }
 
-   // $FF: renamed from: 2 (net.minecraft.util.math.BlockPos) boolean
-   public boolean method_1786(@NotNull BlockPos var1) {
-      Block var2 = method_1779(var1);
-      boolean var3 = false;
-      Iterator var5 = fdZ.field_976.world.loadedTileEntityList.iterator();
-
-      while(var5.hasNext()) {
-         TileEntity var4 = (TileEntity)var5.next();
-         if (Intrinsics.areEqual((Object)var4.getPos(), (Object)var1)) {
-            var3 = true;
-            break;
-         }
-      }
-
-      return !var3 && !(var2 instanceof BlockBed) && !(var2 instanceof BlockNote) && !(var2 instanceof BlockDoor) && !(var2 instanceof BlockTrapDoor) && !(var2 instanceof BlockFenceGate) && !(var2 instanceof BlockButton) && !(var2 instanceof BlockAnvil) && !(var2 instanceof BlockWorkbench) && !(var2 instanceof BlockCake) && !(var2 instanceof BlockRedstoneDiode);
-   }
-
-   // $FF: renamed from: 8 (net.minecraft.util.math.BlockPos) dev.nuker.pyro.fee
-   @Nullable
-   public fee method_1787(@NotNull BlockPos var1) {
-      WorldClient var3 = fdZ.field_976.world;
-      byte var5 = -1;
-      byte var6 = 0;
-      if (!field_1215.contains(var3.getBlockState(var1.add(var6, var5, var6)).getBlock())) {
-         byte var10 = -1;
-         byte var11 = 0;
-         return new fee(var1.add(var11, var10, var11), EnumFacing.UP);
-      } else if (!field_1215.contains(fdZ.field_976.world.getBlockState(var1.add(-1, 0, 0)).getBlock())) {
-         return new fee(var1.add(-1, 0, 0), EnumFacing.EAST);
-      } else if (!field_1215.contains(fdZ.field_976.world.getBlockState(var1.add(1, 0, 0)).getBlock())) {
-         return new fee(var1.add(1, 0, 0), EnumFacing.WEST);
-      } else if (!field_1215.contains(fdZ.field_976.world.getBlockState(var1.add(0, 0, -1)).getBlock())) {
-         return new fee(var1.add(0, 0, -1), EnumFacing.SOUTH);
-      } else if (!field_1215.contains(fdZ.field_976.world.getBlockState(var1.add(0, 0, 1)).getBlock())) {
-         return new fee(var1.add(0, 0, 1), EnumFacing.NORTH);
-      } else {
-         BlockPos var7 = var1.add(-1, 0, 0);
-         if (!field_1215.contains(fdZ.field_976.world.getBlockState(var7.add(-1, 0, 0)).getBlock())) {
-            return new fee(var7.add(-1, 0, 0), EnumFacing.EAST);
-         } else if (!field_1215.contains(fdZ.field_976.world.getBlockState(var7.add(1, 0, 0)).getBlock())) {
-            return new fee(var7.add(1, 0, 0), EnumFacing.WEST);
-         } else if (!field_1215.contains(fdZ.field_976.world.getBlockState(var7.add(0, 0, -1)).getBlock())) {
-            return new fee(var7.add(0, 0, -1), EnumFacing.SOUTH);
-         } else if (!field_1215.contains(fdZ.field_976.world.getBlockState(var7.add(0, 0, 1)).getBlock())) {
-            return new fee(var7.add(0, 0, 1), EnumFacing.NORTH);
-         } else {
-            BlockPos var8 = var1.add(1, 0, 0);
-            if (!field_1215.contains(fdZ.field_976.world.getBlockState(var8.add(-1, 0, 0)).getBlock())) {
-               return new fee(var8.add(-1, 0, 0), EnumFacing.EAST);
-            } else if (!field_1215.contains(fdZ.field_976.world.getBlockState(var8.add(1, 0, 0)).getBlock())) {
-               return new fee(var8.add(1, 0, 0), EnumFacing.WEST);
-            } else if (!field_1215.contains(fdZ.field_976.world.getBlockState(var8.add(0, 0, -1)).getBlock())) {
-               return new fee(var8.add(0, 0, -1), EnumFacing.SOUTH);
-            } else if (!field_1215.contains(fdZ.field_976.world.getBlockState(var8.add(0, 0, 1)).getBlock())) {
-               return new fee(var8.add(0, 0, 1), EnumFacing.NORTH);
-            } else {
-               BlockPos var9 = var1.add(0, 0, -1);
-               if (!field_1215.contains(fdZ.field_976.world.getBlockState(var9.add(-1, 0, 0)).getBlock())) {
-                  return new fee(var9.add(-1, 0, 0), EnumFacing.EAST);
-               } else if (!field_1215.contains(fdZ.field_976.world.getBlockState(var9.add(1, 0, 0)).getBlock())) {
-                  return new fee(var9.add(1, 0, 0), EnumFacing.WEST);
-               } else if (!field_1215.contains(fdZ.field_976.world.getBlockState(var9.add(0, 0, -1)).getBlock())) {
-                  return new fee(var9.add(0, 0, -1), EnumFacing.SOUTH);
-               } else if (!field_1215.contains(fdZ.field_976.world.getBlockState(var9.add(0, 0, 1)).getBlock())) {
-                  return new fee(var9.add(0, 0, 1), EnumFacing.NORTH);
-               } else {
-                  BlockPos var2 = var1.add(0, 0, 1);
-                  if (!field_1215.contains(fdZ.field_976.world.getBlockState(var2.add(-1, 0, 0)).getBlock())) {
-                     return new fee(var2.add(-1, 0, 0), EnumFacing.EAST);
-                  } else if (!field_1215.contains(fdZ.field_976.world.getBlockState(var2.add(1, 0, 0)).getBlock())) {
-                     return new fee(var2.add(1, 0, 0), EnumFacing.WEST);
-                  } else if (!field_1215.contains(fdZ.field_976.world.getBlockState(var2.add(0, 0, -1)).getBlock())) {
-                     return new fee(var2.add(0, 0, -1), EnumFacing.SOUTH);
-                  } else {
-                     return !field_1215.contains(fdZ.field_976.world.getBlockState(var2.add(0, 0, 1)).getBlock()) ? new fee(var2.add(0, 0, 1), EnumFacing.NORTH) : null;
-                  }
-               }
-            }
-         }
-      }
-   }
-
-   // $FF: renamed from: 7 (net.minecraft.util.math.BlockPos) double
-   public double method_1788(@NotNull BlockPos var1) {
-      return fdZ.field_976.player.getDistance((double)var1.getX() + 0.5D, (double)var1.getY() + 0.5D, (double)var1.getZ() + 0.5D);
-   }
-
-   // $FF: renamed from: c (net.minecraft.util.math.AxisAlignedBB, dev.nuker.pyro.fef) boolean
-   public boolean method_1789(@NotNull AxisAlignedBB var1, @NotNull fef var2) {
-      int var3 = MathHelper.floor(fdZ.field_976.player.getEntityBoundingBox().minX);
-
-      for(int var4 = MathHelper.floor(fdZ.field_976.player.getEntityBoundingBox().maxX) + 1; var3 < var4; ++var3) {
-         int var5 = MathHelper.floor(fdZ.field_976.player.getEntityBoundingBox().minZ);
-
-         for(int var6 = MathHelper.floor(fdZ.field_976.player.getEntityBoundingBox().maxZ) + 1; var5 < var6; ++var5) {
-            BlockPos var7 = new BlockPos((double)var3, var1.minY, (double)var5);
-            Block var8 = method_1779(var7);
-            if (var8 != null && var2.method_0(var8)) {
-               AxisAlignedBB var9 = method_1791(var7).getCollisionBoundingBox((IBlockAccess)fdZ.field_976.world, var7);
-               if (var9 != null && fdZ.field_976.player.getEntityBoundingBox().intersects(var9)) {
-                  return true;
-               }
-            }
-         }
-      }
-
-      return false;
-   }
-
-   // $FF: renamed from: 1 (net.minecraft.util.math.BlockPos) boolean
-   @JvmStatic
-   public static boolean method_1790(@Nullable BlockPos var0) {
-      return field_1216.method_1783(var0).isReplaceable();
-   }
-
-   // $FF: renamed from: c (net.minecraft.util.math.BlockPos) net.minecraft.block.state.IBlockState
-   @JvmStatic
-   @NotNull
-   public static IBlockState method_1791(@Nullable BlockPos var0) {
-      return fdZ.field_976.world.getBlockState(var0);
-   }
+    @JvmStatic
+    @NotNull
+    public static IBlockState Method701(@Nullable BlockPos blockPos) {
+        return fdZ.Field313.world.getBlockState(blockPos);
+    }
 }
+

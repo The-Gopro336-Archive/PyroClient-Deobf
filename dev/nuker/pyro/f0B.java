@@ -1,88 +1,116 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.Minecraft
+ *  net.minecraft.util.Timer
+ *  org.jetbrains.annotations.NotNull
+ *  org.jetbrains.annotations.Nullable
  */
 package dev.nuker.pyro;
 
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import dev.nuker.pyro.f05;
+import dev.nuker.pyro.f06;
+import dev.nuker.pyro.f07;
+import dev.nuker.pyro.f08;
+import dev.nuker.pyro.f09;
+import dev.nuker.pyro.f0a;
+import dev.nuker.pyro.mixin.MinecraftAccessor;
+import dev.nuker.pyro.mixin.TimerAccessor;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+import kotlin.TypeCastException;
+import kotlin.jvm.JvmField;
+import net.minecraft.client.Minecraft;
+import net.minecraft.util.Timer;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public enum f0B {
-   // $FF: renamed from: c dev.nuker.pyro.f0B
-   field_2317,
-   // $FF: renamed from: 0 dev.nuker.pyro.f0B
-   field_2318,
-   // $FF: renamed from: 1 dev.nuker.pyro.f0B
-   field_2319,
-   // $FF: renamed from: 2 dev.nuker.pyro.f0B
-   field_2320;
+public class f0b {
+    public Map<String, f08> Field5564;
+    public Map<String, f06> Field5565;
+    public boolean Field5566;
+    public Minecraft Field5567;
+    @JvmField
+    @NotNull
+    public static f0b Field5568;
+    public static f05 Field5569;
 
-   // $FF: renamed from: c dev.nuker.pyro.f0B[]
-   public static f0B[] field_2321 = new f0B[]{field_2317 = new f0B("TOP_LEFT", 0, -1, -1), field_2318 = new f0B("TOP_RIGHT", 1, 1, -1), field_2319 = new f0B("BOTTOM_LEFT", 2, -1, 1), field_2320 = new f0B("BOTTOM_RIGHT", 3, 1, 1)};
-   // $FF: renamed from: c int
-   public int field_2322;
-   // $FF: renamed from: 0 int
-   public int field_2323;
-   // $FF: renamed from: c dev.nuker.pyro.f0A
-   public static f0A field_2324 = new f0A((DefaultConstructorMarker)null);
+    public void Method7899(@NotNull String string) {
+        this.Field5565.remove(string);
+    }
 
-   // $FF: renamed from: 0 (double, int) double
-   public double method_3480(double var1, int var3) {
-      switch(this.field_2323) {
-      case -1:
-         return var1;
-      case 0:
-      default:
-         return 0.0D;
-      case 1:
-         return (double)var3 - var1;
-      }
-   }
+    public void Method7900(@NotNull String string, @NotNull f08 f082) {
+        this.Field5564.put(string, f082);
+    }
 
-   // $FF: renamed from: 1 () int
-   public int method_3481() {
-      return this.field_2323;
-   }
+    public f0b(@NotNull Minecraft minecraft) {
+        this.Field5567 = minecraft;
+        this.Field5564 = new HashMap();
+        this.Field5565 = new HashMap();
+    }
 
-   // $FF: renamed from: 0 () int
-   public int method_3482() {
-      return this.field_2322;
-   }
+    static {
+        Field5569 = new f05(null);
+        Field5568 = new f0b(Minecraft.getMinecraft());
+    }
 
-   public f0B(int var3, int var4) {
-      this.field_2322 = var3;
-      this.field_2323 = var4;
-   }
+    public void Method7901(@NotNull String string, float f, @NotNull Runnable runnable) {
+        this.Field5565.put(string, new f09(runnable, f, f));
+    }
 
-   // $FF: renamed from: c (double, int) double
-   public double method_3483(double var1, int var3) {
-      switch(this.field_2322) {
-      case -1:
-         return var1;
-      case 0:
-      default:
-         return 0.0D;
-      case 1:
-         return (double)var3 - var1;
-      }
-   }
+    public void Method7902(@NotNull String string, @NotNull f07 f072, float f) {
+        this.Method7900(string, new f08(f072, f));
+    }
 
-   // $FF: renamed from: c () dev.nuker.pyro.f0G
-   @Nullable
-   public f0G method_3484() {
-      switch(this.field_2322) {
-      case -1:
-         return f0G.field_2325;
-      case 0:
-      default:
-         return null;
-      case 1:
-         return f0G.field_2326;
-      }
-   }
+    @Nullable
+    public f06 Method7903(@NotNull String string) {
+        return this.Field5565.get(string);
+    }
 
-   // $FF: renamed from: c (java.lang.String) dev.nuker.pyro.f0B
-   public static f0B method_3485(String var0) {
-      return (f0B)Enum.valueOf(f0B.class, var0);
-   }
+    public void Method7904(@NotNull String string) {
+        this.Field5564.remove(string);
+    }
+
+    public void Method7905() {
+        Minecraft minecraft = this.Field5567;
+        if (minecraft == null) {
+            throw new TypeCastException("null cannot be cast to non-null type dev.nuker.pyro.mixin.MinecraftAccessor");
+        }
+        Timer timer = ((MinecraftAccessor)minecraft).Method6086();
+        if (timer == null) {
+            throw new TypeCastException("null cannot be cast to non-null type dev.nuker.pyro.mixin.TimerAccessor");
+        }
+        TimerAccessor timerAccessor = (TimerAccessor)timer;
+        float f = 50.0f;
+        if (this.Field5564.isEmpty()) {
+            if (this.Field5566) {
+                timerAccessor.Method12406(f);
+                this.Field5566 = false;
+            }
+        } else {
+            Optional<f08> optional = this.Field5564.values().stream().filter(f0a.Field5562).findFirst();
+            if (optional.isPresent()) {
+                f = optional.get().Method7604();
+            } else {
+                for (f08 f082 : this.Field5564.values()) {
+                    f *= 1.0f / f082.Method7604();
+                }
+            }
+            timerAccessor.Method12406(f);
+            this.Field5566 = true;
+        }
+    }
+
+    public void Method7906() {
+        for (f06 f062 : this.Field5565.values()) {
+            f062.Method7683().updateTimer();
+            int n = f062.Method7683().elapsedTicks;
+            for (int i = 0; i < n; ++i) {
+                f062.Method7607();
+            }
+        }
+    }
 }
+

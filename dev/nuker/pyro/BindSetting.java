@@ -1,56 +1,71 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  com.google.gson.JsonElement
+ *  com.google.gson.JsonPrimitive
+ *  net.minecraft.client.gui.inventory.GuiInventory
+ *  org.jetbrains.annotations.NotNull
+ *  org.jetbrains.annotations.Nullable
+ *  org.lwjgl.input.Keyboard
+ *  org.lwjgl.input.Mouse
  */
 package dev.nuker.pyro;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
+import dev.nuker.pyro.PyroStatic;
+import dev.nuker.pyro.Setting;
+import dev.nuker.pyro.f0S;
+import dev.nuker.pyro.f13;
+import dev.nuker.pyro.fdZ;
 import net.minecraft.client.gui.inventory.GuiInventory;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 
-public class BindSetting extends Setting {
-   // $FF: renamed from: 2 () dev.nuker.pyro.f13
-   @NotNull
-   public f13 method_3309() {
-      return (f13)(new f0S(this));
-   }
+public class BindSetting
+extends Setting {
+    @Override
+    @NotNull
+    public f13 Method5970() {
+        return new f0S(this);
+    }
 
-   // $FF: renamed from: 0 () com.google.gson.JsonElement
-   @NotNull
-   public JsonElement method_3316() {
-      return (JsonElement)(new JsonPrimitive((Number)this.getValue().method_3034()));
-   }
+    @Override
+    @NotNull
+    public JsonElement Method5969() {
+        return (JsonElement)new JsonPrimitive((Number)this.Method7976().Method5264());
+    }
 
-   public BindSetting(@NotNull String var1, @NotNull String var2, @Nullable String var3, int var4) {
-      super(var1, var2, var3, var4);
-   }
+    public BindSetting(@NotNull String string, @NotNull String string2, @Nullable String string3, int n) {
+        super(string, string2, string3, n);
+    }
 
-   // $FF: renamed from: c (com.google.gson.JsonElement) void
-   public void method_3310(@NotNull JsonElement var1) {
-      this.getValue().method_3033(var1.getAsInt());
-   }
+    @Override
+    public void Method5964(@NotNull JsonElement jsonElement) {
+        this.Method7976().Method5266(jsonElement.getAsInt());
+    }
 
-   // $FF: renamed from: c () boolean
-   public boolean method_3330() {
-      if (fdZ.field_976.currentScreen != null) {
-         boolean var1 = (Boolean)PyroStatic.field_2496.c.method_3034() && (Boolean)PyroStatic.field_2496.field_285.c();
-         if (!(fdZ.field_976.currentScreen instanceof GuiInventory)) {
-            return false;
-         }
-
-         if (!var1) {
-            return false;
-         }
-      }
-
-      if (((Number)this.c()).intValue() != -1 && ((Number)this.c()).intValue() != 0) {
-         return ((Number)this.c()).intValue() > 0 ? Keyboard.isKeyDown(((Number)this.c()).intValue()) : Mouse.isButtonDown(-((Number)this.c()).intValue());
-      } else {
-         return false;
-      }
-   }
+    public boolean Method8796() {
+        if (fdZ.Field313.currentScreen != null) {
+            boolean bl;
+            boolean bl2 = ((Boolean)PyroStatic.Field6432.Field5236.Method5264()).booleanValue() && ((Boolean)PyroStatic.Field6432.Field3588.Method7979()).booleanValue() ? true : (bl = false);
+            if (!(fdZ.Field313.currentScreen instanceof GuiInventory)) {
+                return false;
+            }
+            if (!bl) {
+                return false;
+            }
+        }
+        if (((Number)this.Method7979()).intValue() != -1 && ((Number)this.Method7979()).intValue() != 0) {
+            if (((Number)this.Method7979()).intValue() > 0) {
+                return Keyboard.isKeyDown((int)((Number)this.Method7979()).intValue());
+            }
+            return Mouse.isButtonDown((int)(-((Number)this.Method7979()).intValue()));
+        }
+        return false;
+    }
 }
+

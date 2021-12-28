@@ -1,29 +1,33 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.f00;
 import java.awt.Color;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Lambda;
 import org.jetbrains.annotations.NotNull;
 
-public class f8T extends Lambda implements Function1 {
-   // $FF: renamed from: c dev.nuker.pyro.f8T
-   public static f8T field_27 = new f8T();
+public class f8T
+extends Lambda
+implements Function1 {
+    public static f8T Field3495 = new f8T();
 
-   public Object invoke(Object var1) {
-      return this.method_70((f00)var1);
-   }
+    public Object Method41(Object object) {
+        return this.Method5247((f00)object);
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.f00) java.awt.Color
-   @NotNull
-   public Color method_70(@NotNull f00 var1) {
-      return var1.meth8();
-   }
+    @NotNull
+    public Color Method5247(@NotNull f00 f002) {
+        return f002.Method7524();
+    }
 
-   public f8T() {
-      super(1);
-   }
+    public f8T() {
+        super(1);
+    }
 }
+

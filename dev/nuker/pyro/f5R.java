@@ -1,68 +1,81 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.gui.ScaledResolution
+ *  org.jetbrains.annotations.NotNull
+ *  org.jetbrains.annotations.Nullable
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.Class55;
+import dev.nuker.pyro.PyroRenderUtil;
+import dev.nuker.pyro.f0g;
+import dev.nuker.pyro.f41;
+import dev.nuker.pyro.f4e;
+import dev.nuker.pyro.f5j;
+import dev.nuker.pyro.f5q;
+import dev.nuker.pyro.f5t;
+import dev.nuker.pyro.fdZ;
+import dev.nuker.pyro.fe8;
 import dev.nuker.pyro.security.inject.LauncherEventHide;
 import java.util.Arrays;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.StringCompanionObject;
 import net.minecraft.client.gui.ScaledResolution;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class f5R extends f5q {
-   // $FF: renamed from: c dev.nuker.pyro.fe8
-   public fe8 field_1034 = new fe8();
-   // $FF: renamed from: c float
-   public float field_1035 = 50.0F;
+public class f5R
+extends f5q {
+    public fe8 Field4205 = new fe8();
+    public float Field4206 = 50.0f;
 
-   // $FF: renamed from: c (dev.nuker.pyro.f5t, int, net.minecraft.client.gui.ScaledResolution, float, float) void
-   public void method_1528(@Nullable f5t var1, int var2, @Nullable ScaledResolution var3, float var4, float var5) {
-      float var6 = (float)(System.currentTimeMillis() - this.field_1034.method_1977()) / 1000.0F % 60.0F;
-      if (var6 < (float)2) {
-         if (fdZ.field_976.currentScreen instanceof f5j) {
-            PyroRenderUtil.meth1("Server has stopped responding for x seconds..", 0.0F, 0.0F, -1);
-         }
+    @Override
+    public void Method4875(@Nullable f5t f5t2, int n, @Nullable ScaledResolution scaledResolution, float f, float f2) {
+        float f3 = (float)(System.currentTimeMillis() - this.Field4205.Method488()) / 1000.0f % 60.0f;
+        if (f3 < (float)2) {
+            if (fdZ.Field313.currentScreen instanceof f5j) {
+                PyroRenderUtil.Method12313("Server has stopped responding for x seconds..", 0.0f, 0.0f, -1);
+            }
+            return;
+        }
+        if (fdZ.Field313.isSingleplayer()) {
+            return;
+        }
+        StringCompanionObject stringCompanionObject = StringCompanionObject.Field4618;
+        String string = "Server has stopped responding for %.2f seconds..";
+        Object[] arrobject = new Object[]{Float.valueOf(f3)};
+        boolean bl = false;
+        String string2 = String.format(string, Arrays.copyOf(arrobject, arrobject.length));
+        this.Field4206 = PyroRenderUtil.Method12314(string2);
+        Class55.Field4429.Method6335().Method5670(string2, this.Method4871() / (float)2, 0.0f, -1, true);
+    }
 
-      } else if (!fdZ.field_976.isSingleplayer()) {
-         StringCompanionObject var8 = StringCompanionObject.INSTANCE;
-         String var9 = "Server has stopped responding for %.2f seconds..";
-         Object[] var10 = new Object[]{var6};
-         boolean var11 = false;
-         String var7 = String.format(var9, Arrays.copyOf(var10, var10.length));
-         this.field_1035 = PyroRenderUtil.method_1439(var7);
-         class_59.field_2713.method_4135().drawCenteredString(var7, this.method_1526() / (float)2, 0.0F, -1, true);
-      }
-   }
+    public f5R() {
+        super("serverNotResponding", null, 2, null);
+    }
 
-   public f5R() {
-      super("serverNotResponding", (String)null, 2, (DefaultConstructorMarker)null);
-   }
+    @f0g
+    @LauncherEventHide
+    public void Method493(@NotNull f4e f4e2) {
+        if (f4e2.Method5619() == f41.Pre) {
+            this.Field4205.Method490();
+        }
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.f4e) void
-   @f0g
-   @LauncherEventHide
-   public void method_1537(@NotNull f4e var1) {
-      if (var1.c() == f41.field_2120) {
-         this.field_1034.method_1979();
-      }
+    @Override
+    public float Method4873() {
+        return PyroRenderUtil.Method4908();
+    }
 
-   }
+    @Override
+    public float Method4871() {
+        return this.Field4206;
+    }
 
-   // $FF: renamed from: 0 () float
-   public float method_1531() {
-      return PyroRenderUtil.meth4();
-   }
-
-   // $FF: renamed from: 5 () float
-   public float method_1526() {
-      return this.field_1035;
-   }
-
-   // $FF: renamed from: 1 () boolean
-   public boolean method_1535() {
-      return false;
-   }
+    @Override
+    public boolean Method4872() {
+        return false;
+    }
 }
+

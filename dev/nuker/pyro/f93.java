@@ -1,26 +1,26 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Lambda;
 
-public class f93 extends Lambda implements Function1 {
-   // $FF: renamed from: c dev.nuker.pyro.f93
-   public static f93 field_37 = new f93();
+public class f93
+extends Lambda
+implements Function1 {
+    public static f93 Field3448 = new f93();
 
-   public f93() {
-      super(1);
-   }
+    public f93() {
+        super(1);
+    }
 
-   public Object invoke(Object var1) {
-      return this.method_80((Boolean)var1);
-   }
+    public Object Method41(Object object) {
+        return this.Method5222((Boolean)object);
+    }
 
-   // $FF: renamed from: c (boolean) boolean
-   public boolean method_80(boolean var1) {
-      return var1;
-   }
+    public boolean Method5222(boolean bl) {
+        return bl;
+    }
 }
+

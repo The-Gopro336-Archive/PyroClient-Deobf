@@ -1,31 +1,34 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.util.math.BlockPos
+ *  org.jetbrains.annotations.Nullable
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.fe5;
 import java.util.function.Consumer;
 import kotlin.jvm.internal.Intrinsics;
 import net.minecraft.util.math.BlockPos;
 import org.jetbrains.annotations.Nullable;
 
-public class f6N implements Consumer {
-   // $FF: renamed from: c dev.nuker.pyro.f6N
-   public static f6N field_1692 = new f6N();
+public class f6N
+implements Consumer {
+    public static f6N Field2951 = new f6N();
 
-   public void accept(Object var1) {
-      this.method_2947((BlockPos)var1);
-   }
+    public void accept(Object object) {
+        this.Method574((BlockPos)object);
+    }
 
-   // $FF: renamed from: c (net.minecraft.util.math.BlockPos) void
-   public void method_2947(@Nullable BlockPos var1) {
-      fe5.field_1245.method_1915(7);
-      fe5 var10000 = fe5.field_1245;
-      if (var1 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      var10000.method_1917(var1, 1073676288, 63);
-      fe5.field_1245.method_1912();
-   }
+    public void Method574(@Nullable BlockPos blockPos) {
+        fe5.Field252.Method408(7);
+        BlockPos blockPos2 = blockPos;
+        if (blockPos2 == null) {
+            Intrinsics.Method6551();
+        }
+        fe5.Field252.Method410(blockPos2, 0x3FFF0000, 63);
+        fe5.Field252.Method405();
+    }
 }
+

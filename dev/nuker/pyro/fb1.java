@@ -1,27 +1,45 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.f0w;
+import dev.nuker.pyro.fb2;
+import dev.nuker.pyro.fb3;
+import dev.nuker.pyro.fb4;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.NotNull;
 
-public class fb1 implements Consumer {
-   // $FF: renamed from: c dev.nuker.pyro.fb4
-   public fb4 field_1470;
+public class fb1
+implements Consumer {
+    public fb4 Field1686;
 
-   public void accept(Object var1) {
-      this.method_2651((f0w)var1);
-   }
+    public void accept(Object object) {
+        this.Method374((f0w)object);
+    }
 
-   public fb1(fb4 var1) {
-      this.field_1470 = var1;
-      super();
-   }
+    public fb1(fb4 fb42) {
+        this.Field1686 = fb42;
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.f0w) void
-   public void method_2651(@NotNull f0w var1) {
-      // $FF: Couldn't be decompiled
-   }
+    public void Method374(@NotNull f0w f0w2) {
+        if (((Boolean)this.Field1686.Field5236.Method5264()).booleanValue()) {
+            switch (fb3.Field1695[((fb2)((Object)f0w2.Method7979())).ordinal()]) {
+                case 1: {
+                    this.Field1686.Method2399(false);
+                    this.Field1686.Method2406(true);
+                    break;
+                }
+                case 2: {
+                    this.Field1686.Method2406(false);
+                    this.Field1686.Method2399(true);
+                    break;
+                }
+            }
+        }
+    }
 }
+

@@ -1,37 +1,31 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
 public class fe3 {
-   // $FF: renamed from: c java.lang.Object
-   public Object field_1285;
-   // $FF: renamed from: 0 java.lang.Object
-   public Object field_1286;
+    public F Field282;
+    public S Field283;
 
-   // $FF: renamed from: c () java.lang.Object
-   public Object method_1959() {
-      return this.field_1286;
-   }
+    public Object Method465() {
+        return this.Field283;
+    }
 
-   // $FF: renamed from: 0 () java.lang.Object
-   public Object method_1960() {
-      return this.field_1285;
-   }
+    public Object Method466() {
+        return this.Field282;
+    }
 
-   // $FF: renamed from: c (java.lang.Object) void
-   public void method_1961(Object var1) {
-      this.field_1286 = var1;
-   }
+    public void Method467(Object object) {
+        this.Field283 = object;
+    }
 
-   public fe3(Object var1, Object var2) {
-      this.field_1285 = var1;
-      this.field_1286 = var2;
-   }
+    public fe3(Object object, Object object2) {
+        this.Field282 = object;
+        this.Field283 = object2;
+    }
 
-   // $FF: renamed from: 0 (java.lang.Object) void
-   public void method_1962(Object var1) {
-      this.field_1285 = var1;
-   }
+    public void Method468(Object object) {
+        this.Field282 = object;
+    }
 }
+

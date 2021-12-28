@@ -1,23 +1,24 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-public class f09 extends f06 {
-   // $FF: renamed from: c java.lang.Runnable
-   public Runnable field_2308;
-   // $FF: renamed from: c float
-   public float field_2309;
+import dev.nuker.pyro.f06;
 
-   public f09(Runnable var1, float var2, float var3) {
-      this.field_2308 = var1;
-      this.field_2309 = var2;
-      super(var3);
-   }
+public class f09
+extends f06 {
+    public Runnable Field5389;
+    public float Field5390;
 
-   // $FF: renamed from: c () void
-   public void method_3471() {
-      this.field_2308.run();
-   }
+    public f09(Runnable runnable, float f, float f2) {
+        this.Field5389 = runnable;
+        this.Field5390 = f;
+        super(f2);
+    }
+
+    @Override
+    public void Method7607() {
+        this.Field5389.run();
+    }
 }
+

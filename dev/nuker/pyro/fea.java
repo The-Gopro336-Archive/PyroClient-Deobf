@@ -1,24 +1,35 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-public enum fea {
-   // $FF: renamed from: c dev.nuker.pyro.fea
-   field_1335,
-   // $FF: renamed from: 0 dev.nuker.pyro.fea
-   field_1336,
-   // $FF: renamed from: 1 dev.nuker.pyro.fea
-   field_1337,
-   // $FF: renamed from: 2 dev.nuker.pyro.fea
-   field_1338;
+public class fea
+extends Enum {
+    public static /* enum */ fea NotReplaceable = new fea("NotReplaceable", 0);
+    public static /* enum */ fea Neighbors = new fea("Neighbors", 1);
+    public static /* enum */ fea CantPlace = new fea("CantPlace", 2);
+    public static /* enum */ fea Placed = new fea("Placed", 3);
+    public static /* synthetic */ fea[] Field455;
 
-   // $FF: renamed from: c dev.nuker.pyro.fea[]
-   public static fea[] field_1339 = new fea[]{field_1335, field_1336, field_1337, field_1338};
+    public static fea Method702(String string) {
+        return Enum.valueOf(fea.class, string);
+    }
 
-   // $FF: renamed from: c (java.lang.String) dev.nuker.pyro.fea
-   public static fea method_2011(String var0) {
-      return (fea)Enum.valueOf(fea.class, var0);
-   }
+    public static fea[] Method703() {
+        return (fea[])Field455.clone();
+    }
+
+    /*
+     * WARNING - Possible parameter corruption
+     * WARNING - void declaration
+     */
+    public fea() {
+        void var2_-1;
+        void var1_-1;
+    }
+
+    static {
+        Field455 = new fea[]{NotReplaceable, Neighbors, CantPlace, Placed};
+    }
 }
+

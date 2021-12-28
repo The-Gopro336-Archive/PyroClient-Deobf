@@ -1,9 +1,23 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.gui.FontRenderer
+ *  net.minecraft.client.gui.Gui
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.Class57;
+import dev.nuker.pyro.f0F;
+import dev.nuker.pyro.f0G;
+import dev.nuker.pyro.f0H;
+import dev.nuker.pyro.f0J;
+import dev.nuker.pyro.f0Y;
+import dev.nuker.pyro.f0o;
+import dev.nuker.pyro.f15;
+import dev.nuker.pyro.f17;
+import dev.nuker.pyro.f18;
 import kotlin.TypeCastException;
 import kotlin.jvm.JvmField;
 import kotlin.jvm.internal.Intrinsics;
@@ -11,146 +25,123 @@ import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.Gui;
 import org.jetbrains.annotations.NotNull;
 
-public class f0O extends f0Y {
-   // $FF: renamed from: c dev.nuker.pyro.fw
-   @JvmField
-   @NotNull
-   public class_6 field_2376;
-   // $FF: renamed from: c java.lang.String
-   public String field_2377;
-   // $FF: renamed from: c java.lang.Enum[]
-   public Enum[] field_2378;
-   // $FF: renamed from: 0 java.lang.String
-   public String field_2379;
-   // $FF: renamed from: c double
-   public double field_2380;
-   // $FF: renamed from: c boolean
-   public boolean field_2381;
+public class f0O
+extends f0Y {
+    @JvmField
+    @NotNull
+    public Class57<T> Field5499;
+    public String Field5500;
+    public T[] Field5501;
+    public String Field5502;
+    public double Field5503;
+    public boolean Field5504;
 
-   // $FF: renamed from: 0 (dev.nuker.pyro.f0F, dev.nuker.pyro.f0H) int
-   public int method_26(@NotNull f0F var1, @NotNull f0H var2) {
-      return var1.method_3582().FONT_HEIGHT + 4 + f0H.field_2335 * 2;
-   }
+    @Override
+    public int Method7817(@NotNull f0F f0F2, @NotNull f0H f0H2) {
+        return f0F2.Method7814().FONT_HEIGHT + 4 + f0H.Field5476 * 2;
+    }
 
-   // $FF: renamed from: 0 (dev.nuker.pyro.f0F, dev.nuker.pyro.f0H, dev.nuker.pyro.f17) void
-   public void method_24(@NotNull f0F var1, @NotNull f0H var2, @NotNull f17 var3) {
-      if (var3.method_3645() == 0) {
-         if (var3 instanceof f18) {
-            if (!this.field_2381) {
-               this.method_3621(1);
+    @Override
+    public void Method7818(@NotNull f0F f0F2, @NotNull f0H f0H2, @NotNull f17 f172) {
+        if (f172.Method7895() == 0) {
+            if (f172 instanceof f18) {
+                if (!this.Field5504) {
+                    this.Method7821(1);
+                }
+                this.Field5503 = 0.0;
+                this.Field5504 = false;
+            } else if (f172 instanceof f15) {
+                this.Field5504 = true;
+                this.Field5503 += ((f15)f172).Method7880();
+                int n = (f0F2.Method7813() - f0H.Field5476 * 2) / this.Field5501.length;
+                if (this.Field5503 > (double)n) {
+                    this.Method7821(1);
+                    this.Field5503 = 0.0;
+                } else if (this.Field5503 < (double)(-n)) {
+                    this.Method7821(-1);
+                    this.Field5503 = 0.0;
+                }
             }
+        }
+    }
 
-            this.field_2380 = 0.0D;
-            this.field_2381 = false;
-         } else if (var3 instanceof f15) {
-            this.field_2381 = true;
-            this.field_2380 += ((f15)var3).method_3655();
-            int var4 = (var1.method_3581() - f0H.field_2335 * 2) / this.field_2378.length;
-            if (this.field_2380 > (double)var4) {
-               this.method_3621(1);
-               this.field_2380 = 0.0D;
-            } else if (this.field_2380 < (double)(-var4)) {
-               this.method_3621(-1);
-               this.field_2380 = 0.0D;
+    public f0O(@NotNull f0o f0o2) {
+        super(f0o2);
+        this.Field5500 = f0o2.Method5989();
+        this.Field5502 = "";
+        this.Field5499 = f0o2.Method7976();
+        Object object = this.Field5499.Method5264();
+        if (object == null) {
+            Intrinsics.Method6551();
+        }
+        ?[] arrobj = ((Enum)object).getClass().getEnumConstants();
+        if (arrobj == null) {
+            throw new TypeCastException("null cannot be cast to non-null type kotlin.Array<T>");
+        }
+        T[] arrT = this.Field5501 = (Enum[])arrobj;
+        int n = arrT.length;
+        for (int i = 0; i < n; ++i) {
+            Object t;
+            Object t2 = t = arrT[i];
+            if (t2 == null) {
+                Intrinsics.Method6551();
             }
-         }
-      }
+            if (((Enum)t2).name().length() <= this.Field5502.length()) continue;
+            this.Field5502 = ((Enum)t).name();
+        }
+    }
 
-   }
-
-   public f0O(@NotNull f0o var1) {
-      super((f0w)var1);
-      this.field_2377 = var1.c();
-      this.field_2379 = "";
-      this.field_2376 = var1.getValue();
-      Object var10001 = this.field_2376.method_3034();
-      if (var10001 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      Object[] var6 = ((Enum)var10001).getClass().getEnumConstants();
-      if (var6 == null) {
-         throw new TypeCastException("null cannot be cast to non-null type kotlin.Array<T>");
-      } else {
-         this.field_2378 = (Enum[])var6;
-         Enum[] var4 = this.field_2378;
-         int var5 = var4.length;
-
-         for(int var3 = 0; var3 < var5; ++var3) {
-            Enum var2 = var4[var3];
-            if (var2 == null) {
-               Intrinsics.throwNpe();
+    @Override
+    public void Method7819(@NotNull f0F f0F2, double d, double d2, @NotNull f0H f0H2) {
+        int n;
+        super.Method7819(f0F2, d, d2, f0H2);
+        f0J.Method7775(f0J.Field5485, f0F2.Method7814(), this.Field5500, 0, f0H.Field5476, f0F2.Method7813() - 4, f0F2.Method7815() - f0H.Field5476 * 2 - 4, f0G.LEFT, f0H.Field5476, f0H2.Method7708(), false, 512, null);
+        FontRenderer fontRenderer = f0F2.Method7814();
+        Object object = this.Field5499.Method5264();
+        if (object == null) {
+            Intrinsics.Method6551();
+        }
+        f0J.Method7775(f0J.Field5485, fontRenderer, ((Enum)object).name(), 0, f0H.Field5476, f0F2.Method7813() - 4, f0F2.Method7815() - f0H.Field5476 * 2 - 4, f0G.RIGHT, f0H.Field5476, f0H2.Method7708(), false, 512, null);
+        int n2 = (f0F2.Method7813() - f0H.Field5476 * 2) / this.Field5501.length;
+        Object object2 = this.Field5499.Method5264();
+        if (object2 == null) {
+            Intrinsics.Method6551();
+        }
+        int n3 = n2 * ((Enum)object2).ordinal();
+        Object object3 = this.Field5499.Method5264();
+        if (object3 == null) {
+            Intrinsics.Method6551();
+        }
+        if (((Enum)object3).ordinal() == this.Field5501.length - 1) {
+            n = f0F2.Method7813() - f0H.Field5476 * 2;
+        } else {
+            Object object4 = this.Field5499.Method5264();
+            if (object4 == null) {
+                Intrinsics.Method6551();
             }
+            n = n2 * (((Enum)object4).ordinal() + 1);
+        }
+        int n4 = n;
+        Gui.drawRect((int)f0H.Field5476, (int)(f0F2.Method7815() - f0H.Field5476), (int)(f0F2.Method7813() - f0H.Field5476), (int)(f0F2.Method7815() - f0H.Field5476 - 1), (int)f0H2.Method7708());
+        Gui.drawRect((int)(f0H.Field5476 + n3), (int)(f0F2.Method7815() - f0H.Field5476), (int)(f0H.Field5476 + n4), (int)(f0F2.Method7815() - f0H.Field5476 - 1), (int)f0H2.Method7719());
+    }
 
-            if (var2.name().length() > this.field_2379.length()) {
-               this.field_2379 = var2.name();
-            }
-         }
+    @Override
+    public int Method7820(@NotNull f0F f0F2, @NotNull f0H f0H2) {
+        return f0F2.Method7814().getStringWidth(this.Field5500 + "  " + this.Field5502) + f0H.Field5476 * 2;
+    }
 
-      }
-   }
-
-   // $FF: renamed from: 0 (dev.nuker.pyro.f0F, double, double, dev.nuker.pyro.f0H) void
-   public void method_28(@NotNull f0F var1, double var2, double var4, @NotNull f0H var6) {
-      super.method_28(var1, var2, var4, var6);
-      f0J.method_3555(f0J.field_2340, var1.method_3582(), this.field_2377, 0, f0H.field_2335, var1.method_3581() - 4, var1.method_3583() - f0H.field_2335 * 2 - 4, f0G.field_2325, f0H.field_2335, var6.method_3494(), false, 512, (Object)null);
-      f0J var10000 = f0J.field_2340;
-      FontRenderer var10001 = var1.method_3582();
-      Object var10002 = this.field_2376.method_3034();
-      if (var10002 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      f0J.method_3555(var10000, var10001, ((Enum)var10002).name(), 0, f0H.field_2335, var1.method_3581() - 4, var1.method_3583() - f0H.field_2335 * 2 - 4, f0G.field_2326, f0H.field_2335, var6.method_3494(), false, 512, (Object)null);
-      int var7 = (var1.method_3581() - f0H.field_2335 * 2) / this.field_2378.length;
-      Object var12 = this.field_2376.method_3034();
-      if (var12 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      int var8 = var7 * ((Enum)var12).ordinal();
-      Object var10 = this.field_2376.method_3034();
-      if (var10 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      int var11;
-      if (((Enum)var10).ordinal() == this.field_2378.length - 1) {
-         var11 = var1.method_3581() - f0H.field_2335 * 2;
-      } else {
-         var12 = this.field_2376.method_3034();
-         if (var12 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         var11 = var7 * (((Enum)var12).ordinal() + 1);
-      }
-
-      int var9 = var11;
-      Gui.drawRect(f0H.field_2335, var1.method_3583() - f0H.field_2335, var1.method_3581() - f0H.field_2335, var1.method_3583() - f0H.field_2335 - 1, var6.method_3494());
-      Gui.drawRect(f0H.field_2335 + var8, var1.method_3583() - f0H.field_2335, f0H.field_2335 + var9, var1.method_3583() - f0H.field_2335 - 1, var6.method_3505());
-   }
-
-   // $FF: renamed from: c (dev.nuker.pyro.f0F, dev.nuker.pyro.f0H) int
-   public int method_29(@NotNull f0F var1, @NotNull f0H var2) {
-      return var1.method_3582().getStringWidth(this.field_2377 + "  " + this.field_2379) + f0H.field_2335 * 2;
-   }
-
-   // $FF: renamed from: c (int) void
-   public void method_3621(int var1) {
-      Object var10000 = this.field_2376.method_3034();
-      if (var10000 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      int var2;
-      for(var2 = ((Enum)var10000).ordinal() + var1; var2 >= this.field_2378.length; var2 -= this.field_2378.length) {
-      }
-
-      while(var2 < 0) {
-         var2 += this.field_2378.length;
-      }
-
-      this.field_2376.method_3033(this.field_2378[var2]);
-   }
+    public void Method7821(int n) {
+        int n2;
+        if (this.Field5499.Method5264() == null) {
+            Intrinsics.Method6551();
+        }
+        for (n2 = ((Enum)(v409009)).ordinal() + n; n2 >= this.Field5501.length; n2 -= this.Field5501.length) {
+        }
+        while (n2 < 0) {
+            n2 += this.Field5501.length;
+        }
+        this.Field5499.Method5266(this.Field5501[n2]);
+    }
 }
+

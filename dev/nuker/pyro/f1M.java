@@ -1,25 +1,29 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.world.GameType
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
 import com.mojang.brigadier.SingleRedirectModifier;
 import com.mojang.brigadier.context.CommandContext;
+import dev.nuker.pyro.f1s;
 import net.minecraft.world.GameType;
 import org.jetbrains.annotations.NotNull;
 
-public class f1M implements SingleRedirectModifier {
-   // $FF: renamed from: c dev.nuker.pyro.f1M
-   public static f1M field_2441 = new f1M();
+public class f1M
+implements SingleRedirectModifier {
+    public static f1M Field5621 = new f1M();
 
-   public Object apply(CommandContext var1) {
-      return this.method_3713(var1);
-   }
+    public Object Method4086(CommandContext commandContext) {
+        return this.Method7926(commandContext);
+    }
 
-   // $FF: renamed from: c (com.mojang.brigadier.context.CommandContext) dev.nuker.pyro.f1s
-   @NotNull
-   public f1s method_3713(CommandContext var1) {
-      return ((f1s)var1.getSource()).method_3084("gamemode", GameType.SURVIVAL);
-   }
+    @NotNull
+    public f1s Method7926(CommandContext commandContext) {
+        return ((f1s)commandContext.Method6876()).Method5490("gamemode", (Object)GameType.SURVIVAL);
+    }
 }
+

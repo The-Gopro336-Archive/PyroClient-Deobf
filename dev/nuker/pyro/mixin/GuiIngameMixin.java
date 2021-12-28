@@ -1,6 +1,10 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.gui.GuiIngame
+ *  net.minecraft.client.gui.ScaledResolution
+ *  net.minecraft.client.renderer.GlStateManager
  */
 package dev.nuker.pyro.mixin;
 
@@ -9,35 +13,27 @@ import net.minecraft.client.gui.GuiIngame;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.GlStateManager;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Class0;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin({GuiIngame.class})
+@Mixin(value={GuiIngame.class})
 public class GuiIngameMixin {
-   @Inject(
-      method = {"renderVignette"},
-      at = {@At("HEAD")},
-      cancellable = true
-   )
-   private void dontRenderVignette(float lightLevel, ScaledResolution scaledRes, CallbackInfo ci) {
-      if ((Boolean)PyroStatic.field_2528.c.method_3034()) {
-         PyroStatic.field_2528.method_1169(scaledRes);
-         ci.cancel();
-      } else if ((Boolean)PyroStatic.field_2507.c.method_3034() && (Boolean)PyroStatic.field_2507.method_1336().c()) {
-         GlStateManager.depthMask(true);
-         GlStateManager.enableDepth();
-         ci.cancel();
-      }
+    @Inject(method={"renderVignette"}, at={@Class0(value="HEAD")}, cancellable=true)
+    private void Method4638(float lightLevel, ScaledResolution scaledRes, CallbackInfo ci) {
+        if (((Boolean)PyroStatic.Field6464.Field5236.Method5264()).booleanValue()) {
+            PyroStatic.Field6464.Method2386(scaledRes);
+            ci.Method9034();
+        } else if (((Boolean)PyroStatic.Field6443.Field5236.Method5264()).booleanValue() && ((Boolean)PyroStatic.Field6443.Method284().Method7979()).booleanValue()) {
+            GlStateManager.depthMask((boolean)true);
+            GlStateManager.enableDepth();
+            ci.Method9034();
+        }
+    }
 
-   }
-
-   @Inject(
-      method = {"renderPotionEffects"},
-      at = {@At("HEAD")},
-      cancellable = true
-   )
-   private void renderPotionEffects(ScaledResolution res, CallbackInfo info) {
-      info.cancel();
-   }
+    @Inject(method={"renderPotionEffects"}, at={@Class0(value="HEAD")}, cancellable=true)
+    private void Method4639(ScaledResolution res, CallbackInfo info) {
+        info.Method9034();
+    }
 }
+

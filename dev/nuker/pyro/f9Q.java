@@ -1,42 +1,55 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
-public enum f9Q {
-   // $FF: renamed from: c dev.nuker.pyro.f9Q
-   field_1910,
-   // $FF: renamed from: 0 dev.nuker.pyro.f9Q
-   field_1911,
-   // $FF: renamed from: 1 dev.nuker.pyro.f9Q
-   field_1912,
-   // $FF: renamed from: 2 dev.nuker.pyro.f9Q
-   field_1913,
-   // $FF: renamed from: 3 dev.nuker.pyro.f9Q
-   field_1914,
-   // $FF: renamed from: 4 dev.nuker.pyro.f9Q
-   field_1915,
-   // $FF: renamed from: 5 dev.nuker.pyro.f9Q
-   field_1916,
-   // $FF: renamed from: 6 dev.nuker.pyro.f9Q
-   field_1917,
-   // $FF: renamed from: 7 dev.nuker.pyro.f9Q
-   field_1918,
-   // $FF: renamed from: 8 dev.nuker.pyro.f9Q
-   field_1919,
-   // $FF: renamed from: 9 dev.nuker.pyro.f9Q
-   field_1920,
-   // $FF: renamed from: a dev.nuker.pyro.f9Q
-   field_1921,
-   // $FF: renamed from: b dev.nuker.pyro.f9Q
-   field_1922;
+import dev.nuker.pyro.BooleanSetting;
+import dev.nuker.pyro.DoubleSetting;
+import dev.nuker.pyro.Module;
+import dev.nuker.pyro.f0g;
+import dev.nuker.pyro.f41;
+import dev.nuker.pyro.f4p;
+import dev.nuker.pyro.security.inject.LauncherEventHide;
+import org.jetbrains.annotations.NotNull;
 
-   // $FF: renamed from: c dev.nuker.pyro.f9Q[]
-   public static f9Q[] field_1923 = new f9Q[]{field_1910 = new f9Q("NCPHop", 0), field_1911 = new f9Q("Strafe", 1), field_1912 = new f9Q("FastHop", 2), field_1913 = new f9Q("RubberHop", 3), field_1914 = new f9Q("GayHop", 4), field_1915 = new f9Q("VHop", 5), field_1916 = new f9Q("OnGround", 6), field_1917 = new f9Q("OnGroundOld", 7), field_1918 = new f9Q("BHop", 8), field_1919 = new f9Q("StrictNCP", 9), field_1920 = new f9Q("LowHop", 10), field_1921 = new f9Q("StrafeStep", 11), field_1922 = new f9Q("BHop2b", 12)};
+public class f9q
+extends Module {
+    @NotNull
+    public BooleanSetting Field4470 = (BooleanSetting)this.Method7264(new BooleanSetting("inAir", "InAir", null, false));
+    @NotNull
+    public DoubleSetting Field4471 = (DoubleSetting)this.Method7264(new DoubleSetting("height", "Height", null, 0.5, 0.0, 1.0, 0.0, 64, null));
 
-   // $FF: renamed from: c (java.lang.String) dev.nuker.pyro.f9Q
-   public static f9Q method_3052(String var0) {
-      return (f9Q)Enum.valueOf(f9Q.class, var0);
-   }
+    @f0g(value=-1)
+    @LauncherEventHide
+    public void Method559(@NotNull f4p f4p2) {
+        block2: {
+            block3: {
+                if (f4p2.Method7947() || f4p2.Method5619() != f41.Pre) break block2;
+                if (!this.Field5233.player.movementInput.jump) break block2;
+                if (((Boolean)this.Field4470.Method7979()).booleanValue()) break block3;
+                if (!this.Field5233.player.onGround) break block2;
+            }
+            f4p2.Method7948();
+            f4p2.Method5834(((Number)this.Field4471.Method7979()).doubleValue());
+            this.Field5233.player.motionY = f4p2.Method5815();
+        }
+    }
+
+    @NotNull
+    public DoubleSetting Method238() {
+        return this.Field4471;
+    }
+
+    public f9q() {
+        super("HighJump", "HighJump", "Allows you to jump higher than normal");
+    }
+
+    @NotNull
+    public BooleanSetting Method274() {
+        return this.Field4470;
+    }
 }
+

@@ -1,16 +1,41 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.block.Block
+ *  net.minecraft.block.BlockLiquid
+ *  net.minecraft.client.Minecraft
+ *  net.minecraft.client.entity.EntityPlayerSP
+ *  net.minecraft.entity.player.EntityPlayer
+ *  net.minecraft.init.Blocks
+ *  net.minecraft.item.Item
+ *  net.minecraft.item.ItemBlock
+ *  net.minecraft.util.EnumFacing
+ *  net.minecraft.util.EnumHand
+ *  net.minecraft.util.math.AxisAlignedBB
+ *  net.minecraft.util.math.BlockPos
+ *  net.minecraft.util.math.Vec3d
+ *  net.minecraft.util.math.Vec3i
+ *  net.minecraft.world.World
+ *  org.jetbrains.annotations.NotNull
+ *  org.jetbrains.annotations.Nullable
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.DoubleSetting;
+import dev.nuker.pyro.Module;
+import dev.nuker.pyro.Pyro;
+import dev.nuker.pyro.f0g;
+import dev.nuker.pyro.f41;
+import dev.nuker.pyro.f4u;
+import dev.nuker.pyro.f6M;
+import dev.nuker.pyro.f6N;
+import dev.nuker.pyro.feg;
+import dev.nuker.pyro.few;
 import dev.nuker.pyro.security.inject.LauncherEventHide;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.function.Consumer;
 import kotlin.TypeCastException;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLiquid;
@@ -30,183 +55,149 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class f6O extends Module {
-   // $FF: renamed from: c dev.nuker.pyro.DoubleSetting
-   @NotNull
-   public DoubleSetting field_622 = (DoubleSetting)this.register((f0w)(new DoubleSetting("range", "Range", (String)null, 6.0D, 1.0D, 6.0D, 0.0D, 64, (DefaultConstructorMarker)null)));
-   // $FF: renamed from: c java.util.List
-   @NotNull
-   public List field_623 = (List)(new ArrayList());
+public class f6O
+extends Module {
+    @NotNull
+    public DoubleSetting Field2957 = (DoubleSetting)this.Method7264(new DoubleSetting("range", "Range", null, 6.0, 1.0, 6.0, 0.0, 64, null));
+    @NotNull
+    public List<BlockPos> Field2958 = new ArrayList();
 
-   // $FF: renamed from: c (dev.nuker.pyro.f6O) net.minecraft.client.Minecraft
-   public static Minecraft method_931(f6O var0) {
-      return var0.c;
-   }
+    public static Minecraft Method4839(f6O f6O2) {
+        return f6O2.Field5233;
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.f6O, net.minecraft.client.Minecraft) void
-   public static void method_932(f6O var0, Minecraft var1) {
-      var0.c = var1;
-   }
+    public static void Method4840(f6O f6O2, Minecraft minecraft) {
+        f6O2.Field5233 = minecraft;
+    }
 
-   public f6O() {
-      super("holefiller", "HoleFiller", (String)null);
-   }
+    public f6O() {
+        super("holefiller", "HoleFiller", null);
+    }
 
-   // $FF: renamed from: c (net.minecraft.util.math.Vec3d, float) void
-   public void method_123(@Nullable Vec3d var1, float var2) {
-      super.method_123(var1, var2);
-      this.field_623.forEach((Consumer)f6N.field_1692);
-   }
+    @Override
+    public void Method195(@Nullable Vec3d vec3d, float f) {
+        super.Method195(vec3d, f);
+        this.Field2958.forEach(f6N.Field2951);
+    }
 
-   // $FF: renamed from: c (boolean, net.minecraft.client.entity.EntityPlayerSP, net.minecraft.world.World) void
-   public void method_116(boolean var1, @Nullable EntityPlayerSP var2, @Nullable World var3) {
-      super.method_116(var1, var2, var3);
-      this.field_623.clear();
-   }
+    @Override
+    public void Method205(boolean bl, @Nullable EntityPlayerSP entityPlayerSP, @Nullable World world) {
+        super.Method205(bl, entityPlayerSP, world);
+        this.Field2958.clear();
+    }
 
-   // $FF: renamed from: c () dev.nuker.pyro.DoubleSetting
-   @NotNull
-   public DoubleSetting method_933() {
-      return this.field_622;
-   }
+    @NotNull
+    public DoubleSetting Method238() {
+        return this.Field2957;
+    }
 
-   // $FF: renamed from: c (java.util.List) void
-   public void method_934(@NotNull List var1) {
-      this.field_623 = var1;
-   }
+    public void Method4841(@NotNull List list) {
+        this.Field2958 = list;
+    }
 
-   // $FF: renamed from: c (net.minecraft.util.math.BlockPos) boolean
-   public boolean method_935(@NotNull BlockPos var1) {
-      Block var2 = feg.method_1779(var1);
-      if (!Intrinsics.areEqual((Object)var2, (Object)Blocks.AIR)) {
-         return false;
-      } else {
-         BlockPos[] var5 = new BlockPos[]{var1.north(), var1.south(), var1.east(), var1.west(), var1.down()};
-         int var6 = var5.length;
+    /*
+     * Enabled force condition propagation
+     * Lifted jumps to return sites
+     */
+    public boolean Method4842(@NotNull BlockPos blockPos) {
+        Block block = feg.Method690(blockPos);
+        if (!Intrinsics.Method6572((Object)block, (Object)Blocks.AIR)) return false;
+        for (BlockPos blockPos2 : new BlockPos[]{blockPos.north(), blockPos.south(), blockPos.east(), blockPos.west(), blockPos.down()}) {
+            Block block2 = feg.Method690(blockPos2);
+            if (block2 instanceof BlockLiquid) return false;
+            if (!Intrinsics.Method6572((Object)block2, (Object)Blocks.AIR)) continue;
+            return false;
+        }
+        if (!Intrinsics.Method6572((Object)feg.Method690(blockPos.up()), (Object)Blocks.AIR)) return false;
+        if (!Intrinsics.Method6572((Object)feg.Method690(blockPos.up().up()), (Object)Blocks.AIR)) return false;
+        return true;
+    }
 
-         for(int var4 = 0; var4 < var6; ++var4) {
-            BlockPos var3 = var5[var4];
-            Block var7 = feg.method_1779(var3);
-            if (var7 instanceof BlockLiquid || Intrinsics.areEqual((Object)var7, (Object)Blocks.AIR)) {
-               return false;
+    @NotNull
+    public List Method4843() {
+        return this.Field2958;
+    }
+
+    @f0g
+    @LauncherEventHide
+    public void Method203(@NotNull f4u f4u2) {
+        if (f4u2.Method5619() == f41.Pre && !f4u2.Method7947()) {
+            BlockPos blockPos;
+            int n;
+            this.Field2958.clear();
+            int n2 = -1;
+            int n3 = 8;
+            for (n = 0; n <= n3; ++n) {
+                if (!(this.Field5233.player.inventory.getStackInSlot(n).getItem() instanceof ItemBlock)) continue;
+                Item item = this.Field5233.player.inventory.getStackInSlot(n).getItem();
+                if (item == null) {
+                    throw new TypeCastException("null cannot be cast to non-null type net.minecraft.item.ItemBlock");
+                }
+                ItemBlock itemBlock = (ItemBlock)item;
+                if (!Intrinsics.Method6572((Object)itemBlock.getBlock(), (Object)Blocks.OBSIDIAN)) continue;
+                n2 = n;
+                break;
             }
-         }
-
-         return Intrinsics.areEqual((Object)feg.method_1779(var1.up()), (Object)Blocks.AIR) && Intrinsics.areEqual((Object)feg.method_1779(var1.up().up()), (Object)Blocks.AIR);
-      }
-   }
-
-   // $FF: renamed from: 0 () java.util.List
-   @NotNull
-   public List method_936() {
-      return this.field_623;
-   }
-
-   // $FF: renamed from: c (dev.nuker.pyro.f4u) void
-   @f0g
-   @LauncherEventHide
-   public void method_937(@NotNull f4u var1) {
-      if (var1.c() == f41.field_2120 && !var1.c()) {
-         this.field_623.clear();
-         int var2 = -1;
-         int var3 = 0;
-
-         for(byte var4 = 8; var3 <= var4; ++var3) {
-            if (this.c.player.inventory.getStackInSlot(var3).getItem() instanceof ItemBlock) {
-               Item var10000 = this.c.player.inventory.getStackInSlot(var3).getItem();
-               if (var10000 == null) {
-                  throw new TypeCastException("null cannot be cast to non-null type net.minecraft.item.ItemBlock");
-               }
-
-               ItemBlock var5 = (ItemBlock)var10000;
-               if (Intrinsics.areEqual((Object)var5.getBlock(), (Object)Blocks.OBSIDIAN)) {
-                  var2 = var3;
-                  break;
-               }
+            if (n2 == -1) {
+                this.Method7274("No block");
+                return;
             }
-         }
-
-         if (var2 == -1) {
-            this.5("No block");
-            return;
-         }
-
-         var3 = this.c.player.inventory.currentItem;
-         int var26 = (int)(this.c.player.posX - (double)10);
-         int var27 = (int)(this.c.player.posX + (double)10);
-         int var6 = (int)(this.c.player.posY - (double)10);
-         int var7 = (int)(this.c.player.posY + (double)10);
-         int var8 = (int)(this.c.player.posZ - (double)10);
-         int var9 = (int)(this.c.player.posZ + (double)10);
-         Vec3d var10 = new Vec3d(this.c.player.posX, this.c.player.getEntityBoundingBox().minY + (double)this.c.player.getEyeHeight(), this.c.player.posZ);
-         int var11 = var26;
-
-         int var14;
-         int var16;
-         BlockPos var17;
-         for(int var12 = var27; var11 < var12; ++var11) {
-            int var13 = var6;
-
-            for(var14 = var7; var13 < var14; ++var13) {
-               int var15 = var8;
-
-               for(var16 = var9; var15 < var16; ++var15) {
-                  var17 = new BlockPos(var11, var13, var15);
-                  double var18 = this.c.player.posX - ((double)var17.getX() + 0.5D);
-                  double var20 = this.c.player.posY - ((double)var17.getY() + 0.5D) + 1.5D;
-                  double var22 = this.c.player.posZ - ((double)var17.getZ() + 0.5D);
-                  double var24 = var18 * var18 + var20 * var20 + var22 * var22;
-                  if (!(var24 > 36.0D) && !(var24 > ((Number)this.field_622.c()).doubleValue() * ((Number)this.field_622.c()).doubleValue()) && this.method_935(var17) && !this.field_623.contains(var17) && feg.method_1790(var17) && this.c.world.checkNoEntityCollision(new AxisAlignedBB(var17))) {
-                     this.field_623.add(var17);
-                  }
-               }
+            n = this.Field5233.player.inventory.currentItem;
+            n3 = (int)(this.Field5233.player.posX - (double)10);
+            int n4 = (int)(this.Field5233.player.posX + (double)10);
+            int n5 = (int)(this.Field5233.player.posY - (double)10);
+            int n6 = (int)(this.Field5233.player.posY + (double)10);
+            int n7 = (int)(this.Field5233.player.posZ - (double)10);
+            int n8 = (int)(this.Field5233.player.posZ + (double)10);
+            Vec3d vec3d = new Vec3d(this.Field5233.player.posX, this.Field5233.player.getEntityBoundingBox().minY + (double)this.Field5233.player.getEyeHeight(), this.Field5233.player.posZ);
+            int n9 = n4;
+            for (int i = n3; i < n9; ++i) {
+                int n10 = n6;
+                for (int j = n5; j < n10; ++j) {
+                    int n11 = n8;
+                    for (int k = n7; k < n11; ++k) {
+                        blockPos = new BlockPos(i, j, k);
+                        double d = this.Field5233.player.posX - ((double)blockPos.getX() + 0.5);
+                        double d2 = this.Field5233.player.posY - ((double)blockPos.getY() + 0.5) + 1.5;
+                        double d3 = this.Field5233.player.posZ - ((double)blockPos.getZ() + 0.5);
+                        double d4 = d * d + d2 * d2 + d3 * d3;
+                        if (d4 > 36.0 || d4 > ((Number)this.Field2957.Method7979()).doubleValue() * ((Number)this.Field2957.Method7979()).doubleValue() || !this.Method4842(blockPos) || this.Field2958.contains((Object)blockPos) || !feg.Method700(blockPos) || !this.Field5233.world.checkNoEntityCollision(new AxisAlignedBB(blockPos))) continue;
+                        this.Field2958.add(blockPos);
+                    }
+                }
             }
-         }
-
-         if (this.field_623.isEmpty()) {
-            Pyro.INSTANCE.sendMessage("Done filling");
-            this.c.method_3033(false);
-            return;
-         }
-
-         this.5("Filling");
-         Iterator var29 = this.field_623.iterator();
-
-         while(var29.hasNext()) {
-            BlockPos var28 = (BlockPos)var29.next();
-            EnumFacing[] var31 = EnumFacing.values();
-            var16 = var31.length;
-
-            for(var14 = 0; var14 < var16; ++var14) {
-               EnumFacing var30 = var31[var14];
-               var17 = var28.offset(var30);
-               EnumFacing var33 = var30.getOpposite();
-               if (this.c.world.getBlockState(var17).getBlock().canCollideCheck(this.c.world.getBlockState(var17), false)) {
-                  Vec3d var32 = new Vec3d;
-                  if (var17 == null) {
-                     throw new TypeCastException("null cannot be cast to non-null type net.minecraft.util.math.Vec3i");
-                  }
-
-                  var32.<init>((Vec3i)var17);
-                  Vec3d var19 = var32.addVector(0.5D, 0.5D, 0.5D).add((new Vec3d(var33.getDirectionVec())).scale(0.5D));
-                  if (var10.distanceTo(var19) <= 6.0D) {
-                     Block var34 = this.c.world.getBlockState(var17).getBlock();
-                     boolean var21 = var34.onBlockActivated((World)this.c.world, var28, this.c.world.getBlockState(var28), (EntityPlayer)this.c.player, EnumHand.MAIN_HAND, var30, 0.0F, 0.0F, 0.0F);
-                     float[] var35 = few.method_1716().method_1736(var17, var30.getOpposite());
-                     var1.0();
-                     var1.method_3139(var35[0]);
-                     var1.method_3140(var35[1]);
-                     var1.method_3133((Consumer)(new f6M(this, var21, var34, var2, var17, var33, var19, var3)));
-                     break;
-                  }
-               }
+            if (this.Field2958.isEmpty()) {
+                Pyro.Field6182.Method8989("Done filling");
+                this.Field5236.Method5266(false);
+                return;
             }
-
-            if (var1.c()) {
-               return;
+            this.Method7274("Filling");
+            for (BlockPos blockPos2 : this.Field2958) {
+                for (EnumFacing enumFacing : EnumFacing.values()) {
+                    blockPos = blockPos2.offset(enumFacing);
+                    EnumFacing enumFacing2 = enumFacing.getOpposite();
+                    if (!this.Field5233.world.getBlockState(blockPos).getBlock().canCollideCheck(this.Field5233.world.getBlockState(blockPos), false)) continue;
+                    BlockPos blockPos3 = blockPos;
+                    if (blockPos3 == null) {
+                        throw new TypeCastException("null cannot be cast to non-null type net.minecraft.util.math.Vec3i");
+                    }
+                    EnumFacing enumFacing3 = enumFacing2;
+                    Vec3d vec3d2 = new Vec3d((Vec3i)blockPos3).addVector(0.5, 0.5, 0.5).add(new Vec3d(enumFacing3.getDirectionVec()).scale(0.5));
+                    if (!(vec3d.distanceTo(vec3d2) <= 6.0)) continue;
+                    Block block = this.Field5233.world.getBlockState(blockPos).getBlock();
+                    boolean bl = block.onBlockActivated((World)this.Field5233.world, blockPos2, this.Field5233.world.getBlockState(blockPos2), (EntityPlayer)this.Field5233.player, EnumHand.MAIN_HAND, enumFacing, 0.0f, 0.0f, 0.0f);
+                    float[] arrf = few.Method835().Method850(blockPos, enumFacing.getOpposite());
+                    f4u2.Method7948();
+                    f4u2.Method5653(arrf[0]);
+                    f4u2.Method5647(arrf[1]);
+                    int n12 = n2;
+                    f4u2.Method5816(new f6M(this, bl, block, n12, blockPos, enumFacing2, vec3d2, n));
+                    break;
+                }
+                if (!f4u2.Method7947()) continue;
+                return;
             }
-         }
-      }
-
-   }
+        }
+    }
 }
+

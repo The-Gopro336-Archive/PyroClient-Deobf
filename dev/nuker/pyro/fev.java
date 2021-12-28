@@ -1,12 +1,14 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-public class fev extends fdZ {
-   // $FF: renamed from: c (float, float) float
-   public static float method_1742(float var0, float var1) {
-      return Math.abs(((var0 - var1 + 180.0F) % 360.0F + 360.0F) % 360.0F - 180.0F);
-   }
+import dev.nuker.pyro.fdZ;
+
+public class fev
+extends fdZ {
+    public static float Method825(float f, float f2) {
+        return Math.abs(((f - f2 + 180.0f) % 360.0f + 360.0f) % 360.0f - 180.0f);
+    }
 }
+

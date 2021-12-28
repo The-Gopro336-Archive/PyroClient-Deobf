@@ -1,72 +1,88 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.gui.ScaledResolution
+ *  net.minecraft.client.gui.inventory.GuiInventory
+ *  net.minecraft.client.renderer.GlStateManager
+ *  net.minecraft.entity.EntityLivingBase
+ *  org.jetbrains.annotations.Nullable
  */
 package dev.nuker.pyro;
 
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import dev.nuker.pyro.f5q;
+import dev.nuker.pyro.f5t;
+import dev.nuker.pyro.fdZ;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.gui.inventory.GuiInventory;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.EntityLivingBase;
 import org.jetbrains.annotations.Nullable;
 
-public class f5L extends f5q {
-   // $FF: renamed from: c float
-   public float field_1048 = 128.0F;
-   // $FF: renamed from: 0 float
-   public float field_1049 = 64.0F;
+public class f5L
+extends f5q {
+    public float Field4150 = 128.0f;
+    public float Field4151 = 64.0f;
 
-   // $FF: renamed from: c (dev.nuker.pyro.f5t, int, net.minecraft.client.gui.ScaledResolution, float, float) void
-   public void method_1528(@Nullable f5t var1, int var2, @Nullable ScaledResolution var3, float var4, float var5) {
-      if (fdZ.field_976.world != null && fdZ.field_976.player != null) {
-         this.field_1048 = 50.0F;
-         this.field_1049 = 100.0F;
+    @Override
+    public void Method4875(@Nullable f5t f5t2, int n, @Nullable ScaledResolution scaledResolution, float f, float f2) {
+        if (fdZ.Field313.world == null || fdZ.Field313.player == null) {
+            return;
+        }
+        this.Field4150 = 50.0f;
+        this.Field4151 = 100.0f;
+        float f3 = 1.0f;
+        float f4 = 1.0f;
+        float f5 = 1.0f;
+        float f6 = 1.0f;
+        GlStateManager.color((float)f3, (float)f4, (float)f5, (float)f6);
+        int n2 = (int)this.Field4150 / 2;
+        int n3 = (int)this.Field4151;
+        int n4 = 50;
+        float f7 = f;
+        float f8 = f2;
+        EntityLivingBase entityLivingBase = (EntityLivingBase)fdZ.Field313.player;
+        try {
+            GuiInventory.drawEntityOnScreen((int)n2, (int)n3, (int)n4, (float)f7, (float)f8, (EntityLivingBase)entityLivingBase);
+        }
+        catch (Exception exception) {
+            // empty catch block
+        }
+    }
 
-         try {
-            GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-            GuiInventory.drawEntityOnScreen((int)this.field_1048 / 2, (int)this.field_1049, 50, var4, var5, (EntityLivingBase)fdZ.field_976.player);
-         } catch (Exception var7) {
-         }
+    public float Method5094() {
+        return this.Field4151;
+    }
 
-      }
-   }
+    public void Method737(float f) {
+        this.Field4151 = f;
+    }
 
-   // $FF: renamed from: c () float
-   public float method_1550() {
-      return this.field_1049;
-   }
+    public void Method458(float f) {
+        this.Field4150 = f;
+    }
 
-   // $FF: renamed from: 0 (float) void
-   public void method_1551(float var1) {
-      this.field_1049 = var1;
-   }
+    @Override
+    public float Method4873() {
+        return this.Field4151;
+    }
 
-   // $FF: renamed from: c (float) void
-   public void method_1552(float var1) {
-      this.field_1048 = var1;
-   }
+    public float Method740() {
+        return this.Field4150;
+    }
 
-   // $FF: renamed from: 0 () float
-   public float method_1531() {
-      return this.field_1049;
-   }
+    @Override
+    public float Method4871() {
+        return this.Field4150;
+    }
 
-   public float meth1() {
-      return this.field_1048;
-   }
+    @Override
+    public boolean Method4872() {
+        return false;
+    }
 
-   // $FF: renamed from: 5 () float
-   public float method_1526() {
-      return this.field_1048;
-   }
-
-   // $FF: renamed from: 1 () boolean
-   public boolean method_1535() {
-      return false;
-   }
-
-   public f5L() {
-      super("playerModel", (String)null, 2, (DefaultConstructorMarker)null);
-   }
+    public f5L() {
+        super("playerModel", null, 2, null);
+    }
 }
+

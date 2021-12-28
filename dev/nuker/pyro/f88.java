@@ -1,10 +1,26 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  com.mojang.realmsclient.gui.ChatFormatting
+ *  net.minecraft.client.Minecraft
+ *  net.minecraft.network.play.server.SPacketChat
+ *  net.minecraft.util.text.ChatType
+ *  net.minecraft.util.text.ITextComponent
+ *  net.minecraft.util.text.TextComponentString
  */
 package dev.nuker.pyro;
 
 import com.mojang.realmsclient.gui.ChatFormatting;
+import dev.nuker.pyro.BooleanSetting;
+import dev.nuker.pyro.Module;
+import dev.nuker.pyro.Pyro;
+import dev.nuker.pyro.f0g;
+import dev.nuker.pyro.f0o;
+import dev.nuker.pyro.f41;
+import dev.nuker.pyro.f4e;
+import dev.nuker.pyro.f86;
+import dev.nuker.pyro.f87;
 import dev.nuker.pyro.security.inject.LauncherEventHide;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.play.server.SPacketChat;
@@ -12,64 +28,100 @@ import net.minecraft.util.text.ChatType;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
 
-public class f88 extends Module {
-   // $FF: renamed from: c dev.nuker.pyro.BooleanSetting
-   public BooleanSetting field_482 = new BooleanSetting("prefix", "Prefix", (String)null, true);
-   // $FF: renamed from: c dev.nuker.pyro.f0o
-   public f0o field_483;
-   // $FF: renamed from: 0 dev.nuker.pyro.f0o
-   public f0o field_484;
-   // $FF: renamed from: 1 dev.nuker.pyro.f0o
-   public f0o field_485;
-   // $FF: renamed from: c boolean
-   public static boolean field_486 = !f88.class.desiredAssertionStatus();
+public class f88
+extends Module {
+    public BooleanSetting Field3276 = new BooleanSetting("prefix", "Prefix", null, true);
+    public f0o<f87> Field3277 = new f0o("self", "Self", null, f87.Red);
+    public f0o<f87> Field3278 = new f0o("players", "Players", null, f87.Gray);
+    public f0o<f87> Field3279 = new f0o("brackets", "Brackets", null, f87.DarkGray);
+    public static boolean Field3280 = !f88.class.desiredAssertionStatus();
 
-   // $FF: renamed from: c (dev.nuker.pyro.f0o) com.mojang.realmsclient.gui.ChatFormatting
-   public ChatFormatting method_703(f0o var1) {
-      // $FF: Couldn't be decompiled
-   }
-
-   // $FF: renamed from: c (dev.nuker.pyro.f4e) void
-   @f0g
-   @LauncherEventHide
-   public void method_704(f4e var1) {
-      if (var1.c() == f41.field_2120) {
-         if (var1.c() instanceof SPacketChat) {
-            SPacketChat var2 = (SPacketChat)var1.c();
-            if (!(var2.getChatComponent() instanceof TextComponentString) || var2.getType() == ChatType.GAME_INFO) {
-               return;
+    public ChatFormatting Method5147(f0o f0o2) {
+        switch (f86.Field3324[((f87)((Object)f0o2.Method7979())).ordinal()]) {
+            case 1: {
+                return ChatFormatting.WHITE;
             }
-
-            Object var3 = (Boolean)this.field_482.c() ? Pyro.getPrefix() : new TextComponentString("");
-            String var4 = var2.getChatComponent().getFormattedText();
-            if ((!var4.toLowerCase().contains("to") || !var4.toLowerCase().contains("whisper") || !var4.toLowerCase().contains(":")) && this.field_483 != null && this.field_484 != null) {
-               var4 = var4.replaceAll("(?i)" + this.c.player.getName(), this.method_703(this.field_483) + this.c.player.getName() + ChatFormatting.RESET);
-               if (var4.contains("<") && var4.contains(">")) {
-                  var4 = var4.replaceFirst("<", this.method_703(this.field_485) + "[" + this.method_703(this.field_484)).replaceFirst(">", this.method_703(this.field_485) + "]" + ChatFormatting.RESET);
-               }
+            case 2: {
+                return ChatFormatting.GRAY;
             }
-
-            var1.0();
-            if (Minecraft.getMinecraft().ingameGUI != null || this.c.player == null) {
-               if (!field_486 && Minecraft.getMinecraft().ingameGUI == null) {
-                  throw new AssertionError();
-               }
-
-               Minecraft.getMinecraft().ingameGUI.getChatGUI().printChatMessage((new TextComponentString("")).appendSibling((ITextComponent)var3).appendSibling(new TextComponentString(var4 + ChatFormatting.RESET)));
+            case 3: {
+                return ChatFormatting.DARK_GRAY;
             }
-         }
+            case 4: {
+                return ChatFormatting.RED;
+            }
+            case 5: {
+                return ChatFormatting.DARK_RED;
+            }
+            case 6: {
+                return ChatFormatting.GREEN;
+            }
+            case 7: {
+                return ChatFormatting.DARK_GREEN;
+            }
+            case 8: {
+                return ChatFormatting.BLUE;
+            }
+            case 9: {
+                return ChatFormatting.DARK_BLUE;
+            }
+            case 10: {
+                return ChatFormatting.AQUA;
+            }
+            case 11: {
+                return ChatFormatting.YELLOW;
+            }
+            case 12: {
+                return ChatFormatting.GOLD;
+            }
+        }
+        return ChatFormatting.RESET;
+    }
 
-      }
-   }
+    @f0g
+    @LauncherEventHide
+    public void Method244(f4e f4e2) {
+        block9: {
+            String string;
+            TextComponentString textComponentString;
+            block11: {
+                block10: {
+                    if (f4e2.Method5619() != f41.Pre) {
+                        return;
+                    }
+                    if (!(f4e2.Method5784() instanceof SPacketChat)) break block9;
+                    SPacketChat sPacketChat = (SPacketChat)f4e2.Method5784();
+                    if (!(sPacketChat.getChatComponent() instanceof TextComponentString) || sPacketChat.getType() == ChatType.GAME_INFO) {
+                        return;
+                    }
+                    textComponentString = (Boolean)this.Field3276.Method7979() != false ? Pyro.Method8977() : new TextComponentString("");
+                    string = sPacketChat.getChatComponent().getFormattedText();
+                    if (!string.toLowerCase().contains("to")) break block10;
+                    if (!string.toLowerCase().contains("whisper")) break block10;
+                    if (string.toLowerCase().contains(":")) break block11;
+                }
+                if (this.Field3277 != null) {
+                    if (this.Field3278 != null && (string = string.replaceAll("(?i)" + this.Field5233.player.getName(), (Object)this.Method5147(this.Field3277) + this.Field5233.player.getName() + (Object)ChatFormatting.RESET)).contains("<") && string.contains(">")) {
+                        string = string.replaceFirst("<", (Object)this.Method5147(this.Field3279) + "[" + (Object)this.Method5147(this.Field3278)).replaceFirst(">", (Object)this.Method5147(this.Field3279) + "]" + (Object)ChatFormatting.RESET);
+                    }
+                }
+            }
+            f4e2.Method7948();
+            if (Minecraft.getMinecraft().ingameGUI != null || this.Field5233.player == null) {
+                if (!Field3280 && Minecraft.getMinecraft().ingameGUI == null) {
+                    throw new AssertionError();
+                }
+                Minecraft.getMinecraft().ingameGUI.getChatGUI().printChatMessage(new TextComponentString("").appendSibling((ITextComponent)textComponentString).appendSibling((ITextComponent)new TextComponentString(string + (Object)ChatFormatting.RESET)));
+            }
+        }
+    }
 
-   public f88() {
-      super("betterchat", "BetterChat", "Makes chat more customizable.", true);
-      this.field_483 = new f0o("self", "Self", (String)null, f87.field_1798);
-      this.field_484 = new f0o("players", "Players", (String)null, f87.field_1796);
-      this.field_485 = new f0o("brackets", "Brackets", (String)null, f87.field_1797);
-      this.register(this.field_482);
-      this.register(this.field_483);
-      this.register(this.field_484);
-      this.register(this.field_485);
-   }
+    public f88() {
+        super("betterchat", "BetterChat", "Makes chat more customizable.", true);
+        this.Method7264(this.Field3276);
+        this.Method7264(this.Field3277);
+        this.Method7264(this.Field3278);
+        this.Method7264(this.Field3279);
+    }
 }
+

@@ -1,42 +1,40 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.util.text.ITextComponent
+ *  net.minecraft.util.text.TextComponentString
+ *  net.minecraft.util.text.TextFormatting
  */
 package dev.nuker.pyro;
 
 import com.mojang.brigadier.Command;
-import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
-import kotlin.TypeCastException;
-import org.lwjgl.input.Keyboard;
+import dev.nuker.pyro.f25;
+import dev.nuker.pyro.f26;
+import dev.nuker.pyro.f27;
+import dev.nuker.pyro.f28;
+import dev.nuker.pyro.f29;
+import dev.nuker.pyro.f2a;
+import dev.nuker.pyro.f3e;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextFormatting;
 
-public class f2B implements Command {
-   // $FF: renamed from: c dev.nuker.pyro.f2B
-   public static f2B field_1974 = new f2B();
+public class f2b
+implements Command {
+    public static f2b Field3818 = new f2b();
 
-   public int run(CommandContext var1) {
-      String var10000 = StringArgumentType.getString(var1, "key");
-      String var3;
-      if (var10000 != null) {
-         var3 = var10000;
-         boolean var4 = false;
-         if (var3 == null) {
-            throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
-         }
-
-         var10000 = var3.toUpperCase();
-      } else {
-         var10000 = null;
-      }
-
-      String var2 = var10000;
-      var3 = StringArgumentType.getString(var1, "macro");
-      int var5 = Keyboard.getKeyIndex(var2);
-      if (var2 != null) {
-         class_3.field_990.method_3406().method_1454(var5, var3);
-         f2D.field_1979.method_3066(var5);
-      }
-
-      return 0;
-   }
+    public int Method152(CommandContext commandContext) {
+        f3e.Field4001.Method5660((ITextComponent)new TextComponentString((Object)TextFormatting.GREEN + "Attempting to overwrite other clients' friend lists"));
+        f3e.Field4001.Method5660((ITextComponent)new TextComponentString((Object)TextFormatting.YELLOW + "Most clients cannot reload friends lists ingame. You will have to restart minecraft to see the change."));
+        f25 f252 = f25.Field5642;
+        f252.Method7993("future", f26.Field5651);
+        f252.Method7993("impact", f27.Field5654);
+        f252.Method7993("summit", f28.Field5659);
+        f252.Method7993("salhack", f29.Field5632);
+        f252.Method7993("ares", f2a.Field3815);
+        return 0;
+    }
 }
+

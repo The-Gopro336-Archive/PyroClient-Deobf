@@ -1,38 +1,44 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.Minecraft
+ *  net.minecraft.entity.Entity
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.Pyro;
+import dev.nuker.pyro.PyroStatic;
+import dev.nuker.pyro.f0g;
+import dev.nuker.pyro.f4s;
 import dev.nuker.pyro.security.inject.LauncherEventHide;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import org.jetbrains.annotations.NotNull;
 
 public class f63 {
-   // $FF: renamed from: c net.minecraft.client.Minecraft
-   public static Minecraft field_2205;
-   // $FF: renamed from: c dev.nuker.pyro.f63
-   public static f63 field_2206;
+    public static Minecraft Field4207;
+    public static f63 Field4208;
 
-   static {
-      f63 var0 = new f63();
-      field_2206 = var0;
-      field_2205 = Minecraft.getMinecraft();
-   }
+    static {
+        f63 f632;
+        Field4208 = f632 = new f63();
+        Field4207 = Minecraft.getMinecraft();
+    }
 
-   // $FF: renamed from: c () void
-   public void method_3286() {
-      Pyro.getEventManager().method_31(this);
-   }
+    public void Method5841() {
+        Pyro.Method8978().Method7915(this);
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.f4s) void
-   @f0g
-   @LauncherEventHide
-   public void method_3287(@NotNull f4s var1) {
-      if ((Boolean)PyroStatic.field_2472.method_920().c() && !(Boolean)PyroStatic.field_2472.c.method_3034() && field_2205.player.onGround && PyroStatic.field_2472.method_904((Entity)field_2205.player)) {
-         PyroStatic.field_2472.c.method_3033(true);
-      }
-
-   }
+    @f0g
+    @LauncherEventHide
+    public void Method5842(@NotNull f4s f4s2) {
+        if (((Boolean)PyroStatic.Field6408.Method276().Method7979()).booleanValue() && !((Boolean)PyroStatic.Field6408.Field5236.Method5264()).booleanValue() && f63.Field4207.player.onGround) {
+            if (PyroStatic.Field6408.Method4844((Entity)f63.Field4207.player)) {
+                PyroStatic.Field6408.Field5236.Method5266(true);
+            }
+        }
+    }
 }
+

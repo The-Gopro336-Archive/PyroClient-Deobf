@@ -1,31 +1,28 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
-import com.mojang.brigadier.Command;
-import com.mojang.brigadier.context.CommandContext;
-import java.util.Iterator;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentString;
+import com.mojang.brigadier.CommandDispatcher;
+import com.mojang.brigadier.arguments.IntegerArgumentType;
+import com.mojang.brigadier.builder.LiteralArgumentBuilder;
+import dev.nuker.pyro.f2r;
+import dev.nuker.pyro.f3e;
+import org.jetbrains.annotations.NotNull;
 
-public class f2S implements Command {
-   // $FF: renamed from: c dev.nuker.pyro.f2S
-   public static f2S field_2003 = new f2S();
+public class f2s {
+    public static f2s Field3898;
 
-   public int run(CommandContext var1) {
-      if (PyroStatic.field_2568.method_1243().method_1983().isEmpty()) {
-         ((f1s)var1.getSource()).method_3083((ITextComponent)(new TextComponentString("There are no listed nuker blocks")));
-      } else {
-         Iterator var3 = PyroStatic.field_2568.method_1243().method_1983().iterator();
+    static {
+        f2s f2s2;
+        Field3898 = f2s2 = new f2s();
+    }
 
-         while(var3.hasNext()) {
-            String var2 = (String)var3.next();
-            ((f1s)var1.getSource()).method_3083((ITextComponent)(new TextComponentString(var2)));
-         }
-      }
-
-      return 0;
-   }
+    public void Method5598(@NotNull CommandDispatcher commandDispatcher) {
+        commandDispatcher.Method8399((LiteralArgumentBuilder)f3e.Method5657("hclip").Method12041(f3e.Method5658("distance", IntegerArgumentType.Method9835()).Method12044(f2r.Field3894)));
+    }
 }
+

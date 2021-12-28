@@ -1,22 +1,27 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.f3Y;
 import java.util.List;
 import kotlin.collections.CollectionsKt;
 import org.jetbrains.annotations.NotNull;
 
-public class f7O extends f3Y {
-   // $FF: renamed from: c (java.util.List) void
-   public void method_2977(@NotNull List var1) {
-   }
+public class f7O
+extends f3Y {
+    @Override
+    public void Method5071(@NotNull List list) {
+    }
 
-   // $FF: renamed from: c () java.util.List
-   @NotNull
-   public List method_2976() {
-      boolean var1 = false;
-      return CollectionsKt.emptyList();
-   }
+    @Override
+    @NotNull
+    public List Method5070() {
+        boolean bl = false;
+        return CollectionsKt.Method1013();
+    }
 }
+

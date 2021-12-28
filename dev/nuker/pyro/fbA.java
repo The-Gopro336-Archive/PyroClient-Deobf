@@ -1,6 +1,8 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
@@ -9,24 +11,23 @@ import java.util.List;
 import org.jetbrains.annotations.NotNull;
 
 public class fbA {
-   // $FF: renamed from: c java.util.List
-   @NotNull
-   public List field_1497;
+    @NotNull
+    public List<String> Field1757;
 
-   public fbA() {
-      boolean var1 = false;
-      List var3 = (List)(new ArrayList());
-      this.field_1497 = var3;
-   }
+    public fbA() {
+        List list;
+        fbA fbA2 = this;
+        boolean bl = false;
+        fbA2.Field1757 = list = (List)new ArrayList();
+    }
 
-   // $FF: renamed from: c () java.util.List
-   @NotNull
-   public List method_2666() {
-      return this.field_1497;
-   }
+    @NotNull
+    public List Method2451() {
+        return this.Field1757;
+    }
 
-   // $FF: renamed from: c (java.util.List) void
-   public void method_2667(@NotNull List var1) {
-      this.field_1497 = var1;
-   }
+    public void Method2452(@NotNull List list) {
+        this.Field1757 = list;
+    }
 }
+

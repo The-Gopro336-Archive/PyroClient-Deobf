@@ -1,25 +1,24 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-public class fb3 {
-   // $FF: renamed from: c int[]
-   public static int[] field_1474 = new int[fb2.values().length];
-   // $FF: renamed from: 0 int[]
-   public static int[] field_1475;
-   // $FF: renamed from: 1 int[]
-   public static int[] field_1476;
+import dev.nuker.pyro.fb2;
 
-   static {
-      field_1474[fb2.field_1471.ordinal()] = 1;
-      field_1474[fb2.field_1472.ordinal()] = 2;
-      field_1475 = new int[fb2.values().length];
-      field_1475[fb2.field_1471.ordinal()] = 1;
-      field_1475[fb2.field_1472.ordinal()] = 2;
-      field_1476 = new int[fb2.values().length];
-      field_1476[fb2.field_1471.ordinal()] = 1;
-      field_1476[fb2.field_1472.ordinal()] = 2;
-   }
+public class fb3 {
+    public static int[] Field1693 = new int[fb2.Method2384().length];
+    public static int[] Field1694;
+    public static int[] Field1695;
+
+    static /* synthetic */ {
+        fb3.Field1693[fb2.CAMERA.ordinal()] = 1;
+        fb3.Field1693[fb2.PACKET.ordinal()] = 2;
+        Field1694 = new int[fb2.Method2384().length];
+        fb3.Field1694[fb2.CAMERA.ordinal()] = 1;
+        fb3.Field1694[fb2.PACKET.ordinal()] = 2;
+        Field1695 = new int[fb2.Method2384().length];
+        fb3.Field1695[fb2.CAMERA.ordinal()] = 1;
+        fb3.Field1695[fb2.PACKET.ordinal()] = 2;
+    }
 }
+

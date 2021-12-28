@@ -1,51 +1,65 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.entity.EntityPlayerSP
+ *  net.minecraft.util.math.BlockPos
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.BindSetting;
+import dev.nuker.pyro.Module;
+import dev.nuker.pyro.f0g;
+import dev.nuker.pyro.f4p;
 import dev.nuker.pyro.security.inject.LauncherEventHide;
+import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.util.math.BlockPos;
 import org.jetbrains.annotations.NotNull;
 
-public class f6J extends Module {
-   // $FF: renamed from: c dev.nuker.pyro.BindSetting
-   @NotNull
-   public BindSetting field_599 = (BindSetting)this.register((f0w)(new BindSetting("key", "Key", "Active while holding this key", -1)));
+public class f6J
+extends Module {
+    @NotNull
+    public BindSetting Field3005 = (BindSetting)this.Method7264(new BindSetting("key", "Key", "Active while holding this key", -1));
 
-   // $FF: renamed from: c () dev.nuker.pyro.BindSetting
-   @NotNull
-   public BindSetting method_898() {
-      return this.field_599;
-   }
+    @NotNull
+    public BindSetting Method4888() {
+        return this.Field3005;
+    }
 
-   public f6J() {
-      super("fall", "Fall", "Imm falllliiinnggggg......");
-   }
+    public f6J() {
+        super("fall", "Fall", "Imm falllliiinnggggg......");
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.f4p) void
-   @f0g(1)
-   @LauncherEventHide
-   public void method_899(@NotNull f4p var1) {
-      if (this.field_599.method_3330()) {
-         this.c.player.motionX = 0.0D;
-         this.c.player.motionZ = 0.0D;
-         this.c.player.movementInput.moveForward = 0.0F;
-         this.c.player.movementInput.moveStrafe = 0.0F;
-         if (this.c.player.motionY > -0.1D) {
-            this.c.player.motionY = -0.1D;
-         }
-
-         BlockPos var2 = new BlockPos(this.c.player.getPositionVector());
-         if (this.c.player.getEntityBoundingBox().minX <= (double)var2.getX() || this.c.player.getEntityBoundingBox().minZ <= (double)var2.getZ() || this.c.player.getEntityBoundingBox().maxX >= (double)(var2.getX() + 1) || this.c.player.getEntityBoundingBox().maxZ >= (double)(var2.getZ() + 1)) {
-            double var3 = (double)var2.getX() + 0.5D - this.c.player.posX;
-            double var5 = (double)var2.getZ() + 0.5D - this.c.player.posZ;
-            var1.method_3125(var3 / (double)2);
-            var1.method_3127(var5 / (double)2);
-         }
-
-         var1.0();
-      }
-
-   }
+    @f0g(value=1)
+    @LauncherEventHide
+    public void Method559(@NotNull f4p f4p2) {
+        block4: {
+            block6: {
+                BlockPos blockPos;
+                block5: {
+                    if (!this.Field3005.Method8796()) break block4;
+                    this.Field5233.player.motionX = 0.0;
+                    this.Field5233.player.motionZ = 0.0;
+                    this.Field5233.player.movementInput.moveForward = 0.0f;
+                    this.Field5233.player.movementInput.moveStrafe = 0.0f;
+                    if (this.Field5233.player.motionY > -0.1) {
+                        this.Field5233.player.motionY = -0.1;
+                    }
+                    blockPos = new BlockPos(this.Field5233.player.getPositionVector());
+                    if (this.Field5233.player.getEntityBoundingBox().minX <= (double)blockPos.getX()) break block5;
+                    if (this.Field5233.player.getEntityBoundingBox().minZ <= (double)blockPos.getZ()) break block5;
+                    if (this.Field5233.player.getEntityBoundingBox().maxX >= (double)(blockPos.getX() + 1)) break block5;
+                    EntityPlayerSP entityPlayerSP = this.Field5233.player;
+                    if (!(entityPlayerSP.getEntityBoundingBox().maxZ >= (double)(blockPos.getZ() + 1))) break block6;
+                }
+                double d = (double)blockPos.getX() + 0.5 - this.Field5233.player.posX;
+                double d2 = (double)blockPos.getZ() + 0.5 - this.Field5233.player.posZ;
+                f4p2.Method5837(d / (double)2);
+                f4p2.Method5820(d2 / (double)2);
+            }
+            f4p2.Method7948();
+        }
+    }
 }
+

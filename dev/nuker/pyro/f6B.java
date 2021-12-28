@@ -1,24 +1,21 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-public class f6B {
-   // $FF: renamed from: c java.lang.String
-   public String field_1673;
-   // $FF: renamed from: c int
-   public int field_1674;
-   // $FF: renamed from: 0 int
-   public int field_1675;
-   // $FF: renamed from: c dev.nuker.pyro.f6C
-   public f6C field_1676;
+import dev.nuker.pyro.f6C;
 
-   public f6B(f6C var1, String var2) {
-      this.field_1676 = var1;
-      super();
-      this.field_1674 = 0;
-      this.field_1675 = 0;
-      this.field_1673 = var2;
-   }
+public class f6B {
+    public String Field2920;
+    public int Field2921;
+    public int Field2922;
+    public f6C Field2923;
+
+    public f6B(f6C f6C2, String string) {
+        this.Field2923 = f6C2;
+        this.Field2921 = 0;
+        this.Field2922 = 0;
+        this.Field2920 = string;
+    }
 }
+

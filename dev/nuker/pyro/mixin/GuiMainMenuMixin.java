@@ -1,120 +1,104 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.Minecraft
+ *  net.minecraft.client.gui.GuiButton
+ *  net.minecraft.client.gui.GuiMainMenu
+ *  net.minecraft.client.gui.GuiScreen
+ *  net.minecraft.entity.player.EntityPlayer
+ *  net.minecraft.util.ResourceLocation
+ *  net.minecraft.util.text.TextFormatting
  */
 package dev.nuker.pyro.mixin;
 
+import dev.nuker.pyro.Class41;
+import dev.nuker.pyro.Class44;
+import dev.nuker.pyro.Class48;
 import dev.nuker.pyro.Config;
 import dev.nuker.pyro.Pyro;
-import dev.nuker.pyro.class_44;
-import dev.nuker.pyro.class_47;
-import dev.nuker.pyro.class_53;
+import dev.nuker.pyro.alt.AltLogic;
 import dev.nuker.pyro.f0J;
 import dev.nuker.pyro.f4K;
-import dev.nuker.pyro.alt.AltLogic;
 import java.awt.Color;
-import java.util.Iterator;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiMainMenu;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextFormatting;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Class0;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin({GuiMainMenu.class})
-public abstract class GuiMainMenuMixin extends GuiScreen {
-   private boolean valid;
-   private boolean checkedValid;
-   // $FF: renamed from: rt dev.nuker.pyro.fq
-   private class_44 field_2116;
-   // $FF: renamed from: pl dev.nuker.pyro.fp
-   private class_47 field_2117;
-   private int lowestButtonY = 0;
-   private static final ResourceLocation WATERMARK = new ResourceLocation("pyro:assets/textures/logosmall.png");
+@Mixin(value={GuiMainMenu.class})
+public abstract class GuiMainMenuMixin
+extends GuiScreen {
+    private boolean Field3910;
+    private boolean Field3911;
+    private Class41 Field3912;
+    private Class44 Field3913;
+    private int Field3914 = 0;
+    private static final ResourceLocation Field3915 = new ResourceLocation("pyro:assets/textures/logosmall.png");
 
-   @Inject(
-      method = {"<init>"},
-      at = {@At("RETURN")}
-   )
-   private void onInit(CallbackInfo ci) {
-      this.valid = false;
-      this.checkedValid = false;
-      (new Thread(() -> {
-         this.valid = !AltLogic.isOffline() && AltLogic.sessionValid();
-         this.checkedValid = true;
-      })).start();
-      this.field_2116 = new class_44();
-   }
+    @Inject(method={"<init>"}, at={@Class0(value="RETURN")})
+    private void Method5609(CallbackInfo ci) {
+        this.Field3910 = false;
+        this.Field3911 = false;
+        new Thread(() -> {
+            this.Field3910 = !AltLogic.Method7697() && AltLogic.Method7698();
+            this.Field3911 = true;
+        }).start();
+        this.Field3912 = new Class41();
+    }
 
-   // $FF: renamed from: e (org.spongepowered.asm.mixin.injection.callback.CallbackInfo) void
-   @Inject(
-      method = {"initGui"},
-      at = {@At("RETURN")}
-   )
-   private void method_3198(CallbackInfo ci) {
-      this.lowestButtonY = 0;
-      Iterator var2 = this.buttonList.iterator();
+    @Inject(method={"initGui"}, at={@Class0(value="RETURN")})
+    private void Method5610(CallbackInfo ci) {
+        this.Field3914 = 0;
+        for (GuiButton guiButton : this.buttonList) {
+            if (guiButton.y <= this.Field3914) continue;
+            this.Field3914 = guiButton.y;
+        }
+        this.buttonList.add(new GuiButton(-1337, this.width / 2 + 104, this.Field3914, 98, 20, "Alt Manager"));
+        this.Field3913 = this.Field3912.Method6785(this.mc.getSession().getProfile());
+    }
 
-      while(var2.hasNext()) {
-         GuiButton guiButton = (GuiButton)var2.next();
-         if (guiButton.y > this.lowestButtonY) {
-            this.lowestButtonY = guiButton.y;
-         }
-      }
+    @Inject(method={"drawScreen"}, at={@Class0(value="RETURN")})
+    private void Method5611(int mouseX, int mouseY, float partialTicks, CallbackInfo ci) {
+        Pyro.Method8991();
+    }
 
-      this.buttonList.add(new GuiButton(-1337, this.width / 2 + 104, this.lowestButtonY, 98, 20, "Alt Manager"));
-      this.field_2117 = this.field_2116.method_4004(this.mc.getSession().getProfile());
-   }
+    @Inject(method={"actionPerformed"}, at={@Class0(value="HEAD")}, cancellable=true)
+    private void Method5612(GuiButton button, CallbackInfo ci) {
+        if (button.id == -1337) {
+            Minecraft.getMinecraft().displayGuiScreen((GuiScreen)new Class48((GuiScreen)new GuiMainMenu()));
+            ci.Method9034();
+        }
+    }
 
-   @Inject(
-      method = {"drawScreen"},
-      at = {@At("RETURN")}
-   )
-   private void drawPyroWatermark(int mouseX, int mouseY, float partialTicks, CallbackInfo ci) {
-      Pyro.drawWMMain();
-   }
+    @Inject(method={"drawScreen"}, at={@Class0(value="RETURN")})
+    private void Method5613(int mouseX, int mouseY, float partialTicks, CallbackInfo ci) {
+        int y = this.Field3914 - 4;
+        int x = this.width / 2 + 104 + 47;
+        int height = 47;
+        this.Field3912.Method6787(x, y, height, (EntityPlayer)this.Field3913.Field4632);
+        this.Method5614(x, y - 92);
+        if (!Config.Field3937.Field3932) {
+            Minecraft.getMinecraft().displayGuiScreen((GuiScreen)new f4K(this));
+        }
+    }
 
-   @Inject(
-      method = {"actionPerformed"},
-      at = {@At("HEAD")},
-      cancellable = true
-   )
-   private void catchActions(GuiButton button, CallbackInfo ci) {
-      if (button.id == -1337) {
-         Minecraft.getMinecraft().displayGuiScreen(new class_53(new GuiMainMenu()));
-         ci.cancel();
-      }
-
-   }
-
-   @Inject(
-      method = {"drawScreen"},
-      at = {@At("RETURN")}
-   )
-   private void onRender(int mouseX, int mouseY, float partialTicks, CallbackInfo ci) {
-      int y = this.lowestButtonY - 4;
-      int x = this.width / 2 + 104 + 47;
-      int height = 47;
-      this.field_2116.method_4006(x, y, height, this.field_2117.field_2671);
-      this.renderStats(x, y - 92);
-      if (!Config.INSTANCE.seenInitialScreen) {
-         Minecraft.getMinecraft().displayGuiScreen(new f4K(this));
-      }
-
-   }
-
-   private void renderStats(int x, int y) {
-      String line1 = this.mc.getSession().getUsername();
-      String line2 = AltLogic.isOffline() ? TextFormatting.RED + "Cracked" : (this.checkedValid ? (this.valid ? TextFormatting.GREEN + "Premium" : TextFormatting.YELLOW + "Invalid Session") : TextFormatting.GRAY + "Unknown Status");
-      int width1 = this.fontRenderer.getStringWidth(line1);
-      int width2 = this.fontRenderer.getStringWidth(line2);
-      int width = Math.max(width1, width2) + 2;
-      GuiScreen.drawRect(x - width / 2, y - this.fontRenderer.FONT_HEIGHT * 2 - 2, x + width / 2, y, (new Color(0, 0, 0, 70)).getRGB());
-      f0J.field_2340.method_3553(this.fontRenderer, line1, x - width1 / 2, y - this.fontRenderer.FONT_HEIGHT * 2 - 1, -1);
-      f0J.field_2340.method_3553(this.fontRenderer, line2, x - width2 / 2, y - this.fontRenderer.FONT_HEIGHT, -1);
-   }
+    private void Method5614(int x, int y) {
+        String line1 = this.mc.getSession().getUsername();
+        String line2 = AltLogic.Method7697() ? (Object)TextFormatting.RED + "Cracked" : (this.Field3911 ? (this.Field3910 ? (Object)TextFormatting.GREEN + "Premium" : (Object)TextFormatting.YELLOW + "Invalid Session") : (Object)TextFormatting.GRAY + "Unknown Status");
+        int width1 = this.fontRenderer.getStringWidth(line1);
+        int width2 = this.fontRenderer.getStringWidth(line2);
+        int width = Math.max(width1, width2) + 2;
+        GuiScreen.drawRect((int)(x - width / 2), (int)(y - this.fontRenderer.FONT_HEIGHT * 2 - 2), (int)(x + width / 2), (int)y, (int)new Color(0, 0, 0, 70).getRGB());
+        f0J.Field5485.Method7773(this.fontRenderer, line1, x - width1 / 2, y - this.fontRenderer.FONT_HEIGHT * 2 - 1, -1);
+        f0J.Field5485.Method7773(this.fontRenderer, line2, x - width2 / 2, y - this.fontRenderer.FONT_HEIGHT, -1);
+    }
 }
+

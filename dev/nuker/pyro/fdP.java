@@ -1,29 +1,28 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
 public class fdP {
-   // $FF: renamed from: c int
-   public static int field_1275 = 1;
-   // $FF: renamed from: 0 int
-   public static int field_1276 = 2;
-   // $FF: renamed from: 1 int
-   public static int field_1277 = 4;
-   // $FF: renamed from: 2 int
-   public static int field_1278 = 8;
-   // $FF: renamed from: 3 int
-   public static int field_1279 = 16;
-   // $FF: renamed from: 4 int
-   public static int field_1280 = 32;
-   // $FF: renamed from: 5 int
-   public static int field_1281 = 63;
-   // $FF: renamed from: c dev.nuker.pyro.fdP
-   public static fdP field_1282;
+    public static int Field272;
+    public static int Field273;
+    public static int Field274;
+    public static int Field275;
+    public static int Field276;
+    public static int Field277;
+    public static int Field278;
+    public static fdP Field279;
 
-   static {
-      fdP var0 = new fdP();
-      field_1282 = var0;
-   }
+    static {
+        fdP fdP2;
+        Field278 = 63;
+        Field277 = 32;
+        Field276 = 16;
+        Field275 = 8;
+        Field274 = 4;
+        Field273 = 2;
+        Field272 = 1;
+        Field279 = fdP2 = new fdP();
+    }
 }
+

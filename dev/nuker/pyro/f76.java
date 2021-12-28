@@ -1,13 +1,25 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.Minecraft
+ *  net.minecraft.init.Blocks
+ *  net.minecraft.item.Item
+ *  net.minecraft.item.ItemBlock
+ *  net.minecraft.util.math.BlockPos
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.DoubleSetting;
+import dev.nuker.pyro.Module;
+import dev.nuker.pyro.Pyro;
+import dev.nuker.pyro.f0g;
+import dev.nuker.pyro.f4u;
+import dev.nuker.pyro.f75;
+import dev.nuker.pyro.feg;
 import dev.nuker.pyro.security.inject.LauncherEventHide;
-import java.util.function.Consumer;
 import kotlin.TypeCastException;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Ref;
 import net.minecraft.client.Minecraft;
@@ -17,80 +29,77 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.util.math.BlockPos;
 import org.jetbrains.annotations.NotNull;
 
-public class f76 extends Module {
-   // $FF: renamed from: c dev.nuker.pyro.DoubleSetting
-   @NotNull
-   public DoubleSetting field_584 = (DoubleSetting)this.register((f0w)(new DoubleSetting("offset", "Offset", (String)null, 2.0D, -20.0D, 20.0D, 0.0D, 64, (DefaultConstructorMarker)null)));
+public class f76
+extends Module {
+    @NotNull
+    public DoubleSetting Field3049 = (DoubleSetting)this.Method7264(new DoubleSetting("offset", "Offset", null, 2.0, -20.0, 20.0, 0.0, 64, null));
 
-   // $FF: renamed from: c (dev.nuker.pyro.f76, net.minecraft.client.Minecraft) void
-   public static void method_874(f76 var0, Minecraft var1) {
-      var0.c = var1;
-   }
+    public static void Method4933(f76 f762, Minecraft minecraft) {
+        f762.Field5233 = minecraft;
+    }
 
-   // $FF: renamed from: c () dev.nuker.pyro.DoubleSetting
-   @NotNull
-   public DoubleSetting method_875() {
-      return this.field_584;
-   }
+    @NotNull
+    public DoubleSetting Method238() {
+        return this.Field3049;
+    }
 
-   public f76() {
-      super("burrow", "Burrow", "Attempt to place a block and rubberband you into it");
-   }
+    public f76() {
+        super("burrow", "Burrow", "Attempt to place a block and rubberband you into it");
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.f4u) void
-   @f0g
-   @LauncherEventHide
-   public void method_876(@NotNull f4u var1) {
-      if (!feg.method_1790(new BlockPos(this.c.player.getPositionVector()))) {
-         Pyro.INSTANCE.sendMessage("Burrowed into a block... disabling");
-         this.c.method_3033(false);
-      } else if (!this.c.player.onGround) {
-         boolean var2 = true;
-         Item var10000;
-         if (!this.c.player.getHeldItemMainhand().isEmpty() && this.c.player.getHeldItemMainhand().getItem() instanceof ItemBlock) {
-            var10000 = this.c.player.getHeldItemMainhand().getItem();
-            if (var10000 == null) {
-               throw new TypeCastException("null cannot be cast to non-null type net.minecraft.item.ItemBlock");
+    @f0g
+    @LauncherEventHide
+    public void Method203(@NotNull f4u f4u2) {
+        block11: {
+            Ref.IntRef intRef;
+            block12: {
+                block10: {
+                    if (feg.Method700(new BlockPos(this.Field5233.player.getPositionVector()))) break block10;
+                    Pyro.Field6182.Method8989("Burrowed into a block... disabling");
+                    this.Field5236.Method5266(false);
+                    break block11;
+                }
+                if (this.Field5233.player.onGround) break block11;
+                boolean bl = true;
+                if (!this.Field5233.player.getHeldItemMainhand().isEmpty()) {
+                    if (this.Field5233.player.getHeldItemMainhand().getItem() instanceof ItemBlock) {
+                        Item item = this.Field5233.player.getHeldItemMainhand().getItem();
+                        if (item == null) {
+                            throw new TypeCastException("null cannot be cast to non-null type net.minecraft.item.ItemBlock");
+                        }
+                        intRef = (ItemBlock)item;
+                        if (Intrinsics.Method6572((Object)intRef.getBlock(), (Object)Blocks.OBSIDIAN)) {
+                            bl = false;
+                        }
+                    }
+                }
+                intRef = new Ref.IntRef();
+                intRef.Field284 = -1;
+                if (bl) {
+                    int n = 8;
+                    for (int i = 0; i <= n; ++i) {
+                        if (!(this.Field5233.player.inventory.getStackInSlot(i).getItem() instanceof ItemBlock)) continue;
+                        Item item = this.Field5233.player.inventory.getStackInSlot(i).getItem();
+                        if (item == null) {
+                            throw new TypeCastException("null cannot be cast to non-null type net.minecraft.item.ItemBlock");
+                        }
+                        ItemBlock itemBlock = (ItemBlock)item;
+                        if (!Intrinsics.Method6572((Object)itemBlock.getBlock(), (Object)Blocks.OBSIDIAN)) continue;
+                        intRef.Field284 = i;
+                        break;
+                    }
+                }
+                if (intRef.Field284 != -1) break block12;
+                if (bl) break block11;
             }
+            f4u2.Method5647(90.0f);
+            f4u2.Method7948();
+            f4u2.Method5816(new f75(this, intRef));
+        }
+    }
 
-            ItemBlock var3 = (ItemBlock)var10000;
-            if (Intrinsics.areEqual((Object)var3.getBlock(), (Object)Blocks.OBSIDIAN)) {
-               var2 = false;
-            }
-         }
-
-         Ref.IntRef var7 = new Ref.IntRef();
-         var7.element = -1;
-         if (var2) {
-            int var4 = 0;
-
-            for(byte var5 = 8; var4 <= var5; ++var4) {
-               if (this.c.player.inventory.getStackInSlot(var4).getItem() instanceof ItemBlock) {
-                  var10000 = this.c.player.inventory.getStackInSlot(var4).getItem();
-                  if (var10000 == null) {
-                     throw new TypeCastException("null cannot be cast to non-null type net.minecraft.item.ItemBlock");
-                  }
-
-                  ItemBlock var6 = (ItemBlock)var10000;
-                  if (Intrinsics.areEqual((Object)var6.getBlock(), (Object)Blocks.OBSIDIAN)) {
-                     var7.element = var4;
-                     break;
-                  }
-               }
-            }
-         }
-
-         if (var7.element != -1 || !var2) {
-            var1.method_3140(90.0F);
-            var1.0();
-            var1.method_3133((Consumer)(new f75(this, var7)));
-         }
-      }
-
-   }
-
-   // $FF: renamed from: c (dev.nuker.pyro.f76) net.minecraft.client.Minecraft
-   public static Minecraft method_877(f76 var0) {
-      return var0.c;
-   }
+    public static Minecraft Method4934(f76 f762) {
+        return f762.Field5233;
+    }
 }
+

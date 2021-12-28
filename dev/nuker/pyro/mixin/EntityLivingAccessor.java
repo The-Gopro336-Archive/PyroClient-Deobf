@@ -1,6 +1,8 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.entity.EntityLivingBase
  */
 package dev.nuker.pyro.mixin;
 
@@ -8,8 +10,9 @@ import net.minecraft.entity.EntityLivingBase;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
-@Mixin({EntityLivingBase.class})
+@Mixin(value={EntityLivingBase.class})
 public interface EntityLivingAccessor {
-   @Accessor("isJumping")
-   boolean isJumping();
+    @Accessor(value="isJumping")
+    public boolean Method9561();
 }
+

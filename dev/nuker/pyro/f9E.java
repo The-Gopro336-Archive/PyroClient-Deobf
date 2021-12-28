@@ -1,173 +1,404 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.entity.EntityPlayerSP
+ *  net.minecraft.client.network.NetHandlerPlayClient
+ *  net.minecraft.entity.Entity
+ *  net.minecraft.network.Packet
+ *  net.minecraft.network.play.client.CPacketConfirmTeleport
+ *  net.minecraft.network.play.client.CPacketEntityAction
+ *  net.minecraft.network.play.client.CPacketEntityAction$Action
+ *  net.minecraft.network.play.client.CPacketInput
+ *  net.minecraft.network.play.client.CPacketPlayer
+ *  net.minecraft.network.play.client.CPacketSteerBoat
+ *  net.minecraft.network.play.client.CPacketUseEntity
+ *  net.minecraft.network.play.client.CPacketVehicleMove
+ *  net.minecraft.network.play.server.SPacketMoveVehicle
+ *  net.minecraft.network.play.server.SPacketPlayerPosLook
+ *  net.minecraft.network.play.server.SPacketSetPassengers
+ *  net.minecraft.util.EnumHand
+ *  net.minecraft.world.World
+ *  org.jetbrains.annotations.NotNull
+ *  org.jetbrains.annotations.Nullable
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.BooleanSetting;
+import dev.nuker.pyro.DoubleSetting;
+import dev.nuker.pyro.IntegerSetting;
+import dev.nuker.pyro.Module;
+import dev.nuker.pyro.Pyro;
+import dev.nuker.pyro.PyroStatic;
+import dev.nuker.pyro.f0g;
+import dev.nuker.pyro.f0o;
+import dev.nuker.pyro.f41;
+import dev.nuker.pyro.f49;
+import dev.nuker.pyro.f4e;
+import dev.nuker.pyro.f4t;
+import dev.nuker.pyro.f9b;
+import dev.nuker.pyro.f9d;
+import dev.nuker.pyro.fec;
+import dev.nuker.pyro.mixin.CPacketVehicleMoveAccessor;
 import dev.nuker.pyro.security.inject.LauncherEventHide;
-import net.minecraft.client.gui.GuiChat;
-import net.minecraft.client.gui.GuiCommandBlock;
-import net.minecraft.client.gui.GuiRepair;
-import net.minecraft.client.gui.GuiScreenBook;
-import net.minecraft.client.gui.inventory.GuiContainerCreative;
-import net.minecraft.client.gui.inventory.GuiEditSign;
-import net.minecraft.client.settings.KeyBinding;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemBow;
-import net.minecraft.item.ItemFood;
-import net.minecraft.item.ItemPotion;
-import net.minecraft.network.play.client.CPacketClickWindow;
+import java.util.Collection;
+import kotlin.NoWhenBranchMatchedException;
+import kotlin.TypeCastException;
+import kotlin.jvm.internal.Intrinsics;
+import net.minecraft.client.entity.EntityPlayerSP;
+import net.minecraft.client.network.NetHandlerPlayClient;
+import net.minecraft.entity.Entity;
+import net.minecraft.network.Packet;
+import net.minecraft.network.play.client.CPacketConfirmTeleport;
 import net.minecraft.network.play.client.CPacketEntityAction;
-import net.minecraft.network.play.client.CPacketPlayerDigging;
-import net.minecraft.network.play.client.CPacketPlayerDigging.Action;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.network.play.client.CPacketInput;
+import net.minecraft.network.play.client.CPacketPlayer;
+import net.minecraft.network.play.client.CPacketSteerBoat;
+import net.minecraft.network.play.client.CPacketUseEntity;
+import net.minecraft.network.play.client.CPacketVehicleMove;
+import net.minecraft.network.play.server.SPacketMoveVehicle;
+import net.minecraft.network.play.server.SPacketPlayerPosLook;
+import net.minecraft.network.play.server.SPacketSetPassengers;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.MovementInput;
-import org.lwjgl.input.Keyboard;
+import net.minecraft.world.World;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-public class f9E extends Module {
-   // $FF: renamed from: c dev.nuker.pyro.BooleanSetting
-   public BooleanSetting field_285 = new BooleanSetting("inventoryMove", "InventoryMove", "Allows you to move while a gui is open", true);
-   // $FF: renamed from: 0 dev.nuker.pyro.BooleanSetting
-   public BooleanSetting field_286 = new BooleanSetting("items", "Items", "Doesn't allow items to slow you down", true);
-   // $FF: renamed from: 1 dev.nuker.pyro.BooleanSetting
-   public BooleanSetting field_287 = new BooleanSetting("ncpstrict", "NCP Strict", "Allows you to eat without getting slowed down on servers with a strict NCP config", true);
-   // $FF: renamed from: 2 dev.nuker.pyro.BooleanSetting
-   public BooleanSetting field_288 = new BooleanSetting("rotate", "Rotate", "Allows you to rotate your pitch with your arrow keys while inventory moving", true);
+public class f9e
+extends Module {
+    @NotNull
+    public DoubleSetting Field4439 = (DoubleSetting)this.Method7264(new DoubleSetting("speed", "Speed", null, 1.0, 0.1, 10.0, 0.0, 64, null));
+    @NotNull
+    public DoubleSetting Field4440 = (DoubleSetting)this.Method7264(new DoubleSetting("upSpeed", "UpSpeed", null, 1.0, 0.1, 10.0, 0.0, 64, null));
+    @NotNull
+    public DoubleSetting Field4441 = (DoubleSetting)this.Method7264(new DoubleSetting("downSpeed", "DownSpeed", null, 1.0, 0.1, 10.0, 0.0, 64, null));
+    @NotNull
+    public BooleanSetting Field4442 = (BooleanSetting)this.Method7264(new BooleanSetting("ncp", "NCP", null, true));
+    @NotNull
+    public BooleanSetting Field4443 = (BooleanSetting)this.Method7264(new BooleanSetting("antiKick", "AntiKick", null, true));
+    @NotNull
+    public DoubleSetting Field4444 = (DoubleSetting)this.Method7264(new DoubleSetting("scale", "RenderScale", "Make the first person boat render smaller", 0.4, 0.0, 1.0, 0.0, 64, null));
+    @NotNull
+    public f0o<f9b> Field4445 = (f0o)this.Method7264(new f0o("rubberMode", "RubberMode", "Figure out which rubberband packets to accept", f9b.Both));
+    @NotNull
+    public IntegerSetting Field4446 = (IntegerSetting)this.Method7264(new IntegerSetting("frequency", "Frequency", "Amount of rubberband packets sent in one second to actually rubberband", 15, 1, 20, 0, 64, null));
+    @NotNull
+    public IntegerSetting Field4447 = (IntegerSetting)this.Method7264(new IntegerSetting("distance", "Distance", "Minimum distance to count a rubberband packet as valid", 35, 1, 100, 0, 64, null));
+    public int Field4448;
+    public boolean Field4449;
+    public int Field4450;
+    public double Field4451 = -1.0;
+    public int Field4452;
+    public long Field4453;
+    public float Field4454;
 
-   // $FF: renamed from: c (dev.nuker.pyro.f4u) void
-   @f0g
-   @LauncherEventHide
-   public void method_416(f4u var1) {
-      if (var1.c() == f41.field_2121) {
-         Item var2 = this.c.player.getHeldItemMainhand().getItem();
-         Item var3 = this.c.player.getHeldItem(EnumHand.OFF_HAND).getItem();
-         if ((Boolean)this.field_287.c() && (Boolean)this.field_286.c() && this.c.player.isHandActive() && !this.c.player.isRiding() && fec.method_1758() && (var2 instanceof ItemFood || var3 instanceof ItemFood) || var2 instanceof ItemBow || var2 instanceof ItemPotion) {
-            this.c.player.connection.sendPacket(new CPacketPlayerDigging(Action.ABORT_DESTROY_BLOCK, this.c.player.getPosition(), EnumFacing.DOWN));
-         }
-      }
+    @NotNull
+    public DoubleSetting Method5279() {
+        return this.Field4444;
+    }
 
-   }
-
-   // $FF: renamed from: c (dev.nuker.pyro.f49) void
-   @f0g
-   @LauncherEventHide
-   public void method_417(f49 var1) {
-      if ((Boolean)this.field_287.c() && var1.c() instanceof CPacketClickWindow) {
-         if (var1.c() == f41.field_2120) {
-            if (this.c.player.isActiveItemStackBlocking()) {
-               this.c.playerController.onStoppedUsingItem(this.c.player);
+    @f0g
+    @LauncherEventHide
+    public void Method244(@NotNull f4e f4e2) {
+        if (f4e2.Method5619() == f41.Pre && !f4e2.Method7947()) {
+            if (f4e2.Method5784() instanceof SPacketPlayerPosLook) {
+                Packet packet = f4e2.Method5784();
+                if (packet == null) {
+                    throw new TypeCastException("null cannot be cast to non-null type net.minecraft.network.play.server.SPacketPlayerPosLook");
+                }
+                SPacketPlayerPosLook sPacketPlayerPosLook = (SPacketPlayerPosLook)packet;
+                this.Field4450 = sPacketPlayerPosLook.getTeleportId();
+                if (this.Field5233.player.isRiding()) {
+                    f4e2.Method7948();
+                }
+            } else if (f4e2.Method5784() instanceof SPacketMoveVehicle) {
+                boolean bl;
+                Packet packet = f4e2.Method5784();
+                if (packet == null) {
+                    throw new TypeCastException("null cannot be cast to non-null type net.minecraft.network.play.server.SPacketMoveVehicle");
+                }
+                SPacketMoveVehicle sPacketMoveVehicle = (SPacketMoveVehicle)packet;
+                if (this.Field5233.player.isRiding()) {
+                    Entity entity = this.Field5233.player.getRidingEntity();
+                    if (entity == null) {
+                        Intrinsics.Method6551();
+                    }
+                    Collection collection = this.Field5233.world.getCollisionBoxes(null, entity.getEntityBoundingBox().grow(0.0625));
+                    boolean bl2 = false;
+                    boolean bl3 = !collection.isEmpty();
+                    if (bl3) {
+                        return;
+                    }
+                }
+                switch (f9d.Field4438[((f9b)((Object)this.Field4445.Method7979())).ordinal()]) {
+                    case 1: {
+                        bl = true;
+                        break;
+                    }
+                    case 2: {
+                        int n = this.Field4452;
+                        this.Field4452 = n + 1;
+                        Pyro.Field6182.Method8989("Count: " + this.Field4452);
+                        if (this.Field4452 < ((Number)this.Field4446.Method7979()).intValue()) {
+                            bl = true;
+                            break;
+                        }
+                        bl = false;
+                        break;
+                    }
+                    case 3: {
+                        if (this.Field5233.player.getDistance(sPacketMoveVehicle.getX(), sPacketMoveVehicle.getY(), sPacketMoveVehicle.getZ()) <= ((Number)this.Field4447.Method7979()).doubleValue()) {
+                            bl = true;
+                            break;
+                        }
+                        bl = false;
+                        break;
+                    }
+                    case 4: {
+                        int n = this.Field4452;
+                        this.Field4452 = n + 1;
+                        Pyro.Field6182.Method8989("Count: " + this.Field4452);
+                        if (this.Field4452 < ((Number)this.Field4446.Method7979()).intValue() || this.Field5233.player.getDistance(sPacketMoveVehicle.getX(), sPacketMoveVehicle.getY(), sPacketMoveVehicle.getZ()) <= ((Number)this.Field4447.Method7979()).doubleValue()) {
+                            bl = true;
+                            break;
+                        }
+                        bl = false;
+                        break;
+                    }
+                    default: {
+                        throw new NoWhenBranchMatchedException();
+                    }
+                }
+                if (bl) {
+                    f4e2.Method7948();
+                } else if (((Boolean)PyroStatic.Field6403.Field5236.Method5264()).booleanValue()) {
+                    PyroStatic.Field6403.Method2268(sPacketMoveVehicle.getX(), sPacketMoveVehicle.getY(), sPacketMoveVehicle.getZ());
+                }
+                Pyro.Field6182.Method8989(String.valueOf(this.Field5233.player.getDistance(sPacketMoveVehicle.getX(), sPacketMoveVehicle.getY(), sPacketMoveVehicle.getZ())));
+            } else if (f4e2.Method5784() instanceof SPacketSetPassengers) {
+                if (this.Field5233.player.isRiding()) {
+                    Packet packet = f4e2.Method5784();
+                    if (packet == null) {
+                        throw new TypeCastException("null cannot be cast to non-null type net.minecraft.network.play.server.SPacketSetPassengers");
+                    }
+                    SPacketSetPassengers sPacketSetPassengers = (SPacketSetPassengers)packet;
+                    int n = sPacketSetPassengers.getEntityId();
+                    Entity entity = this.Field5233.player.getRidingEntity();
+                    if (entity == null) {
+                        Intrinsics.Method6551();
+                    }
+                    if (n == entity.getEntityId()) {
+                        for (int n2 : sPacketSetPassengers.getPassengerIds()) {
+                            if (n2 != this.Field5233.player.getEntityId()) continue;
+                            f4e2.Method7948();
+                            return;
+                        }
+                    }
+                }
             }
+        }
+    }
 
-            if (this.c.player.isSneaking()) {
-               this.c.player.connection.sendPacket(new CPacketEntityAction(this.c.player, net.minecraft.network.play.client.CPacketEntityAction.Action.STOP_SNEAKING));
+    @f0g
+    @LauncherEventHide
+    public void Method183(@NotNull f4t f4t2) {
+        if (this.Field4453 + (long)1000 < System.currentTimeMillis()) {
+            this.Field4453 = System.currentTimeMillis();
+            this.Field4452 -= ((Number)this.Field4446.Method7979()).intValue();
+            if (this.Field4452 < 0) {
+                this.Field4452 = 0;
             }
-
-            if (this.c.player.isSprinting()) {
-               this.c.player.connection.sendPacket(new CPacketEntityAction(this.c.player, net.minecraft.network.play.client.CPacketEntityAction.Action.STOP_SPRINTING));
+        }
+        if (this.Field5233.player.isRiding() && this.Field4450 > 0 && ((Boolean)this.Field4442.Method7979()).booleanValue() && this.Field5233.player.ticksExisted % 2 == 0) {
+            NetHandlerPlayClient netHandlerPlayClient = this.Field5233.getConnection();
+            if (netHandlerPlayClient == null) {
+                Intrinsics.Method6551();
             }
-         } else {
-            if (this.c.player.isSneaking()) {
-               this.c.player.connection.sendPacket(new CPacketEntityAction(this.c.player, net.minecraft.network.play.client.CPacketEntityAction.Action.START_SNEAKING));
+            Entity entity = this.Field5233.player.getRidingEntity();
+            if (entity == null) {
+                Intrinsics.Method6551();
             }
-
-            if (this.c.player.isSprinting()) {
-               this.c.player.connection.sendPacket(new CPacketEntityAction(this.c.player, net.minecraft.network.play.client.CPacketEntityAction.Action.START_SPRINTING));
+            netHandlerPlayClient.sendPacket((Packet)new CPacketUseEntity(entity, EnumHand.OFF_HAND));
+            NetHandlerPlayClient netHandlerPlayClient2 = this.Field5233.getConnection();
+            if (netHandlerPlayClient2 == null) {
+                Intrinsics.Method6551();
             }
-         }
-      }
+            int n = this.Field4450;
+            this.Field4450 = n + 1;
+            netHandlerPlayClient2.sendPacket((Packet)new CPacketConfirmTeleport(n));
+        }
+    }
 
-   }
+    public f9e() {
+        super("boatfly", "BoatFly", "Allows you to fly with boats");
+    }
 
-   // $FF: renamed from: 0 (float) void
-   public void method_418(float var1) {
-      float var2 = this.c.player.rotationPitch + var1;
-      var2 = Math.max(var2, -90.0F);
-      var2 = Math.min(var2, 90.0F);
-      this.c.player.rotationPitch = var2;
-   }
+    @NotNull
+    public f0o Method2672() {
+        return this.Field4445;
+    }
 
-   public f9E() {
-      super("noslow", "NoSlow", "Allows you to not be slowed down by various actions", true);
-      this.register(this.field_285);
-      this.register(this.field_286);
-      this.register(this.field_287);
-      this.register(this.field_288);
-   }
+    @NotNull
+    public BooleanSetting Method270() {
+        return this.Field4442;
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.f4A) void
-   @f0g
-   @LauncherEventHide
-   public void method_419(f4A var1) {
-      if (this.c.player.isHandActive() && (Boolean)this.field_286.c() && !this.c.player.isRiding()) {
-         MovementInput var10000 = this.c.player.movementInput;
-         var10000.moveForward /= 0.2F;
-         var10000 = this.c.player.movementInput;
-         var10000.moveStrafe /= 0.2F;
-      }
+    @NotNull
+    public IntegerSetting Method6386() {
+        return this.Field4447;
+    }
 
-      if ((Boolean)this.field_285.c() && !var1.c()) {
-         if (this.c.currentScreen != null && !(this.c.currentScreen instanceof GuiChat) && !(this.c.currentScreen instanceof GuiContainerCreative) && !(this.c.currentScreen instanceof GuiCommandBlock) && !(this.c.currentScreen instanceof GuiScreenBook) && !(this.c.currentScreen instanceof GuiEditSign) && !(this.c.currentScreen instanceof GuiRepair)) {
-            if ((Boolean)this.field_288.c()) {
-               if (Keyboard.isKeyDown(200)) {
-                  this.method_418(-5.0F);
-               }
+    @Override
+    public void Method205(boolean bl, @Nullable EntityPlayerSP entityPlayerSP, @Nullable World world) {
+        super.Method205(bl, entityPlayerSP, world);
+        this.Field4450 = 0;
+        this.Field4451 = -1.0;
+        this.Field4454 = this.Field5233.player.rotationYaw;
+    }
 
-               if (Keyboard.isKeyDown(208)) {
-                  this.method_418(5.0F);
-               }
+    @NotNull
+    public DoubleSetting Method228() {
+        return this.Field4439;
+    }
 
-               if (Keyboard.isKeyDown(205)) {
-                  this.method_420(5.0F);
-               }
-
-               if (Keyboard.isKeyDown(203)) {
-                  this.method_420(-5.0F);
-               }
+    /*
+     * Enabled force condition propagation
+     * Lifted jumps to return sites
+     */
+    @f0g
+    @LauncherEventHide
+    public void Method2393(@NotNull f49 f492) {
+        if (f492.Method5619() != f41.Pre) return;
+        if (f492.Method7947()) return;
+        Packet packet = f492.Method5784();
+        if (packet instanceof CPacketVehicleMove) {
+            Packet packet2 = f492.Method5784();
+            if (packet2 == null) {
+                throw new TypeCastException("null cannot be cast to non-null type net.minecraft.network.play.client.CPacketVehicleMove");
             }
-
-            this.c.player.movementInput.moveStrafe = 0.0F;
-            this.c.player.movementInput.moveForward = 0.0F;
-            KeyBinding.setKeyBindState(this.c.gameSettings.keyBindForward.getKeyCode(), Keyboard.isKeyDown(this.c.gameSettings.keyBindForward.getKeyCode()));
-            if (Keyboard.isKeyDown(this.c.gameSettings.keyBindForward.getKeyCode())) {
-               ++this.c.player.movementInput.moveForward;
-               this.c.player.movementInput.forwardKeyDown = true;
-            } else {
-               this.c.player.movementInput.forwardKeyDown = false;
+            CPacketVehicleMove cPacketVehicleMove = (CPacketVehicleMove)packet2;
+            if (!((Boolean)this.Field4443.Method7979()).booleanValue() || !this.Field4449) return;
+            Entity entity = this.Field5233.player.getRidingEntity();
+            if (entity == null) {
+                Intrinsics.Method6551();
             }
-
-            KeyBinding.setKeyBindState(this.c.gameSettings.keyBindBack.getKeyCode(), Keyboard.isKeyDown(this.c.gameSettings.keyBindBack.getKeyCode()));
-            if (Keyboard.isKeyDown(this.c.gameSettings.keyBindBack.getKeyCode())) {
-               --this.c.player.movementInput.moveForward;
-               this.c.player.movementInput.backKeyDown = true;
-            } else {
-               this.c.player.movementInput.backKeyDown = false;
+            if (entity.onGround) return;
+            Entity entity2 = this.Field5233.player.getRidingEntity();
+            if (entity2 == null) {
+                Intrinsics.Method6551();
             }
-
-            KeyBinding.setKeyBindState(this.c.gameSettings.keyBindLeft.getKeyCode(), Keyboard.isKeyDown(this.c.gameSettings.keyBindLeft.getKeyCode()));
-            if (Keyboard.isKeyDown(this.c.gameSettings.keyBindLeft.getKeyCode())) {
-               ++this.c.player.movementInput.moveStrafe;
-               this.c.player.movementInput.leftKeyDown = true;
-            } else {
-               this.c.player.movementInput.leftKeyDown = false;
+            if (!this.Field5233.world.getCollisionBoxes(null, entity2.getEntityBoundingBox().grow(0.0625).expand(0.0, -0.05, 0.0)).isEmpty()) return;
+            this.Field4449 = false;
+            Packet packet3 = f492.Method5784();
+            if (packet3 == null) {
+                throw new TypeCastException("null cannot be cast to non-null type dev.nuker.pyro.mixin.CPacketVehicleMoveAccessor");
             }
-
-            KeyBinding.setKeyBindState(this.c.gameSettings.keyBindRight.getKeyCode(), Keyboard.isKeyDown(this.c.gameSettings.keyBindRight.getKeyCode()));
-            if (Keyboard.isKeyDown(this.c.gameSettings.keyBindRight.getKeyCode())) {
-               --this.c.player.movementInput.moveStrafe;
-               this.c.player.movementInput.rightKeyDown = true;
-            } else {
-               this.c.player.movementInput.rightKeyDown = false;
+            ((CPacketVehicleMoveAccessor)packet3).Method12239(cPacketVehicleMove.getY() - 0.05);
+            return;
+        } else if (packet instanceof CPacketSteerBoat) {
+            f492.Method7948();
+            return;
+        } else if (packet instanceof CPacketInput) {
+            if (!this.Field5233.player.isRiding()) return;
+            Packet packet4 = f492.Method5784();
+            if (packet4 == null) {
+                throw new TypeCastException("null cannot be cast to non-null type net.minecraft.network.play.client.CPacketInput");
             }
+            if (((CPacketInput)packet4).isSneaking()) {
+                Entity entity = this.Field5233.player.getRidingEntity();
+                if (entity == null) {
+                    Intrinsics.Method6551();
+                }
+                if (entity.onGround) return;
+            }
+            f492.Method7948();
+            return;
+        } else if (packet instanceof CPacketPlayer) {
+            if (!this.Field5233.player.isRiding()) return;
+            f492.Method7948();
+            return;
+        } else {
+            if (!(packet instanceof CPacketEntityAction)) return;
+            if (!this.Field5233.player.isRiding()) return;
+            Packet packet5 = f492.Method5784();
+            if (packet5 == null) {
+                throw new TypeCastException("null cannot be cast to non-null type net.minecraft.network.play.client.CPacketEntityAction");
+            }
+            if (((CPacketEntityAction)packet5).getAction() == CPacketEntityAction.Action.OPEN_INVENTORY) return;
+            f492.Method7948();
+        }
+    }
 
-            KeyBinding.setKeyBindState(this.c.gameSettings.keyBindJump.getKeyCode(), Keyboard.isKeyDown(this.c.gameSettings.keyBindJump.getKeyCode()));
-            this.c.player.movementInput.jump = Keyboard.isKeyDown(this.c.gameSettings.keyBindJump.getKeyCode());
-         }
-      }
-   }
+    public void Method544(float f) {
+        this.Field4454 = f;
+    }
 
-   // $FF: renamed from: c (float) void
-   public void method_420(float var1) {
-      this.c.player.rotationYaw += var1;
-   }
+    public float Method6387() {
+        return this.Field4454;
+    }
+
+    @NotNull
+    public BooleanSetting Method213() {
+        return this.Field4443;
+    }
+
+    /*
+     * Enabled aggressive block sorting
+     */
+    public void Method5384() {
+        double[] arrd;
+        if (!this.Field5233.player.isRiding()) {
+            this.Field4451 = -1.0;
+            return;
+        }
+        Entity entity = this.Field5233.player.getRidingEntity();
+        if (entity == null) return;
+        int n = this.Field4448;
+        this.Field4448 = n + 1;
+        boolean bl = this.Field4449 = !this.Field5233.player.movementInput.sneak && this.Field5233.player.ticksExisted % 2 == 0 && !entity.collidedHorizontally && this.Field5233.world.getCollisionBoxes(null, entity.getEntityBoundingBox().grow(0.0625).expand(0.0, -0.05, 0.0)).isEmpty();
+        if (this.Field4448 > 2) {
+            this.Field4448 = 0;
+        }
+        entity.motionY = 0.0;
+        double[] arrd2 = fec.Method723(((Number)this.Field4439.Method7979()).doubleValue());
+        double[] arrd3 = arrd = (Boolean)PyroStatic.Field6403.Field5236.Method5264() != false ? PyroStatic.Field6403.Method2284(((Number)this.Field4439.Method7979()).doubleValue()) : null;
+        if (arrd != null) {
+            arrd2 = arrd;
+        }
+        if (((Boolean)PyroStatic.Field6403.Field5236.Method5264()).booleanValue()) {
+            double[] arrd4 = PyroStatic.Field6403.Method2284(((Number)this.Field4439.Method7979()).doubleValue());
+            if (arrd4 != null) {
+                entity.motionX = arrd4[0];
+                entity.motionZ = arrd4[1];
+                entity.motionY = arrd4[2];
+                return;
+            }
+            entity.motionX = 0.0;
+            entity.motionY = 0.0;
+            entity.motionZ = 0.0;
+            return;
+        }
+        if (this.Field5233.player.movementInput.jump) {
+            entity.motionY = ((Number)this.Field4440.Method7979()).doubleValue();
+        } else if (this.Field5233.player.movementInput.sneak) {
+            entity.motionY = -((Number)this.Field4441.Method7979()).doubleValue();
+        }
+        fec.Method722(((Number)this.Field4439.Method7979()).doubleValue());
+    }
+
+    @NotNull
+    public DoubleSetting Method220() {
+        return this.Field4440;
+    }
+
+    @NotNull
+    public DoubleSetting Method218() {
+        return this.Field4441;
+    }
+
+    @NotNull
+    public IntegerSetting Method2502() {
+        return this.Field4446;
+    }
 }
+

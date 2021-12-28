@@ -1,30 +1,30 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.util.text.ITextComponent
+ *  net.minecraft.util.text.TextComponentString
  */
 package dev.nuker.pyro;
 
 import com.mojang.brigadier.Command;
-import com.mojang.brigadier.CommandDispatcher;
-import com.mojang.brigadier.arguments.ArgumentType;
-import com.mojang.brigadier.arguments.StringArgumentType;
-import com.mojang.brigadier.builder.ArgumentBuilder;
-import com.mojang.brigadier.builder.LiteralArgumentBuilder;
-import com.mojang.brigadier.builder.RequiredArgumentBuilder;
-import com.mojang.brigadier.suggestion.SuggestionProvider;
-import org.jetbrains.annotations.NotNull;
+import com.mojang.brigadier.context.CommandContext;
+import dev.nuker.pyro.Class34;
+import dev.nuker.pyro.Module;
+import dev.nuker.pyro.f1s;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponentString;
 
-public class f2X {
-   // $FF: renamed from: c dev.nuker.pyro.f2X
-   public static f2X field_2033;
+public class f2x
+implements Command {
+    public static f2x Field3949 = new f2x();
 
-   // $FF: renamed from: c (com.mojang.brigadier.CommandDispatcher) void
-   public void method_3101(@NotNull CommandDispatcher var1) {
-      var1.register((LiteralArgumentBuilder)((LiteralArgumentBuilder)((LiteralArgumentBuilder)f3e.method_3215("nuker").then(f3e.method_3215("list").executes((Command)f2S.field_2003))).then(f3e.method_3215("add").then((ArgumentBuilder)((RequiredArgumentBuilder)f3e.method_3216("block", (ArgumentType)StringArgumentType.greedyString()).executes((Command)f2T.field_2006)).suggests((SuggestionProvider)f2U.field_2024)))).then(f3e.method_3215("remove").then((ArgumentBuilder)((RequiredArgumentBuilder)f3e.method_3216("block", (ArgumentType)StringArgumentType.greedyString()).executes((Command)f2V.field_2027)).suggests((SuggestionProvider)f2W.field_2030))));
-   }
-
-   static {
-      f2X var0 = new f2X();
-      field_2033 = var0;
-   }
+    public int Method152(CommandContext commandContext) {
+        for (Module module : Class34.Field4599.Method6756()) {
+            module.Field5236.Method5266((Object)false);
+        }
+        ((f1s)commandContext.Method6876()).Method5489((ITextComponent)new TextComponentString("All modules turned off."));
+        return 0;
+    }
 }
+

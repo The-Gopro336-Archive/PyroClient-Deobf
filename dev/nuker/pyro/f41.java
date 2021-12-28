@@ -1,20 +1,33 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-public enum f41 {
-   // $FF: renamed from: c dev.nuker.pyro.f41
-   field_2120,
-   // $FF: renamed from: 0 dev.nuker.pyro.f41
-   field_2121;
+public class f41
+extends Enum {
+    public static /* enum */ f41 Pre = new f41("Pre", 0);
+    public static /* enum */ f41 Post = new f41("Post", 1);
+    public static /* synthetic */ f41[] Field3918;
 
-   // $FF: renamed from: c dev.nuker.pyro.f41[]
-   public static f41[] field_2122 = new f41[]{field_2120, field_2121};
+    public static f41[] Method5617() {
+        return (f41[])Field3918.clone();
+    }
 
-   // $FF: renamed from: c (java.lang.String) dev.nuker.pyro.f41
-   public static f41 method_3200(String var0) {
-      return (f41)Enum.valueOf(f41.class, var0);
-   }
+    static {
+        Field3918 = new f41[]{Pre, Post};
+    }
+
+    /*
+     * WARNING - Possible parameter corruption
+     * WARNING - void declaration
+     */
+    public f41() {
+        void var2_-1;
+        void var1_-1;
+    }
+
+    public static f41 Method5618(String string) {
+        return Enum.valueOf(f41.class, string);
+    }
 }
+

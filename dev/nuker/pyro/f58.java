@@ -1,27 +1,31 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-public class f58 extends f4Q {
-   // $FF: renamed from: c dev.nuker.pyro.f0w
-   public f0w field_1109;
+import dev.nuker.pyro.PyroRenderUtil;
+import dev.nuker.pyro.f0H;
+import dev.nuker.pyro.f0w;
+import dev.nuker.pyro.f4Q;
 
-   public f58(f0w var1, float var2, float var3) {
-      super(var1.method_3315(), 0.0F, 0.0F, var2, var3);
-      this.field_1109 = var1;
-      this.c(var1.method_3305());
-   }
+public class f58
+extends f4Q {
+    public T Field4111;
 
-   // $FF: renamed from: c () dev.nuker.pyro.f0w
-   public f0w method_1654() {
-      return this.field_1109;
-   }
+    public f58(f0w f0w2, float f, float f2) {
+        super(f0w2.Method7977(), 0.0f, 0.0f, f, f2);
+        this.Field4111 = f0w2;
+        this.Method5736(f0w2.Method7969());
+    }
 
-   // $FF: renamed from: c (float, float, float) boolean
-   public boolean method_1639(float var1, float var2, float var3) {
-      PyroRenderUtil.meth1(this.8(), this.2() + 4.0F, this.7(), f0H.field_2338.method_3494());
-      return super.method_1639(var1, var2, var3);
-   }
+    public f0w Method5753() {
+        return this.Field4111;
+    }
+
+    @Override
+    public boolean Method4797(float f, float f2, float f3) {
+        PyroRenderUtil.Method12313(this.Method4820(), this.Method4828() + 4.0f, this.Method4906(), f0H.Field5479.Method7708());
+        return super.Method4797(f, f2, f3);
+    }
 }
+

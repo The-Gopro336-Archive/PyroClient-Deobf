@@ -1,6 +1,9 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.item.ItemStack
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
@@ -9,20 +12,21 @@ import kotlin.jvm.internal.Lambda;
 import net.minecraft.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
-public class fdE extends Lambda implements Function1 {
-   // $FF: renamed from: c dev.nuker.pyro.fdE
-   public static fdE field_73 = new fdE();
+public class fdE
+extends Lambda
+implements Function1 {
+    public static fdE Field213 = new fdE();
 
-   public Object invoke(Object var1) {
-      return this.method_108((ItemStack)var1);
-   }
+    public Object Method41(Object object) {
+        return this.Method297((ItemStack)object);
+    }
 
-   // $FF: renamed from: c (net.minecraft.item.ItemStack) boolean
-   public boolean method_108(@NotNull ItemStack var1) {
-      return var1.isEmpty();
-   }
+    public boolean Method297(@NotNull ItemStack itemStack) {
+        return itemStack.isEmpty();
+    }
 
-   public fdE() {
-      super(1);
-   }
+    public fdE() {
+        super(1);
+    }
 }
+

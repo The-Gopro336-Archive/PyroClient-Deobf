@@ -1,22 +1,33 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-public enum f6H {
-   // $FF: renamed from: c dev.nuker.pyro.f6H
-   field_1669,
-   // $FF: renamed from: 0 dev.nuker.pyro.f6H
-   field_1670,
-   // $FF: renamed from: 1 dev.nuker.pyro.f6H
-   field_1671;
+public class f6h
+extends Enum {
+    public static /* enum */ f6h Soft = new f6h("Soft", 0);
+    public static /* enum */ f6h Replace = new f6h("Replace", 1);
+    public static /* synthetic */ f6h[] Field3166;
 
-   // $FF: renamed from: c dev.nuker.pyro.f6H[]
-   public static f6H[] field_1672 = new f6H[]{field_1669, field_1670, field_1671};
+    /*
+     * WARNING - Possible parameter corruption
+     * WARNING - void declaration
+     */
+    public f6h() {
+        void var2_-1;
+        void var1_-1;
+    }
 
-   // $FF: renamed from: c (java.lang.String) dev.nuker.pyro.f6H
-   public static f6H method_2943(String var0) {
-      return (f6H)Enum.valueOf(f6H.class, var0);
-   }
+    public static f6h Method5087(String string) {
+        return Enum.valueOf(f6h.class, string);
+    }
+
+    static {
+        Field3166 = new f6h[]{Soft, Replace};
+    }
+
+    public static f6h[] Method5088() {
+        return (f6h[])Field3166.clone();
+    }
 }
+

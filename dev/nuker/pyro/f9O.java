@@ -1,18 +1,34 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-public enum f9O {
-   // $FF: renamed from: c dev.nuker.pyro.f9O
-   field_1942;
+public class f9o
+extends Enum {
+    public static /* enum */ f9o Survival = new f9o("Survival", 0);
+    public static /* enum */ f9o Creative = new f9o("Creative", 1);
+    public static /* enum */ f9o AAC = new f9o("AAC", 2);
+    public static /* synthetic */ f9o[] Field4481;
 
-   // $FF: renamed from: c dev.nuker.pyro.f9O[]
-   public static f9O[] field_1943 = new f9O[]{field_1942 = new f9O("YPort", 0)};
+    public static f9o Method6418(String string) {
+        return Enum.valueOf(f9o.class, string);
+    }
 
-   // $FF: renamed from: c (java.lang.String) dev.nuker.pyro.f9O
-   public static f9O method_3059(String var0) {
-      return (f9O)Enum.valueOf(f9O.class, var0);
-   }
+    public static f9o[] Method6419() {
+        return (f9o[])Field4481.clone();
+    }
+
+    static {
+        Field4481 = new f9o[]{Survival, Creative, AAC};
+    }
+
+    /*
+     * WARNING - Possible parameter corruption
+     * WARNING - void declaration
+     */
+    public f9o() {
+        void var2_-1;
+        void var1_-1;
+    }
 }
+

@@ -1,20 +1,37 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-public enum fb2 {
-   // $FF: renamed from: c dev.nuker.pyro.fb2
-   field_1471,
-   // $FF: renamed from: 0 dev.nuker.pyro.fb2
-   field_1472;
+public class fb2
+extends Enum {
+    public static /* enum */ fb2 CAMERA;
+    public static /* enum */ fb2 PACKET;
+    public static /* synthetic */ fb2[] Field1688;
 
-   // $FF: renamed from: c dev.nuker.pyro.fb2[]
-   public static fb2[] field_1473 = new fb2[]{field_1471 = new fb2("CAMERA", 0), field_1472 = new fb2("PACKET", 1)};
+    public static fb2[] Method2384() {
+        return (fb2[])Field1688.clone();
+    }
 
-   // $FF: renamed from: c (java.lang.String) dev.nuker.pyro.fb2
-   public static fb2 method_2652(String var0) {
-      return (fb2)Enum.valueOf(fb2.class, var0);
-   }
+    static {
+        fb2[] arrfb2 = new fb2[2];
+        fb2[] arrfb22 = arrfb2;
+        arrfb2[0] = CAMERA = new fb2("CAMERA", 0);
+        arrfb2[1] = PACKET = new fb2("PACKET", 1);
+        Field1688 = arrfb2;
+    }
+
+    public static fb2 Method2385(String string) {
+        return Enum.valueOf(fb2.class, string);
+    }
+
+    /*
+     * WARNING - Possible parameter corruption
+     * WARNING - void declaration
+     */
+    public fb2() {
+        void var2_-1;
+        void var1_-1;
+    }
 }
+

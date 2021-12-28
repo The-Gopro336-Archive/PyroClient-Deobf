@@ -1,22 +1,39 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-public enum fen {
-   // $FF: renamed from: c dev.nuker.pyro.fen
-   field_1352,
-   // $FF: renamed from: 0 dev.nuker.pyro.fen
-   field_1353,
-   // $FF: renamed from: 1 dev.nuker.pyro.fen
-   field_1354;
+public class fen
+extends Enum {
+    public static /* enum */ fen NONE;
+    public static /* enum */ fen BOX;
+    public static /* enum */ fen WIREFRAME;
+    public static /* synthetic */ fen[] Field463;
 
-   // $FF: renamed from: c dev.nuker.pyro.fen[]
-   public static fen[] field_1355 = new fen[]{field_1352 = new fen("NONE", 0), field_1353 = new fen("BOX", 1), field_1354 = new fen("WIREFRAME", 2)};
+    public static fen Method752(String string) {
+        return Enum.valueOf(fen.class, string);
+    }
 
-   // $FF: renamed from: c (java.lang.String) dev.nuker.pyro.fen
-   public static fen method_2018(String var0) {
-      return (fen)Enum.valueOf(fen.class, var0);
-   }
+    /*
+     * WARNING - Possible parameter corruption
+     * WARNING - void declaration
+     */
+    public fen() {
+        void var2_-1;
+        void var1_-1;
+    }
+
+    static {
+        fen[] arrfen = new fen[3];
+        fen[] arrfen2 = arrfen;
+        arrfen[0] = NONE = new fen("NONE", 0);
+        arrfen[1] = BOX = new fen("BOX", 1);
+        arrfen[2] = WIREFRAME = new fen("WIREFRAME", 2);
+        Field463 = arrfen;
+    }
+
+    public static fen[] Method753() {
+        return (fen[])Field463.clone();
+    }
 }
+

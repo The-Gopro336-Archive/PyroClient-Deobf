@@ -1,28 +1,30 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.fdU;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import org.jetbrains.annotations.NotNull;
 
 public class fdR {
-   public fdR() {
-   }
+    public fdR() {
+    }
 
-   // $FF: renamed from: c () dev.nuker.pyro.fdU
-   @NotNull
-   public fdU method_1957() {
-      return fdU.method_1927();
-   }
+    @NotNull
+    public fdU Method463() {
+        return fdU.Method420();
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.fdU) void
-   public void method_1958(@NotNull fdU var1) {
-      fdU.method_1942(var1);
-   }
+    public void Method464(@NotNull fdU fdU2) {
+        fdU.Method435(fdU2);
+    }
 
-   public fdR(DefaultConstructorMarker var1) {
-      this();
-   }
+    public fdR(DefaultConstructorMarker defaultConstructorMarker) {
+        this();
+    }
 }
+

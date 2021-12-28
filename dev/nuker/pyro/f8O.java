@@ -1,26 +1,34 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.internal.Lambda;
+public class f8o
+extends Enum {
+    public static /* enum */ f8o Activation = new f8o("Activation", 0);
+    public static /* enum */ f8o Crystals = new f8o("Crystals", 1);
+    public static /* enum */ f8o Both = new f8o("Both", 2);
+    public static /* synthetic */ f8o[] Field3596;
 
-public class f8O extends Lambda implements Function1 {
-   // $FF: renamed from: c dev.nuker.pyro.f8O
-   public static f8O field_44 = new f8O();
+    public static f8o[] Method5371() {
+        return (f8o[])Field3596.clone();
+    }
 
-   // $FF: renamed from: c (java.lang.Boolean) java.lang.Boolean
-   public Boolean method_87(Boolean var1) {
-      return var1;
-   }
+    public static f8o Method5372(String string) {
+        return Enum.valueOf(f8o.class, string);
+    }
 
-   public Object invoke(Object var1) {
-      return this.method_87((Boolean)var1);
-   }
+    /*
+     * WARNING - Possible parameter corruption
+     * WARNING - void declaration
+     */
+    public f8o() {
+        void var2_-1;
+        void var1_-1;
+    }
 
-   public f8O() {
-      super(1);
-   }
+    static {
+        Field3596 = new f8o[]{Activation, Crystals, Both};
+    }
 }
+

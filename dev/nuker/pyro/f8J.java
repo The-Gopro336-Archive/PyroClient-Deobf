@@ -1,15 +1,34 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.Minecraft
+ *  net.minecraft.entity.Entity
+ *  net.minecraft.entity.item.EntityBoat
+ *  net.minecraft.entity.passive.AbstractHorse
+ *  net.minecraft.entity.passive.EntityDonkey
+ *  net.minecraft.entity.passive.EntityHorse
+ *  net.minecraft.entity.passive.EntityLlama
+ *  net.minecraft.entity.passive.EntityPig
+ *  net.minecraft.entity.passive.EntitySkeletonHorse
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.BooleanSetting;
+import dev.nuker.pyro.DoubleSetting;
+import dev.nuker.pyro.Module;
+import dev.nuker.pyro.f0g;
+import dev.nuker.pyro.f41;
+import dev.nuker.pyro.f4u;
+import dev.nuker.pyro.f8G;
+import dev.nuker.pyro.f8H;
+import dev.nuker.pyro.f8I;
+import dev.nuker.pyro.fe8;
+import dev.nuker.pyro.few;
+import dev.nuker.pyro.fex;
 import dev.nuker.pyro.security.inject.LauncherEventHide;
 import java.util.Comparator;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Predicate;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityBoat;
@@ -21,154 +40,141 @@ import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.entity.passive.EntitySkeletonHorse;
 import org.jetbrains.annotations.NotNull;
 
-public class f8J extends Module {
-   // $FF: renamed from: c dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_407 = (BooleanSetting)this.register((f0w)(new BooleanSetting("boats", "Boats", "Mounts boats", true)));
-   // $FF: renamed from: 0 dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_408 = (BooleanSetting)this.register((f0w)(new BooleanSetting("horses", "Horses", "Mounts Horses", true)));
-   // $FF: renamed from: 1 dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_409 = (BooleanSetting)this.register((f0w)(new BooleanSetting("skeletonhorses", "SkeletonHorses", "Mounts SkeletonHorses", true)));
-   // $FF: renamed from: 2 dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_410 = (BooleanSetting)this.register((f0w)(new BooleanSetting("donkeys", "Donkeys", "Mounts Donkeys", true)));
-   // $FF: renamed from: 3 dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_411 = (BooleanSetting)this.register((f0w)(new BooleanSetting("pigs", "Pigs", "Mounts Pigs", true)));
-   // $FF: renamed from: 4 dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_412 = (BooleanSetting)this.register((f0w)(new BooleanSetting("llamas", "Llamas", "Mounts Llamas", true)));
-   // $FF: renamed from: c dev.nuker.pyro.DoubleSetting
-   @NotNull
-   public DoubleSetting field_413 = (DoubleSetting)this.register((f0w)(new DoubleSetting("range", "Range", "Range to search for mountable entities", 6.0D, 0.0D, 6.0D, 0.0D, 64, (DefaultConstructorMarker)null)));
-   // $FF: renamed from: 0 dev.nuker.pyro.DoubleSetting
-   @NotNull
-   public DoubleSetting field_414 = (DoubleSetting)this.register((f0w)(new DoubleSetting("delay", "Delay", "Delay to use", 1.0D, 0.0D, 10.0D, 0.0D, 64, (DefaultConstructorMarker)null)));
-   // $FF: renamed from: c dev.nuker.pyro.fe8
-   @NotNull
-   public fe8 field_415 = new fe8();
+public class f8J
+extends Module {
+    @NotNull
+    public BooleanSetting Field3381 = (BooleanSetting)this.Method7264(new BooleanSetting("boats", "Boats", "Mounts boats", true));
+    @NotNull
+    public BooleanSetting Field3382 = (BooleanSetting)this.Method7264(new BooleanSetting("horses", "Horses", "Mounts Horses", true));
+    @NotNull
+    public BooleanSetting Field3383 = (BooleanSetting)this.Method7264(new BooleanSetting("skeletonhorses", "SkeletonHorses", "Mounts SkeletonHorses", true));
+    @NotNull
+    public BooleanSetting Field3384 = (BooleanSetting)this.Method7264(new BooleanSetting("donkeys", "Donkeys", "Mounts Donkeys", true));
+    @NotNull
+    public BooleanSetting Field3385 = (BooleanSetting)this.Method7264(new BooleanSetting("pigs", "Pigs", "Mounts Pigs", true));
+    @NotNull
+    public BooleanSetting Field3386 = (BooleanSetting)this.Method7264(new BooleanSetting("llamas", "Llamas", "Mounts Llamas", true));
+    @NotNull
+    public DoubleSetting Field3387 = (DoubleSetting)this.Method7264(new DoubleSetting("range", "Range", "Range to search for mountable entities", 6.0, 0.0, 6.0, 0.0, 64, null));
+    @NotNull
+    public DoubleSetting Field3388 = (DoubleSetting)this.Method7264(new DoubleSetting("delay", "Delay", "Delay to use", 1.0, 0.0, 10.0, 0.0, 64, null));
+    @NotNull
+    public fe8 Field3389 = new fe8();
 
-   // $FF: renamed from: c (dev.nuker.pyro.f8J) net.minecraft.client.Minecraft
-   public static Minecraft method_617(f8J var0) {
-      return var0.c;
-   }
+    public static Minecraft Method5200(f8J f8J2) {
+        return f8J2.Field5233;
+    }
 
-   // $FF: renamed from: 2 () dev.nuker.pyro.DoubleSetting
-   @NotNull
-   public DoubleSetting method_618() {
-      return this.field_413;
-   }
+    @NotNull
+    public DoubleSetting Method226() {
+        return this.Field3387;
+    }
 
-   // $FF: renamed from: c (net.minecraft.entity.Entity) boolean
-   public boolean method_619(@NotNull Entity var1) {
-      if ((double)var1.getDistance((Entity)this.c.player) > ((Number)this.field_413.c()).doubleValue()) {
-         return false;
-      } else if (!this.c.player.canEntityBeSeen(var1) && var1.getDistanceSq((Entity)this.c.player) >= 9.0D) {
-         return false;
-      } else if (var1 instanceof AbstractHorse && ((AbstractHorse)var1).isChild()) {
-         return false;
-      } else if (var1 instanceof EntityBoat && (Boolean)this.field_407.c()) {
-         return true;
-      } else if (var1 instanceof EntitySkeletonHorse && (Boolean)this.field_409.c()) {
-         return true;
-      } else if (var1 instanceof EntityHorse && (Boolean)this.field_408.c()) {
-         return true;
-      } else if (var1 instanceof EntityDonkey && (Boolean)this.field_410.c()) {
-         return true;
-      } else if (var1 instanceof EntityPig && (Boolean)this.field_411.c()) {
-         return ((EntityPig)var1).getSaddled();
-      } else {
-         return var1 instanceof EntityLlama && (Boolean)this.field_412.c() && !((EntityLlama)var1).isChild();
-      }
-   }
-
-   // $FF: renamed from: c () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_620() {
-      return this.field_407;
-   }
-
-   // $FF: renamed from: 1 () dev.nuker.pyro.DoubleSetting
-   @NotNull
-   public DoubleSetting method_621() {
-      return this.field_414;
-   }
-
-   public f8J() {
-      super("autoMount", "AutoMount", "Automatically mounts onto entities");
-   }
-
-   // $FF: renamed from: 6 () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_622() {
-      return this.field_409;
-   }
-
-   // $FF: renamed from: 7 () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_623() {
-      return this.field_410;
-   }
-
-   // $FF: renamed from: c (dev.nuker.pyro.fe8) void
-   public void method_624(@NotNull fe8 var1) {
-      this.field_415 = var1;
-   }
-
-   // $FF: renamed from: 3 () dev.nuker.pyro.fe8
-   @NotNull
-   public fe8 method_625() {
-      return this.field_415;
-   }
-
-   // $FF: renamed from: 0 () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_626() {
-      return this.field_411;
-   }
-
-   // $FF: renamed from: c (dev.nuker.pyro.f4u) void
-   @f0g
-   @LauncherEventHide
-   public void method_627(@NotNull f4u var1) {
-      if (var1.c() == f41.field_2120 && !var1.c()) {
-         if (!this.c.player.isRiding()) {
-            Entity var2 = (Entity)this.c.world.loadedEntityList.stream().filter((Predicate)(new f8H(this))).min(Comparator.comparing((Function)(new f8I(this)))).orElse((Object)null);
-            if (var2 != null) {
-               fex var3 = few.method_1716().method_1725(var2.getEntityBoundingBox(), false, true, false, true);
-               if (var3 != null) {
-                  var1.0();
-                  var1.method_3140(var3.method_2076().meth4());
-                  var1.method_3139(var3.method_2076().meth3());
-                  if (!this.field_415.method_1980(((Number)this.field_414.c()).doubleValue() * (double)1000)) {
-                     return;
-                  }
-
-                  this.field_415.method_1979();
-                  var1.method_3133((Consumer)(new f8G(this, var2)));
-               }
+    public boolean Method2425(@NotNull Entity entity) {
+        if ((double)entity.getDistance((Entity)this.Field5233.player) > ((Number)this.Field3387.Method7979()).doubleValue()) {
+            return false;
+        }
+        if (!this.Field5233.player.canEntityBeSeen(entity) && entity.getDistanceSq((Entity)this.Field5233.player) >= 9.0) {
+            return false;
+        }
+        if (entity instanceof AbstractHorse && ((AbstractHorse)entity).isChild()) {
+            return false;
+        }
+        if (entity instanceof EntityBoat && ((Boolean)this.Field3381.Method7979()).booleanValue()) {
+            return true;
+        }
+        if (entity instanceof EntitySkeletonHorse) {
+            if (((Boolean)this.Field3383.Method7979()).booleanValue()) {
+                return true;
             }
+        }
+        if (entity instanceof EntityHorse) {
+            if (((Boolean)this.Field3382.Method7979()).booleanValue()) {
+                return true;
+            }
+        }
+        if (entity instanceof EntityDonkey && ((Boolean)this.Field3384.Method7979()).booleanValue()) {
+            return true;
+        }
+        if (entity instanceof EntityPig && ((Boolean)this.Field3385.Method7979()).booleanValue()) {
+            return ((EntityPig)entity).getSaddled();
+        }
+        return entity instanceof EntityLlama && (Boolean)this.Field3386.Method7979() != false && !((EntityLlama)entity).isChild();
+    }
 
-         }
-      }
-   }
+    @NotNull
+    public BooleanSetting Method215() {
+        return this.Field3381;
+    }
 
-   // $FF: renamed from: 4 () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_628() {
-      return this.field_412;
-   }
+    @NotNull
+    public DoubleSetting Method219() {
+        return this.Field3388;
+    }
 
-   // $FF: renamed from: 5 () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_629() {
-      return this.field_408;
-   }
+    public f8J() {
+        super("autoMount", "AutoMount", "Automatically mounts onto entities");
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.f8J, net.minecraft.client.Minecraft) void
-   public static void method_630(f8J var0, Minecraft var1) {
-      var0.c = var1;
-   }
+    @NotNull
+    public BooleanSetting Method270() {
+        return this.Field3383;
+    }
+
+    @NotNull
+    public BooleanSetting Method279() {
+        return this.Field3384;
+    }
+
+    public void Method4965(@NotNull fe8 fe82) {
+        this.Field3389 = fe82;
+    }
+
+    @NotNull
+    public fe8 Method5201() {
+        return this.Field3389;
+    }
+
+    @NotNull
+    public BooleanSetting Method274() {
+        return this.Field3385;
+    }
+
+    @f0g
+    @LauncherEventHide
+    public void Method203(@NotNull f4u f4u2) {
+        fex fex2;
+        if (f4u2.Method5619() != f41.Pre || f4u2.Method7947()) {
+            return;
+        }
+        if (this.Field5233.player.isRiding()) {
+            return;
+        }
+        Entity entity = this.Field5233.world.loadedEntityList.stream().filter(new f8H(this)).min(Comparator.comparing(new f8I(this))).orElse(null);
+        if (entity != null && (fex2 = few.Method835().Method843(entity.getEntityBoundingBox(), false, true, false, true)) != null) {
+            f4u2.Method7948();
+            f4u2.Method5647(fex2.Method891().Method6936());
+            f4u2.Method5653(fex2.Method891().Method6942());
+            if (!this.Field3389.Method491(((Number)this.Field3388.Method7979()).doubleValue() * (double)1000)) {
+                return;
+            }
+            this.Field3389.Method490();
+            f4u2.Method5816(new f8G(this, entity));
+        }
+    }
+
+    @NotNull
+    public BooleanSetting Method276() {
+        return this.Field3386;
+    }
+
+    @NotNull
+    public BooleanSetting Method2424() {
+        return this.Field3382;
+    }
+
+    public static void Method5202(f8J f8J2, Minecraft minecraft) {
+        f8J2.Field5233 = minecraft;
+    }
 }
+

@@ -1,40 +1,69 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.network.Packet
+ *  net.minecraft.network.play.client.CPacketAnimation
+ *  net.minecraft.util.EnumHand
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.Module;
+import dev.nuker.pyro.f0g;
+import dev.nuker.pyro.f0o;
+import dev.nuker.pyro.f41;
+import dev.nuker.pyro.f49;
+import dev.nuker.pyro.f7w;
+import dev.nuker.pyro.f7x;
+import dev.nuker.pyro.mixin.CPacketAnimationAccessor;
 import dev.nuker.pyro.security.inject.LauncherEventHide;
-import net.minecraft.network.play.server.SPacketChat;
+import kotlin.TypeCastException;
+import net.minecraft.network.Packet;
+import net.minecraft.network.play.client.CPacketAnimation;
+import net.minecraft.util.EnumHand;
+import org.jetbrains.annotations.NotNull;
 
-public class f7Y extends Module {
-   // $FF: renamed from: c dev.nuker.pyro.DoubleSetting
-   public DoubleSetting field_466 = new DoubleSetting("delay", "Delay", (String)null, 1.0D, 0.0D, 10.0D);
-   // $FF: renamed from: c dev.nuker.pyro.fe8
-   public fe8 field_467 = new fe8();
+public class f7y
+extends Module {
+    @NotNull
+    public f0o<f7w> Field3486 = (f0o)this.Method7264(new f0o("mode", "Mode", null, f7w.Cancel));
 
-   // $FF: renamed from: c (dev.nuker.pyro.f4e) void
-   @f0g
-   @LauncherEventHide
-   public void method_688(f4e var1) {
-      if (var1.c() == f41.field_2120 && var1.c() instanceof SPacketChat) {
-         if (!this.field_467.method_1980((Double)this.field_466.c() * 1000.0D)) {
-            return;
-         }
+    @NotNull
+    public f0o Method2672() {
+        return this.Field3486;
+    }
 
-         SPacketChat var2 = (SPacketChat)var1.c();
-         if (var2.getChatComponent().getUnformattedText().contains("has requested to teleport to you.")) {
-            String var3 = var2.getChatComponent().getUnformattedText().substring(0, var2.getChatComponent().getUnformattedText().indexOf(" has requested to teleport to you."));
-            if (FriendManager.Companion.isFriend(var3)) {
-               this.c.player.sendChatMessage("/tpaccept");
+    public f7y() {
+        super("swing", "Swing", null);
+    }
+
+    @f0g
+    @LauncherEventHide
+    public void Method2393(@NotNull f49 f492) {
+        if (this.Field5233.player != null && f492.Method5619() == f41.Pre) {
+            if (f492.Method5784() instanceof CPacketAnimation) {
+                Packet packet = f492.Method5784();
+                if (packet == null) {
+                    throw new TypeCastException("null cannot be cast to non-null type net.minecraft.network.play.client.CPacketAnimation");
+                }
+                CPacketAnimation cPacketAnimation = (CPacketAnimation)packet;
+                switch (f7x.Field3484[((f7w)((Object)this.Field3486.Method7979())).ordinal()]) {
+                    case 1: {
+                        f492.Method7948();
+                        break;
+                    }
+                    case 2: {
+                        CPacketAnimation cPacketAnimation2 = cPacketAnimation;
+                        if (cPacketAnimation2 == null) {
+                            throw new TypeCastException("null cannot be cast to non-null type dev.nuker.pyro.mixin.CPacketAnimationAccessor");
+                        }
+                        ((CPacketAnimationAccessor)cPacketAnimation2).Method4319(EnumHand.OFF_HAND);
+                        break;
+                    }
+                }
             }
-         }
-      }
-
-   }
-
-   public f7Y() {
-      super("autoaccept", "AutoAccept", "Automatically accepts /tpa requests from friends");
-      this.register(this.field_466);
-   }
+        }
+    }
 }
+

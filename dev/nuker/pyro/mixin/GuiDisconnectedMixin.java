@@ -1,6 +1,13 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.Minecraft
+ *  net.minecraft.client.gui.GuiButton
+ *  net.minecraft.client.gui.GuiDisconnected
+ *  net.minecraft.client.gui.GuiScreen
+ *  net.minecraft.client.multiplayer.GuiConnecting
+ *  net.minecraft.util.text.ITextComponent
  */
 package dev.nuker.pyro.mixin;
 
@@ -16,77 +23,60 @@ import net.minecraft.util.text.ITextComponent;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Class0;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin({GuiDisconnected.class})
-public class GuiDisconnectedMixin extends GuiScreen {
-   @Shadow
-   private int textHeight;
-   @Shadow
-   @Final
-   private GuiScreen parentScreen;
-   private long startTime = -5L;
-   private GuiButton reconnectButton;
+@Mixin(value={GuiDisconnected.class})
+public class GuiDisconnectedMixin
+extends GuiScreen {
+    @Shadow
+    private int Field6996;
+    @Shadow
+    @Final
+    private GuiScreen Field6997;
+    private long Field6998 = -5L;
+    private GuiButton Field6999;
 
-   @Inject(
-      method = {"<init>"},
-      at = {@At("RETURN")}
-   )
-   private void startTimer(GuiScreen screen, String reasonLocalizationKey, ITextComponent chatComp, CallbackInfo ci) {
-      if ((Boolean)PyroStatic.field_2479.c.method_3034() && (Boolean)PyroStatic.field_2479.method_684().c()) {
-         this.startTime = (new Date()).getTime() + (long)((int)((Double)PyroStatic.field_2479.method_682().c() * 1000.0D));
-      }
+    @Inject(method={"<init>"}, at={@Class0(value="RETURN")})
+    private void Method11574(GuiScreen screen, String reasonLocalizationKey, ITextComponent chatComp, CallbackInfo ci) {
+        if (((Boolean)PyroStatic.Field6415.Field5236.Method5264()).booleanValue() && ((Boolean)PyroStatic.Field6415.Method274().Method7979()).booleanValue()) {
+            this.Field6998 = new Date().getTime() + (long)((int)((Double)PyroStatic.Field6415.Method238().Method7979() * 1000.0));
+        }
+    }
 
-   }
+    @Inject(method={"initGui"}, at={@Class0(value="RETURN")})
+    private void Method11575(CallbackInfo ci) {
+        if (((Boolean)PyroStatic.Field6415.Method274().Method7979()).booleanValue()) {
+            this.buttonList.add(new GuiButton(0, this.width / 2 - 100, Math.min(this.height / 2 + this.Field6996 / 2 + this.fontRenderer.FONT_HEIGHT, this.height - 30) + 21, "Reconnect"));
+            this.Field6999 = new GuiButton(0, this.width / 2 - 100, Math.min(this.height / 2 + this.Field6996 / 2 + this.fontRenderer.FONT_HEIGHT, this.height - 30) + 42, "Auto Reconnect");
+            this.buttonList.add(this.Field6999);
+        }
+    }
 
-   @Inject(
-      method = {"initGui"},
-      at = {@At("RETURN")}
-   )
-   private void addButtons(CallbackInfo ci) {
-      if ((Boolean)PyroStatic.field_2479.method_684().c()) {
-         this.buttonList.add(new GuiButton(0, this.width / 2 - 100, Math.min(this.height / 2 + this.textHeight / 2 + this.fontRenderer.FONT_HEIGHT, this.height - 30) + 21, "Reconnect"));
-         this.reconnectButton = new GuiButton(0, this.width / 2 - 100, Math.min(this.height / 2 + this.textHeight / 2 + this.fontRenderer.FONT_HEIGHT, this.height - 30) + 42, "Auto Reconnect");
-         this.buttonList.add(this.reconnectButton);
-      }
-
-   }
-
-   @Inject(
-      method = {"actionPerformed"},
-      at = {@At("INVOKE")},
-      cancellable = true
-   )
-   private void handleButtons(GuiButton button, CallbackInfo ci) {
-      if ((Boolean)PyroStatic.field_2479.method_684().c()) {
-         if (this.buttonList.indexOf(button) == 1 && f83.field_462 != null) {
-            Minecraft.getMinecraft().displayGuiScreen(new GuiConnecting(this.parentScreen, Minecraft.getMinecraft(), f83.field_462));
-            ci.cancel();
-         } else if (this.buttonList.indexOf(button) == 2) {
-            PyroStatic.field_2479.c.method_3033(!(Boolean)PyroStatic.field_2479.c.method_3034());
-            if ((Boolean)PyroStatic.field_2479.c.method_3034()) {
-               this.startTime = (new Date()).getTime() + (long)((int)((Double)PyroStatic.field_2479.method_682().c() * 1000.0D));
-            } else {
-               this.startTime = -5L;
+    @Inject(method={"actionPerformed"}, at={@Class0(value="INVOKE")}, cancellable=true)
+    private void Method11576(GuiButton button, CallbackInfo ci) {
+        if (((Boolean)PyroStatic.Field6415.Method274().Method7979()).booleanValue()) {
+            if (this.buttonList.indexOf((Object)button) == 1 && f83.Field3315 != null) {
+                Minecraft.getMinecraft().displayGuiScreen((GuiScreen)new GuiConnecting(this.Field6997, Minecraft.getMinecraft(), f83.Field3315));
+                ci.Method9034();
+            } else if (this.buttonList.indexOf((Object)button) == 2) {
+                PyroStatic.Field6415.Field5236.Method5266((Boolean)PyroStatic.Field6415.Field5236.Method5264() == false);
+                this.Field6998 = (Boolean)PyroStatic.Field6415.Field5236.Method5264() != false ? new Date().getTime() + (long)((int)((Double)PyroStatic.Field6415.Method238().Method7979() * 1000.0)) : -5L;
+                ci.Method9034();
             }
+        }
+    }
 
-            ci.cancel();
-         }
-      }
-
-   }
-
-   public void updateScreen() {
-      super.updateScreen();
-      if ((Boolean)PyroStatic.field_2479.c.method_3034() && (Boolean)PyroStatic.field_2479.method_684().c() && f83.field_462 != null && this.startTime != -5L) {
-         long timeDiff = this.startTime - (new Date()).getTime();
-         this.reconnectButton.displayString = "Auto Reconnect (" + timeDiff / 1000L + ")";
-         if (timeDiff < 0L) {
-            Minecraft.getMinecraft().displayGuiScreen(new GuiConnecting(this.parentScreen, Minecraft.getMinecraft(), f83.field_462));
-         }
-      }
-
-   }
+    public void updateScreen() {
+        super.updateScreen();
+        if (((Boolean)PyroStatic.Field6415.Field5236.Method5264()).booleanValue() && ((Boolean)PyroStatic.Field6415.Method274().Method7979()).booleanValue() && f83.Field3315 != null && this.Field6998 != -5L) {
+            long timeDiff = this.Field6998 - new Date().getTime();
+            this.Field6999.displayString = "Auto Reconnect (" + timeDiff / 1000L + ")";
+            if (timeDiff < 0L) {
+                Minecraft.getMinecraft().displayGuiScreen((GuiScreen)new GuiConnecting(this.Field6997, Minecraft.getMinecraft(), f83.Field3315));
+            }
+        }
+    }
 }
+

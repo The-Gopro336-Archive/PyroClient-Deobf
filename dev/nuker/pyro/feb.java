@@ -1,24 +1,35 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-public enum feb {
-   // $FF: renamed from: c dev.nuker.pyro.feb
-   field_1340,
-   // $FF: renamed from: 0 dev.nuker.pyro.feb
-   field_1341,
-   // $FF: renamed from: 1 dev.nuker.pyro.feb
-   field_1342,
-   // $FF: renamed from: 2 dev.nuker.pyro.feb
-   field_1343;
+public class feb
+extends Enum {
+    public static /* enum */ feb NoEntityCollision = new feb("NoEntityCollision", 0);
+    public static /* enum */ feb AlreadyBlockThere = new feb("AlreadyBlockThere", 1);
+    public static /* enum */ feb NoNeighbors = new feb("NoNeighbors", 2);
+    public static /* enum */ feb Ok = new feb("Ok", 3);
+    public static /* synthetic */ feb[] Field457;
 
-   // $FF: renamed from: c dev.nuker.pyro.feb[]
-   public static feb[] field_1344 = new feb[]{field_1340, field_1341, field_1342, field_1343};
+    static {
+        Field457 = new feb[]{NoEntityCollision, AlreadyBlockThere, NoNeighbors, Ok};
+    }
 
-   // $FF: renamed from: c (java.lang.String) dev.nuker.pyro.feb
-   public static feb method_2012(String var0) {
-      return (feb)Enum.valueOf(feb.class, var0);
-   }
+    /*
+     * WARNING - Possible parameter corruption
+     * WARNING - void declaration
+     */
+    public feb() {
+        void var2_-1;
+        void var1_-1;
+    }
+
+    public static feb[] Method716() {
+        return (feb[])Field457.clone();
+    }
+
+    public static feb Method717(String string) {
+        return Enum.valueOf(feb.class, string);
+    }
 }
+

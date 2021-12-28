@@ -1,41 +1,39 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.f07;
 import org.jetbrains.annotations.NotNull;
 
 public class f08 {
-   // $FF: renamed from: c dev.nuker.pyro.f07
-   @NotNull
-   public f07 field_2305;
-   // $FF: renamed from: c float
-   public float field_2306;
+    @NotNull
+    public f07 Field5387;
+    public float Field5388;
 
-   // $FF: renamed from: c () dev.nuker.pyro.f07
-   @NotNull
-   public f07 method_3467() {
-      return this.field_2305;
-   }
+    @NotNull
+    public f07 Method7603() {
+        return this.Field5387;
+    }
 
-   // $FF: renamed from: 0 () float
-   public float method_3468() {
-      return this.field_2306;
-   }
+    public float Method7604() {
+        return this.Field5388;
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.f07) void
-   public void method_3469(@NotNull f07 var1) {
-      this.field_2305 = var1;
-   }
+    public void Method7605(@NotNull f07 f072) {
+        this.Field5387 = f072;
+    }
 
-   // $FF: renamed from: c (float) void
-   public void method_3470(float var1) {
-      this.field_2306 = var1;
-   }
+    public void Method7606(float f) {
+        this.Field5388 = f;
+    }
 
-   public f08(@NotNull f07 var1, float var2) {
-      this.field_2305 = var1;
-      this.field_2306 = var2;
-   }
+    public f08(@NotNull f07 f072, float f) {
+        this.Field5387 = f072;
+        this.Field5388 = f;
+    }
 }
+

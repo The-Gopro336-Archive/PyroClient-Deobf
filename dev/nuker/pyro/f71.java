@@ -1,63 +1,69 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.entity.EntityPlayerSP
+ *  net.minecraft.entity.player.EntityPlayer
+ *  net.minecraft.util.EnumHand
+ *  net.minecraft.world.World
+ *  org.jetbrains.annotations.Nullable
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.BooleanSetting;
+import dev.nuker.pyro.IntegerSetting;
+import dev.nuker.pyro.Module;
+import dev.nuker.pyro.f04;
+import dev.nuker.pyro.f0g;
+import dev.nuker.pyro.f4t;
 import dev.nuker.pyro.mixin.MinecraftAccessor;
 import dev.nuker.pyro.security.inject.LauncherEventHide;
 import net.minecraft.client.entity.EntityPlayerSP;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class f71 extends Module {
-   // $FF: renamed from: c dev.nuker.pyro.BooleanSetting
-   public BooleanSetting field_603 = new BooleanSetting("hitDelay", "HitDelay", (String)null, true);
-   // $FF: renamed from: 0 dev.nuker.pyro.BooleanSetting
-   public BooleanSetting field_604 = new BooleanSetting("tpsSync", "TPSSync", (String)null, true);
-   // $FF: renamed from: c dev.nuker.pyro.IntegerSetting
-   public IntegerSetting field_605 = new IntegerSetting("tickDelay", "TickDelay", "How many ticks to wait each hit", 2, 0, 20);
-   // $FF: renamed from: 1 int
-   public int field_606 = 0;
+public class f71
+extends Module {
+    public BooleanSetting Field2983 = new BooleanSetting("hitDelay", "HitDelay", null, true);
+    public BooleanSetting Field2984 = new BooleanSetting("tpsSync", "TPSSync", null, true);
+    public IntegerSetting Field2985 = new IntegerSetting("tickDelay", "TickDelay", "How many ticks to wait each hit", 2, 0, 20);
+    public int Field2986 = 0;
 
-   // $FF: renamed from: c (dev.nuker.pyro.f4t) void
-   @f0g
-   @LauncherEventHide
-   public void method_902(f4t var1) {
-      ++this.field_606;
-      if (this.c.objectMouseOver != null && this.c.objectMouseOver.entityHit != null && this.method_903()) {
-         ((MinecraftAccessor)this.c).setLeftClickCounter(0);
-         this.c.playerController.attackEntity(this.c.player, this.c.objectMouseOver.entityHit);
-         this.c.player.swingArm(EnumHand.MAIN_HAND);
-      }
+    @f0g
+    @LauncherEventHide
+    public void Method183(f4t f4t2) {
+        ++this.Field2986;
+        if (this.Field5233.objectMouseOver != null && this.Field5233.objectMouseOver.entityHit != null && this.Method4876()) {
+            ((MinecraftAccessor)this.Field5233).Method6091(0);
+            this.Field5233.playerController.attackEntity((EntityPlayer)this.Field5233.player, this.Field5233.objectMouseOver.entityHit);
+            this.Field5233.player.swingArm(EnumHand.MAIN_HAND);
+        }
+        if (this.Field2986 >= (Integer)this.Field2985.Method7979()) {
+            this.Field2986 = 0;
+        }
+    }
 
-      if (this.field_606 >= (Integer)this.field_605.c()) {
-         this.field_606 = 0;
-      }
+    public f71() {
+        super("trigger", "Trigger", "Automatically swings when your crosshair is over an entity");
+        this.Method7264(this.Field2983);
+        this.Method7264(this.Field2984);
+        this.Method7264(this.Field2985);
+    }
 
-   }
+    @Override
+    public void Method205(boolean bl, @Nullable EntityPlayerSP entityPlayerSP, @Nullable World world) {
+        super.Method205(bl, entityPlayerSP, world);
+        this.Field2986 = 0;
+    }
 
-   public f71() {
-      super("trigger", "Trigger", "Automatically swings when your crosshair is over an entity");
-      this.register(this.field_603);
-      this.register(this.field_604);
-      this.register(this.field_605);
-   }
-
-   // $FF: renamed from: c (boolean, net.minecraft.client.entity.EntityPlayerSP, net.minecraft.world.World) void
-   public void method_116(boolean var1, @Nullable EntityPlayerSP var2, @Nullable World var3) {
-      super.method_116(var1, var2, var3);
-      this.field_606 = 0;
-   }
-
-   // $FF: renamed from: c () boolean
-   public boolean method_903() {
-      if (!(Boolean)this.field_603.c()) {
-         return this.field_606 >= (Integer)this.field_605.c();
-      } else {
-         float var1 = 20.0F - f04.field_2316.method_3478();
-         return (Boolean)this.field_603.c() ? this.c.player.getCooledAttackStrength((Boolean)this.field_604.c() ? -var1 : 0.0F) >= 1.0F : true;
-      }
-   }
+    public boolean Method4876() {
+        if (!((Boolean)this.Field2983.Method7979()).booleanValue()) {
+            return this.Field2986 >= (Integer)this.Field2985.Method7979();
+        }
+        float f = 20.0f - f04.Field5418.Method7642();
+        return ((Boolean)this.Field2983.Method7979()).booleanValue() ? this.Field5233.player.getCooledAttackStrength((Boolean)this.Field2984.Method7979() != false ? -f : 0.0f) >= 1.0f : true;
+    }
 }
+

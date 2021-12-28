@@ -1,9 +1,25 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.gui.Gui
+ *  org.jetbrains.annotations.NotNull
+ *  org.jetbrains.annotations.Nullable
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.Class57;
+import dev.nuker.pyro.DoubleSetting;
+import dev.nuker.pyro.f0F;
+import dev.nuker.pyro.f0G;
+import dev.nuker.pyro.f0H;
+import dev.nuker.pyro.f0J;
+import dev.nuker.pyro.f0Y;
+import dev.nuker.pyro.f0w;
+import dev.nuker.pyro.f15;
+import dev.nuker.pyro.f16;
+import dev.nuker.pyro.f17;
+import dev.nuker.pyro.f18;
 import java.awt.Color;
 import java.util.Arrays;
 import kotlin.TypeCastException;
@@ -14,422 +30,372 @@ import net.minecraft.client.gui.Gui;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class f0M extends f0Y {
-   // $FF: renamed from: c java.lang.String
-   @JvmField
-   @Nullable
-   public String field_2365;
-   // $FF: renamed from: c dev.nuker.pyro.fw
-   @JvmField
-   @Nullable
-   public class_6 field_2366;
-   // $FF: renamed from: c double
-   @JvmField
-   public double field_2367;
-   // $FF: renamed from: 0 double
-   @JvmField
-   public double field_2368;
-   // $FF: renamed from: 1 double
-   @JvmField
-   public double field_2369;
-   // $FF: renamed from: c int
-   public int field_2370;
-   // $FF: renamed from: c boolean
-   public boolean field_2371;
-   // $FF: renamed from: 0 int
-   @JvmField
-   public int field_2372 = -1;
-   // $FF: renamed from: 0 java.lang.String
-   @JvmField
-   @Nullable
-   public String field_2373;
-   // $FF: renamed from: 0 boolean
-   @JvmField
-   public boolean field_2374;
+public class f0M
+extends f0Y {
+    @JvmField
+    @Nullable
+    public String Field5520;
+    @JvmField
+    @Nullable
+    public Class57<Double> Field5521;
+    @JvmField
+    public double Field5522;
+    @JvmField
+    public double Field5523;
+    @JvmField
+    public double Field5524;
+    public int Field5525;
+    public boolean Field5526;
+    @JvmField
+    public int Field5527 = -1;
+    @JvmField
+    @Nullable
+    public String Field5528;
+    @JvmField
+    public boolean Field5529;
 
-   // $FF: renamed from: 0 (dev.nuker.pyro.f0F, dev.nuker.pyro.f0H, dev.nuker.pyro.f17) void
-   public void method_24(@NotNull f0F var1, @NotNull f0H var2, @NotNull f17 var3) {
-      class_6 var10000;
-      if (var3 instanceof f16 && var3.method_3645() == 0) {
-         var10000 = this.field_2366;
-         if (var10000 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         double var18 = this.field_2368;
-         double var10002 = this.field_2367;
-         StringCompanionObject var15 = StringCompanionObject.INSTANCE;
-         String var5 = "%.5f";
-         Object[] var10003 = new Object[1];
-         class_6 var10006 = this.field_2366;
-         if (var10006 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         var10003[0] = var10006.method_3034();
-         Object[] var6 = var10003;
-         double var11 = var10002;
-         double var9 = var18;
-         class_6 var8 = var10000;
-         boolean var7 = false;
-         String var13 = String.format(var5, Arrays.copyOf(var6, var6.length));
-         boolean var16 = false;
-         double var17 = Double.parseDouble(var13);
-         var8.method_3033(Math.min(var9, Math.max(var11, var17)));
-      } else {
-         class_6 var10001;
-         if (var3 instanceof f15 && var3.method_3645() == 0) {
-            var10000 = this.field_2366;
-            if (var10000 == null) {
-               Intrinsics.throwNpe();
+    @Override
+    public void Method7818(@NotNull f0F f0F2, @NotNull f0H f0H2, @NotNull f17 f172) {
+        if (f172 instanceof f16 && f172.Method7895() == 0) {
+            Class57<Double> class57 = this.Field5521;
+            if (class57 == null) {
+                Intrinsics.Method6551();
             }
-
-            double var4 = ((Number)var10000.method_3034()).doubleValue() + ((f15)var3).method_3655() / ((double)(var1.method_3581() - f0H.field_2335 * 2) / this.field_2369);
-            if (var4 > this.field_2368) {
-               var4 = this.field_2368;
-            } else if (var4 < this.field_2367) {
-               var4 = this.field_2367;
+            Object object = StringCompanionObject.Field4618;
+            String string = "%.5f";
+            Object[] arrobject = new Object[1];
+            Class57<Double> class572 = this.Field5521;
+            if (class572 == null) {
+                Intrinsics.Method6551();
             }
-
-            var10001 = this.field_2366;
-            if (var10001 == null) {
-               Intrinsics.throwNpe();
+            arrobject[0] = class572.Method5264();
+            Object[] arrobject2 = arrobject;
+            double d = this.Field5522;
+            double d2 = this.Field5523;
+            Class57<Double> class573 = class57;
+            boolean bl = false;
+            String string2 = String.format(string, Arrays.copyOf(arrobject2, arrobject2.length));
+            object = string2;
+            boolean bl2 = false;
+            double d3 = Double.parseDouble((String)object);
+            class573.Method5266((Object)Math.min(d2, Math.max(d, d3)));
+        } else if (f172 instanceof f15 && f172.Method7895() == 0) {
+            double d;
+            Class57<Double> class57 = this.Field5521;
+            if (class57 == null) {
+                Intrinsics.Method6551();
             }
-
-            if (Intrinsics.areEqual(var4, (Double)var10001.method_3034()) ^ true) {
-               var10000 = this.field_2366;
-               if (var10000 == null) {
-                  Intrinsics.throwNpe();
-               }
-
-               var10000.method_3033(var4);
+            if ((d = ((Number)class57.Method5264()).doubleValue() + ((f15)f172).Method7880() / ((double)(f0F2.Method7813() - f0H.Field5476 * 2) / this.Field5524)) > this.Field5523) {
+                d = this.Field5523;
+            } else if (d < this.Field5522) {
+                d = this.Field5522;
             }
-
-            this.field_2372 = -1;
-            this.field_2373 = (String)null;
-         } else if (var3 instanceof f18 && !(var3 instanceof f16) && var3.method_3645() == 0) {
-            if (this.field_2372 == -1) {
-               this.field_2372 = 0;
-               var10001 = this.field_2366;
-               if (var10001 == null) {
-                  Intrinsics.throwNpe();
-               }
-
-               this.field_2373 = Double.toString(((Number)var10001.method_3034()).doubleValue());
+            Class57<Double> class574 = this.Field5521;
+            if (class574 == null) {
+                Intrinsics.Method6551();
+            }
+            if (Intrinsics.Method6575(d, (Double)class574.Method5264()) ^ true) {
+                Class57<Double> class575 = this.Field5521;
+                if (class575 == null) {
+                    Intrinsics.Method6551();
+                }
+                class575.Method5266((Object)d);
+            }
+            this.Field5527 = -1;
+            this.Field5528 = null;
+        } else if (f172 instanceof f18 && !(f172 instanceof f16) && f172.Method7895() == 0) {
+            if (this.Field5527 == -1) {
+                this.Field5527 = 0;
+                Class57<Double> class57 = this.Field5521;
+                if (class57 == null) {
+                    Intrinsics.Method6551();
+                }
+                this.Field5528 = Double.toString(((Number)class57.Method5264()).doubleValue());
             } else {
-               this.method_3615();
+                this.Method7836();
             }
-         }
-      }
+        }
+    }
 
-   }
+    @Override
+    public int Method7820(@NotNull f0F f0F2, @NotNull f0H f0H2) {
+        return f0F2.Method7814().getStringWidth(this.Field5520 + " XX.XXX") + f0H.Field5476 * 2;
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.f0F, dev.nuker.pyro.f0H) int
-   public int method_29(@NotNull f0F var1, @NotNull f0H var2) {
-      return var1.method_3582().getStringWidth(this.field_2365 + " XX.XXX") + f0H.field_2335 * 2;
-   }
+    @NotNull
+    public String Method7846() {
+        String string;
+        if (this.Field5528 != null) {
+            string = this.Field5528;
+        } else {
+            Class57<Double> class57 = this.Field5521;
+            if (class57 == null) {
+                Intrinsics.Method6551();
+            }
+            string = this.Method7834(((Number)class57.Method5264()).doubleValue());
+        }
+        if (string == null) {
+            Intrinsics.Method6551();
+        }
+        String string2 = string;
+        if (this.Field5527 != -1) {
+            String string3 = string2;
+            int n = 0;
+            int n2 = this.Field5527;
+            StringBuilder stringBuilder = new StringBuilder();
+            boolean bl = false;
+            String string4 = string3;
+            if (string4 == null) {
+                throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
+            }
+            String string5 = string4.substring(n, n2);
+            string3 = string2;
+            n = this.Field5527;
+            n2 = string2.length();
+            stringBuilder = stringBuilder.append(string5).append(this.Field5526 ? "|" : ":");
+            bl = false;
+            String string6 = string3;
+            if (string6 == null) {
+                throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
+            }
+            string5 = string6.substring(n, n2);
+            string2 = stringBuilder.append(string5).toString();
+        }
+        return string2;
+    }
 
-   // $FF: renamed from: 0 () java.lang.String
-   @NotNull
-   public String method_3612() {
-      String var10000;
-      if (this.field_2373 != null) {
-         var10000 = this.field_2373;
-      } else {
-         class_6 var10001 = this.field_2366;
-         if (var10001 == null) {
-            Intrinsics.throwNpe();
-         }
+    @Override
+    public void Method7837() {
+        this.Field5527 = -1;
+        this.Field5528 = null;
+        this.Field5529 = false;
+    }
 
-         var10000 = this.method_3617(((Number)var10001.method_3034()).doubleValue());
-      }
+    public f0M(@Nullable f0w f0w2) {
+        super(f0w2);
+    }
 
-      if (var10000 == null) {
-         Intrinsics.throwNpe();
-      }
+    public int Method7859() {
+        return this.Field5525;
+    }
 
-      String var1 = var10000;
-      if (this.field_2372 != -1) {
-         StringBuilder var9 = new StringBuilder();
-         byte var3 = 0;
-         int var4 = this.field_2372;
-         StringBuilder var6 = var9;
-         boolean var5 = false;
-         if (var1 == null) {
+    @Override
+    public void Method7819(@NotNull f0F f0F2, double d, double d2, @NotNull f0H f0H2) {
+        super.Method7819(f0F2, d, d2, f0H2);
+        f0J.Method7775(f0J.Field5485, f0F2.Method7814(), this.Field5520, 0, f0H.Field5476, f0F2.Method7813() - 4, f0F2.Method7815() - f0H.Field5476 * 2 - 4, f0G.LEFT, f0H.Field5476, f0H2.Method7708(), false, 512, null);
+        f0J.Method7775(f0J.Field5485, f0F2.Method7814(), this.Method7846(), 0, f0H.Field5476, f0F2.Method7813() - 4, f0F2.Method7815() - f0H.Field5476 * 2 - 4, f0G.RIGHT, f0H.Field5476, this.Field5527 == -1 ? f0H2.Method7708() : (this.Field5529 ? Color.RED.getRGB() : f0H2.Method7702()), false, 512, null);
+        double d3 = f0F2.Method7813() - f0H.Field5476 * 2;
+        Class57<Double> class57 = this.Field5521;
+        if (class57 == null) {
+            Intrinsics.Method6551();
+        }
+        int n = (int)(d3 * ((((Number)class57.Method5264()).doubleValue() - this.Field5522) / (this.Field5523 - this.Field5522)));
+        Gui.drawRect((int)f0H.Field5476, (int)(f0F2.Method7815() - f0H.Field5476), (int)(n + f0H.Field5476), (int)(f0F2.Method7815() - f0H.Field5476 - 1), (int)f0H2.Method7719());
+        Gui.drawRect((int)(f0H.Field5476 + n), (int)(f0F2.Method7815() - f0H.Field5476), (int)(f0F2.Method7813() - f0H.Field5476), (int)(f0F2.Method7815() - f0H.Field5476 - 1), (int)f0H2.Method7708());
+        int n2 = this.Field5525;
+        this.Field5525 = n2 + 1;
+        if (this.Field5525 >= 20) {
+            this.Field5525 = 0;
+            this.Field5526 = !this.Field5526;
+        }
+    }
+
+    public boolean Method7860() {
+        return this.Field5526;
+    }
+
+    public void Method7836() {
+        try {
+            Double d = Double.valueOf(this.Field5528);
+            if (d >= this.Field5522 && d <= this.Field5523) {
+                Class57<Double> class57 = this.Field5521;
+                if (class57 == null) {
+                    Intrinsics.Method6551();
+                }
+                class57.Method5266((Object)d);
+                this.Field5528 = null;
+            } else {
+                this.Field5529 = true;
+            }
+        }
+        catch (NumberFormatException numberFormatException) {
+            this.Field5529 = true;
+        }
+        if (!this.Field5529) {
+            this.Field5527 = -1;
+        }
+    }
+
+    public f0M(@NotNull DoubleSetting doubleSetting) {
+        super(doubleSetting);
+        this.Field5520 = doubleSetting.Method5989();
+        this.Field5521 = doubleSetting.Method7976();
+        this.Field5522 = doubleSetting.Method12508();
+        this.Field5523 = doubleSetting.Method12511();
+        this.Field5524 = doubleSetting.Method12507();
+    }
+
+    public void Method7861(boolean bl) {
+        this.Field5526 = bl;
+    }
+
+    @Nullable
+    public String Method7834(double d) {
+        StringCompanionObject stringCompanionObject = StringCompanionObject.Field4618;
+        String string = "%.3f";
+        Object[] arrobject = new Object[]{d};
+        boolean bl = false;
+        return String.format(string, Arrays.copyOf(arrobject, arrobject.length));
+    }
+
+    public void Method7821(int n) {
+        this.Field5525 = n;
+    }
+
+    @Override
+    public int Method7817(@NotNull f0F f0F2, @NotNull f0H f0H2) {
+        return f0F2.Method7814().FONT_HEIGHT + 4 + f0H.Field5476 * 2;
+    }
+
+    /*
+     * Enabled aggressive block sorting
+     */
+    @Override
+    public void Method7840(char c, int n) {
+        if (this.Field5527 == -1) return;
+        if (this.Field5529) {
+            this.Field5529 = false;
+        }
+        if (n == 205) {
+            String string = this.Field5528;
+            if (string == null) {
+                Intrinsics.Method6551();
+            }
+            if (this.Field5527 < string.length()) {
+                int n2 = this.Field5527;
+                this.Field5527 = n2 + 1;
+                return;
+            }
+        }
+        if (n == 203 && this.Field5527 > 0) {
+            int n3 = this.Field5527;
+            this.Field5527 = n3 + -1;
+            return;
+        }
+        if (n == 28) {
+            this.Method7836();
+            return;
+        }
+        if (n == 14) {
+            if (this.Field5527 <= 0) return;
+            StringBuilder stringBuilder = new StringBuilder();
+            String string = this.Field5528;
+            if (string == null) {
+                Intrinsics.Method6551();
+            }
+            String string2 = string;
+            int n4 = 0;
+            int n5 = this.Field5527 - 1;
+            StringBuilder stringBuilder2 = stringBuilder;
+            f0M f0M2 = this;
+            boolean bl = false;
+            String string3 = string2;
+            if (string3 == null) {
+                throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
+            }
+            String string4 = string3.substring(n4, n5);
+            StringBuilder stringBuilder3 = stringBuilder2.append(string4);
+            String string5 = this.Field5528;
+            if (string5 == null) {
+                Intrinsics.Method6551();
+            }
+            string2 = string5;
+            n4 = this.Field5527;
+            stringBuilder2 = stringBuilder3;
+            n5 = 0;
+            String string6 = string2;
+            if (string6 == null) {
+                throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
+            }
+            string4 = string6.substring(n4);
+            f0M2.Field5528 = stringBuilder2.append(string4).toString();
+            int n6 = this.Field5527;
+            this.Field5527 = n6 + -1;
+            return;
+        }
+        if (n == 211) {
+            String string = this.Field5528;
+            if (string == null) {
+                Intrinsics.Method6551();
+            }
+            if (this.Field5527 >= string.length()) return;
+            StringBuilder stringBuilder = new StringBuilder();
+            String string7 = this.Field5528;
+            if (string7 == null) {
+                Intrinsics.Method6551();
+            }
+            String string8 = string7;
+            int n7 = 0;
+            int n8 = this.Field5527;
+            StringBuilder stringBuilder4 = stringBuilder;
+            f0M f0M3 = this;
+            boolean bl = false;
+            String string9 = string8;
+            if (string9 == null) {
+                throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
+            }
+            String string10 = string9.substring(n7, n8);
+            StringBuilder stringBuilder5 = stringBuilder4.append(string10);
+            String string11 = this.Field5528;
+            if (string11 == null) {
+                Intrinsics.Method6551();
+            }
+            string8 = string11;
+            n7 = this.Field5527 + 1;
+            stringBuilder4 = stringBuilder5;
+            n8 = 0;
+            String string12 = string8;
+            if (string12 == null) {
+                throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
+            }
+            string10 = string12.substring(n7);
+            f0M3.Field5528 = stringBuilder4.append(string10).toString();
+            return;
+        }
+        if (c == '\u0000') return;
+        StringBuilder stringBuilder = new StringBuilder();
+        String string = this.Field5528;
+        if (string == null) {
+            Intrinsics.Method6551();
+        }
+        String string13 = string;
+        int n9 = 0;
+        int n10 = this.Field5527;
+        StringBuilder stringBuilder6 = stringBuilder;
+        f0M f0M4 = this;
+        boolean bl = false;
+        String string14 = string13;
+        if (string14 == null) {
             throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
-         }
-
-         String var7 = var1.substring(var3, var4);
-         var9 = var6.append(var7).append(this.field_2371 ? "|" : ":");
-         int var8 = this.field_2372;
-         var4 = var1.length();
-         var6 = var9;
-         var5 = false;
-         if (var1 == null) {
+        }
+        String string15 = string14.substring(n9, n10);
+        StringBuilder stringBuilder7 = stringBuilder6.append(string15).append(c);
+        String string16 = this.Field5528;
+        if (string16 == null) {
+            Intrinsics.Method6551();
+        }
+        string13 = string16;
+        n9 = this.Field5527;
+        stringBuilder6 = stringBuilder7;
+        n10 = 0;
+        String string17 = string13;
+        if (string17 == null) {
             throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
-         }
-
-         var7 = var1.substring(var8, var4);
-         var1 = var6.append(var7).toString();
-      }
-
-      return var1;
-   }
-
-   // $FF: renamed from: c () void
-   public void method_20() {
-      this.field_2372 = -1;
-      this.field_2373 = (String)null;
-      this.field_2374 = false;
-   }
-
-   public f0M(@Nullable f0w var1) {
-      super(var1);
-   }
-
-   // $FF: renamed from: c () int
-   public int method_3613() {
-      return this.field_2370;
-   }
-
-   // $FF: renamed from: 0 (dev.nuker.pyro.f0F, double, double, dev.nuker.pyro.f0H) void
-   public void method_28(@NotNull f0F var1, double var2, double var4, @NotNull f0H var6) {
-      super.method_28(var1, var2, var4, var6);
-      f0J.method_3555(f0J.field_2340, var1.method_3582(), this.field_2365, 0, f0H.field_2335, var1.method_3581() - 4, var1.method_3583() - f0H.field_2335 * 2 - 4, f0G.field_2325, f0H.field_2335, var6.method_3494(), false, 512, (Object)null);
-      f0J.method_3555(f0J.field_2340, var1.method_3582(), this.method_3612(), 0, f0H.field_2335, var1.method_3581() - 4, var1.method_3583() - f0H.field_2335 * 2 - 4, f0G.field_2326, f0H.field_2335, this.field_2372 == -1 ? var6.method_3494() : (this.field_2374 ? Color.RED.getRGB() : var6.method_3488()), false, 512, (Object)null);
-      double var10000 = (double)(var1.method_3581() - f0H.field_2335 * 2);
-      class_6 var10001 = this.field_2366;
-      if (var10001 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      int var7 = (int)(var10000 * ((((Number)var10001.method_3034()).doubleValue() - this.field_2367) / (this.field_2368 - this.field_2367)));
-      Gui.drawRect(f0H.field_2335, var1.method_3583() - f0H.field_2335, var7 + f0H.field_2335, var1.method_3583() - f0H.field_2335 - 1, var6.method_3505());
-      Gui.drawRect(f0H.field_2335 + var7, var1.method_3583() - f0H.field_2335, var1.method_3581() - f0H.field_2335, var1.method_3583() - f0H.field_2335 - 1, var6.method_3494());
-      int var9 = this.field_2370++;
-      if (this.field_2370 >= 20) {
-         this.field_2370 = 0;
-         this.field_2371 = !this.field_2371;
-      }
-
-   }
-
-   // $FF: renamed from: 2 () boolean
-   public boolean method_3614() {
-      return this.field_2371;
-   }
-
-   // $FF: renamed from: 1 () void
-   public void method_3615() {
-      try {
-         Double var1 = Double.valueOf(this.field_2373);
-         if (var1 >= this.field_2367 && var1 <= this.field_2368) {
-            class_6 var10000 = this.field_2366;
-            if (var10000 == null) {
-               Intrinsics.throwNpe();
-            }
-
-            var10000.method_3033(var1);
-            this.field_2373 = (String)null;
-         } else {
-            this.field_2374 = true;
-         }
-      } catch (NumberFormatException var2) {
-         this.field_2374 = true;
-      }
-
-      if (!this.field_2374) {
-         this.field_2372 = -1;
-      }
-
-   }
-
-   public f0M(@NotNull DoubleSetting var1) {
-      super((f0w)var1);
-      this.field_2365 = var1.c();
-      this.field_2366 = var1.getValue();
-      this.field_2367 = var1.getValue();
-      this.field_2368 = var1.method_3328();
-      this.field_2369 = var1.method_3325();
-   }
-
-   // $FF: renamed from: c (boolean) void
-   public void method_3616(boolean var1) {
-      this.field_2371 = var1;
-   }
-
-   // $FF: renamed from: c (double) java.lang.String
-   @Nullable
-   public String method_3617(double var1) {
-      StringCompanionObject var3 = StringCompanionObject.INSTANCE;
-      String var4 = "%.3f";
-      Object[] var5 = new Object[]{var1};
-      boolean var6 = false;
-      return String.format(var4, Arrays.copyOf(var5, var5.length));
-   }
-
-   // $FF: renamed from: c (int) void
-   public void method_3618(int var1) {
-      this.field_2370 = var1;
-   }
-
-   // $FF: renamed from: 0 (dev.nuker.pyro.f0F, dev.nuker.pyro.f0H) int
-   public int method_26(@NotNull f0F var1, @NotNull f0H var2) {
-      return var1.method_3582().FONT_HEIGHT + 4 + f0H.field_2335 * 2;
-   }
-
-   // $FF: renamed from: c (char, int) void
-   public void method_23(char var1, int var2) {
-      if (this.field_2372 != -1) {
-         if (this.field_2374) {
-            this.field_2374 = false;
-         }
-
-         int var13;
-         int var10000;
-         String var10001;
-         if (var2 == 205) {
-            var10000 = this.field_2372;
-            var10001 = this.field_2373;
-            if (var10001 == null) {
-               Intrinsics.throwNpe();
-            }
-
-            if (var10000 < var10001.length()) {
-               var13 = this.field_2372++;
-               return;
-            }
-         }
-
-         if (var2 == 203 && this.field_2372 > 0) {
-            this.field_2372 += -1;
-         } else if (var2 == 28) {
-            this.method_3615();
-         } else {
-            String var3;
-            byte var4;
-            int var5;
-            boolean var6;
-            StringBuilder var8;
-            String var9;
-            int var10;
-            boolean var11;
-            StringBuilder var12;
-            String var10002;
-            if (var2 == 14) {
-               if (this.field_2372 > 0) {
-                  var12 = new StringBuilder();
-                  var10002 = this.field_2373;
-                  if (var10002 == null) {
-                     Intrinsics.throwNpe();
-                  }
-
-                  var3 = var10002;
-                  var4 = 0;
-                  var5 = this.field_2372 - 1;
-                  var8 = var12;
-                  var6 = false;
-                  if (var3 == null) {
-                     throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
-                  }
-
-                  var9 = var3.substring(var4, var5);
-                  var12 = var8.append(var9);
-                  var10002 = this.field_2373;
-                  if (var10002 == null) {
-                     Intrinsics.throwNpe();
-                  }
-
-                  var3 = var10002;
-                  var10 = this.field_2372;
-                  var8 = var12;
-                  var11 = false;
-                  if (var3 == null) {
-                     throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
-                  }
-
-                  var9 = var3.substring(var10);
-                  this.field_2373 = var8.append(var9).toString();
-                  this.field_2372 += -1;
-               }
-            } else if (var2 == 211) {
-               var10000 = this.field_2372;
-               var10001 = this.field_2373;
-               if (var10001 == null) {
-                  Intrinsics.throwNpe();
-               }
-
-               if (var10000 < var10001.length()) {
-                  var12 = new StringBuilder();
-                  var10002 = this.field_2373;
-                  if (var10002 == null) {
-                     Intrinsics.throwNpe();
-                  }
-
-                  var3 = var10002;
-                  var4 = 0;
-                  var5 = this.field_2372;
-                  var8 = var12;
-                  var6 = false;
-                  if (var3 == null) {
-                     throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
-                  }
-
-                  var9 = var3.substring(var4, var5);
-                  var12 = var8.append(var9);
-                  var10002 = this.field_2373;
-                  if (var10002 == null) {
-                     Intrinsics.throwNpe();
-                  }
-
-                  var3 = var10002;
-                  var10 = this.field_2372 + 1;
-                  var8 = var12;
-                  var11 = false;
-                  if (var3 == null) {
-                     throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
-                  }
-
-                  var9 = var3.substring(var10);
-                  this.field_2373 = var8.append(var9).toString();
-               }
-            } else if (var1 != 0) {
-               var12 = new StringBuilder();
-               var10002 = this.field_2373;
-               if (var10002 == null) {
-                  Intrinsics.throwNpe();
-               }
-
-               var3 = var10002;
-               var4 = 0;
-               var5 = this.field_2372;
-               var8 = var12;
-               var6 = false;
-               if (var3 == null) {
-                  throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
-               }
-
-               var9 = var3.substring(var4, var5);
-               var12 = var8.append(var9).append(var1);
-               var10002 = this.field_2373;
-               if (var10002 == null) {
-                  Intrinsics.throwNpe();
-               }
-
-               var3 = var10002;
-               var10 = this.field_2372;
-               var8 = var12;
-               var11 = false;
-               if (var3 == null) {
-                  throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
-               }
-
-               var9 = var3.substring(var10);
-               this.field_2373 = var8.append(var9).toString();
-               var13 = this.field_2372++;
-            }
-         }
-      }
-
-   }
+        }
+        string15 = string17.substring(n9);
+        f0M4.Field5528 = stringBuilder6.append(string15).toString();
+        int n11 = this.Field5527;
+        this.Field5527 = n11 + 1;
+    }
 }
+

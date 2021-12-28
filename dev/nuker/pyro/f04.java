@@ -1,63 +1,59 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.network.play.server.SPacketTimeUpdate
+ *  net.minecraft.util.math.MathHelper
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.Pyro;
+import dev.nuker.pyro.f0g;
+import dev.nuker.pyro.f41;
+import dev.nuker.pyro.f4e;
 import dev.nuker.pyro.security.inject.LauncherEventHide;
 import net.minecraft.network.play.server.SPacketTimeUpdate;
 import net.minecraft.util.math.MathHelper;
 
 public class f04 {
-   // $FF: renamed from: c long
-   public long field_2313 = -1L;
-   // $FF: renamed from: c float[]
-   public float[] field_2314 = new float[20];
-   // $FF: renamed from: c int
-   public int field_2315;
-   // $FF: renamed from: c dev.nuker.pyro.f04
-   public static f04 field_2316 = new f04();
+    public long Field5415 = -1L;
+    public float[] Field5416 = new float[20];
+    public int Field5417;
+    public static f04 Field5418 = new f04();
 
-   // $FF: renamed from: c (dev.nuker.pyro.f4e) void
-   @f0g
-   @LauncherEventHide
-   public void method_3477(f4e var1) {
-      if (var1.c() == f41.field_2120) {
-         if (var1.c() instanceof SPacketTimeUpdate) {
-            if (this.field_2313 != -1L) {
-               this.field_2314[this.field_2315 % this.field_2314.length] = MathHelper.clamp(20.0F / ((float)(System.currentTimeMillis() - this.field_2313) / 1000.0F), 0.0F, 20.0F);
-               ++this.field_2315;
+    @f0g
+    @LauncherEventHide
+    public void Method7641(f4e f4e2) {
+        if (f4e2.Method5619() != f41.Pre) {
+            return;
+        }
+        if (f4e2.Method5784() instanceof SPacketTimeUpdate) {
+            if (this.Field5415 != -1L) {
+                this.Field5416[this.Field5417 % this.Field5416.length] = MathHelper.clamp((float)(20.0f / ((float)(System.currentTimeMillis() - this.Field5415) / 1000.0f)), (float)0.0f, (float)20.0f);
+                ++this.Field5417;
             }
+            this.Field5415 = System.currentTimeMillis();
+        }
+    }
 
-            this.field_2313 = System.currentTimeMillis();
-         }
+    public float Method7642() {
+        int n = 0;
+        float f = 0.0f;
+        for (int i = 0; i < this.Field5416.length; ++i) {
+            float f2 = this.Field5416[i];
+            if (!(f2 > 0.0f)) continue;
+            f += f2;
+            ++n;
+        }
+        return MathHelper.clamp((float)(f / (float)n), (float)0.0f, (float)20.0f);
+    }
 
-      }
-   }
-
-   // $FF: renamed from: c () float
-   public float method_3478() {
-      int var1 = 0;
-      float var2 = 0.0F;
-
-      for(int var3 = 0; var3 < this.field_2314.length; ++var3) {
-         float var4 = this.field_2314[var3];
-         if (var4 > 0.0F) {
-            var2 += var4;
-            ++var1;
-         }
-      }
-
-      return MathHelper.clamp(var2 / (float)var1, 0.0F, 20.0F);
-   }
-
-   public f04() {
-      int var1 = 0;
-
-      for(int var2 = this.field_2314.length; var1 < var2; ++var1) {
-         this.field_2314[var1] = 0.0F;
-      }
-
-      Pyro.getEventManager().method_31(this);
-   }
+    public f04() {
+        int n = this.Field5416.length;
+        for (int i = 0; i < n; ++i) {
+            this.Field5416[i] = 0.0f;
+        }
+        Pyro.Method8978().Method7915(this);
+    }
 }
+

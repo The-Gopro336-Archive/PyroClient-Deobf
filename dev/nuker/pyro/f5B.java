@@ -1,55 +1,97 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.Minecraft
+ *  net.minecraft.client.gui.GuiScreen
+ *  net.minecraft.client.gui.ScaledResolution
+ *  org.lwjgl.input.Keyboard
  */
 package dev.nuker.pyro;
 
-import com.mojang.realmsclient.gui.ChatFormatting;
-import dev.nuker.pyro.security.inject.LauncherEventHide;
+import dev.nuker.pyro.DoubleSetting;
+import dev.nuker.pyro.IntegerSetting;
+import dev.nuker.pyro.Pyro;
+import dev.nuker.pyro.f0w;
+import dev.nuker.pyro.f5d;
+import dev.nuker.pyro.f5g;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.ScaledResolution;
-import net.minecraft.item.ItemElytra;
-import net.minecraft.item.ItemStack;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.lwjgl.input.Keyboard;
 
-public class f5B extends f5T {
-   // $FF: renamed from: 1 java.lang.String
-   @NotNull
-   public String field_1069 = "Elytras 0";
+public class f5b
+extends GuiScreen {
+    public GuiScreen Field2924;
+    public f5d Field2925;
+    public String Field2926;
+    public f5g Field2927;
 
-   public f5B() {
-      super("elytraCount");
-   }
+    public void drawScreen(int n, int n2, float f) {
+        this.Field2924.drawScreen(-1337, -1337, f);
+        this.Field2927.Method4797(n, n2, f);
+    }
 
-   // $FF: renamed from: 4 () java.lang.String
-   @NotNull
-   public String method_1559() {
-      return this.field_1069;
-   }
+    public f5b(String string, GuiScreen guiScreen, f5d f5d2) {
+        this.Field2926 = string;
+        this.Field2924 = guiScreen;
+        this.Field2925 = f5d2;
+        ScaledResolution scaledResolution = new ScaledResolution(Minecraft.getMinecraft());
+        float f = scaledResolution.getScaledWidth() / 2;
+        float f2 = scaledResolution.getScaledHeight() / 2 + 40;
+        this.Field2927 = new f5g(string, f, f2);
+        f0w f0w2 = this.Field2925.Method4795().Method5753();
+        if (f0w2 instanceof DoubleSetting) {
+            DoubleSetting doubleSetting = (DoubleSetting)f0w2;
+            this.Field2927.Method4802().Method4800(String.valueOf(doubleSetting.Method7979()));
+        } else if (f0w2 instanceof IntegerSetting) {
+            IntegerSetting integerSetting = (IntegerSetting)f0w2;
+            this.Field2927.Method4802().Method4800(String.valueOf(integerSetting.Method7979()));
+        }
+    }
 
-   // $FF: renamed from: c (net.minecraft.client.gui.ScaledResolution, float, float) int
-   public int method_1558(@Nullable ScaledResolution var1, float var2, float var3) {
-      return 11184810;
-   }
+    public void mouseReleased(int n, int n2, int n3) {
+        this.Field2927.Method4810(n, n2, n3);
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.f43) void
-   @f0g
-   @LauncherEventHide
-   public void method_1580(@NotNull f43 var1) {
-      if (var1.c() == f41.field_2120 && fdZ.field_976.world != null && fdZ.field_976.player != null) {
-         int var2 = 0;
-         int var3 = 0;
+    public void mouseClicked(int n, int n2, int n3) {
+        this.Field2927.Method4796(n, n2, n3);
+    }
 
-         for(byte var4 = 43; var3 <= var4; ++var3) {
-            if (!fdZ.field_976.player.inventory.getStackInSlot(var3).isEmpty()) {
-               ItemStack var5 = fdZ.field_976.player.inventory.getStackInSlot(var3);
-               if (var5.getItem() instanceof ItemElytra && ItemElytra.isUsable(var5)) {
-                  ++var2;
-               }
+    public void keyTyped(char c, int n) {
+        if (Keyboard.getKeyName((int)n).equals("ESCAPE")) {
+            this.mc.displayGuiScreen(this.Field2924);
+            Pyro.Field6182.Method8989(this.Field2927.Method4802().Method4799());
+            return;
+        }
+        if (Keyboard.getKeyName((int)n).equals("RETURN")) {
+            this.Method4816(true);
+        } else {
+            this.Field2927.Method4798(c, n);
+        }
+    }
+
+    public void Method4816(boolean bl) {
+        if (!bl) {
+            this.mc.displayGuiScreen(this.Field2924);
+        } else {
+            try {
+                f0w f0w2 = this.Field2925.Method4795().Method5753();
+                if (f0w2 instanceof DoubleSetting) {
+                    DoubleSetting doubleSetting = (DoubleSetting)f0w2;
+                    double d = Double.parseDouble(this.Field2927.Method4802().Method4799());
+                    doubleSetting.Method7975(d);
+                } else if (f0w2 instanceof IntegerSetting) {
+                    IntegerSetting integerSetting = (IntegerSetting)f0w2;
+                    int n = Integer.parseInt(this.Field2927.Method4802().Method4799());
+                    integerSetting.Method7975(n);
+                }
             }
-         }
-
-         this.field_1069 = "Elytras " + ChatFormatting.WHITE + var2;
-      }
-   }
+            catch (Exception exception) {
+                // empty catch block
+            }
+            this.mc.displayGuiScreen(this.Field2924);
+        }
+    }
 }
+

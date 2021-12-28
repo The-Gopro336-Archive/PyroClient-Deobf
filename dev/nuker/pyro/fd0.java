@@ -1,12 +1,26 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.renderer.EntityRenderer
+ *  net.minecraft.client.renderer.GlStateManager
+ *  net.minecraft.entity.Entity
+ *  net.minecraft.util.math.Vec3d
+ *  org.jetbrains.annotations.NotNull
+ *  org.jetbrains.annotations.Nullable
+ *  org.lwjgl.opengl.GL11
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.DoubleSetting;
+import dev.nuker.pyro.Module;
+import dev.nuker.pyro.PyroRenderUtil;
+import dev.nuker.pyro.f00;
+import dev.nuker.pyro.f0l;
+import dev.nuker.pyro.f0o;
+import dev.nuker.pyro.fdc;
 import dev.nuker.pyro.mixin.EntityRendererAccessor;
 import kotlin.TypeCastException;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -16,221 +30,191 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.lwjgl.opengl.GL11;
 
-public class fd0 extends Module {
-   // $FF: renamed from: c dev.nuker.pyro.f0l
-   @NotNull
-   public f0l field_912;
-   // $FF: renamed from: 0 dev.nuker.pyro.f0l
-   @NotNull
-   public f0l field_913;
-   // $FF: renamed from: c dev.nuker.pyro.f0o
-   @NotNull
-   public f0o field_914;
-   // $FF: renamed from: c dev.nuker.pyro.DoubleSetting
-   @NotNull
-   public DoubleSetting field_915;
+public class fd0
+extends Module {
+    @NotNull
+    public f0l Field152 = (f0l)this.Method7264(new f0l("lineColor", "Line Color", null, f00.Field5379.Method7931(255, 0, 0, 255)));
+    @NotNull
+    public f0l Field153 = (f0l)this.Method7264(new f0l("textColor", "Text Color", null, f00.Field5379.Method7931(255, 255, 255, 255)));
+    @NotNull
+    public f0o<fdc> Field154 = (f0o)this.Method7264(new f0o("mode", "Mode", null, fdc.BELOW));
+    @NotNull
+    public DoubleSetting Field155 = (DoubleSetting)this.Method7264(new DoubleSetting("distance", "Distance", "Length of yaw lines", 1.0, 0.4, 5.0, 0.0, 64, null));
 
-   // $FF: renamed from: c (net.minecraft.util.math.Vec3d, float) void
-   public void method_123(@Nullable Vec3d var1, float var2) {
-      if ((fdc)this.field_914.c() == fdc.field_1296) {
-         if (var1 == null) {
-            Intrinsics.throwNpe();
-         }
+    @Override
+    public void Method195(@Nullable Vec3d vec3d, float f) {
+        if ((fdc)((Object)this.Field154.Method7979()) == fdc.BELOW) {
+            Vec3d vec3d2 = vec3d;
+            if (vec3d2 == null) {
+                Intrinsics.Method6551();
+            }
+            this.Method243("S", 0.0, vec3d2);
+            this.Method243("N", 180.0, vec3d);
+            this.Method243("E", -90.0, vec3d);
+            this.Method243("W", 90.0, vec3d);
+            this.Method243("SE", -45.0, vec3d);
+            this.Method243("NE", -135.0, vec3d);
+            this.Method243("SW", 45.0, vec3d);
+            this.Method243("NW", 135.0, vec3d);
+        } else if ((fdc)((Object)this.Field154.Method7979()) == fdc.INLINE) {
+            Vec3d vec3d3 = vec3d;
+            if (vec3d3 == null) {
+                Intrinsics.Method6551();
+            }
+            this.Method240("S", 0.0, vec3d3);
+            this.Method240("N", 180.0, vec3d);
+            this.Method240("E", -90.0, vec3d);
+            this.Method240("W", 90.0, vec3d);
+            this.Method240("SE", -45.0, vec3d);
+            this.Method240("NE", -135.0, vec3d);
+            this.Method240("SW", 45.0, vec3d);
+            this.Method240("NW", 135.0, vec3d);
+        }
+    }
 
-         this.method_1345("S", 0.0D, var1);
-         this.method_1345("N", 180.0D, var1);
-         this.method_1345("E", -90.0D, var1);
-         this.method_1345("W", 90.0D, var1);
-         this.method_1345("SE", -45.0D, var1);
-         this.method_1345("NE", -135.0D, var1);
-         this.method_1345("SW", 45.0D, var1);
-         this.method_1345("NW", 135.0D, var1);
-      } else if ((fdc)this.field_914.c() == fdc.field_1297) {
-         if (var1 == null) {
-            Intrinsics.throwNpe();
-         }
+    @NotNull
+    public DoubleSetting Method218() {
+        return this.Field155;
+    }
 
-         this.method_1342("S", 0.0D, var1);
-         this.method_1342("N", 180.0D, var1);
-         this.method_1342("E", -90.0D, var1);
-         this.method_1342("W", 90.0D, var1);
-         this.method_1342("SE", -45.0D, var1);
-         this.method_1342("NE", -135.0D, var1);
-         this.method_1342("SW", 45.0D, var1);
-         this.method_1342("NW", 135.0D, var1);
-      }
+    public void Method240(@NotNull String string, double d, @NotNull Vec3d vec3d) {
+        f00 f002 = (f00)this.Field152.Method7979();
+        Vec3d vec3d2 = new Vec3d(0.0, -1.0, ((Number)this.Field155.Method7979()).doubleValue()).rotateYaw(-((float)Math.toRadians(d)));
+        Vec3d vec3d3 = new Vec3d(0.0, 1.0, ((Number)this.Field155.Method7979()).doubleValue()).rotateYaw(-((float)Math.toRadians(d)));
+        Vec3d vec3d4 = new Vec3d(0.0, -0.0, ((Number)this.Field155.Method7979()).doubleValue()).rotateYaw(-((float)Math.toRadians(d)));
+        GlStateManager.blendFunc((int)770, (int)771);
+        GlStateManager.glLineWidth((float)2.0f);
+        GlStateManager.disableTexture2D();
+        GlStateManager.depthMask((boolean)false);
+        GlStateManager.disableDepth();
+        GlStateManager.color((float)f002.Method7514(), (float)f002.Method7517(), (float)f002.Method7531(), (float)f002.Method7522());
+        GlStateManager.disableLighting();
+        GlStateManager.loadIdentity();
+        EntityRenderer entityRenderer = this.Field5233.entityRenderer;
+        if (entityRenderer == null) {
+            throw new TypeCastException("null cannot be cast to non-null type dev.nuker.pyro.mixin.EntityRendererAccessor");
+        }
+        ((EntityRendererAccessor)entityRenderer).Method4464(this.Field5233.getRenderPartialTicks());
+        GlStateManager.glBegin((int)1);
+        fd0 fd02 = this;
+        boolean bl = false;
+        boolean bl2 = false;
+        fd0 fd03 = fd02;
+        boolean bl3 = false;
+        Entity entity = fd03.Field5233.getRenderViewEntity();
+        if (entity == null) {
+            Intrinsics.Method6551();
+        }
+        GL11.glVertex3d((double)vec3d2.x, (double)(vec3d2.y + (double)entity.getEyeHeight()), (double)vec3d2.z);
+        Entity entity2 = fd03.Field5233.getRenderViewEntity();
+        if (entity2 == null) {
+            Intrinsics.Method6551();
+        }
+        GL11.glVertex3d((double)vec3d3.x, (double)(vec3d3.y + (double)entity2.getEyeHeight()), (double)vec3d3.z);
+        Vec3d vec3d5 = vec3d4;
+        Entity entity3 = fd03.Field5233.getRenderViewEntity();
+        if (entity3 == null) {
+            Intrinsics.Method6551();
+        }
+        GL11.glVertex3d((double)vec3d5.x, (double)(vec3d5.y + (double)entity3.getEyeHeight()), (double)vec3d5.z);
+        GlStateManager.glEnd();
+        GlStateManager.enableTexture2D();
+        float f = (float)vec3d.x + (float)vec3d4.x;
+        float f2 = (float)vec3d.y + (float)vec3d4.y;
+        Entity entity4 = this.Field5233.getRenderViewEntity();
+        if (entity4 == null) {
+            Intrinsics.Method6551();
+        }
+        PyroRenderUtil.Method12315(f, f2 + entity4.getEyeHeight(), (float)vec3d.z + (float)vec3d4.z, this.Field5233.getRenderViewEntity(), 0.1f);
+        GlStateManager.disableDepth();
+        GlStateManager.translate((double)(-((double)PyroRenderUtil.Method12314(string) / 2.0)), (double)0.0, (double)0.0);
+        PyroRenderUtil.Method12313(string, 0.0f, 0.0f, ((f00)this.Field153.Method7979()).Method7515());
+        GlStateManager.depthMask((boolean)true);
+        GlStateManager.enableDepth();
+        GlStateManager.color((float)1.0f, (float)1.0f, (float)1.0f, (float)1.0f);
+        GlStateManager.enableLighting();
+    }
 
-   }
+    public fd0() {
+        super("compass", "Compass", "Shows cardinal directions in the world");
+    }
 
-   // $FF: renamed from: 0 () dev.nuker.pyro.DoubleSetting
-   @NotNull
-   public DoubleSetting method_1341() {
-      return this.field_915;
-   }
+    @NotNull
+    public f0o Method241() {
+        return this.Field154;
+    }
 
-   // $FF: renamed from: c (java.lang.String, double, net.minecraft.util.math.Vec3d) void
-   public void method_1342(@NotNull String var1, double var2, @NotNull Vec3d var4) {
-      f00 var5 = (f00)this.field_912.c();
-      Vec3d var6 = (new Vec3d(0.0D, -1.0D, ((Number)this.field_915.c()).doubleValue())).rotateYaw(-((float)Math.toRadians(var2)));
-      Vec3d var7 = (new Vec3d(0.0D, 1.0D, ((Number)this.field_915.c()).doubleValue())).rotateYaw(-((float)Math.toRadians(var2)));
-      Vec3d var8 = (new Vec3d(0.0D, -0.0D, ((Number)this.field_915.c()).doubleValue())).rotateYaw(-((float)Math.toRadians(var2)));
-      GlStateManager.blendFunc(770, 771);
-      GlStateManager.glLineWidth(2.0F);
-      GlStateManager.disableTexture2D();
-      GlStateManager.depthMask(false);
-      GlStateManager.disableDepth();
-      GlStateManager.color(var5.meth7(), var5.method_3446(), var5.meth22(), var5.meth9());
-      GlStateManager.disableLighting();
-      GlStateManager.loadIdentity();
-      EntityRenderer var10000 = this.c.entityRenderer;
-      if (var10000 == null) {
-         throw new TypeCastException("null cannot be cast to non-null type dev.nuker.pyro.mixin.EntityRendererAccessor");
-      } else {
-         ((EntityRendererAccessor)var10000).orientCam(this.c.getRenderPartialTicks());
-         GlStateManager.glBegin(1);
-         boolean var10 = false;
-         boolean var11 = false;
-         fd0 var12 = (fd0)this;
-         boolean var13 = false;
-         double var15 = var6.x;
-         double var10001 = var6.y;
-         Entity var10002 = var12.c.getRenderViewEntity();
-         if (var10002 == null) {
-            Intrinsics.throwNpe();
-         }
+    @NotNull
+    public f0l Method242() {
+        return this.Field152;
+    }
 
-         GL11.glVertex3d(var15, var10001 + (double)var10002.getEyeHeight(), var6.z);
-         var15 = var7.x;
-         var10001 = var7.y;
-         var10002 = var12.c.getRenderViewEntity();
-         if (var10002 == null) {
-            Intrinsics.throwNpe();
-         }
+    public void Method243(@NotNull String string, double d, @NotNull Vec3d vec3d) {
+        f00 f002 = (f00)this.Field152.Method7979();
+        Vec3d vec3d2 = new Vec3d(0.0, 0.0, 0.0);
+        Entity entity = this.Field5233.getRenderViewEntity();
+        if (entity == null) {
+            Intrinsics.Method6551();
+        }
+        Vec3d vec3d3 = vec3d2.rotateYaw((float)Math.toRadians(entity.rotationYaw));
+        Vec3d vec3d4 = new Vec3d(0.0, -0.8, 0.0);
+        Entity entity2 = this.Field5233.getRenderViewEntity();
+        if (entity2 == null) {
+            Intrinsics.Method6551();
+        }
+        Vec3d vec3d5 = vec3d4.rotateYaw((float)Math.toRadians(entity2.rotationYaw));
+        Vec3d vec3d6 = new Vec3d(0.0, -0.8, ((Number)this.Field155.Method7979()).doubleValue()).rotateYaw(-((float)Math.toRadians(d)));
+        GlStateManager.blendFunc((int)770, (int)771);
+        GlStateManager.glLineWidth((float)2.0f);
+        GlStateManager.disableTexture2D();
+        GlStateManager.depthMask((boolean)false);
+        GlStateManager.disableDepth();
+        GlStateManager.color((float)f002.Method7514(), (float)f002.Method7517(), (float)f002.Method7531(), (float)f002.Method7522());
+        GlStateManager.disableLighting();
+        GlStateManager.loadIdentity();
+        EntityRenderer entityRenderer = this.Field5233.entityRenderer;
+        if (entityRenderer == null) {
+            throw new TypeCastException("null cannot be cast to non-null type dev.nuker.pyro.mixin.EntityRendererAccessor");
+        }
+        ((EntityRendererAccessor)entityRenderer).Method4464(this.Field5233.getRenderPartialTicks());
+        GlStateManager.glBegin((int)1);
+        fd0 fd02 = this;
+        boolean bl = false;
+        boolean bl2 = false;
+        fd0 fd03 = fd02;
+        boolean bl3 = false;
+        Entity entity3 = fd03.Field5233.getRenderViewEntity();
+        if (entity3 == null) {
+            Intrinsics.Method6551();
+        }
+        GL11.glVertex3d((double)vec3d5.x, (double)(vec3d5.y + (double)entity3.getEyeHeight()), (double)vec3d5.z);
+        Vec3d vec3d7 = vec3d6;
+        Entity entity4 = fd03.Field5233.getRenderViewEntity();
+        if (entity4 == null) {
+            Intrinsics.Method6551();
+        }
+        GL11.glVertex3d((double)vec3d7.x, (double)(vec3d7.y + (double)entity4.getEyeHeight()), (double)vec3d7.z);
+        GlStateManager.glEnd();
+        GlStateManager.enableTexture2D();
+        float f = (float)vec3d3.x + (float)vec3d.x + (float)vec3d6.x;
+        float f2 = (float)vec3d3.y + (float)vec3d.y + (float)vec3d6.y;
+        Entity entity5 = this.Field5233.getRenderViewEntity();
+        if (entity5 == null) {
+            Intrinsics.Method6551();
+        }
+        PyroRenderUtil.Method12315(f, f2 + entity5.getEyeHeight(), (float)vec3d3.z + (float)vec3d.z + (float)vec3d6.z, this.Field5233.getRenderViewEntity(), 0.1f);
+        GlStateManager.disableDepth();
+        GlStateManager.translate((double)(-((double)PyroRenderUtil.Method12314(string) / 2.0)), (double)0.0, (double)0.0);
+        PyroRenderUtil.Method12313(string, 0.0f, 0.0f, ((f00)this.Field153.Method7979()).Method7515());
+        GlStateManager.depthMask((boolean)true);
+        GlStateManager.enableDepth();
+        GlStateManager.color((float)1.0f, (float)1.0f, (float)1.0f, (float)1.0f);
+        GlStateManager.enableLighting();
+    }
 
-         GL11.glVertex3d(var15, var10001 + (double)var10002.getEyeHeight(), var7.z);
-         var15 = var8.x;
-         var10001 = var8.y;
-         var10002 = var12.c.getRenderViewEntity();
-         if (var10002 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         GL11.glVertex3d(var15, var10001 + (double)var10002.getEyeHeight(), var8.z);
-         GlStateManager.glEnd();
-         GlStateManager.enableTexture2D();
-         float var16 = (float)var4.x + (float)var8.x;
-         float var17 = (float)var4.y + (float)var8.y;
-         var10002 = this.c.getRenderViewEntity();
-         if (var10002 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         PyroRenderUtil.method_1440(var16, var17 + var10002.getEyeHeight(), (float)var4.z + (float)var8.z, this.c.getRenderViewEntity(), 0.1F);
-         GlStateManager.disableDepth();
-         GlStateManager.translate(-((double)PyroRenderUtil.method_1439(var1) / 2.0D), 0.0D, 0.0D);
-         PyroRenderUtil.meth1(var1, 0.0F, 0.0F, ((f00)this.field_913.c()).meth1());
-         GlStateManager.depthMask(true);
-         GlStateManager.enableDepth();
-         GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-         GlStateManager.enableLighting();
-      }
-   }
-
-   public fd0() {
-      super("compass", "Compass", "Shows cardinal directions in the world");
-      this.field_912 = (f0l)this.register((f0w)(new f0l("lineColor", "Line Color", (String)null, f00.field_2296.method_3687(255, 0, 0, 255))));
-      this.field_913 = (f0l)this.register((f0w)(new f0l("textColor", "Text Color", (String)null, f00.field_2296.method_3687(255, 255, 255, 255))));
-      this.field_914 = (f0o)this.register((f0w)(new f0o("mode", "Mode", (String)null, (Enum)fdc.field_1296)));
-      this.field_915 = (DoubleSetting)this.register((f0w)(new DoubleSetting("distance", "Distance", "Length of yaw lines", 1.0D, 0.4D, 5.0D, 0.0D, 64, (DefaultConstructorMarker)null)));
-   }
-
-   // $FF: renamed from: 2 () dev.nuker.pyro.f0o
-   @NotNull
-   public f0o method_1343() {
-      return this.field_914;
-   }
-
-   // $FF: renamed from: 1 () dev.nuker.pyro.f0l
-   @NotNull
-   public f0l method_1344() {
-      return this.field_912;
-   }
-
-   // $FF: renamed from: 0 (java.lang.String, double, net.minecraft.util.math.Vec3d) void
-   public void method_1345(@NotNull String var1, double var2, @NotNull Vec3d var4) {
-      f00 var5 = (f00)this.field_912.c();
-      Vec3d var10000 = new Vec3d(0.0D, 0.0D, 0.0D);
-      Entity var10001 = this.c.getRenderViewEntity();
-      if (var10001 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      Vec3d var6 = var10000.rotateYaw((float)Math.toRadians((double)var10001.rotationYaw));
-      var10000 = new Vec3d(0.0D, -0.8D, 0.0D);
-      var10001 = this.c.getRenderViewEntity();
-      if (var10001 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      Vec3d var7 = var10000.rotateYaw((float)Math.toRadians((double)var10001.rotationYaw));
-      Vec3d var8 = (new Vec3d(0.0D, -0.8D, ((Number)this.field_915.c()).doubleValue())).rotateYaw(-((float)Math.toRadians(var2)));
-      GlStateManager.blendFunc(770, 771);
-      GlStateManager.glLineWidth(2.0F);
-      GlStateManager.disableTexture2D();
-      GlStateManager.depthMask(false);
-      GlStateManager.disableDepth();
-      GlStateManager.color(var5.meth7(), var5.method_3446(), var5.meth22(), var5.meth9());
-      GlStateManager.disableLighting();
-      GlStateManager.loadIdentity();
-      EntityRenderer var15 = this.c.entityRenderer;
-      if (var15 == null) {
-         throw new TypeCastException("null cannot be cast to non-null type dev.nuker.pyro.mixin.EntityRendererAccessor");
-      } else {
-         ((EntityRendererAccessor)var15).orientCam(this.c.getRenderPartialTicks());
-         GlStateManager.glBegin(1);
-         boolean var10 = false;
-         boolean var11 = false;
-         fd0 var12 = (fd0)this;
-         boolean var13 = false;
-         double var16 = var7.x;
-         double var17 = var7.y;
-         Entity var10002 = var12.c.getRenderViewEntity();
-         if (var10002 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         GL11.glVertex3d(var16, var17 + (double)var10002.getEyeHeight(), var7.z);
-         var16 = var8.x;
-         var17 = var8.y;
-         var10002 = var12.c.getRenderViewEntity();
-         if (var10002 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         GL11.glVertex3d(var16, var17 + (double)var10002.getEyeHeight(), var8.z);
-         GlStateManager.glEnd();
-         GlStateManager.enableTexture2D();
-         float var18 = (float)var6.x + (float)var4.x + (float)var8.x;
-         float var19 = (float)var6.y + (float)var4.y + (float)var8.y;
-         var10002 = this.c.getRenderViewEntity();
-         if (var10002 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         PyroRenderUtil.method_1440(var18, var19 + var10002.getEyeHeight(), (float)var6.z + (float)var4.z + (float)var8.z, this.c.getRenderViewEntity(), 0.1F);
-         GlStateManager.disableDepth();
-         GlStateManager.translate(-((double)PyroRenderUtil.method_1439(var1) / 2.0D), 0.0D, 0.0D);
-         PyroRenderUtil.meth1(var1, 0.0F, 0.0F, ((f00)this.field_913.c()).meth1());
-         GlStateManager.depthMask(true);
-         GlStateManager.enableDepth();
-         GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-         GlStateManager.enableLighting();
-      }
-   }
-
-   // $FF: renamed from: c () dev.nuker.pyro.f0l
-   @NotNull
-   public f0l method_1346() {
-      return this.field_913;
-   }
+    @NotNull
+    public f0l Method239() {
+        return this.Field153;
+    }
 }
+

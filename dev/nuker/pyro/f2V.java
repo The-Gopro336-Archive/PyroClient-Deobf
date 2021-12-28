@@ -1,47 +1,59 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  com.google.common.collect.Iterables
+ *  net.minecraft.util.text.ITextComponent
+ *  net.minecraft.util.text.TextComponentString
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
+import com.google.common.collect.Iterables;
 import com.mojang.brigadier.Command;
+import com.mojang.brigadier.CommandDispatcher;
+import com.mojang.brigadier.ParseResults;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
-import kotlin.text.StringsKt;
-import net.minecraft.block.Block;
-import net.minecraft.client.entity.EntityPlayerSP;
-import net.minecraft.util.ResourceLocation;
+import com.mojang.brigadier.context.ParsedCommandNode;
+import dev.nuker.pyro.Config;
+import dev.nuker.pyro.f1s;
+import dev.nuker.pyro.f2w;
+import java.util.Iterator;
+import java.util.Map;
+import kotlin.TypeCastException;
 import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextComponentString;
-import net.minecraft.util.text.TextFormatting;
-import net.minecraft.world.World;
+import org.jetbrains.annotations.NotNull;
 
-public class f2V implements Command {
-   // $FF: renamed from: c dev.nuker.pyro.f2V
-   public static f2V field_2027 = new f2V();
+public class f2v
+implements Command {
+    public CommandDispatcher Field3943;
 
-   public int run(CommandContext var1) {
-      String var2 = StringArgumentType.getString(var1, "block");
-      if (!StringsKt.contains$default((CharSequence)var2, (CharSequence)":", false, 2, (Object)null)) {
-         var2 = "minecraft:" + var2;
-      }
-
-      if (Block.REGISTRY.containsKey(new ResourceLocation(var2))) {
-         if (!PyroStatic.field_2568.method_1243().method_1983().contains(var2)) {
-            ((f1s)var1.getSource()).method_3083((new TextComponentString(var2 + " is not an nuker block")).setStyle((new Style()).setColor(TextFormatting.RED)));
-         } else {
-            PyroStatic.field_2568.method_1243().method_1983().remove(var2);
-            ((f1s)var1.getSource()).method_3083((ITextComponent)(new TextComponentString("Removed nuker block " + var2)));
-            PyroStatic.field_2568.method_1248();
-            if ((Boolean)PyroStatic.field_2568.c.method_3034()) {
-               PyroStatic.field_2568.method_116(true, (EntityPlayerSP)null, (World)null);
+    public int Method152(@NotNull CommandContext commandContext) {
+        ParseResults parseResults = this.Field3943.Method8404(StringArgumentType.Method5880(commandContext, "command"), commandContext.Method6876());
+        if (parseResults.Method8971().Method7119().isEmpty()) {
+            throw (Throwable)f2w.Method5639(f2w.Field3947).Method3035();
+        }
+        ((f1s)commandContext.Method6876()).Method5489((ITextComponent)new TextComponentString("Usage: "));
+        Map map = this.Field3943.Method8409(((ParsedCommandNode)Iterables.getLast((Iterable)parseResults.Method8971().Method7119())).Method5996(), commandContext.Method6876());
+        Iterator<String> iterator2 = map.values().iterator();
+        while (iterator2.hasNext()) {
+            String string;
+            if (iterator2.next() == null) {
+                throw new TypeCastException("null cannot be cast to non-null type kotlin.String");
             }
-         }
-      } else {
-         ((f1s)var1.getSource()).method_3083((new TextComponentString(var2 + " is not a valid block")).setStyle((new Style()).setColor(TextFormatting.RED)));
-      }
+            Object s = commandContext.Method6876();
+            if (s == null) {
+                throw new TypeCastException("null cannot be cast to non-null type dev.nuker.pyro.command.CommandSource");
+            }
+            ((f1s)s).Method5489((ITextComponent)new TextComponentString(Config.Field3937.Field3931 + parseResults.Method8972().Method9084() + " " + string));
+        }
+        return map.size();
+    }
 
-      return 0;
-   }
+    public f2v(CommandDispatcher commandDispatcher) {
+        this.Field3943 = commandDispatcher;
+    }
 }
+

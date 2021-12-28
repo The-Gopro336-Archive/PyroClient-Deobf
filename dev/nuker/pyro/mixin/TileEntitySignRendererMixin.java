@@ -1,6 +1,9 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.renderer.tileentity.TileEntitySignRenderer
+ *  net.minecraft.util.text.ITextComponent
  */
 package dev.nuker.pyro.mixin;
 
@@ -8,19 +11,17 @@ import dev.nuker.pyro.PyroStatic;
 import net.minecraft.client.renderer.tileentity.TileEntitySignRenderer;
 import net.minecraft.util.text.ITextComponent;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Class0;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
-@Mixin({TileEntitySignRenderer.class})
+@Mixin(value={TileEntitySignRenderer.class})
 public class TileEntitySignRendererMixin {
-   @Redirect(
-      method = {"render"},
-      at = @At(
-   value = "INVOKE",
-   target = "Lnet/minecraft/util/text/ITextComponent;getFormattedText()Ljava/lang/String;"
-)
-   )
-   private String getSignText(ITextComponent iTextComponent) {
-      return (Boolean)PyroStatic.field_2507.c.method_3034() && (Boolean)PyroStatic.field_2507.method_1326().c() ? "" : iTextComponent.getFormattedText();
-   }
+    @Redirect(method={"render"}, at=@Class0(value="INVOKE", target="Lnet/minecraft/util/text/ITextComponent;getFormattedText()Ljava/lang/String;"))
+    private String Method1729(ITextComponent iTextComponent) {
+        if (((Boolean)PyroStatic.Field6443.Field5236.Method5264()).booleanValue() && ((Boolean)PyroStatic.Field6443.Method275().Method7979()).booleanValue()) {
+            return "";
+        }
+        return iTextComponent.getFormattedText();
+    }
 }
+

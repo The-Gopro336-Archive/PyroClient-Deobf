@@ -1,27 +1,28 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
-import com.mojang.brigadier.Command;
 import com.mojang.brigadier.CommandDispatcher;
-import com.mojang.brigadier.arguments.ArgumentType;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
+import dev.nuker.pyro.f3c;
+import dev.nuker.pyro.f3e;
 import org.jetbrains.annotations.NotNull;
 
 public class f30 {
-   // $FF: renamed from: c dev.nuker.pyro.f30
-   public static f30 field_2014;
+    public static f30 Field3778;
 
-   static {
-      f30 var0 = new f30();
-      field_2014 = var0;
-   }
+    static {
+        f30 f302;
+        Field3778 = f302 = new f30();
+    }
 
-   // $FF: renamed from: c (com.mojang.brigadier.CommandDispatcher) void
-   public void method_3095(@NotNull CommandDispatcher var1) {
-      var1.register((LiteralArgumentBuilder)f3e.method_3215("path").then(f3e.method_3216("x", (ArgumentType)IntegerArgumentType.integer()).then(f3e.method_3216("y", (ArgumentType)IntegerArgumentType.integer(0, 255)).then(f3e.method_3216("z", (ArgumentType)IntegerArgumentType.integer()).executes((Command)f3c.field_2139)))));
-   }
+    public void Method5501(@NotNull CommandDispatcher commandDispatcher) {
+        commandDispatcher.Method8399((LiteralArgumentBuilder)f3e.Method5657("path").Method12041(f3e.Method5658("x", IntegerArgumentType.Method9835()).Method12041(f3e.Method5658("y", IntegerArgumentType.Method9837(0, 255)).Method12041(f3e.Method5658("z", IntegerArgumentType.Method9835()).Method12044(f3c.Field3992)))));
+    }
 }
+

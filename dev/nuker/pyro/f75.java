@@ -1,9 +1,22 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.entity.EntityPlayerSP
+ *  net.minecraft.client.network.NetHandlerPlayClient
+ *  net.minecraft.network.Packet
+ *  net.minecraft.network.play.client.CPacketAnimation
+ *  net.minecraft.network.play.client.CPacketHeldItemChange
+ *  net.minecraft.network.play.client.CPacketPlayer$Position
+ *  net.minecraft.network.play.client.CPacketPlayerTryUseItemOnBlock
+ *  net.minecraft.util.EnumHand
+ *  net.minecraft.util.math.RayTraceResult
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.Pyro;
+import dev.nuker.pyro.f76;
+import dev.nuker.pyro.few;
 import java.util.function.Consumer;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Ref;
@@ -12,72 +25,62 @@ import net.minecraft.client.network.NetHandlerPlayClient;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.client.CPacketAnimation;
 import net.minecraft.network.play.client.CPacketHeldItemChange;
+import net.minecraft.network.play.client.CPacketPlayer;
 import net.minecraft.network.play.client.CPacketPlayerTryUseItemOnBlock;
-import net.minecraft.network.play.client.CPacketPlayer.Position;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.RayTraceResult;
 
-public class f75 implements Consumer {
-   // $FF: renamed from: c dev.nuker.pyro.f76
-   public f76 field_1733;
-   // $FF: renamed from: c kotlin.jvm.internal.Ref$IntRef
-   public Ref.IntRef field_1734;
+public class f75
+implements Consumer {
+    public f76 Field3108;
+    public Ref.IntRef Field3109;
 
-   // $FF: renamed from: c (net.minecraft.client.entity.EntityPlayerSP) void
-   public void method_2972(EntityPlayerSP var1) {
-      if (!f76.method_877(this.field_1733).world.collidesWithAnyBlock(f76.method_877(this.field_1733).player.getEntityBoundingBox().expand(0.0D, -1.1D, 0.0D))) {
-         RayTraceResult var2 = few.method_1716().method_1734(f76.method_877(this.field_1733).player.rotationYaw, 90.0F);
-         float var3 = (float)(var2.hitVec.x - (double)var2.getBlockPos().getX());
-         float var4 = (float)(var2.hitVec.y - (double)var2.getBlockPos().getY());
-         float var5 = (float)(var2.hitVec.z - (double)var2.getBlockPos().getZ());
-         Pyro.INSTANCE.sendMessage("Glitching down");
-         NetHandlerPlayClient var10000;
-         if (this.field_1734.element != -1) {
-            var10000 = f76.method_877(this.field_1733).getConnection();
-            if (var10000 == null) {
-               Intrinsics.throwNpe();
+    public void Method597(EntityPlayerSP entityPlayerSP) {
+        if (!f76.Method4934((f76)this.Field3108).world.collidesWithAnyBlock(f76.Method4934((f76)this.Field3108).player.getEntityBoundingBox().expand(0.0, -1.1, 0.0))) {
+            RayTraceResult rayTraceResult = few.Method835().Method849(f76.Method4934((f76)this.Field3108).player.rotationYaw, 90.0f);
+            float f = (float)(rayTraceResult.hitVec.x - (double)rayTraceResult.getBlockPos().getX());
+            float f2 = (float)(rayTraceResult.hitVec.y - (double)rayTraceResult.getBlockPos().getY());
+            float f3 = (float)(rayTraceResult.hitVec.z - (double)rayTraceResult.getBlockPos().getZ());
+            Pyro.Field6182.Method8989("Glitching down");
+            if (this.Field3109.Field284 != -1) {
+                NetHandlerPlayClient netHandlerPlayClient = f76.Method4934(this.Field3108).getConnection();
+                if (netHandlerPlayClient == null) {
+                    Intrinsics.Method6551();
+                }
+                netHandlerPlayClient.sendPacket((Packet)new CPacketHeldItemChange(this.Field3109.Field284));
             }
-
-            var10000.sendPacket((Packet)(new CPacketHeldItemChange(this.field_1734.element)));
-         }
-
-         var10000 = f76.method_877(this.field_1733).getConnection();
-         if (var10000 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         var10000.sendPacket((Packet)(new CPacketPlayerTryUseItemOnBlock(var2.getBlockPos(), var2.sideHit, EnumHand.MAIN_HAND, var3, var4, var5)));
-         var10000 = f76.method_877(this.field_1733).getConnection();
-         if (var10000 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         var10000.sendPacket((Packet)(new CPacketAnimation(EnumHand.MAIN_HAND)));
-         var10000 = f76.method_877(this.field_1733).getConnection();
-         if (var10000 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         var10000.sendPacket((Packet)(new Position(f76.method_877(this.field_1733).player.posX, f76.method_877(this.field_1733).player.posY + ((Number)this.field_1733.method_875().c()).doubleValue(), f76.method_877(this.field_1733).player.posZ, false)));
-         if (this.field_1734.element != -1) {
-            var10000 = f76.method_877(this.field_1733).getConnection();
-            if (var10000 == null) {
-               Intrinsics.throwNpe();
+            NetHandlerPlayClient netHandlerPlayClient = f76.Method4934(this.Field3108).getConnection();
+            if (netHandlerPlayClient == null) {
+                Intrinsics.Method6551();
             }
+            netHandlerPlayClient.sendPacket((Packet)new CPacketPlayerTryUseItemOnBlock(rayTraceResult.getBlockPos(), rayTraceResult.sideHit, EnumHand.MAIN_HAND, f, f2, f3));
+            NetHandlerPlayClient netHandlerPlayClient2 = f76.Method4934(this.Field3108).getConnection();
+            if (netHandlerPlayClient2 == null) {
+                Intrinsics.Method6551();
+            }
+            netHandlerPlayClient2.sendPacket((Packet)new CPacketAnimation(EnumHand.MAIN_HAND));
+            NetHandlerPlayClient netHandlerPlayClient3 = f76.Method4934(this.Field3108).getConnection();
+            if (netHandlerPlayClient3 == null) {
+                Intrinsics.Method6551();
+            }
+            netHandlerPlayClient3.sendPacket((Packet)new CPacketPlayer.Position(f76.Method4934((f76)this.Field3108).player.posX, f76.Method4934((f76)this.Field3108).player.posY + ((Number)this.Field3108.Method238().Method7979()).doubleValue(), f76.Method4934((f76)this.Field3108).player.posZ, false));
+            if (this.Field3109.Field284 != -1) {
+                NetHandlerPlayClient netHandlerPlayClient4 = f76.Method4934(this.Field3108).getConnection();
+                if (netHandlerPlayClient4 == null) {
+                    Intrinsics.Method6551();
+                }
+                netHandlerPlayClient4.sendPacket((Packet)new CPacketHeldItemChange(f76.Method4934((f76)this.Field3108).player.inventory.currentItem));
+            }
+        }
+    }
 
-            var10000.sendPacket((Packet)(new CPacketHeldItemChange(f76.method_877(this.field_1733).player.inventory.currentItem)));
-         }
-      }
+    public f75(f76 f762, Ref.IntRef intRef) {
+        this.Field3108 = f762;
+        this.Field3109 = intRef;
+    }
 
-   }
-
-   public f75(f76 var1, Ref.IntRef var2) {
-      this.field_1733 = var1;
-      this.field_1734 = var2;
-      super();
-   }
-
-   public void accept(Object var1) {
-      this.method_2972((EntityPlayerSP)var1);
-   }
+    public void accept(Object object) {
+        this.Method597((EntityPlayerSP)object);
+    }
 }
+

@@ -1,22 +1,20 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-import java.util.List;
-import kotlin.collections.CollectionsKt;
-import org.jetbrains.annotations.NotNull;
+import dev.nuker.pyro.f7f;
 
-public class f7H extends f3Y {
-   // $FF: renamed from: c () java.util.List
-   @NotNull
-   public List method_2976() {
-      boolean var1 = false;
-      return CollectionsKt.emptyList();
-   }
+public class f7h {
+    public static int[] Field3362 = new int[f7f.Method5185().length];
+    public static int[] Field3363;
 
-   // $FF: renamed from: c (java.util.List) void
-   public void method_2977(@NotNull List var1) {
-   }
+    static /* synthetic */ {
+        f7h.Field3362[f7f.Tunnel.ordinal()] = 1;
+        f7h.Field3362[f7f.Nearby.ordinal()] = 2;
+        Field3363 = new int[f7f.Method5185().length];
+        f7h.Field3363[f7f.Tunnel.ordinal()] = 1;
+        f7h.Field3363[f7f.Nearby.ordinal()] = 2;
+    }
 }
+

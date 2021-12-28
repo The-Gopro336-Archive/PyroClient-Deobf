@@ -1,21 +1,25 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
 import com.mojang.brigadier.CommandDispatcher;
-import com.mojang.brigadier.arguments.ArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
-import com.mojang.brigadier.builder.ArgumentBuilder;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
-import com.mojang.brigadier.suggestion.SuggestionProvider;
 import com.mojang.brigadier.suggestion.SuggestionsBuilder;
+import dev.nuker.pyro.Class34;
+import dev.nuker.pyro.f0t;
+import dev.nuker.pyro.f0w;
+import dev.nuker.pyro.f0z;
+import dev.nuker.pyro.f2P;
+import dev.nuker.pyro.f2Q;
+import dev.nuker.pyro.f3e;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.Optional;
-import java.util.function.Predicate;
 import kotlin.TypeCastException;
 import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.Intrinsics;
@@ -24,90 +28,72 @@ import kotlin.text.StringsKt;
 import org.jetbrains.annotations.NotNull;
 
 public class f2R {
-   // $FF: renamed from: c dev.nuker.pyro.f2R
-   public static f2R field_2000;
+    public static f2R Field3764;
 
-   // $FF: renamed from: c (java.lang.String) java.util.Optional
-   public Optional method_3075(String var1) {
-      return class_37.field_2633.method_3981().stream().filter((Predicate)(new f2P(var1))).findFirst();
-   }
+    public Optional Method5481(String string) {
+        return Class34.Field4599.Method6756().stream().filter(new f2P(string)).findFirst();
+    }
 
-   static {
-      f2R var0 = new f2R();
-      field_2000 = var0;
-   }
+    static {
+        f2R f2R2;
+        Field3764 = f2R2 = new f2R();
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.f2R, com.mojang.brigadier.suggestion.SuggestionsBuilder, int, java.lang.String[], java.util.Collection) void
-   public static void method_3076(f2R var0, SuggestionsBuilder var1, int var2, String[] var3, Collection var4) {
-      var0.method_3077(var1, var2, var3, var4);
-   }
+    public static void Method5482(f2R f2R2, SuggestionsBuilder suggestionsBuilder, int n, String[] arrstring, Collection collection) {
+        f2R2.Method5483(suggestionsBuilder, n, arrstring, collection);
+    }
 
-   // $FF: renamed from: c (com.mojang.brigadier.suggestion.SuggestionsBuilder, int, java.lang.String[], java.util.Collection) void
-   public void method_3077(SuggestionsBuilder var1, int var2, String[] var3, Collection var4) {
-      if (var3.length <= var2) {
-      }
-
-      String var5 = "" + '[' + var2 + "] ";
-      int var6 = 0;
-
-      for(int var7 = var2; var6 < var7; ++var6) {
-      }
-
-      Iterator var23 = var4.iterator();
-
-      while(true) {
-         while(var23.hasNext()) {
-            f0w var22 = (f0w)var23.next();
-            if (var22 instanceof f0z) {
-               boolean var8 = false;
-               Enum[] var11 = (Enum[])((Enum)((f0z)var22).method_3334().c()).getClass().getEnumConstants();
-               int var12 = var11.length;
-
-               for(int var10 = 0; var10 < var12; ++var10) {
-                  Enum var9 = var11[var10];
-                  StringCompanionObject var14 = StringCompanionObject.INSTANCE;
-                  String var15 = "[%s]";
-                  Object[] var10000 = new Object[1];
-                  String var16 = var9.name();
-                  byte var20 = 0;
-                  Object[] var19 = var10000;
-                  Object[] var18 = var10000;
-                  boolean var17 = false;
-                  if (var16 == null) {
-                     throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
-                  }
-
-                  String var21 = var16.toLowerCase();
-                  var19[var20] = var21;
-                  var17 = false;
-                  String var13 = String.format(var15, Arrays.copyOf(var18, var18.length));
-                  if (StringsKt.startsWith$default(var22.method_3315() + var13, var3[var2], false, 2, (Object)null) && StringsKt.startsWith$default(var3[var2], var22.method_3315(), false, 2, (Object)null)) {
-                     var8 = true;
-                     if (!Intrinsics.areEqual((Object)(var22.method_3315() + var13), (Object)var3[var2])) {
-                        var1.suggest(var5 + var22.method_3315() + var13);
-                     }
-                  }
-
-                  if (!var8 && StringsKt.startsWith$default(var22.method_3315(), var3[var2], false, 2, (Object)null)) {
-                     var1.suggest(var5 + var22.method_3315());
-                  }
-               }
-            } else {
-               if (var22 instanceof f0t) {
-                  this.method_3077(var1, var2 + 1, var3, (Collection)((f0t)var22).c());
-               }
-
-               var1.suggest(var5 + var22.method_3315() + (var22 instanceof f0t ? "." : ""));
+    public void Method5483(SuggestionsBuilder suggestionsBuilder, int n, String[] arrstring, Collection collection) {
+        if (arrstring.length <= n) {
+            // empty if block
+        }
+        String string = "" + '[' + n + "] ";
+        int n2 = n;
+        for (int i = 0; i < n2; ++i) {
+        }
+        for (f0w f0w2 : collection) {
+            if (f0w2 instanceof f0z) {
+                boolean bl = false;
+                for (Enum enum_ : (Enum[])((Enum)((f0z)f0w2).Method7991().Method7979()).getClass().getEnumConstants()) {
+                    String string2;
+                    String string3;
+                    Object[] arrobject;
+                    StringCompanionObject stringCompanionObject = StringCompanionObject.Field4618;
+                    String string4 = "[%s]";
+                    Object[] arrobject2 = enum_.name();
+                    int n3 = 0;
+                    Object[] arrobject3 = arrobject = new Object[1];
+                    boolean bl2 = false;
+                    if (arrobject2 == null) {
+                        throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
+                    }
+                    arrobject2.toLowerCase();
+                    arrobject[n3] = string3;
+                    arrobject2 = arrobject3;
+                    bl2 = false;
+                    String.format(string4, Arrays.copyOf(arrobject2, arrobject2.length));
+                    if (StringsKt.Method9998(f0w2.Method7977() + string2, arrstring[n], false, 2, null) && StringsKt.Method9998(arrstring[n], f0w2.Method7977(), false, 2, null)) {
+                        bl = true;
+                        if (!Intrinsics.Method6572(f0w2.Method7977() + string2, arrstring[n])) {
+                            suggestionsBuilder.Method2701(string + f0w2.Method7977() + string2);
+                        }
+                    }
+                    if (bl) continue;
+                    if (!StringsKt.Method9998(f0w2.Method7977(), arrstring[n], false, 2, null)) continue;
+                    suggestionsBuilder.Method2701(string + f0w2.Method7977());
+                }
+                continue;
             }
-         }
+            if (f0w2 instanceof f0t) {
+                this.Method5483(suggestionsBuilder, n + 1, arrstring, (Collection)((f0t)f0w2).Method7979());
+            }
+            suggestionsBuilder.Method2701(string + f0w2.Method7977() + (f0w2 instanceof f0t ? "." : ""));
+        }
+    }
 
-         return;
-      }
-   }
-
-   // $FF: renamed from: c (com.mojang.brigadier.CommandDispatcher) void
-   @JvmStatic
-   public static void method_3078(@NotNull CommandDispatcher var0) {
-      var0.register((LiteralArgumentBuilder)f3e.method_3215("setting").then((ArgumentBuilder)f3e.method_3216("setting", (ArgumentType)StringArgumentType.string()).suggests((SuggestionProvider)f2Q.field_1997)));
-   }
+    @JvmStatic
+    public static void Method5484(@NotNull CommandDispatcher commandDispatcher) {
+        commandDispatcher.Method8399((LiteralArgumentBuilder)f3e.Method5657("setting").Method12041(f3e.Method5658("setting", StringArgumentType.Method5878()).Method1114(f2Q.Field3761)));
+    }
 }
+

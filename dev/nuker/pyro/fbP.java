@@ -1,23 +1,26 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-public class fbP implements Runnable {
-   // $FF: renamed from: c dev.nuker.pyro.fbQ
-   public fbQ field_1624;
+import dev.nuker.pyro.fbQ;
+import dev.nuker.pyro.fbT;
 
-   public fbP(fbQ var1) {
-      this.field_1624 = var1;
-      super();
-   }
+public class fbP
+implements Runnable {
+    public fbQ Field1998;
 
-   public void run() {
-      int var1 = (int)fbT.method_1039(this.field_1624.field_1612).player.posX;
-      int var2 = (int)fbT.method_1039(this.field_1624.field_1612).player.posY;
-      int var3 = (int)fbT.method_1039(this.field_1624.field_1612).player.posZ;
-      int var4 = fbT.method_1039(this.field_1624.field_1612).gameSettings.renderDistanceChunks * 16;
-      fbT.method_1039(this.field_1624.field_1612).renderGlobal.markBlockRangeForRenderUpdate(var1 - var4, var2 - var4, var3 - var4, var1 + var4, var2 + var4, var3 + var4);
-   }
+    public fbP(fbQ fbQ2) {
+        this.Field1998 = fbQ2;
+    }
+
+    @Override
+    public void run() {
+        int n = (int)fbT.Method2610((fbT)this.Field1998.Field1938).player.posX;
+        int n2 = (int)fbT.Method2610((fbT)this.Field1998.Field1938).player.posY;
+        int n3 = (int)fbT.Method2610((fbT)this.Field1998.Field1938).player.posZ;
+        int n4 = fbT.Method2610((fbT)this.Field1998.Field1938).gameSettings.renderDistanceChunks * 16;
+        fbT.Method2610((fbT)this.Field1998.Field1938).renderGlobal.markBlockRangeForRenderUpdate(n - n4, n2 - n4, n3 - n4, n + n4, n2 + n4, n3 + n4);
+    }
 }
+

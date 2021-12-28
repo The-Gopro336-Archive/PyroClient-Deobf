@@ -1,46 +1,46 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.f17;
+import dev.nuker.pyro.f18;
 import org.jetbrains.annotations.NotNull;
 
-public class f16 extends f18 {
-   // $FF: renamed from: c double
-   public double field_2402;
-   // $FF: renamed from: 0 double
-   public double field_2403;
+public class f16
+extends f18 {
+    public double Field5550;
+    public double Field5551;
 
-   // $FF: renamed from: 0 (double) void
-   public void method_3657(double var1) {
-      this.field_2403 = var1;
-   }
+    public void Method7877(double d) {
+        this.Field5551 = d;
+    }
 
-   // $FF: renamed from: c () double
-   public double method_3658() {
-      return this.field_2403;
-   }
+    public double Method7879() {
+        return this.Field5551;
+    }
 
-   // $FF: renamed from: c (double, double) dev.nuker.pyro.f17
-   @NotNull
-   public f17 method_3648(double var1, double var3) {
-      return (f17)(new f16(this.field_2402 - var1, this.field_2403 - var3, this.5() - var1, this.3() - var3, this.4()));
-   }
+    @Override
+    @NotNull
+    public f17 Method7865(double d, double d2) {
+        return new f16(this.Field5550 - d, this.Field5551 - d2, this.Method7897() - d, this.Method7896() - d2, this.Method7895());
+    }
 
-   // $FF: renamed from: c (double) void
-   public void method_3659(double var1) {
-      this.field_2402 = var1;
-   }
+    public void Method7876(double d) {
+        this.Field5550 = d;
+    }
 
-   public f16(double var1, double var3, double var5, double var7, int var9) {
-      super(var5, var7, var9);
-      this.field_2402 = var1;
-      this.field_2403 = var3;
-   }
+    public f16(double d, double d2, double d3, double d4, int n) {
+        super(d3, d4, n);
+        this.Field5550 = d;
+        this.Field5551 = d2;
+    }
 
-   // $FF: renamed from: 0 () double
-   public double method_3660() {
-      return this.field_2402;
-   }
+    public double Method7875() {
+        return this.Field5550;
+    }
 }
+

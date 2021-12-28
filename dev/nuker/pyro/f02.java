@@ -1,81 +1,69 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.Pyro;
+import dev.nuker.pyro.f0g;
+import dev.nuker.pyro.f4t;
+import dev.nuker.pyro.fe8;
 import dev.nuker.pyro.security.inject.LauncherEventHide;
 
 public class f02 {
-   // $FF: renamed from: c float
-   public float field_2297 = -1337.0F;
-   // $FF: renamed from: 0 float
-   public float field_2298 = -1337.0F;
-   // $FF: renamed from: 1 float
-   public float field_2299 = -1337.0F;
-   // $FF: renamed from: 2 float
-   public float field_2300 = -1337.0F;
-   // $FF: renamed from: c dev.nuker.pyro.fe8
-   public fe8 field_2301 = new fe8();
+    public float Field5380 = -1337.0f;
+    public float Field5381 = -1337.0f;
+    public float Field5382 = -1337.0f;
+    public float Field5383 = -1337.0f;
+    public fe8 Field5384 = new fe8();
 
-   // $FF: renamed from: c (float) void
-   public void method_3454(float var1) {
-      this.field_2298 = var1;
-   }
+    public void Method7536(float f) {
+        this.Field5381 = f;
+    }
 
-   // $FF: renamed from: 2 () float
-   public float method_3455() {
-      return this.field_2298;
-   }
+    public float Method7537() {
+        return this.Field5381;
+    }
 
-   // $FF: renamed from: 1 (float) void
-   public void method_3456(float var1) {
-      this.field_2300 = var1;
-      this.field_2301.method_1979();
-   }
+    public void Method7538(float f) {
+        this.Field5383 = f;
+        this.Field5384.Method490();
+    }
 
-   // $FF: renamed from: 0 (float) void
-   public void method_3457(float var1) {
-      this.field_2297 = var1;
-   }
+    public void Method7539(float f) {
+        this.Field5380 = f;
+    }
 
-   // $FF: renamed from: c () float
-   public float method_3458() {
-      return this.field_2297;
-   }
+    public float Method7540() {
+        return this.Field5380;
+    }
 
-   // $FF: renamed from: 3 () float
-   public float method_3459() {
-      return this.field_2300;
-   }
+    public float Method7541() {
+        return this.Field5383;
+    }
 
-   // $FF: renamed from: 2 (float) void
-   public void method_3460(float var1) {
-      this.field_2299 = var1;
-      this.field_2301.method_1979();
-   }
+    public void Method7542(float f) {
+        this.Field5382 = f;
+        this.Field5384.Method490();
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.f4t) void
-   @f0g
-   @LauncherEventHide
-   public void method_3461(f4t var1) {
-      if (this.field_2301.method_1980(100.0D)) {
-         this.field_2301.method_1979();
-         this.field_2297 = -1337.0F;
-         this.field_2298 = -1337.0F;
-         this.field_2299 = -1337.0F;
-         this.field_2300 = -1337.0F;
-      }
+    @f0g
+    @LauncherEventHide
+    public void Method7543(f4t f4t2) {
+        if (this.Field5384.Method491(100.0)) {
+            this.Field5384.Method490();
+            this.Field5380 = -1337.0f;
+            this.Field5381 = -1337.0f;
+            this.Field5382 = -1337.0f;
+            this.Field5383 = -1337.0f;
+        }
+    }
 
-   }
+    public float Method7544() {
+        return this.Field5382;
+    }
 
-   // $FF: renamed from: 0 () float
-   public float method_3462() {
-      return this.field_2299;
-   }
-
-   // $FF: renamed from: 1 () void
-   public void method_3463() {
-      Pyro.getEventManager().method_31(this);
-   }
+    public void Method7545() {
+        Pyro.Method8978().Method7915(this);
+    }
 }
+

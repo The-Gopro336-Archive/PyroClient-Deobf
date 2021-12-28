@@ -1,24 +1,53 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.gui.GuiGameOver
+ *  net.minecraft.client.renderer.EntityRenderer
+ *  net.minecraft.client.renderer.GlStateManager
+ *  net.minecraft.client.renderer.RenderHelper
+ *  net.minecraft.client.renderer.entity.RenderManager
+ *  net.minecraft.entity.Entity
+ *  net.minecraft.entity.player.EntityPlayer
+ *  net.minecraft.util.math.AxisAlignedBB
+ *  net.minecraft.util.math.Vec3d
+ *  org.jetbrains.annotations.NotNull
+ *  org.jetbrains.annotations.Nullable
+ *  org.lwjgl.opengl.GL11
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.BooleanSetting;
+import dev.nuker.pyro.DoubleSetting;
+import dev.nuker.pyro.Module;
+import dev.nuker.pyro.Pyro;
+import dev.nuker.pyro.PyroRenderUtil;
+import dev.nuker.pyro.Waypoint;
+import dev.nuker.pyro.WaypointManager;
+import dev.nuker.pyro.f0g;
+import dev.nuker.pyro.f0o;
+import dev.nuker.pyro.f4b;
+import dev.nuker.pyro.f4d;
+import dev.nuker.pyro.f4t;
+import dev.nuker.pyro.fbV;
+import dev.nuker.pyro.fbW;
 import dev.nuker.pyro.mixin.EntityRendererAccessor;
 import dev.nuker.pyro.mixin.RenderManagerAccessor;
 import dev.nuker.pyro.security.inject.LauncherEventHide;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import kotlin.NoWhenBranchMatchedException;
 import kotlin.TypeCastException;
 import kotlin.collections.CollectionsKt;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.math.MathKt;
 import kotlin.ranges.RangesKt;
 import kotlin.text.StringsKt;
 import net.minecraft.client.gui.GuiGameOver;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -28,335 +57,382 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.lwjgl.opengl.GL11;
 
-public class fbX extends Module {
-   // $FF: renamed from: c dev.nuker.pyro.f0o
-   @NotNull
-   public f0o field_692;
-   // $FF: renamed from: c dev.nuker.pyro.DoubleSetting
-   @NotNull
-   public DoubleSetting field_693;
-   // $FF: renamed from: c dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_694;
-   // $FF: renamed from: 0 dev.nuker.pyro.DoubleSetting
-   @NotNull
-   public DoubleSetting field_695;
-   // $FF: renamed from: 0 dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_696;
-   // $FF: renamed from: 1 dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_697;
-   // $FF: renamed from: c boolean
-   public boolean field_698;
+public class fbX
+extends Module {
+    @NotNull
+    public f0o<fbV> Field2035 = (f0o)this.Method7264(new f0o("mode", "Modes", null, fbV.Coords));
+    @NotNull
+    public DoubleSetting Field2036 = (DoubleSetting)this.Method7264(new DoubleSetting("width", "Width", null, 1.8, 0.1, 5.0, 0.0, 64, null));
+    @NotNull
+    public BooleanSetting Field2037 = (BooleanSetting)this.Method7264(new BooleanSetting("lines", "Lines", null, false));
+    @NotNull
+    public DoubleSetting Field2038 = (DoubleSetting)this.Method7264(new DoubleSetting("scaling", "Scaling", null, 3.0, 1.0, 10.0, 0.0, 64, null));
+    @NotNull
+    public BooleanSetting Field2039 = (BooleanSetting)this.Method7264(new BooleanSetting("logoutSpots", "LogoutSpots", null, true));
+    @NotNull
+    public BooleanSetting Field2040 = (BooleanSetting)this.Method7264(new BooleanSetting("deathPoints", "DeathPoints", null, false));
+    public boolean Field2041 = true;
 
-   // $FF: renamed from: c (dev.nuker.pyro.f4d) void
-   @f0g
-   @LauncherEventHide
-   public void method_1012(@NotNull f4d var1) {
-      if ((Boolean)this.field_696.c()) {
-         Iterator var3 = this.c.world.playerEntities.iterator();
-
-         while(var3.hasNext()) {
-            EntityPlayer var2 = (EntityPlayer)var3.next();
-            if (Intrinsics.areEqual((Object)var2.getName(), (Object)var1.c())) {
-               String var4 = var2.getName();
-               Waypoint var5 = new Waypoint(var4 + " logout spot", var2.posX, var2.posY, var2.posZ, CollectionsKt.listOf(var2.dimension));
-               WaypointManager.INSTANCE.saveWaypoint(var5);
-               break;
+    @f0g
+    @LauncherEventHide
+    public void Method2685(@NotNull f4d f4d2) {
+        if (((Boolean)this.Field2039.Method7979()).booleanValue()) {
+            Iterator iterator2 = this.Field5233.world.playerEntities.iterator();
+            while (iterator2.hasNext()) {
+                EntityPlayer entityPlayer = (EntityPlayer)iterator2.next();
+                if (!Intrinsics.Method6572(entityPlayer.getName(), f4d2.Method5798())) continue;
+                String string = entityPlayer.getName();
+                Waypoint waypoint = new Waypoint(string + " logout spot", entityPlayer.posX, entityPlayer.posY, entityPlayer.posZ, CollectionsKt.Method9007(entityPlayer.dimension));
+                WaypointManager.Field6777.Method9801(waypoint);
+                break;
             }
-         }
-      }
+        }
+    }
 
-   }
+    /*
+     * Enabled aggressive block sorting
+     */
+    @f0g
+    @LauncherEventHide
+    public void Method183(@NotNull f4t f4t2) {
+        if ((Boolean)this.Field2040.Method7979() == false) return;
+        if (this.Field5233.currentScreen instanceof GuiGameOver && this.Field2041) {
+            this.Field2041 = false;
+            WaypointManager.Field6777.Method9801(new Waypoint("death point", this.Field5233.player.posX, this.Field5233.player.posY, this.Field5233.player.posZ, CollectionsKt.Method9007(this.Field5233.player.dimension)));
+            return;
+        }
+        if (this.Field5233.currentScreen != null) return;
+        this.Field2041 = true;
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.f4t) void
-   @f0g
-   @LauncherEventHide
-   public void method_1013(@NotNull f4t var1) {
-      if ((Boolean)this.field_697.c()) {
-         if (this.c.currentScreen instanceof GuiGameOver && this.field_698) {
-            this.field_698 = false;
-            WaypointManager.INSTANCE.saveWaypoint(new Waypoint("death point", this.c.player.posX, this.c.player.posY, this.c.player.posZ, CollectionsKt.listOf(this.c.player.dimension)));
-         } else if (this.c.currentScreen == null) {
-            this.field_698 = true;
-         }
-      }
-
-   }
-
-   // $FF: renamed from: 0 (dev.nuker.pyro.Waypoint, double, double, double, float, double, double) void
-   public void method_1014(Waypoint var1, double var2, double var4, double var6, float var8, double var9, double var11) {
-      // $FF: Couldn't be decompiled
-   }
-
-   // $FF: renamed from: 3 () double
-   public double method_1015() {
-      return ((Number)this.field_695.c()).doubleValue() / (double)1000;
-   }
-
-   public fbX() {
-      super("waypoints", "Waypoints", "Shows a marker for positions you set");
-      this.field_692 = (f0o)this.register((f0w)(new f0o("mode", "Modes", (String)null, (Enum)fbV.field_1629)));
-      this.field_693 = (DoubleSetting)this.register((f0w)(new DoubleSetting("width", "Width", (String)null, 1.8D, 0.1D, 5.0D, 0.0D, 64, (DefaultConstructorMarker)null)));
-      this.field_694 = (BooleanSetting)this.register((f0w)(new BooleanSetting("lines", "Lines", (String)null, false)));
-      this.field_695 = (DoubleSetting)this.register((f0w)(new DoubleSetting("scaling", "Scaling", (String)null, 3.0D, 1.0D, 10.0D, 0.0D, 64, (DefaultConstructorMarker)null)));
-      this.field_696 = (BooleanSetting)this.register((f0w)(new BooleanSetting("logoutSpots", "LogoutSpots", (String)null, true)));
-      this.field_697 = (BooleanSetting)this.register((f0w)(new BooleanSetting("deathPoints", "DeathPoints", (String)null, false)));
-      this.field_698 = true;
-   }
-
-   // $FF: renamed from: 0 () dev.nuker.pyro.DoubleSetting
-   @NotNull
-   public DoubleSetting method_1016() {
-      return this.field_695;
-   }
-
-   // $FF: renamed from: c (dev.nuker.pyro.f4b) void
-   @f0g
-   @LauncherEventHide
-   public void method_1017(@NotNull f4b var1) {
-      if ((Boolean)this.field_696.c()) {
-         Iterator var3 = WaypointManager.INSTANCE.getWaypoints().iterator();
-
-         while(var3.hasNext()) {
-            Waypoint var2 = (Waypoint)var3.next();
-            if (Intrinsics.areEqual((Object)StringsKt.replace$default(var2.getName(), " logout spot", "", false, 4, (Object)null), (Object)var1.c())) {
-               WaypointManager.INSTANCE.deleteWaypoint(var2);
-               String var4 = var1.c();
-               Pyro.INSTANCE.sendMessage("Deleting " + var4 + " logoutspot as they logged back in");
+    public void Method2686(Waypoint waypoint, double d, double d2, double d3, float f, double d4, double d5) {
+        Entity entity = this.Field5233.getRenderViewEntity();
+        if (entity == null) {
+            entity = (Entity)this.Field5233.player;
+        }
+        Entity entity2 = entity;
+        if (entity2 == null) {
+            Intrinsics.Method6551();
+        }
+        double d6 = entity2.getDistance(d + this.Field5233.getRenderManager().viewerPosX, d2 + this.Field5233.getRenderManager().viewerPosY, d3 + this.Field5233.getRenderManager().viewerPosZ);
+        double d7 = 0.0018 + this.Method230() * d6;
+        if (d6 <= 8.0) {
+            d7 = 0.0245;
+        }
+        GlStateManager.pushMatrix();
+        RenderHelper.enableStandardItemLighting();
+        GlStateManager.enablePolygonOffset();
+        GlStateManager.doPolygonOffset((float)1.0f, (float)-1500000.0f);
+        GlStateManager.disableLighting();
+        GlStateManager.translate((float)((float)d), (float)((float)d2 + 1.4f), (float)((float)d3));
+        float f2 = -this.Field5233.getRenderManager().playerViewY;
+        float f3 = 1.0f;
+        float f4 = 0.0f;
+        GlStateManager.rotate((float)f2, (float)f4, (float)f3, (float)f4);
+        GlStateManager.rotate((float)this.Field5233.getRenderManager().playerViewX, (float)(this.Field5233.gameSettings.thirdPersonView == 2 ? -1.0f : 1.0f), (float)0.0f, (float)0.0f);
+        GlStateManager.scale((double)(-d7), (double)(-d7), (double)d7);
+        GlStateManager.disableDepth();
+        GlStateManager.enableBlend();
+        String string = null;
+        switch (fbW.Field2030[((fbV)((Object)this.Field2035.Method7979())).ordinal()]) {
+            case 1: {
+                string = new StringBuilder().insert(0, waypoint.Method9897()).append(" ").append(MathKt.Method9393(d6)).append("m").toString();
+                break;
             }
-         }
-      }
-
-   }
-
-   // $FF: renamed from: c (boolean) void
-   public void method_1018(boolean var1) {
-      this.field_698 = var1;
-   }
-
-   // $FF: renamed from: c (dev.nuker.pyro.Waypoint, double, double, double, float, double, double) void
-   public void method_1019(Waypoint var1, double var2, double var4, double var6, float var8, double var9, double var11) {
-      // $FF: Couldn't be decompiled
-   }
-
-   // $FF: renamed from: 4 () dev.nuker.pyro.DoubleSetting
-   @NotNull
-   public DoubleSetting method_1020() {
-      return this.field_693;
-   }
-
-   // $FF: renamed from: 1 () dev.nuker.pyro.f0o
-   @NotNull
-   public f0o method_1021() {
-      return this.field_692;
-   }
-
-   // $FF: renamed from: 0 (dev.nuker.pyro.DoubleSetting) void
-   public void method_1022(@NotNull DoubleSetting var1) {
-      this.field_695 = var1;
-   }
-
-   // $FF: renamed from: 7 () boolean
-   public boolean method_1023() {
-      return this.field_698;
-   }
-
-   // $FF: renamed from: c () java.util.List
-   @NotNull
-   public List method_1024() {
-      ArrayList var1 = new ArrayList();
-      Iterable var2 = (Iterable)WaypointManager.INSTANCE.getWaypoints();
-      boolean var3 = false;
-      Iterator var4 = var2.iterator();
-
-      while(var4.hasNext()) {
-         Object var5 = var4.next();
-         Waypoint var6 = (Waypoint)var5;
-         boolean var7 = false;
-         if (StringsKt.contains$default((CharSequence)var6.getName(), (CharSequence)"logout spot", false, 2, (Object)null) && (Boolean)this.field_696.c()) {
-            var1.add(var6);
-         } else if (StringsKt.contains$default((CharSequence)var6.getName(), (CharSequence)"death point", false, 2, (Object)null) && (Boolean)this.field_697.c()) {
-            var1.add(var6);
-         } else {
-            var1.add(var6);
-         }
-      }
-
-      return (List)var1;
-   }
-
-   // $FF: renamed from: c (dev.nuker.pyro.BooleanSetting) void
-   public void method_1025(@NotNull BooleanSetting var1) {
-      this.field_697 = var1;
-   }
-
-   // $FF: renamed from: 2 () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_1026() {
-      return this.field_696;
-   }
-
-   // $FF: renamed from: 1 (dev.nuker.pyro.BooleanSetting) void
-   public void method_1027(@NotNull BooleanSetting var1) {
-      this.field_694 = var1;
-   }
-
-   // $FF: renamed from: 6 () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_1028() {
-      return this.field_697;
-   }
-
-   // $FF: renamed from: c (net.minecraft.util.math.Vec3d, float) void
-   public void method_123(@Nullable Vec3d var1, float var2) {
-      super.method_123(var1, var2);
-      Entity var3 = this.c.getRenderViewEntity();
-      if (var3 == null) {
-         var3 = (Entity)this.c.player;
-      }
-
-      Iterable var4 = (Iterable)this.method_1024();
-      boolean var5 = false;
-
-      for(Iterator var6 = var4.iterator(); var6.hasNext(); GlStateManager.popMatrix()) {
-         Object var7 = var6.next();
-         Waypoint var8 = (Waypoint)var7;
-         boolean var9 = false;
-         double var10 = this.c.player.dimension == -1 ? var8.getX() / 8.0D : var8.getX();
-         double var12 = this.c.player.dimension == -1 ? var8.getY() / 8.0D : var8.getY();
-         double var14 = this.c.player.dimension == -1 ? var8.getZ() / 8.0D : var8.getZ();
-         PyroRenderUtil.method_1441();
-         GlStateManager.pushMatrix();
-         RenderManager var10001 = this.c.getRenderManager();
-         if (var10001 == null) {
-            throw new TypeCastException("null cannot be cast to non-null type dev.nuker.pyro.mixin.RenderManagerAccessor");
-         }
-
-         double var16 = var10 - ((RenderManagerAccessor)var10001).getRenderPosX();
-         var10001 = this.c.getRenderManager();
-         if (var10001 == null) {
-            throw new TypeCastException("null cannot be cast to non-null type dev.nuker.pyro.mixin.RenderManagerAccessor");
-         }
-
-         double var18 = var12 - ((RenderManagerAccessor)var10001).getRenderPosY();
-         var10001 = this.c.getRenderManager();
-         if (var10001 == null) {
-            throw new TypeCastException("null cannot be cast to non-null type dev.nuker.pyro.mixin.RenderManagerAccessor");
-         }
-
-         double var20 = var14 - ((RenderManagerAccessor)var10001).getRenderPosZ();
-         AxisAlignedBB var22 = new AxisAlignedBB(var16 - 0.25D, var18, var20 - 0.25D, var16 + 0.25D, var18 + 2.0D, var20 + 0.25D);
-         GlStateManager.color(1.0F, 0.0F, 0.0F, 0.7F);
-         GL11.glLoadIdentity();
-         GL11.glLineWidth((float)((Number)this.field_693.c()).doubleValue());
-         EntityRenderer var10000 = this.c.entityRenderer;
-         if (var10000 == null) {
-            throw new TypeCastException("null cannot be cast to non-null type dev.nuker.pyro.mixin.EntityRendererAccessor");
-         }
-
-         ((EntityRendererAccessor)var10000).invokeSetupCameraTransform(var2, 0);
-         if ((Boolean)this.field_694.c()) {
-            double var23 = 0.0D;
-            Vec3d var27 = new Vec3d(var23, var23, 1.0D);
-            if (var3 == null) {
-               Intrinsics.throwNpe();
+            case 2: {
+                string = String.format("%s XYZ %.1f %.1f %.1f", waypoint.Method9897(), d4, waypoint.Method9901(), d5);
+                break;
             }
-
-            var27 = var27.rotatePitch((float)(-Math.toRadians((double)var3.rotationPitch)));
-            if (var3 == null) {
-               Intrinsics.throwNpe();
+            default: {
+                throw new NoWhenBranchMatchedException();
             }
+        }
+        float f5 = PyroRenderUtil.Method12314(string) / (float)2;
+        PyroRenderUtil.Method12306(-f5 - 1.0f, -PyroRenderUtil.Method4908(), f5 + 1.0f, 1.0f, 1.8f, 0x55000400, 0x33000000);
+        PyroRenderUtil.Method12313(string, -f5, -(PyroRenderUtil.Method4908() - 1.0f), -5592406);
+        GlStateManager.enableDepth();
+        GlStateManager.enableLighting();
+        GlStateManager.disableBlend();
+        GlStateManager.enableLighting();
+        GlStateManager.disablePolygonOffset();
+        GlStateManager.doPolygonOffset((float)1.0f, (float)1500000.0f);
+        GlStateManager.popMatrix();
+    }
 
-            Vec3d var25 = var27.rotateYaw((float)(-Math.toRadians((double)var3.rotationYaw)));
-            double var28 = var25.x;
-            if (var3 == null) {
-               Intrinsics.throwNpe();
+    public double Method230() {
+        return ((Number)this.Field2038.Method7979()).doubleValue() / (double)1000;
+    }
+
+    public fbX() {
+        super("waypoints", "Waypoints", "Shows a marker for positions you set");
+    }
+
+    @NotNull
+    public DoubleSetting Method218() {
+        return this.Field2038;
+    }
+
+    @f0g
+    @LauncherEventHide
+    public void Method2687(@NotNull f4b f4b2) {
+        if (((Boolean)this.Field2039.Method7979()).booleanValue()) {
+            for (Waypoint waypoint : WaypointManager.Field6777.Method9798()) {
+                if (!Intrinsics.Method6572(StringsKt.Method9968(waypoint.Method9897(), " logout spot", "", false, 4, null), f4b2.Method5798())) continue;
+                WaypointManager.Field6777.Method9800(waypoint);
+                String string = f4b2.Method5798();
+                Pyro.Field6182.Method8989("Deleting " + string + " logoutspot as they logged back in");
             }
+        }
+    }
 
-            GL11.glVertex3d(var28, (double)var3.getEyeHeight() + var25.y, var25.z);
-            GL11.glVertex3d(var16, var18, var20);
-            GL11.glEnd();
-         }
+    public void Method557(boolean bl) {
+        this.Field2041 = bl;
+    }
 
-         GL11.glTranslated(var16, var18, var20);
-         GL11.glTranslated(-var16, -var18, -var20);
-         PyroRenderUtil.meth1(var22);
-         GlStateManager.popMatrix();
-         PyroRenderUtil.meth2();
-         GlStateManager.pushMatrix();
-         Vec3d var26 = this.method_1030(var10, var12, var14);
-         if (var26 != null) {
-            if (this.c.player.getDistance(var10, var12, var14) > 150.0D) {
-               double var10002 = var26.x;
-               RenderManager var10003 = this.c.getRenderManager();
-               if (var10003 == null) {
-                  throw new TypeCastException("null cannot be cast to non-null type dev.nuker.pyro.mixin.RenderManagerAccessor");
-               }
-
-               var10002 -= ((RenderManagerAccessor)var10003).getRenderPosX();
-               double var29 = var26.y;
-               RenderManager var10004 = this.c.getRenderManager();
-               if (var10004 == null) {
-                  throw new TypeCastException("null cannot be cast to non-null type dev.nuker.pyro.mixin.RenderManagerAccessor");
-               }
-
-               var29 = var29 - ((RenderManagerAccessor)var10004).getRenderPosY() + 0.7D;
-               double var30 = var26.z;
-               RenderManager var10005 = this.c.getRenderManager();
-               if (var10005 == null) {
-                  throw new TypeCastException("null cannot be cast to non-null type dev.nuker.pyro.mixin.RenderManagerAccessor");
-               }
-
-               this.method_1019(var8, var10002, var29, var30 - ((RenderManagerAccessor)var10005).getRenderPosZ(), var2, var10, var14);
-            } else {
-               this.method_1014(var8, var16, var18 + 0.7D, var20, var2, var10, var14);
+    public void Method2688(Waypoint waypoint, double d, double d2, double d3, float f, double d4, double d5) {
+        Entity entity = this.Field5233.getRenderViewEntity();
+        if (entity == null) {
+            entity = (Entity)this.Field5233.player;
+        }
+        Entity entity2 = entity;
+        if (entity2 == null) {
+            Intrinsics.Method6551();
+        }
+        double d6 = entity2.getDistance(d4, waypoint.Method9901(), d5);
+        String string = String.format("%s XYZ %.1f %.1f %.1f", waypoint.Method9897(), d4, waypoint.Method9901(), d5);
+        double d7 = this.Method2695(0.0018 + this.Method230() * d6, 0.1, this.Method230() * 100.0);
+        GlStateManager.pushMatrix();
+        RenderHelper.enableStandardItemLighting();
+        GlStateManager.enablePolygonOffset();
+        GlStateManager.doPolygonOffset((float)1.0f, (float)-1500000.0f);
+        GlStateManager.disableLighting();
+        GlStateManager.translate((float)((float)d), (float)((float)d2 + 1.4f), (float)((float)d3));
+        float f2 = -this.Field5233.getRenderManager().playerViewY;
+        float f3 = 1.0f;
+        float f4 = 0.0f;
+        GlStateManager.rotate((float)f2, (float)f4, (float)f3, (float)f4);
+        GlStateManager.rotate((float)this.Field5233.getRenderManager().playerViewX, (float)(this.Field5233.gameSettings.thirdPersonView == 2 ? -1.0f : 1.0f), (float)0.0f, (float)0.0f);
+        GlStateManager.scale((double)(-d7), (double)(-d7), (double)d7);
+        GlStateManager.disableDepth();
+        GlStateManager.enableBlend();
+        String string2 = new StringBuilder().insert(0, waypoint.Method9897()).append(" ").append(Math.round(d6)).append("m").toString();
+        float f5 = PyroRenderUtil.Method12314(string) / (float)2;
+        float f6 = -PyroRenderUtil.Method4908();
+        float f7 = PyroRenderUtil.Method12314(string2) / (float)2;
+        switch (fbW.Field2031[((fbV)((Object)this.Field2035.Method7979())).ordinal()]) {
+            case 1: {
+                GlStateManager.enableBlend();
+                PyroRenderUtil.Method12306(-f5 - 1.0f, f6, f5 + 1.5f, 1.0f, 1.8f, 0x55000400, 0x33000000);
+                GlStateManager.disableBlend();
+                PyroRenderUtil.Method12313(string, -f5, -(PyroRenderUtil.Method4908() - 1.0f), -5592406);
+                break;
             }
-         }
-      }
+            case 2: {
+                GlStateManager.enableBlend();
+                PyroRenderUtil.Method12306(-f7 - 1.0f, f6, f7 + 1.5f, 1.0f, 1.8f, 0x55000400, 0x33000000);
+                GlStateManager.disableBlend();
+                PyroRenderUtil.Method12313(string2, -f7, -(PyroRenderUtil.Method4908() - 1.0f), -5592406);
+                break;
+            }
+        }
+        GlStateManager.enableDepth();
+        GlStateManager.enableLighting();
+        GlStateManager.disableBlend();
+        GlStateManager.enableLighting();
+        GlStateManager.disablePolygonOffset();
+        GlStateManager.doPolygonOffset((float)1.0f, (float)1500000.0f);
+        GlStateManager.popMatrix();
+    }
 
-   }
+    @NotNull
+    public DoubleSetting Method228() {
+        return this.Field2036;
+    }
 
-   // $FF: renamed from: 0 (dev.nuker.pyro.BooleanSetting) void
-   public void method_1029(@NotNull BooleanSetting var1) {
-      this.field_696 = var1;
-   }
+    @NotNull
+    public f0o Method2544() {
+        return this.Field2035;
+    }
 
-   // $FF: renamed from: c (double, double, double) net.minecraft.util.math.Vec3d
-   public Vec3d method_1030(double var1, double var3, double var5) {
-      Entity var13 = this.c.getRenderViewEntity();
-      if (var13 == null) {
-         var13 = (Entity)this.c.player;
-      }
+    public void Method2373(@NotNull DoubleSetting doubleSetting) {
+        this.Field2038 = doubleSetting;
+    }
 
-      Vec3d var10000 = new Vec3d;
-      if (var13 == null) {
-         Intrinsics.throwNpe();
-      }
+    public boolean Method2689() {
+        return this.Field2041;
+    }
 
-      var10000.<init>(var13.posX, var13.posY, var13.posZ);
-      Vec3d var14 = var10000;
-      double var15 = var13.getDistance(var1, var3, var5);
-      double var7 = var14.x - 150.0D * (var14.x - var1) / var15;
-      double var9 = var14.y - 150.0D * (var14.y - var3) / var15;
-      double var11 = var14.z - 150.0D * (var14.z - var5) / var15;
-      return new Vec3d(var7, var9, var11);
-   }
+    @NotNull
+    public List Method2690() {
+        ArrayList<Waypoint> arrayList = new ArrayList<Waypoint>();
+        Iterable iterable = WaypointManager.Field6777.Method9798();
+        boolean bl = false;
+        for (Object t : iterable) {
+            Waypoint waypoint = (Waypoint)t;
+            boolean bl2 = false;
+            if (StringsKt.Method11503(waypoint.Method9897(), "logout spot", false, 2, null)) {
+                if (((Boolean)this.Field2039.Method7979()).booleanValue()) {
+                    arrayList.add(waypoint);
+                    continue;
+                }
+            }
+            if (StringsKt.Method11503(waypoint.Method9897(), "death point", false, 2, null)) {
+                if (((Boolean)this.Field2040.Method7979()).booleanValue()) {
+                    arrayList.add(waypoint);
+                    continue;
+                }
+            }
+            arrayList.add(waypoint);
+        }
+        return arrayList;
+    }
 
-   // $FF: renamed from: 0 (double, double, double) double
-   public double method_1031(double var1, double var3, double var5) {
-      return RangesKt.coerceAtLeast(var3, RangesKt.coerceAtMost(var5, var1));
-   }
+    public void Method2691(@NotNull BooleanSetting booleanSetting) {
+        this.Field2040 = booleanSetting;
+    }
 
-   // $FF: renamed from: 5 () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_1032() {
-      return this.field_694;
-   }
+    @NotNull
+    public BooleanSetting Method282() {
+        return this.Field2039;
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.DoubleSetting) void
-   public void method_1033(@NotNull DoubleSetting var1) {
-      this.field_693 = var1;
-   }
+    public void Method2692(@NotNull BooleanSetting booleanSetting) {
+        this.Field2037 = booleanSetting;
+    }
+
+    @NotNull
+    public BooleanSetting Method270() {
+        return this.Field2040;
+    }
+
+    @Override
+    public void Method195(@Nullable Vec3d vec3d, float f) {
+        super.Method195(vec3d, f);
+        Entity entity = this.Field5233.getRenderViewEntity();
+        if (entity == null) {
+            entity = (Entity)this.Field5233.player;
+        }
+        Iterable iterable = this.Method2690();
+        boolean bl = false;
+        for (Object t : iterable) {
+            double d;
+            Waypoint waypoint = (Waypoint)t;
+            boolean bl2 = false;
+            double d2 = d = this.Field5233.player.dimension == -1 ? waypoint.Method9899() / 8.0 : waypoint.Method9899();
+            double d3 = this.Field5233.player.dimension == -1 ? waypoint.Method9901() / 8.0 : waypoint.Method9901();
+            double d4 = this.Field5233.player.dimension == -1 ? waypoint.Method9903() / 8.0 : waypoint.Method9903();
+            PyroRenderUtil.Method455();
+            GlStateManager.pushMatrix();
+            RenderManager renderManager = this.Field5233.getRenderManager();
+            if (renderManager == null) {
+                throw new TypeCastException("null cannot be cast to non-null type dev.nuker.pyro.mixin.RenderManagerAccessor");
+            }
+            double d5 = d - ((RenderManagerAccessor)renderManager).Method2421();
+            RenderManager renderManager2 = this.Field5233.getRenderManager();
+            if (renderManager2 == null) {
+                throw new TypeCastException("null cannot be cast to non-null type dev.nuker.pyro.mixin.RenderManagerAccessor");
+            }
+            double d6 = d3 - ((RenderManagerAccessor)renderManager2).Method2422();
+            RenderManager renderManager3 = this.Field5233.getRenderManager();
+            if (renderManager3 == null) {
+                throw new TypeCastException("null cannot be cast to non-null type dev.nuker.pyro.mixin.RenderManagerAccessor");
+            }
+            double d7 = d4 - ((RenderManagerAccessor)renderManager3).Method2423();
+            AxisAlignedBB axisAlignedBB = new AxisAlignedBB(d5 - 0.25, d6, d7 - 0.25, d5 + 0.25, d6 + 2.0, d7 + 0.25);
+            GlStateManager.color((float)1.0f, (float)0.0f, (float)0.0f, (float)0.7f);
+            GL11.glLoadIdentity();
+            GL11.glLineWidth((float)((float)((Number)this.Field2036.Method7979()).doubleValue()));
+            EntityRenderer entityRenderer = this.Field5233.entityRenderer;
+            if (entityRenderer == null) {
+                throw new TypeCastException("null cannot be cast to non-null type dev.nuker.pyro.mixin.EntityRendererAccessor");
+            }
+            ((EntityRendererAccessor)entityRenderer).Method4472(f, 0);
+            if (((Boolean)this.Field2037.Method7979()).booleanValue()) {
+                double d8 = 0.0;
+                Vec3d vec3d2 = new Vec3d(d8, d8, 1.0);
+                Entity entity2 = entity;
+                if (entity2 == null) {
+                    Intrinsics.Method6551();
+                }
+                Vec3d vec3d3 = vec3d2.rotatePitch((float)(-Math.toRadians(entity2.rotationPitch)));
+                Entity entity3 = entity;
+                if (entity3 == null) {
+                    Intrinsics.Method6551();
+                }
+                Vec3d vec3d4 = vec3d3.rotateYaw((float)(-Math.toRadians(entity3.rotationYaw)));
+                Entity entity4 = entity;
+                if (entity4 == null) {
+                    Intrinsics.Method6551();
+                }
+                GL11.glVertex3d((double)vec3d4.x, (double)((double)entity4.getEyeHeight() + vec3d4.y), (double)vec3d4.z);
+                GL11.glVertex3d((double)d5, (double)d6, (double)d7);
+                GL11.glEnd();
+            }
+            GL11.glTranslated((double)d5, (double)d6, (double)d7);
+            GL11.glTranslated((double)(-d5), (double)(-d6), (double)(-d7));
+            PyroRenderUtil.Method12309(axisAlignedBB);
+            GlStateManager.popMatrix();
+            PyroRenderUtil.Method456();
+            GlStateManager.pushMatrix();
+            Vec3d vec3d5 = this.Method2694(d, d3, d4);
+            if (vec3d5 != null) {
+                if (this.Field5233.player.getDistance(d, d3, d4) > 150.0) {
+                    RenderManager renderManager4 = this.Field5233.getRenderManager();
+                    if (renderManager4 == null) {
+                        throw new TypeCastException("null cannot be cast to non-null type dev.nuker.pyro.mixin.RenderManagerAccessor");
+                    }
+                    RenderManager renderManager5 = this.Field5233.getRenderManager();
+                    if (renderManager5 == null) {
+                        throw new TypeCastException("null cannot be cast to non-null type dev.nuker.pyro.mixin.RenderManagerAccessor");
+                    }
+                    RenderManager renderManager6 = this.Field5233.getRenderManager();
+                    if (renderManager6 == null) {
+                        throw new TypeCastException("null cannot be cast to non-null type dev.nuker.pyro.mixin.RenderManagerAccessor");
+                    }
+                    this.Method2688(waypoint, vec3d5.x - ((RenderManagerAccessor)renderManager4).Method2421(), vec3d5.y - ((RenderManagerAccessor)renderManager5).Method2422() + 0.7, vec3d5.z - ((RenderManagerAccessor)renderManager6).Method2423(), f, d, d4);
+                } else {
+                    this.Method2686(waypoint, d5, d6 + 0.7, d7, f, d, d4);
+                }
+            }
+            GlStateManager.popMatrix();
+        }
+    }
+
+    public void Method2693(@NotNull BooleanSetting booleanSetting) {
+        this.Field2039 = booleanSetting;
+    }
+
+    public Vec3d Method2694(double d, double d2, double d3) {
+        double d4 = d;
+        double d5 = d2;
+        double d6 = d3;
+        Entity entity = this.Field5233.getRenderViewEntity();
+        if (entity == null) {
+            entity = (Entity)this.Field5233.player;
+        }
+        Entity entity2 = entity;
+        if (entity2 == null) {
+            Intrinsics.Method6551();
+        }
+        Vec3d vec3d = new Vec3d(entity2.posX, entity.posY, entity.posZ);
+        double d7 = entity.getDistance(d4, d5, d6);
+        d4 = vec3d.x - 150.0 * (vec3d.x - d4) / d7;
+        d5 = vec3d.y - 150.0 * (vec3d.y - d5) / d7;
+        d6 = vec3d.z - 150.0 * (vec3d.z - d6) / d7;
+        return new Vec3d(d4, d5, d6);
+    }
+
+    public double Method2695(double d, double d2, double d3) {
+        return RangesKt.Method4261(d2, RangesKt.Method4268(d3, d));
+    }
+
+    @NotNull
+    public BooleanSetting Method2424() {
+        return this.Field2037;
+    }
+
+    public void Method2371(@NotNull DoubleSetting doubleSetting) {
+        this.Field2036 = doubleSetting;
+    }
 }
+

@@ -1,26 +1,27 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.FriendManager;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Lambda;
 
-public class f29 extends Lambda implements Function1 {
-   // $FF: renamed from: c dev.nuker.pyro.f29
-   public static f29 field_9 = new f29();
+public class f29
+extends Lambda
+implements Function1 {
+    public static f29 Field5632 = new f29();
 
-   // $FF: renamed from: c (boolean) boolean
-   public boolean method_52(boolean var1) {
-      return FriendManager.Companion.saveSummitFriends(var1, true);
-   }
+    public boolean Method5222(boolean bl) {
+        return FriendManager.Field2145.Method8953(bl, true);
+    }
 
-   public Object invoke(Object var1) {
-      return this.method_52((Boolean)var1);
-   }
+    public Object Method41(Object object) {
+        return this.Method5222((Boolean)object);
+    }
 
-   public f29() {
-      super(1);
-   }
+    public f29() {
+        super(1);
+    }
 }
+

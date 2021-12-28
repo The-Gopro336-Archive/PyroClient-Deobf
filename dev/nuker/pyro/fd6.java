@@ -1,13 +1,37 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.block.Block
+ *  net.minecraft.block.state.IBlockState
+ *  net.minecraft.client.entity.EntityPlayerSP
+ *  net.minecraft.util.EnumFacing
+ *  net.minecraft.util.math.BlockPos
+ *  net.minecraft.util.math.MathHelper
+ *  net.minecraft.util.math.Vec3d
+ *  net.minecraft.world.World
+ *  org.jetbrains.annotations.NotNull
+ *  org.jetbrains.annotations.Nullable
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.BooleanSetting;
+import dev.nuker.pyro.Class58;
+import dev.nuker.pyro.Module;
+import dev.nuker.pyro.PyroRenderUtil;
+import dev.nuker.pyro.PyroStatic;
+import dev.nuker.pyro.f00;
+import dev.nuker.pyro.f0g;
+import dev.nuker.pyro.f0l;
+import dev.nuker.pyro.f41;
+import dev.nuker.pyro.f4u;
+import dev.nuker.pyro.fd5;
+import dev.nuker.pyro.fe5;
+import dev.nuker.pyro.feg;
+import dev.nuker.pyro.few;
 import dev.nuker.pyro.security.inject.LauncherEventHide;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.function.Consumer;
 import kotlin.jvm.internal.Intrinsics;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -20,189 +44,181 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class fd6 extends Module {
-   // $FF: renamed from: c dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_938 = (BooleanSetting)this.register((f0w)(new BooleanSetting("rotate", "Rotate", (String)null, true)));
-   // $FF: renamed from: 0 dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_939 = (BooleanSetting)this.register((f0w)(new BooleanSetting("raytrace", "Raytrace", (String)null, true)));
-   // $FF: renamed from: c dev.nuker.pyro.f0l
-   @NotNull
-   public f0l field_940 = (f0l)this.register((f0w)(new f0l("renderColor", "RenderColor", (String)null, new f00(1.0F, 1.0F, 0.5F, 0.3F))));
-   // $FF: renamed from: 0 dev.nuker.pyro.f0l
-   @NotNull
-   public f0l field_941 = (f0l)this.register((f0w)(new f0l("renderOutline", "RenderOutline", (String)null, new f00(1.0F, 1.0F, 0.5F, 1.0F))));
-   // $FF: renamed from: c net.minecraft.util.math.BlockPos
-   @Nullable
-   public BlockPos field_942;
+public class fd6
+extends Module {
+    @NotNull
+    public BooleanSetting Field125 = (BooleanSetting)this.Method7264(new BooleanSetting("rotate", "Rotate", null, true));
+    @NotNull
+    public BooleanSetting Field126 = (BooleanSetting)this.Method7264(new BooleanSetting("raytrace", "Raytrace", null, true));
+    @NotNull
+    public f0l Field127 = (f0l)this.Method7264(new f0l("renderColor", "RenderColor", null, new f00(1.0f, 1.0f, 0.5f, 0.3f)));
+    @NotNull
+    public f0l Field128 = (f0l)this.Method7264(new f0l("renderOutline", "RenderOutline", null, new f00(1.0f, 1.0f, 0.5f, 1.0f)));
+    @Nullable
+    public BlockPos Field129;
 
-   // $FF: renamed from: c (net.minecraft.util.math.BlockPos) void
-   public void method_1370(@Nullable BlockPos var1) {
-      this.field_942 = var1;
-   }
+    public void Method209(@Nullable BlockPos blockPos) {
+        this.Field129 = blockPos;
+    }
 
-   // $FF: renamed from: 0 () net.minecraft.util.EnumFacing
-   @NotNull
-   public EnumFacing method_1371() {
-      switch(MathHelper.floor((double)(this.c.player.rotationYaw * 8.0F / 360.0F) + 0.5D) & 7) {
-      case 0:
-      case 1:
-         return EnumFacing.SOUTH;
-      case 2:
-      case 3:
-         return EnumFacing.WEST;
-      case 4:
-      case 5:
-         return EnumFacing.NORTH;
-      case 6:
-      case 67:
-         return EnumFacing.EAST;
-      default:
-         return EnumFacing.NORTH;
-      }
-   }
-
-   // $FF: renamed from: 2 () net.minecraft.util.math.BlockPos
-   @Nullable
-   public BlockPos method_1372() {
-      return this.field_942;
-   }
-
-   // $FF: renamed from: c (dev.nuker.pyro.f4u, net.minecraft.util.math.BlockPos) boolean
-   public boolean method_1373(@NotNull f4u var1, @NotNull BlockPos var2) {
-      if ((Boolean)this.field_938.c()) {
-         float[] var3 = few.method_1716().method_1736(var2, few.method_1732(var2, true));
-         if (var3 != null) {
-            var1.0();
-            var1.method_3139(var3[0]);
-            var1.method_3140(var3[1]);
-            return true;
-         } else {
-            return false;
-         }
-      } else {
-         return true;
-      }
-   }
-
-   public fd6() {
-      super("autotunnel", "AutoTunnel", (String)null);
-   }
-
-   // $FF: renamed from: c (net.minecraft.block.state.IBlockState, net.minecraft.util.math.BlockPos, net.minecraft.block.Block) boolean
-   public boolean method_1374(@NotNull IBlockState var1, @NotNull BlockPos var2, @NotNull Block var3) {
-      if (this.c.playerController == null) {
-         return false;
-      } else if (PyroStatic.field_2568.method_1244().contains(var3)) {
-         return false;
-      } else {
-         return (double)var1.getBlockHardness((World)this.c.world, var2) != 1.0D || this.c.playerController.isInCreativeMode();
-      }
-   }
-
-   // $FF: renamed from: 1 () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_1375() {
-      return this.field_939;
-   }
-
-   // $FF: renamed from: c (dev.nuker.pyro.f4u) void
-   @f0g
-   @LauncherEventHide
-   public void method_1376(@NotNull f4u var1) {
-      if (!var1.c()) {
-         if (var1.c() == f41.field_2120) {
-            if (class_2.field_982.method_1424() == null || !(Intrinsics.areEqual((Object)class_2.field_982.method_1424(), (Object)((fd6)this)) ^ true)) {
-               if (Intrinsics.areEqual((Object)class_2.field_982.method_1424(), (Object)((fd6)this)) && this.field_942 != null) {
-                  BlockPos var10002 = this.field_942;
-                  if (var10002 == null) {
-                     Intrinsics.throwNpe();
-                  }
-
-                  this.method_1373(var1, var10002);
-               } else {
-                  EnumFacing var2 = this.method_1371();
-                  if (var2 != null) {
-                     BlockPos var3 = (new BlockPos(MathHelper.floor(this.c.player.posX), MathHelper.floor(this.c.player.posY), MathHelper.floor(this.c.player.posZ))).offset(var2);
-                     ArrayList var4 = new ArrayList();
-                     int var5 = 0;
-
-                     for(byte var6 = 3; var5 <= var6; ++var5) {
-                        var4.add(var3.offset(var2, var5));
-                        var4.add(var3.offset(var2, var5).up());
-                     }
-
-                     Iterator var17 = var4.iterator();
-
-                     while(var17.hasNext()) {
-                        BlockPos var16 = (BlockPos)var17.next();
-                        double var7 = this.c.player.posX - ((double)var16.getX() + 0.5D);
-                        double var9 = this.c.player.posY - ((double)var16.getY() + 0.5D) + 1.5D;
-                        double var11 = this.c.player.posZ - ((double)var16.getZ() + 0.5D);
-                        double var13 = var7 * var7 + var9 * var9 + var11 * var11;
-                        if (!(var13 > 36.0D)) {
-                           Block var15 = feg.method_1779(var16);
-                           if (this.method_1374(feg.method_1791(var16), var16, var15) && this.method_1373(var1, var16)) {
-                              this.field_942 = var16;
-                              class_2.field_982.method_1425((Module)this, var16, (Boolean)this.field_939.c(), (Consumer)(new fd5(this)));
-                              break;
-                           }
-                        }
-                     }
-                  }
-
-               }
+    @NotNull
+    public EnumFacing Method210() {
+        switch (MathHelper.floor((double)((double)(this.Field5233.player.rotationYaw * 8.0f / 360.0f) + 0.5)) & 7) {
+            case 0: 
+            case 1: {
+                return EnumFacing.SOUTH;
             }
-         }
-      }
-   }
+            case 2: 
+            case 3: {
+                return EnumFacing.WEST;
+            }
+            case 4: 
+            case 5: {
+                return EnumFacing.NORTH;
+            }
+            case 6: 
+            case 67: {
+                return EnumFacing.EAST;
+            }
+        }
+        return EnumFacing.NORTH;
+    }
 
-   // $FF: renamed from: c (boolean, net.minecraft.client.entity.EntityPlayerSP, net.minecraft.world.World) void
-   public void method_116(boolean var1, @Nullable EntityPlayerSP var2, @Nullable World var3) {
-      super.method_116(var1, var2, var3);
-      if (class_2.field_982.method_1424() != null && Intrinsics.areEqual((Object)class_2.field_982.method_1424(), (Object)((fd6)this))) {
-         class_2.field_982.method_1423(false);
-      }
-   }
+    @Nullable
+    public BlockPos Method211() {
+        return this.Field129;
+    }
 
-   // $FF: renamed from: 3 () dev.nuker.pyro.f0l
-   @NotNull
-   public f0l method_1377() {
-      return this.field_941;
-   }
+    public boolean Method204(@NotNull f4u f4u2, @NotNull BlockPos blockPos) {
+        if (((Boolean)this.Field125.Method7979()).booleanValue()) {
+            float[] arrf = few.Method835().Method850(blockPos, few.Method848(blockPos, true));
+            if (arrf != null) {
+                f4u2.Method7948();
+                f4u2.Method5653(arrf[0]);
+                f4u2.Method5647(arrf[1]);
+                return true;
+            }
+            return false;
+        }
+        return true;
+    }
 
-   // $FF: renamed from: c () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_1378() {
-      return this.field_938;
-   }
+    public fd6() {
+        super("autotunnel", "AutoTunnel", null);
+    }
 
-   // $FF: renamed from: c (net.minecraft.util.math.Vec3d, float) void
-   public void method_123(@Nullable Vec3d var1, float var2) {
-      if (this.field_942 != null) {
-         fe5.field_1245.method_1915(7);
-         fe5 var10000 = fe5.field_1245;
-         BlockPos var10001 = this.field_942;
-         if (var10001 == null) {
-            Intrinsics.throwNpe();
-         }
+    public boolean Method212(@NotNull IBlockState iBlockState, @NotNull BlockPos blockPos, @NotNull Block block) {
+        if (this.Field5233.playerController == null) {
+            return false;
+        }
+        if (PyroStatic.Field6504.Method584().contains((Object)block)) {
+            return false;
+        }
+        if ((double)iBlockState.getBlockHardness((World)this.Field5233.world, blockPos) == 1.0) {
+            if (!this.Field5233.playerController.isInCreativeMode()) {
+                return false;
+            }
+        }
+        return true;
+    }
 
-         var10000.method_1917(var10001, ((f00)this.field_940.c()).meth1(), 63);
-         fe5.field_1245.method_1912();
-         BlockPos var3 = this.field_942;
-         if (var3 == null) {
-            Intrinsics.throwNpe();
-         }
+    @NotNull
+    public BooleanSetting Method213() {
+        return this.Field126;
+    }
 
-         PyroRenderUtil.method_1433(var3, ((f00)this.field_941.c()).meth1(), 1.5F, false);
-      }
+    @f0g
+    @LauncherEventHide
+    public void Method203(@NotNull f4u f4u2) {
+        EnumFacing enumFacing;
+        if (f4u2.Method7947()) {
+            return;
+        }
+        if (f4u2.Method5619() != f41.Pre) {
+            return;
+        }
+        if (Class58.Field4487.Method5755() != null) {
+            if (Intrinsics.Method6572(Class58.Field4487.Method5755(), this) ^ true) {
+                return;
+            }
+        }
+        if (Intrinsics.Method6572(Class58.Field4487.Method5755(), this)) {
+            if (this.Field129 != null) {
+                BlockPos blockPos = this.Field129;
+                if (blockPos == null) {
+                    Intrinsics.Method6551();
+                }
+                this.Method204(f4u2, blockPos);
+                return;
+            }
+        }
+        if ((enumFacing = this.Method210()) != null) {
+            BlockPos blockPos = new BlockPos(MathHelper.floor((double)this.Field5233.player.posX), MathHelper.floor((double)this.Field5233.player.posY), MathHelper.floor((double)this.Field5233.player.posZ)).offset(enumFacing);
+            ArrayList<BlockPos> arrayList = new ArrayList<BlockPos>();
+            int n = 3;
+            for (int i = 0; i <= n; ++i) {
+                arrayList.add(blockPos.offset(enumFacing, i));
+                arrayList.add(blockPos.offset(enumFacing, i).up());
+            }
+            Iterator iterator2 = arrayList.iterator();
+            while (iterator2.hasNext()) {
+                BlockPos blockPos2 = (BlockPos)iterator2.next();
+                double d = this.Field5233.player.posX - ((double)blockPos2.getX() + 0.5);
+                double d2 = this.Field5233.player.posY - ((double)blockPos2.getY() + 0.5) + 1.5;
+                double d3 = this.Field5233.player.posZ - ((double)blockPos2.getZ() + 0.5);
+                double d4 = d * d + d2 * d2 + d3 * d3;
+                if (d4 > 36.0) continue;
+                Block block = feg.Method690(blockPos2);
+                if (!this.Method212(feg.Method701(blockPos2), blockPos2, block) || !this.Method204(f4u2, blockPos2)) continue;
+                this.Field129 = blockPos2;
+                Class58.Field4487.Method6420(this, blockPos2, (Boolean)this.Field126.Method7979(), new fd5(this));
+                break;
+            }
+        }
+    }
 
-   }
+    @Override
+    public void Method205(boolean bl, @Nullable EntityPlayerSP entityPlayerSP, @Nullable World world) {
+        super.Method205(bl, entityPlayerSP, world);
+        if (Class58.Field4487.Method5755() != null) {
+            if (Intrinsics.Method6572(Class58.Field4487.Method5755(), this)) {
+                Class58.Field4487.Method4824(false);
+                return;
+            }
+        }
+    }
 
-   // $FF: renamed from: 4 () dev.nuker.pyro.f0l
-   @NotNull
-   public f0l method_1379() {
-      return this.field_940;
-   }
+    @NotNull
+    public f0l Method214() {
+        return this.Field128;
+    }
+
+    @NotNull
+    public BooleanSetting Method215() {
+        return this.Field125;
+    }
+
+    @Override
+    public void Method195(@Nullable Vec3d vec3d, float f) {
+        if (this.Field129 != null) {
+            fe5.Field252.Method408(7);
+            BlockPos blockPos = this.Field129;
+            if (blockPos == null) {
+                Intrinsics.Method6551();
+            }
+            fe5.Field252.Method410(blockPos, ((f00)this.Field127.Method7979()).Method7515(), 63);
+            fe5.Field252.Method405();
+            BlockPos blockPos2 = this.Field129;
+            if (blockPos2 == null) {
+                Intrinsics.Method6551();
+            }
+            PyroRenderUtil.Method12305(blockPos2, ((f00)this.Field128.Method7979()).Method7515(), 1.5f, false);
+        }
+    }
+
+    @NotNull
+    public f0l Method216() {
+        return this.Field127;
+    }
 }
+

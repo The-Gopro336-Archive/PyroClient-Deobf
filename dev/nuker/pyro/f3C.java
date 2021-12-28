@@ -1,35 +1,32 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.util.math.BlockPos
+ *  net.minecraft.util.text.Style
+ *  net.minecraft.util.text.TextComponentString
+ *  net.minecraft.util.text.TextFormatting
  */
 package dev.nuker.pyro;
 
 import com.mojang.brigadier.Command;
-import com.mojang.brigadier.arguments.StringArgumentType;
+import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.context.CommandContext;
-import java.util.Iterator;
-import kotlin.text.StringsKt;
-import net.minecraft.util.text.ITextComponent;
+import dev.nuker.pyro.PyroStatic;
+import dev.nuker.pyro.f1s;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextFormatting;
 
-public class f3C implements Command {
-   // $FF: renamed from: c dev.nuker.pyro.f3C
-   public static f3C field_2037 = new f3C();
+public class f3c
+implements Command {
+    public static f3c Field3992 = new f3c();
 
-   public int run(CommandContext var1) {
-      String var2 = StringArgumentType.getString(var1, "module");
-      Iterator var4 = class_37.field_2633.method_3981().iterator();
-
-      while(var4.hasNext()) {
-         Module var3 = (Module)var4.next();
-         String var5 = var3.method_127();
-         if (StringsKt.startsWith(var5, var2, true)) {
-            var3.method_115(-1);
-            ((f1s)var1.getSource()).method_3083((ITextComponent)(new TextComponentString("Set the bind of " + var3.method_127() + " to NONE")));
-            break;
-         }
-      }
-
-      return 0;
-   }
+    public int Method152(CommandContext commandContext) {
+        PyroStatic.Field6403.Method2286(new BlockPos(IntegerArgumentType.Method9838(commandContext, "x"), IntegerArgumentType.Method9838(commandContext, "y"), IntegerArgumentType.Method9838(commandContext, "z")));
+        ((f1s)commandContext.Method6876()).Method5489(new TextComponentString("Set goal to ").appendSibling(new TextComponentString(PyroStatic.Field6403.Method211().toString()).setStyle(new Style().setColor(TextFormatting.DARK_AQUA))));
+        return 0;
+    }
 }
+

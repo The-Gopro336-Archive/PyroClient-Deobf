@@ -1,114 +1,114 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.entity.player.EntityPlayer
+ *  org.jetbrains.annotations.NotNull
+ *  org.jetbrains.annotations.Nullable
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.fdZ;
 import net.minecraft.entity.player.EntityPlayer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class Rotation {
-   public float yaw;
-   public float pitch;
+    public float Field4808;
+    public float Field4809;
 
-   public float getPitch() {
-      return this.pitch;
-   }
+    public float Method6933() {
+        return this.Field4809;
+    }
 
-   public void meth1(float var1) {
-      this.yaw = var1;
-   }
+    public void Method6934(float f) {
+        this.Field4808 = f;
+    }
 
-   // $FF: renamed from: c (float, float) dev.nuker.pyro.Rotation
-   @NotNull
-   public Rotation method_3369(float var1, float var2) {
-      return new Rotation(var1, var2);
-   }
+    @NotNull
+    public Rotation Method6935(float f, float f2) {
+        return new Rotation(f, f2);
+    }
 
-   public float meth4() {
-      return this.pitch;
-   }
+    public float Method6936() {
+        return this.Field4809;
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.Rotation, float, float, int, java.lang.Object) dev.nuker.pyro.Rotation
-   public static Rotation method_3370(Rotation var0, float var1, float var2, int var3, Object var4) {
-      if ((var3 & 1) != 0) {
-         var1 = var0.yaw;
-      }
+    public static Rotation Method6937(Rotation rotation, float f, float f2, int n, Object object) {
+        if ((n & 1) != 0) {
+            f = rotation.Field4808;
+        }
+        if ((n & 2) != 0) {
+            f2 = rotation.Field4809;
+        }
+        return rotation.Method6935(f, f2);
+    }
 
-      if ((var3 & 2) != 0) {
-         var2 = var0.pitch;
-      }
+    public float Method6938() {
+        return this.Field4808;
+    }
 
-      return var0.method_3369(var1, var2);
-   }
+    public Rotation(float f, float f2) {
+        this.Field4808 = f;
+        this.Field4809 = f2;
+    }
 
-   public float meth2() {
-      return this.yaw;
-   }
+    public void Method6939(float f) {
+        this.Field4809 = f;
+    }
 
-   public Rotation(float var1, float var2) {
-      this.yaw = var1;
-      this.pitch = var2;
-   }
+    public boolean Method6940(@NotNull Rotation rotation) {
+        return rotation.Field4808 == this.Field4808 && rotation.Field4809 == this.Field4809;
+    }
 
-   public void setPitch(float var1) {
-      this.pitch = var1;
-   }
-
-   // $FF: renamed from: c (dev.nuker.pyro.Rotation) boolean
-   public boolean method_3371(@NotNull Rotation var1) {
-      return var1.yaw == this.yaw && var1.pitch == this.pitch;
-   }
-
-   public void setEntityRotation(@NotNull EntityPlayer var1) {
-      float var2 = this.yaw;
-      boolean var3 = false;
-      if (!Float.isNaN(var2)) {
-         var2 = this.pitch;
-         var3 = false;
-         if (!Float.isNaN(var2)) {
-            this.fixedSensitivity(fdZ.field_976.gameSettings.mouseSensitivity);
-            var1.rotationYaw = this.yaw;
-            var1.rotationPitch = this.pitch;
-            return;
-         }
-      }
-
-   }
-
-   public int hashCode() {
-      return Float.hashCode(this.yaw) * 31 + Float.hashCode(this.pitch);
-   }
-
-   public float meth3() {
-      return this.yaw;
-   }
-
-   @NotNull
-   public String toString() {
-      return "Rotation(yaw=" + this.yaw + ", pitch=" + this.pitch + ")";
-   }
-
-   public void fixedSensitivity(float var1) {
-      float var2 = var1 * 0.6F + 0.2F;
-      float var3 = var2 * var2 * var2 * 1.2F;
-      this.yaw -= this.yaw % var3;
-      this.pitch -= this.pitch % var3;
-   }
-
-   public boolean equals(@Nullable Object var1) {
-      if (this != var1) {
-         if (var1 instanceof Rotation) {
-            Rotation var2 = (Rotation)var1;
-            if (Float.compare(this.yaw, var2.yaw) == 0 && Float.compare(this.pitch, var2.pitch) == 0) {
-               return true;
+    public void Method6941(@NotNull EntityPlayer entityPlayer) {
+        block3: {
+            block2: {
+                float f = this.Field4808;
+                boolean bl = false;
+                if (Float.isNaN(f)) break block2;
+                f = this.Field4809;
+                bl = false;
+                if (!Float.isNaN(f)) break block3;
             }
-         }
+            return;
+        }
+        this.Method6943(fdZ.Field313.gameSettings.mouseSensitivity);
+        entityPlayer.rotationYaw = this.Field4808;
+        entityPlayer.rotationPitch = this.Field4809;
+    }
 
-         return false;
-      } else {
-         return true;
-      }
-   }
+    public int hashCode() {
+        return Float.hashCode(this.Field4808) * 31 + Float.hashCode(this.Field4809);
+    }
+
+    public float Method6942() {
+        return this.Field4808;
+    }
+
+    @NotNull
+    public String toString() {
+        return "Rotation(yaw=" + this.Field4808 + ", pitch=" + this.Field4809 + ")";
+    }
+
+    public void Method6943(float f) {
+        float f2 = f * 0.6f + 0.2f;
+        float f3 = f2 * f2 * f2 * 1.2f;
+        this.Field4808 -= this.Field4808 % f3;
+        this.Field4809 -= this.Field4809 % f3;
+    }
+
+    public boolean equals(@Nullable Object object) {
+        block3: {
+            block2: {
+                if (this == object) break block2;
+                if (!(object instanceof Rotation)) break block3;
+                Rotation rotation = (Rotation)object;
+                if (Float.compare(this.Field4808, rotation.Field4808) != 0 || Float.compare(this.Field4809, rotation.Field4809) != 0) break block3;
+            }
+            return true;
+        }
+        return false;
+    }
 }
+

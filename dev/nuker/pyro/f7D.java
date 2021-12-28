@@ -1,27 +1,28 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  io.netty.util.internal.shaded.org.jctools.queues.MessagePassingQueue$Consumer
  */
 package dev.nuker.pyro;
 
-import io.netty.util.internal.shaded.org.jctools.queues.MessagePassingQueue.Consumer;
+import dev.nuker.pyro.f7E;
+import io.netty.util.internal.shaded.org.jctools.queues.MessagePassingQueue;
 
-public class f7D implements Consumer {
-   // $FF: renamed from: c dev.nuker.pyro.f7E
-   public f7E field_1766;
+public class f7D
+implements MessagePassingQueue.Consumer {
+    public f7E Field3185;
 
-   // $FF: renamed from: c (java.lang.Boolean) void
-   public void method_2990(Boolean var1) {
-      this.field_1766.field_1771.method_799(true);
-   }
+    public void Method5095(Boolean bl) {
+        this.Field3185.Field3187.Method5017(true);
+    }
 
-   // $FF: renamed from: c (java.lang.Object) void
-   public void method_2991(Object var1) {
-      this.method_2990((Boolean)var1);
-   }
+    public void Method5096(Object object) {
+        this.Method5095((Boolean)object);
+    }
 
-   public f7D(f7E var1) {
-      this.field_1766 = var1;
-      super();
-   }
+    public f7D(f7E f7E2) {
+        this.Field3185 = f7E2;
+    }
 }
+

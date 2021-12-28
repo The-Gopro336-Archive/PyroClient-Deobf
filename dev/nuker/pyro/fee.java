@@ -1,6 +1,10 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.util.EnumFacing
+ *  net.minecraft.util.math.BlockPos
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
@@ -9,37 +13,32 @@ import net.minecraft.util.math.BlockPos;
 import org.jetbrains.annotations.NotNull;
 
 public class fee {
-   // $FF: renamed from: c net.minecraft.util.math.BlockPos
-   @NotNull
-   public BlockPos field_1333;
-   // $FF: renamed from: c net.minecraft.util.EnumFacing
-   @NotNull
-   public EnumFacing field_1334;
+    @NotNull
+    public BlockPos Field446;
+    @NotNull
+    public EnumFacing Field447;
 
-   public fee(@NotNull BlockPos var1, @NotNull EnumFacing var2) {
-      this.field_1333 = var1;
-      this.field_1334 = var2;
-   }
+    public fee(@NotNull BlockPos blockPos, @NotNull EnumFacing enumFacing) {
+        this.Field446 = blockPos;
+        this.Field447 = enumFacing;
+    }
 
-   // $FF: renamed from: c (net.minecraft.util.EnumFacing) void
-   public void method_2007(@NotNull EnumFacing var1) {
-      this.field_1334 = var1;
-   }
+    public void Method675(@NotNull EnumFacing enumFacing) {
+        this.Field447 = enumFacing;
+    }
 
-   // $FF: renamed from: c (net.minecraft.util.math.BlockPos) void
-   public void method_2008(@NotNull BlockPos var1) {
-      this.field_1333 = var1;
-   }
+    public void Method676(@NotNull BlockPos blockPos) {
+        this.Field446 = blockPos;
+    }
 
-   // $FF: renamed from: c () net.minecraft.util.EnumFacing
-   @NotNull
-   public EnumFacing method_2009() {
-      return this.field_1334;
-   }
+    @NotNull
+    public EnumFacing Method677() {
+        return this.Field447;
+    }
 
-   // $FF: renamed from: 0 () net.minecraft.util.math.BlockPos
-   @NotNull
-   public BlockPos method_2010() {
-      return this.field_1333;
-   }
+    @NotNull
+    public BlockPos Method678() {
+        return this.Field446;
+    }
 }
+

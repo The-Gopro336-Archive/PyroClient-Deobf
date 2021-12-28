@@ -1,9 +1,19 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  org.apache.commons.io.FileUtils
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.Class29;
+import dev.nuker.pyro.Class34;
+import dev.nuker.pyro.Class8;
+import dev.nuker.pyro.Config;
+import dev.nuker.pyro.Pyro;
+import dev.nuker.pyro.PyroClientLoadingPlugin;
+import dev.nuker.pyro.f66;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,121 +23,102 @@ import org.apache.commons.io.FileUtils;
 import org.jetbrains.annotations.NotNull;
 
 public class f67 {
-   // $FF: renamed from: c dev.nuker.pyro.f66
-   @NotNull
-   public static f66 field_2200;
-   // $FF: renamed from: c dev.nuker.pyro.f67
-   public static f67 field_2201;
+    @NotNull
+    public static f66 Field4190;
+    public static f67 Field4191;
 
-   // $FF: renamed from: 3 () void
-   public void method_3274() {
-      f66 var10001;
-      if (Config.INSTANCE.profile != null) {
-         var10001 = new f66;
-         File var10003 = new File(Pyro.FOLDER, "profiles/" + Config.INSTANCE.profile);
-         String var10004 = Config.INSTANCE.profile;
-         if (var10004 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         var10001.<init>(var10003, var10004);
-      } else {
-         f66 var1 = this.method_3281();
-         if (!var1.method_3272().exists() || !var1.method_3272().isDirectory()) {
-            File var2 = new File(Pyro.FOLDER, "modules");
-            if (var2.exists() && var2.isDirectory()) {
-               this.method_3275();
+    public void Method5821() {
+        f66 f662;
+        if (Config.Field3937.Field3936 != null) {
+            File file = new File(Pyro.Field6178, "profiles/" + Config.Field3937.Field3936);
+            String string = Config.Field3937.Field3936;
+            if (string == null) {
+                Intrinsics.Method6551();
             }
-         }
-
-         var10001 = var1;
-      }
-
-      this.method_3276(var10001);
-   }
-
-   // $FF: renamed from: 4 () void
-   public void method_3275() {
-      PyroClientLoadingPlugin.LOG.info("Migrating to profiles system");
-      File var1 = this.method_3281().method_3272();
-      FileUtils.copyDirectory(new File(Pyro.FOLDER, "modules"), new File(var1, "modules"));
-      if ((new File(Pyro.FOLDER, "hud.json")).exists()) {
-         FilesKt.copyTo$default(new File(Pyro.FOLDER, "hud.json"), new File(var1, "hud.json"), false, 0, 6, (Object)null);
-      }
-
-      if ((new File(Pyro.FOLDER, "hud")).exists()) {
-         FileUtils.copyDirectory(new File(Pyro.FOLDER, "hud"), new File(var1, "hud"));
-      }
-
-   }
-
-   // $FF: renamed from: c (dev.nuker.pyro.f66) void
-   public void method_3276(@NotNull f66 var1) {
-      field_2200 = var1;
-      class_5.method_1479();
-      class_37.field_2633.method_3983();
-      class_3.field_990.method_3406().method_1452();
-      this.method_3280();
-   }
-
-   // $FF: renamed from: c () dev.nuker.pyro.f66
-   @NotNull
-   public f66 method_3277() {
-      return field_2200;
-   }
-
-   // $FF: renamed from: 5 () java.util.List
-   @NotNull
-   public List method_3278() {
-      boolean var2 = false;
-      List var1 = (List)(new ArrayList());
-      var1.add(this.method_3281());
-      File var11 = new File(Pyro.FOLDER, "profiles");
-      if (var11.exists() && var11.isDirectory()) {
-         File[] var3 = var11.listFiles();
-         boolean var4 = false;
-         File[] var5 = var3;
-         int var6 = var3.length;
-
-         for(int var7 = 0; var7 < var6; ++var7) {
-            File var8 = var5[var7];
-            boolean var10 = false;
-            if (var8.exists() && var8.isDirectory()) {
-               var1.add(new f66(var8, var8.getName()));
+            f662 = new f66(file, string);
+        } else {
+            File file;
+            f66 f663 = this.Method5828();
+            if ((!f663.Method5809().exists() || !f663.Method5809().isDirectory()) && (file = new File(Pyro.Field6178, "modules")).exists() && file.isDirectory()) {
+                this.Method5822();
             }
-         }
-      }
+            f662 = f663;
+        }
+        this.Method5823(f662);
+    }
 
-      return var1;
-   }
+    public void Method5822() {
+        PyroClientLoadingPlugin.Field7533.info("Migrating to profiles system");
+        File file = this.Method5828().Method5809();
+        FileUtils.copyDirectory((File)new File(Pyro.Field6178, "modules"), (File)new File(file, "modules"));
+        if (new File(Pyro.Field6178, "hud.json").exists()) {
+            FilesKt.Method10072(new File(Pyro.Field6178, "hud.json"), new File(file, "hud.json"), false, 0, 6, null);
+        }
+        if (new File(Pyro.Field6178, "hud").exists()) {
+            FileUtils.copyDirectory((File)new File(Pyro.Field6178, "hud"), (File)new File(file, "hud"));
+        }
+    }
 
-   // $FF: renamed from: 6 () java.io.File
-   @NotNull
-   public File method_3279() {
-      return new File(field_2200.method_3272(), "hud");
-   }
+    public void Method5823(@NotNull f66 f662) {
+        Field4190 = f662;
+        Class8.Method4825();
+        Class34.Field4599.Method6758();
+        Class29.Field3216.Method7300().Method455();
+        this.Method5827();
+    }
 
-   static {
-      f67 var0 = new f67();
-      field_2201 = var0;
-      field_2200 = var0.method_3281();
-   }
+    @NotNull
+    public f66 Method5824() {
+        return Field4190;
+    }
 
-   // $FF: renamed from: 1 () void
-   public void method_3280() {
-      Config.INSTANCE.profile = Intrinsics.areEqual((Object)field_2200.method_3273(), (Object)"default") ? null : field_2200.method_3273();
-      Config.Companion.save();
-   }
+    @NotNull
+    public List Method5825() {
+        boolean bl = false;
+        List list = new ArrayList();
+        list.add(this.Method5828());
+        File file = new File(Pyro.Field6178, "profiles");
+        if (file.exists() && file.isDirectory()) {
+            File[] arrfile = file.listFiles();
+            boolean bl2 = false;
+            File[] arrfile2 = arrfile;
+            int n = arrfile2.length;
+            for (int i = 0; i < n; ++i) {
+                File file2;
+                File file3 = file2 = arrfile2[i];
+                boolean bl3 = false;
+                if (!file3.exists()) continue;
+                if (!file3.isDirectory()) continue;
+                list.add(new f66(file3, file3.getName()));
+            }
+        }
+        return list;
+    }
 
-   // $FF: renamed from: 0 () dev.nuker.pyro.f66
-   @NotNull
-   public f66 method_3281() {
-      return new f66(new File(Pyro.FOLDER, "profiles/default"), "default");
-   }
+    @NotNull
+    public File Method5826() {
+        return new File(Field4190.Method5809(), "hud");
+    }
 
-   // $FF: renamed from: 2 () java.io.File
-   @NotNull
-   public File method_3282() {
-      return new File(field_2200.method_3272(), "modules");
-   }
+    static {
+        f67 f672;
+        Field4191 = f672 = new f67();
+        Field4190 = f672.Method5828();
+    }
+
+    public void Method5827() {
+        Config.Field3937.Field3936 = Intrinsics.Method6572(Field4190.Method5810(), "default") ? null : Field4190.Method5810();
+        Config.Field3938.Method5382();
+    }
+
+    @NotNull
+    public f66 Method5828() {
+        return new f66(new File(Pyro.Field6178, "profiles/default"), "default");
+    }
+
+    @NotNull
+    public File Method5829() {
+        return new File(Field4190.Method5809(), "modules");
+    }
 }
+

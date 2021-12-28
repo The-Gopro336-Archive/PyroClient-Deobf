@@ -1,14 +1,42 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.entity.EntityPlayerSP
+ *  net.minecraft.client.renderer.GlStateManager
+ *  net.minecraft.client.settings.KeyBinding
+ *  net.minecraft.entity.Entity
+ *  net.minecraft.entity.player.EntityPlayer
+ *  net.minecraft.util.math.BlockPos
+ *  net.minecraft.util.math.Vec3d
+ *  net.minecraft.world.World
+ *  org.jetbrains.annotations.NotNull
+ *  org.jetbrains.annotations.Nullable
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.BooleanSetting;
+import dev.nuker.pyro.Class58;
+import dev.nuker.pyro.Module;
+import dev.nuker.pyro.PyroRenderUtil;
+import dev.nuker.pyro.f00;
+import dev.nuker.pyro.f0g;
+import dev.nuker.pyro.f0l;
+import dev.nuker.pyro.f0o;
+import dev.nuker.pyro.f0t;
+import dev.nuker.pyro.f41;
+import dev.nuker.pyro.f4k;
+import dev.nuker.pyro.f4t;
+import dev.nuker.pyro.f4u;
+import dev.nuker.pyro.fd1;
+import dev.nuker.pyro.fd2;
+import dev.nuker.pyro.fd3;
+import dev.nuker.pyro.fe5;
+import dev.nuker.pyro.few;
+import dev.nuker.pyro.fex;
 import dev.nuker.pyro.mixin.KeyBindingAccessor;
 import dev.nuker.pyro.security.inject.LauncherEventHide;
-import java.util.Iterator;
 import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.function.Consumer;
 import kotlin.TypeCastException;
 import kotlin.jvm.internal.Intrinsics;
 import net.minecraft.client.entity.EntityPlayerSP;
@@ -22,172 +50,138 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class fd4 extends Module {
-   // $FF: renamed from: c dev.nuker.pyro.f0o
-   public f0o field_943;
-   // $FF: renamed from: c dev.nuker.pyro.f0l
-   public f0l field_944;
-   // $FF: renamed from: 0 dev.nuker.pyro.f0l
-   public f0l field_945;
-   // $FF: renamed from: 1 dev.nuker.pyro.f0l
-   public f0l field_946;
-   // $FF: renamed from: 2 dev.nuker.pyro.f0l
-   public f0l field_947;
-   // $FF: renamed from: c dev.nuker.pyro.BooleanSetting
-   public BooleanSetting field_948;
-   // $FF: renamed from: c net.minecraft.util.math.BlockPos
-   public BlockPos field_949;
-   // $FF: renamed from: c java.util.concurrent.ConcurrentLinkedQueue
-   public ConcurrentLinkedQueue field_950;
+public class fd4
+extends Module {
+    public f0o<fd1> Field114 = (f0o)this.Method7264(new f0o("mode", "Mode", null, fd1.Legit));
+    public f0l Field115 = (f0l)this.Method7264(new f0l("renderColor", "RenderColor", null, new f00(0.0f, 1.0f, 0.5f, 0.3f)));
+    public f0l Field116 = (f0l)this.Method7264(new f0l("rendeerOutline", "RenderOutline", null, new f00(0.0f, 1.0f, 0.5f, 1.0f)));
+    public f0l Field117 = new f0l("queueColor1", "QueueColor", null, new f00(0.475f, 1.0f, 0.5f, 0.3f));
+    public f0l Field118 = new f0l("queueOutline1", "QueueOutline", null, new f00(0.475f, 1.0f, 0.5f, 1.0f));
+    public BooleanSetting Field119 = new BooleanSetting("queue", "Queue", null, false);
+    public BlockPos Field120 = BlockPos.ORIGIN;
+    public ConcurrentLinkedQueue<BlockPos> Field121 = new ConcurrentLinkedQueue();
 
-   // $FF: renamed from: c (dev.nuker.pyro.fd4) net.minecraft.util.math.BlockPos
-   public static BlockPos method_1381(fd4 var0) {
-      return var0.field_949;
-   }
+    public static BlockPos Method200(fd4 fd42) {
+        return fd42.Field120;
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.fd4, net.minecraft.util.math.BlockPos) void
-   public static void method_1382(fd4 var0, BlockPos var1) {
-      var0.field_949 = var1;
-   }
+    public static void Method201(fd4 fd42, BlockPos blockPos) {
+        fd42.Field120 = blockPos;
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.f4k) void
-   @f0g
-   @LauncherEventHide
-   public void method_1383(@NotNull f4k var1) {
-      if ((fd1)this.field_943.c() == fd1.field_962) {
-         if ((Boolean)this.field_948.c() && Intrinsics.areEqual((Object)this.field_949, (Object)BlockPos.ORIGIN) ^ true) {
-            if (this.field_950.contains(var1.method_3268())) {
-               this.field_950.remove(var1.method_3268());
+    @f0g
+    @LauncherEventHide
+    public void Method202(@NotNull f4k f4k2) {
+        if ((fd1)((Object)this.Field114.Method7979()) == fd1.ClickSelect) {
+            if (((Boolean)this.Field119.Method7979()).booleanValue() && Intrinsics.Method6572((Object)this.Field120, (Object)BlockPos.ORIGIN) ^ true) {
+                if (this.Field121.contains((Object)f4k2.Method5785())) {
+                    this.Field121.remove((Object)f4k2.Method5785());
+                }
+                this.Field121.add(f4k2.Method5785());
+                return;
             }
+            this.Field120 = f4k2.Method5785();
+            Class58.Field4487.Method6420(this, f4k2.Method5785(), true, new fd2(this));
+        }
+    }
 
-            this.field_950.add(var1.method_3268());
-            return;
-         }
-
-         this.field_949 = var1.method_3268();
-         class_2.field_982.method_1425((Module)this, var1.method_3268(), true, (Consumer)(new fd2(this)));
-      }
-
-   }
-
-   // $FF: renamed from: c (dev.nuker.pyro.f4u) void
-   @f0g
-   @LauncherEventHide
-   public void method_1384(@NotNull f4u var1) {
-      if (var1.c() == f41.field_2120 && (fd1)this.field_943.c() == fd1.field_962 && this.field_949 != null) {
-         if (class_2.field_982.method_1424() != null && Intrinsics.areEqual((Object)class_2.field_982.method_1424(), (Object)((fd4)this)) ^ true) {
-            return;
-         }
-
-         if (Intrinsics.areEqual((Object)class_2.field_982.method_1424(), (Object)((fd4)this)) && this.field_949 != null) {
-            BlockPos var10002 = this.field_949;
-            if (var10002 == null) {
-               Intrinsics.throwNpe();
+    @f0g
+    @LauncherEventHide
+    public void Method203(@NotNull f4u f4u2) {
+        if (f4u2.Method5619() == f41.Pre && (fd1)((Object)this.Field114.Method7979()) == fd1.ClickSelect) {
+            if (this.Field120 != null) {
+                if (Class58.Field4487.Method5755() != null) {
+                    if (Intrinsics.Method6572(Class58.Field4487.Method5755(), this) ^ true) {
+                        return;
+                    }
+                }
+                if (Intrinsics.Method6572(Class58.Field4487.Method5755(), this) && this.Field120 != null) {
+                    BlockPos blockPos = this.Field120;
+                    if (blockPos == null) {
+                        Intrinsics.Method6551();
+                    }
+                    this.Method204(f4u2, blockPos);
+                    return;
+                }
             }
+        }
+    }
 
-            this.method_1385(var1, var10002);
-            return;
-         }
-      }
+    @Override
+    public void Method195(@Nullable Vec3d vec3d, float f) {
+        if (this.Field120 != null) {
+            fe5.Field252.Method408(7);
+            BlockPos blockPos = this.Field120;
+            if (blockPos == null) {
+                Intrinsics.Method6551();
+            }
+            fe5.Field252.Method410(blockPos, ((f00)this.Field115.Method7979()).Method7515(), 63);
+            fe5.Field252.Method405();
+            PyroRenderUtil.Method12305(this.Field120, ((f00)this.Field116.Method7979()).Method7515(), 1.0f, true);
+        }
+        if (!this.Field121.isEmpty() && ((Boolean)this.Field119.Method7979()).booleanValue()) {
+            int n = 0;
+            Iterable iterable = this.Field121;
+            boolean bl = false;
+            for (Object t : iterable) {
+                BlockPos blockPos = (BlockPos)t;
+                boolean bl2 = false;
+                fe5.Field252.Method408(7);
+                fe5.Field252.Method410(blockPos, ((f00)this.Field117.Method7979()).Method7515(), 63);
+                fe5.Field252.Method405();
+                PyroRenderUtil.Method12305(blockPos, ((f00)this.Field118.Method7979()).Method7515(), 1.0f, true);
+                GlStateManager.pushMatrix();
+                EntityPlayer entityPlayer = this.Field5233.getRenderViewEntity() instanceof EntityPlayer ? (EntityPlayer)this.Field5233.getRenderViewEntity() : (EntityPlayer)this.Field5233.player;
+                PyroRenderUtil.Method12315((float)blockPos.getX() + 0.5f, (float)blockPos.getY() + 0.5f, (float)blockPos.getZ() + 0.5f, (Entity)entityPlayer, 1.0f);
+                GlStateManager.disableDepth();
+                GlStateManager.translate((double)(-((double)PyroRenderUtil.Method12314(String.valueOf(++n)) / 2.0)), (double)0.0, (double)0.0);
+                PyroRenderUtil.Method12313(String.valueOf(n), 0.0f, 0.0f, -1);
+                GlStateManager.popMatrix();
+            }
+        }
+    }
 
-   }
+    public boolean Method204(@NotNull f4u f4u2, @NotNull BlockPos blockPos) {
+        fex fex2 = few.Method835().Method828(blockPos);
+        if (fex2 != null) {
+            f4u2.Method7948();
+            f4u2.Method5653(fex2.Method891().Method6942());
+            f4u2.Method5647(fex2.Method891().Method6936());
+            return true;
+        }
+        return false;
+    }
 
-   // $FF: renamed from: c (net.minecraft.util.math.Vec3d, float) void
-   public void method_123(@Nullable Vec3d var1, float var2) {
-      if (this.field_949 != null) {
-         fe5.field_1245.method_1915(7);
-         fe5 var10000 = fe5.field_1245;
-         BlockPos var10001 = this.field_949;
-         if (var10001 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         var10000.method_1917(var10001, ((f00)this.field_944.c()).meth1(), 63);
-         fe5.field_1245.method_1912();
-         PyroRenderUtil.method_1433(this.field_949, ((f00)this.field_945.c()).meth1(), 1.0F, true);
-      }
-
-      if (!this.field_950.isEmpty() && (Boolean)this.field_948.c()) {
-         int var3 = 0;
-         Iterable var4 = (Iterable)this.field_950;
-         boolean var5 = false;
-         Iterator var6 = var4.iterator();
-
-         while(var6.hasNext()) {
-            Object var7 = var6.next();
-            BlockPos var8 = (BlockPos)var7;
-            boolean var9 = false;
-            ++var3;
-            fe5.field_1245.method_1915(7);
-            fe5.field_1245.method_1917(var8, ((f00)this.field_946.c()).meth1(), 63);
-            fe5.field_1245.method_1912();
-            PyroRenderUtil.method_1433(var8, ((f00)this.field_947.c()).meth1(), 1.0F, true);
-            GlStateManager.pushMatrix();
-            EntityPlayer var10 = this.c.getRenderViewEntity() instanceof EntityPlayer ? (EntityPlayer)this.c.getRenderViewEntity() : (EntityPlayer)this.c.player;
-            PyroRenderUtil.method_1440((float)var8.getX() + 0.5F, (float)var8.getY() + 0.5F, (float)var8.getZ() + 0.5F, (Entity)var10, 1.0F);
-            GlStateManager.disableDepth();
-            GlStateManager.translate(-((double)PyroRenderUtil.method_1439(String.valueOf(var3)) / 2.0D), 0.0D, 0.0D);
-            PyroRenderUtil.meth1(String.valueOf(var3), 0.0F, 0.0F, -1);
-            GlStateManager.popMatrix();
-         }
-      }
-
-   }
-
-   // $FF: renamed from: c (dev.nuker.pyro.f4u, net.minecraft.util.math.BlockPos) boolean
-   public boolean method_1385(@NotNull f4u var1, @NotNull BlockPos var2) {
-      fex var3 = few.method_1716().method_1708(var2);
-      if (var3 != null) {
-         var1.0();
-         var1.method_3139(var3.method_2076().meth3());
-         var1.method_3140(var3.method_2076().meth4());
-         return true;
-      } else {
-         return false;
-      }
-   }
-
-   // $FF: renamed from: c (boolean, net.minecraft.client.entity.EntityPlayerSP, net.minecraft.world.World) void
-   public void method_116(boolean var1, @Nullable EntityPlayerSP var2, @Nullable World var3) {
-      super.method_116(var1, var2, var3);
-      KeyBinding var10000 = this.c.gameSettings.keyBindAttack;
-      if (var10000 == null) {
-         throw new TypeCastException("null cannot be cast to non-null type dev.nuker.pyro.mixin.KeyBindingAccessor");
-      } else {
-         ((KeyBindingAccessor)var10000).setPressed(false);
-         this.5(((fd1)this.field_943.c()).toString());
-         this.field_950.clear();
-      }
-   }
-
-   public fd4() {
-      super("automine", "AutoMine", "Automatically holds down left click");
-      this.field_943 = (f0o)this.register((f0w)(new f0o("mode", "Mode", (String)null, (Enum)fd1.field_961)));
-      this.field_944 = (f0l)this.register((f0w)(new f0l("renderColor", "RenderColor", (String)null, new f00(0.0F, 1.0F, 0.5F, 0.3F))));
-      this.field_945 = (f0l)this.register((f0w)(new f0l("rendeerOutline", "RenderOutline", (String)null, new f00(0.0F, 1.0F, 0.5F, 1.0F))));
-      this.field_946 = new f0l("queueColor1", "QueueColor", (String)null, new f00(0.475F, 1.0F, 0.5F, 0.3F));
-      this.field_947 = new f0l("queueOutline1", "QueueOutline", (String)null, new f00(0.475F, 1.0F, 0.5F, 1.0F));
-      this.field_948 = new BooleanSetting("queue", "Queue", (String)null, false);
-      this.field_949 = BlockPos.ORIGIN;
-      this.field_950 = new ConcurrentLinkedQueue();
-      this.register((f0w)(new f0t((f0w)this.field_948, new f0w[]{(f0w)this.field_946, (f0w)this.field_947})));
-   }
-
-   // $FF: renamed from: c (dev.nuker.pyro.f4t) void
-   @f0g
-   @LauncherEventHide
-   public void method_1386(@Nullable f4t var1) {
-      if ((fd1)this.field_943.c() == fd1.field_961) {
-         KeyBinding var10000 = this.c.gameSettings.keyBindAttack;
-         if (var10000 == null) {
+    @Override
+    public void Method205(boolean bl, @Nullable EntityPlayerSP entityPlayerSP, @Nullable World world) {
+        super.Method205(bl, entityPlayerSP, world);
+        KeyBinding keyBinding = this.Field5233.gameSettings.keyBindAttack;
+        if (keyBinding == null) {
             throw new TypeCastException("null cannot be cast to non-null type dev.nuker.pyro.mixin.KeyBindingAccessor");
-         }
+        }
+        ((KeyBindingAccessor)keyBinding).Method5505(false);
+        this.Method7274(((fd1)((Object)this.Field114.Method7979())).toString());
+        this.Field121.clear();
+    }
 
-         ((KeyBindingAccessor)var10000).setPressed(true);
-      } else if (Intrinsics.areEqual((Object)this.field_949, (Object)BlockPos.ORIGIN) && !this.field_950.isEmpty() && (Boolean)this.field_948.c()) {
-         this.field_949 = (BlockPos)this.field_950.poll();
-         class_2.field_982.method_1425((Module)this, this.field_949, true, (Consumer)(new fd3(this)));
-      }
+    public fd4() {
+        super("automine", "AutoMine", "Automatically holds down left click");
+        this.Method7264(new f0t(this.Field119, this.Field117, this.Field118));
+    }
 
-   }
+    @f0g
+    @LauncherEventHide
+    public void Method183(@Nullable f4t f4t2) {
+        if ((fd1)((Object)this.Field114.Method7979()) == fd1.Legit) {
+            KeyBinding keyBinding = this.Field5233.gameSettings.keyBindAttack;
+            if (keyBinding == null) {
+                throw new TypeCastException("null cannot be cast to non-null type dev.nuker.pyro.mixin.KeyBindingAccessor");
+            }
+            ((KeyBindingAccessor)keyBinding).Method5505(true);
+        } else if (Intrinsics.Method6572((Object)this.Field120, (Object)BlockPos.ORIGIN) && !this.Field121.isEmpty() && ((Boolean)this.Field119.Method7979()).booleanValue()) {
+            this.Field120 = this.Field121.poll();
+            Class58.Field4487.Method6420(this, this.Field120, true, new fd3(this));
+        }
+    }
 }
+

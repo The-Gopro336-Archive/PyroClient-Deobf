@@ -1,6 +1,8 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  com.mojang.realmsclient.gui.ChatFormatting
  */
 package dev.nuker.pyro;
 
@@ -8,48 +10,42 @@ import com.mojang.brigadier.Command;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.realmsclient.gui.ChatFormatting;
+import dev.nuker.pyro.Pyro;
+import dev.nuker.pyro.f66;
+import dev.nuker.pyro.f67;
 import java.io.File;
-import java.util.Iterator;
 import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
 
-public class f39 implements Command {
-   // $FF: renamed from: c dev.nuker.pyro.f39
-   public static f39 field_2034 = new f39();
+public class f39
+implements Command {
+    public static f39 Field3813 = new f39();
 
-   public int run(CommandContext var1) {
-      String var2 = StringArgumentType.getString(var1, "name");
-      List var3 = f67.field_2201.method_3278();
-      Iterable var5 = (Iterable)var3;
-      boolean var6 = false;
-      Iterator var7 = var5.iterator();
-
-      Object var10000;
-      while(true) {
-         if (var7.hasNext()) {
-            Object var8 = var7.next();
-            f66 var9 = (f66)var8;
-            boolean var10 = false;
-            if (!Intrinsics.areEqual((Object)var9.method_3273(), (Object)var2)) {
-               continue;
+    public int Method152(CommandContext commandContext) {
+        Object v0;
+        String string;
+        block3: {
+            string = StringArgumentType.Method5880(commandContext, "name");
+            List list = f67.Field4191.Method5825();
+            Iterable iterable = list;
+            boolean bl = false;
+            for (Object t : iterable) {
+                f66 f662 = (f66)t;
+                boolean bl2 = false;
+                if (!Intrinsics.Method6572(f662.Method5810(), string)) continue;
+                v0 = t;
+                break block3;
             }
-
-            var10000 = var8;
-            break;
-         }
-
-         var10000 = null;
-         break;
-      }
-
-      f66 var4 = (f66)var10000;
-      if (var4 == null) {
-         f67.field_2201.method_3276(new f66(new File(Pyro.FOLDER, "profiles/" + var2), var2));
-         Pyro.INSTANCE.sendMessage(ChatFormatting.GREEN + "Created profile " + var2);
-      } else {
-         Pyro.INSTANCE.sendMessage(ChatFormatting.RED + "Profile " + var2 + " already exists");
-      }
-
-      return 0;
-   }
+            v0 = null;
+        }
+        f66 f663 = v0;
+        if (f663 == null) {
+            f67.Field4191.Method5823(new f66(new File(Pyro.Field6178, "profiles/" + string), string));
+            Pyro.Field6182.Method8989((Object)ChatFormatting.GREEN + "Created profile " + string);
+        } else {
+            Pyro.Field6182.Method8989((Object)ChatFormatting.RED + "Profile " + string + " already exists");
+        }
+        return 0;
+    }
 }
+

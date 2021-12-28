@@ -1,37 +1,35 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-public class f44 extends f42 {
-   // $FF: renamed from: c dev.nuker.pyro.Module
-   public Module field_2101;
-   // $FF: renamed from: 0 boolean
-   public boolean field_2102;
+import dev.nuker.pyro.Module;
+import dev.nuker.pyro.f42;
 
-   // $FF: renamed from: 0 () boolean
-   public boolean method_3186() {
-      return this.field_2102;
-   }
+public class f44
+extends f42 {
+    public Module Field3896;
+    public boolean Field3897;
 
-   public f44(Module var1, boolean var2) {
-      this.field_2101 = var1;
-      this.field_2102 = var2;
-   }
+    public boolean Method5594() {
+        return this.Field3897;
+    }
 
-   // $FF: renamed from: 1 () dev.nuker.pyro.Module
-   public Module method_3187() {
-      return this.field_2101;
-   }
+    public f44(Module module, boolean bl) {
+        this.Field3896 = module;
+        this.Field3897 = bl;
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.Module) void
-   public void method_3188(Module var1) {
-      this.field_2101 = var1;
-   }
+    public Module Method5595() {
+        return this.Field3896;
+    }
 
-   // $FF: renamed from: 0 (boolean) void
-   public void method_3189(boolean var1) {
-      this.field_2102 = var1;
-   }
+    public void Method5596(Module module) {
+        this.Field3896 = module;
+    }
+
+    public void Method5597(boolean bl) {
+        this.Field3897 = bl;
+    }
 }
+

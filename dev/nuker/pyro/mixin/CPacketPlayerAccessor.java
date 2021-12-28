@@ -1,6 +1,8 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.network.play.client.CPacketPlayer
  */
 package dev.nuker.pyro.mixin;
 
@@ -8,38 +10,39 @@ import net.minecraft.network.play.client.CPacketPlayer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
-@Mixin({CPacketPlayer.class})
+@Mixin(value={CPacketPlayer.class})
 public interface CPacketPlayerAccessor {
-   @Accessor("y")
-   void setPosY(double var1);
+    @Accessor(value="y")
+    public void Method8718(double var1);
 
-   @Accessor("y")
-   double getPosY();
+    @Accessor(value="y")
+    public double Method8719();
 
-   @Accessor("x")
-   double getPosX();
+    @Accessor(value="x")
+    public double Method8720();
 
-   @Accessor("z")
-   double getPosZ();
+    @Accessor(value="z")
+    public double Method8721();
 
-   @Accessor("onGround")
-   void setOnGround(boolean var1);
+    @Accessor(value="onGround")
+    public void Method8722(boolean var1);
 
-   @Accessor("rotating")
-   boolean isRotating();
+    @Accessor(value="rotating")
+    public boolean Method8723();
 
-   @Accessor("rotating")
-   void setRotating(boolean var1);
+    @Accessor(value="rotating")
+    public void Method8724(boolean var1);
 
-   @Accessor("yaw")
-   float getYaw();
+    @Accessor(value="yaw")
+    public float Method8725();
 
-   @Accessor("pitch")
-   float getPitch();
+    @Accessor(value="pitch")
+    public float Method8726();
 
-   @Accessor("yaw")
-   void setYaw(float var1);
+    @Accessor(value="yaw")
+    public void Method8727(float var1);
 
-   @Accessor("pitch")
-   void setPitch(float var1);
+    @Accessor(value="pitch")
+    public void Method8728(float var1);
 }
+

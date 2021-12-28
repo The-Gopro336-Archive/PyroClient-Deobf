@@ -1,62 +1,55 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-import java.util.List;
-import kotlin.TypeCastException;
-import kotlin.collections.CollectionsKt;
-import kotlin.jvm.internal.Intrinsics;
-import org.jetbrains.annotations.NotNull;
+import dev.nuker.pyro.f7p;
 
-public class f7J extends f3Y {
-   // $FF: renamed from: c java.lang.String
-   @NotNull
-   public String field_1744;
+public class f7j {
+    public double Field3449;
+    public double Field3450;
+    public double Field3451;
+    public long Field3452;
+    public f7p Field3453;
 
-   public f7J(@NotNull String var1) {
-      this();
-      this.field_1744 = var1;
-   }
+    public f7j(f7p f7p2, double d, double d2, double d3, long l) {
+        this.Field3453 = f7p2;
+        this.Field3449 = d;
+        this.Field3450 = d2;
+        this.Field3451 = d3;
+        this.Field3452 = l;
+    }
 
-   // $FF: renamed from: c () java.lang.String
-   @NotNull
-   public String method_2980() {
-      String var10000 = this.field_1744;
-      if (var10000 == null) {
-         Intrinsics.throwUninitializedPropertyAccessException("text");
-      }
+    public void Method5248(long l) {
+        this.Field3452 = l;
+    }
 
-      return var10000;
-   }
+    public long Method5249() {
+        return this.Field3452;
+    }
 
-   // $FF: renamed from: c (java.lang.String) void
-   public void method_2981(@NotNull String var1) {
-      this.field_1744 = var1;
-   }
+    public double Method5250() {
+        return this.Field3449;
+    }
 
-   // $FF: renamed from: c (java.util.List) void
-   public void method_2977(@NotNull List var1) {
-      Object var10001 = var1.get(0);
-      if (var10001 == null) {
-         throw new TypeCastException("null cannot be cast to non-null type kotlin.String");
-      } else {
-         this.field_1744 = (String)var10001;
-      }
-   }
+    public void Method5251(double d) {
+        this.Field3450 = d;
+    }
 
-   // $FF: renamed from: c () java.util.List
-   @NotNull
-   public List method_2976() {
-      String var10000 = this.field_1744;
-      if (var10000 == null) {
-         Intrinsics.throwUninitializedPropertyAccessException("text");
-      }
+    public void Method5252(double d) {
+        this.Field3451 = d;
+    }
 
-      return CollectionsKt.listOf(var10000);
-   }
+    public double Method5253() {
+        return this.Field3450;
+    }
 
-   public f7J() {
-   }
+    public double Method5254() {
+        return this.Field3451;
+    }
+
+    public void Method5255(double d) {
+        this.Field3449 = d;
+    }
 }
+

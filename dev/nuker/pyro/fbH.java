@@ -1,22 +1,39 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-public enum fbH {
-   // $FF: renamed from: c dev.nuker.pyro.fbH
-   field_1608,
-   // $FF: renamed from: 0 dev.nuker.pyro.fbH
-   field_1609,
-   // $FF: renamed from: 1 dev.nuker.pyro.fbH
-   field_1610;
+public class fbH
+extends Enum {
+    public static /* enum */ fbH Head;
+    public static /* enum */ fbH Body;
+    public static /* enum */ fbH Feet;
+    public static /* synthetic */ fbH[] Field1934;
 
-   // $FF: renamed from: c dev.nuker.pyro.fbH[]
-   public static fbH[] field_1611 = new fbH[]{field_1608 = new fbH("Head", 0), field_1609 = new fbH("Body", 1), field_1610 = new fbH("Feet", 2)};
+    /*
+     * WARNING - Possible parameter corruption
+     * WARNING - void declaration
+     */
+    public fbH() {
+        void var2_-1;
+        void var1_-1;
+    }
 
-   // $FF: renamed from: c (java.lang.String) dev.nuker.pyro.fbH
-   public static fbH method_2815(String var0) {
-      return (fbH)Enum.valueOf(fbH.class, var0);
-   }
+    static {
+        fbH[] arrfbH = new fbH[3];
+        fbH[] arrfbH2 = arrfbH;
+        arrfbH[0] = Head = new fbH("Head", 0);
+        arrfbH[1] = Body = new fbH("Body", 1);
+        arrfbH[2] = Feet = new fbH("Feet", 2);
+        Field1934 = arrfbH;
+    }
+
+    public static fbH Method2581(String string) {
+        return Enum.valueOf(fbH.class, string);
+    }
+
+    public static fbH[] Method2582() {
+        return (fbH[])Field1934.clone();
+    }
 }
+

@@ -1,24 +1,41 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-public enum fbG {
-   // $FF: renamed from: c dev.nuker.pyro.fbG
-   field_1603,
-   // $FF: renamed from: 0 dev.nuker.pyro.fbG
-   field_1604,
-   // $FF: renamed from: 1 dev.nuker.pyro.fbG
-   field_1605,
-   // $FF: renamed from: 2 dev.nuker.pyro.fbG
-   field_1606;
+public class fbG
+extends Enum {
+    public static /* enum */ fbG Off;
+    public static /* enum */ fbG Outline;
+    public static /* enum */ fbG Fill;
+    public static /* enum */ fbG Stem;
+    public static /* synthetic */ fbG[] Field1930;
 
-   // $FF: renamed from: c dev.nuker.pyro.fbG[]
-   public static fbG[] field_1607 = new fbG[]{field_1603 = new fbG("Off", 0), field_1604 = new fbG("Outline", 1), field_1605 = new fbG("Fill", 2), field_1606 = new fbG("Stem", 3)};
+    public static fbG Method2579(String string) {
+        return Enum.valueOf(fbG.class, string);
+    }
 
-   // $FF: renamed from: c (java.lang.String) dev.nuker.pyro.fbG
-   public static fbG method_2814(String var0) {
-      return (fbG)Enum.valueOf(fbG.class, var0);
-   }
+    /*
+     * WARNING - Possible parameter corruption
+     * WARNING - void declaration
+     */
+    public fbG() {
+        void var2_-1;
+        void var1_-1;
+    }
+
+    public static fbG[] Method2580() {
+        return (fbG[])Field1930.clone();
+    }
+
+    static {
+        fbG[] arrfbG = new fbG[4];
+        fbG[] arrfbG2 = arrfbG;
+        arrfbG[0] = Off = new fbG("Off", 0);
+        arrfbG[1] = Outline = new fbG("Outline", 1);
+        arrfbG[2] = Fill = new fbG("Fill", 2);
+        arrfbG[3] = Stem = new fbG("Stem", 3);
+        Field1930 = arrfbG;
+    }
 }
+

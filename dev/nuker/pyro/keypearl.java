@@ -1,9 +1,29 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.Minecraft
+ *  net.minecraft.entity.player.EntityPlayer
+ *  net.minecraft.init.Items
+ *  net.minecraft.inventory.ClickType
+ *  net.minecraft.item.ItemStack
+ *  net.minecraft.network.Packet
+ *  net.minecraft.network.play.client.CPacketHeldItemChange
+ *  net.minecraft.network.play.client.CPacketPlayerTryUseItem
+ *  net.minecraft.util.EnumHand
+ *  net.minecraft.world.World
+ *  org.jetbrains.annotations.NotNull
+ *  org.jetbrains.annotations.Nullable
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.BindSetting;
+import dev.nuker.pyro.BooleanSetting;
+import dev.nuker.pyro.Module;
+import dev.nuker.pyro.f0g;
+import dev.nuker.pyro.f4t;
+import dev.nuker.pyro.f6P;
+import dev.nuker.pyro.fdX;
 import dev.nuker.pyro.security.inject.LauncherEventHide;
 import kotlin.jvm.internal.Intrinsics;
 import net.minecraft.client.Minecraft;
@@ -19,84 +39,72 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class keypearl extends Module {
-   // $FF: renamed from: c dev.nuker.pyro.BindSetting
-   @NotNull
-   public BindSetting field_156 = new BindSetting("pearlKey", "PearlKey", "The key or mouse button to set", -1);
-   // $FF: renamed from: c dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_157 = new BooleanSetting("inventory", "Inventory", (String)null, false);
+public class keypearl
+extends Module {
+    @NotNull
+    public BindSetting Field4859 = new BindSetting("pearlKey", "PearlKey", "The key or mouse button to set", -1);
+    @NotNull
+    public BooleanSetting Field4860 = new BooleanSetting("inventory", "Inventory", null, false);
 
-   // $FF: renamed from: 0 () dev.nuker.pyro.BindSetting
-   @NotNull
-   public BindSetting method_237() {
-      return this.field_156;
-   }
+    @NotNull
+    public BindSetting Method2615() {
+        return this.Field4859;
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.keypearl, net.minecraft.client.Minecraft) void
-   public static void method_238(keypearl var0, Minecraft var1) {
-      var0.c = var1;
-   }
+    public static void Method7043(keypearl keypearl2, Minecraft minecraft) {
+        keypearl2.Field5233 = minecraft;
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.keypearl) net.minecraft.client.Minecraft
-   public static Minecraft method_239(keypearl var0) {
-      return var0.c;
-   }
+    public static Minecraft Method7044(keypearl keypearl2) {
+        return keypearl2.Field5233;
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.f4t) void
-   @f0g
-   @LauncherEventHide
-   public void method_240(@Nullable f4t var1) {
-      if (this.field_156.method_3330()) {
-         int var2 = 0;
-
-         for(byte var3 = 8; var2 <= var3; ++var2) {
-            ItemStack var4 = this.c.player.inventory.getStackInSlot(var2);
-            if (!var4.isEmpty() && Intrinsics.areEqual((Object)var4.getItem(), (Object)Items.ENDER_PEARL)) {
-               if (this.c.player.inventory.currentItem != var2) {
-                  this.c.player.connection.sendPacket((Packet)(new CPacketHeldItemChange(var2)));
-               }
-
-               this.c.player.connection.sendPacket((Packet)(new CPacketPlayerTryUseItem(EnumHand.MAIN_HAND)));
-               if (this.c.player.inventory.currentItem != var2) {
-                  this.c.player.connection.sendPacket((Packet)(new CPacketHeldItemChange(this.c.player.inventory.currentItem)));
-               }
-
-               return;
+    @f0g
+    @LauncherEventHide
+    public void Method183(@Nullable f4t f4t2) {
+        if (this.Field4859.Method8796()) {
+            int n;
+            int n2 = 8;
+            for (n = 0; n <= n2; ++n) {
+                ItemStack itemStack = this.Field5233.player.inventory.getStackInSlot(n);
+                if (itemStack.isEmpty() || !Intrinsics.Method6572((Object)itemStack.getItem(), (Object)Items.ENDER_PEARL)) continue;
+                if (this.Field5233.player.inventory.currentItem != n) {
+                    this.Field5233.player.connection.sendPacket((Packet)new CPacketHeldItemChange(n));
+                }
+                this.Field5233.player.connection.sendPacket((Packet)new CPacketPlayerTryUseItem(EnumHand.MAIN_HAND));
+                if (this.Field5233.player.inventory.currentItem != n) {
+                    this.Field5233.player.connection.sendPacket((Packet)new CPacketHeldItemChange(this.Field5233.player.inventory.currentItem));
+                }
+                return;
             }
-         }
-
-         if ((Boolean)this.field_157.c()) {
-            var2 = fdX.field_1227.method_1838(Items.ENDER_PEARL);
-            if (var2 != -1) {
-               this.c.playerController.windowClick(0, var2, 0, ClickType.PICKUP, (EntityPlayer)this.c.player);
-               this.c.playerController.windowClick(0, 44, 0, ClickType.PICKUP, (EntityPlayer)this.c.player);
-               int var5 = this.c.player.inventory.currentItem;
-               if (var5 != 8) {
-                  this.c.player.inventory.currentItem = 8;
-               }
-
-               this.c.playerController.processRightClick((EntityPlayer)this.c.player, (World)this.c.world, EnumHand.MAIN_HAND);
-               if (var5 != 8) {
-                  this.c.player.inventory.currentItem = var5;
-               }
-
-               this.c.addScheduledTask((Runnable)(new f6P(this, var2)));
+            if (((Boolean)this.Field4860.Method7979()).booleanValue()) {
+                n = fdX.Field311.Method496(Items.ENDER_PEARL);
+                if (n != -1) {
+                    this.Field5233.playerController.windowClick(0, n, 0, ClickType.PICKUP, (EntityPlayer)this.Field5233.player);
+                    this.Field5233.playerController.windowClick(0, 44, 0, ClickType.PICKUP, (EntityPlayer)this.Field5233.player);
+                    n2 = this.Field5233.player.inventory.currentItem;
+                    if (n2 != 8) {
+                        this.Field5233.player.inventory.currentItem = 8;
+                    }
+                    this.Field5233.playerController.processRightClick((EntityPlayer)this.Field5233.player, (World)this.Field5233.world, EnumHand.MAIN_HAND);
+                    if (n2 != 8) {
+                        this.Field5233.player.inventory.currentItem = n2;
+                    }
+                    this.Field5233.addScheduledTask((Runnable)new f6P(this, n));
+                }
             }
-         }
-      }
+        }
+    }
 
-   }
+    public keypearl() {
+        super("keyPearl", "KeyPearl", "Allows you to automatically throw a pearl from anywhere in your inventory when the key setting is hit");
+        this.Method7264(this.Field4859);
+        this.Method7264(this.Field4860);
+    }
 
-   public keypearl() {
-      super("keyPearl", "KeyPearl", "Allows you to automatically throw a pearl from anywhere in your inventory when the key setting is hit");
-      this.register((f0w)this.field_156);
-      this.register((f0w)this.field_157);
-   }
-
-   // $FF: renamed from: c () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_241() {
-      return this.field_157;
-   }
+    @NotNull
+    public BooleanSetting Method215() {
+        return this.Field4860;
+    }
 }
+

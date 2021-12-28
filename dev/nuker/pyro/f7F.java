@@ -1,43 +1,37 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-import java.net.ServerSocket;
-import java.util.List;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function0;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.jvm.internal.Lambda;
+public class f7f
+extends Enum {
+    public static /* enum */ f7f Tunnel;
+    public static /* enum */ f7f Nearby;
+    public static /* synthetic */ f7f[] Field3355;
 
-public class f7F extends Lambda implements Function0 {
-   // $FF: renamed from: c dev.nuker.pyro.f7G
-   public f7G field_46;
+    public static f7f[] Method5185() {
+        return (f7f[])Field3355.clone();
+    }
 
-   // $FF: renamed from: c () void
-   public void method_89() {
-      while(true) {
-         List var10000 = this.field_46.method_830();
-         f7B var10001 = new f7B;
-         f7G var10003 = this.field_46;
-         ServerSocket var10004 = this.field_46.method_797();
-         if (var10004 == null) {
-            Intrinsics.throwNpe();
-         }
+    /*
+     * WARNING - Possible parameter corruption
+     * WARNING - void declaration
+     */
+    public f7f() {
+        void var2_-1;
+        void var1_-1;
+    }
 
-         var10001.<init>(var10003, var10004.accept());
-         var10000.add(var10001);
-      }
-   }
+    public static f7f Method5186(String string) {
+        return Enum.valueOf(f7f.class, string);
+    }
 
-   public Object invoke() {
-      this.method_89();
-      return Unit.INSTANCE;
-   }
-
-   public f7F(f7G var1) {
-      this.field_46 = var1;
-      super(0);
-   }
+    static {
+        f7f[] arrf7f = new f7f[2];
+        f7f[] arrf7f2 = arrf7f;
+        arrf7f[0] = Tunnel = new f7f("Tunnel", 0);
+        arrf7f[1] = Nearby = new f7f("Nearby", 1);
+        Field3355 = arrf7f;
+    }
 }
+

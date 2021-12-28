@@ -1,33 +1,41 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-public class f50 extends f58 {
-   public f50(f0w var1, float var2, float var3) {
-      super(var1, var2, var3);
-      this.c.add(new f5a((f0l)var1, var2));
-   }
+import dev.nuker.pyro.PyroRenderUtil;
+import dev.nuker.pyro.f00;
+import dev.nuker.pyro.f0H;
+import dev.nuker.pyro.f0l;
+import dev.nuker.pyro.f0w;
+import dev.nuker.pyro.f58;
+import dev.nuker.pyro.f5a;
 
-   // $FF: renamed from: 8 () java.lang.String
-   public String method_1630() {
-      return ((f0l)this.c).c();
-   }
+public class f50
+extends f58 {
+    public f50(f0w f0w2, float f, float f2) {
+        super(f0w2, f, f2);
+        this.Field4088.add(new f5a((f0l)f0w2, f));
+    }
 
-   // $FF: renamed from: 0 (int, int, int) void
-   public void method_1622(int var1, int var2, int var3) {
-      super.0(var1, var2, var3);
-      if (var3 == 1 && !this.5().isEmpty()) {
-         this.c(!this.9());
-      }
+    @Override
+    public String Method4820() {
+        return ((f0l)this.Field4111).Method5989();
+    }
 
-   }
+    @Override
+    public void Method4796(int n, int n2, int n3) {
+        super.Method4796(n, n2, n3);
+        if (n3 == 1 && !this.Method5737().isEmpty()) {
+            this.Method4824(!this.Method5739());
+        }
+    }
 
-   // $FF: renamed from: c (float, float, float) boolean
-   public boolean method_1639(float var1, float var2, float var3) {
-      PyroRenderUtil.meth0(-this.2() + this.c() - 8.0F, this.7() + 1.0F, -this.2() + this.c() - 3.0F, this.7() + this.meth4() - 6.0F, ((f00)((f0l)this.c).c()).meth1());
-      PyroRenderUtil.meth1(this.method_1630(), this.2() + 5.0F, this.7(), f0H.field_2338.method_3494());
-      return true;
-   }
+    @Override
+    public boolean Method4797(float f, float f2, float f3) {
+        PyroRenderUtil.Method12316(-this.Method4828() + this.Method5094() - 8.0f, this.Method4906() + 1.0f, -this.Method4828() + this.Method5094() - 3.0f, this.Method4906() + this.Method4908() - 6.0f, ((f00)((f0l)this.Field4111).Method7979()).Method7515());
+        PyroRenderUtil.Method12313(this.Method4820(), this.Method4828() + 5.0f, this.Method4906(), f0H.Field5479.Method7708());
+        return true;
+    }
 }
+

@@ -1,11 +1,20 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.launchwrapper.Launch
+ *  net.minecraft.launchwrapper.LaunchClassLoader
+ *  org.apache.commons.io.IOUtils
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro.layer;
 
 import dev.nuker.pyro.PyroClientLoadingPlugin;
 import dev.nuker.pyro.launcher.LoaderGui;
+import dev.nuker.pyro.layer.FifthLayer;
+import dev.nuker.pyro.layer.FourthLayer;
+import dev.nuker.pyro.layer.SecondLayer;
+import dev.nuker.pyro.layer.ThirdLayer;
 import dev.nuker.pyro.security.ClassSigGen;
 import dev.nuker.pyro.security.ClassSigGen$getClassChecksum2$3;
 import dev.nuker.pyro.security.ClassSigGen$getClassChecksum2$5;
@@ -18,28 +27,21 @@ import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.InputStream;
+import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.lang.reflect.Parameter;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import java.security.MessageDigest;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-import javax.crypto.SecretKey;
 import kotlin.TypeCastException;
 import kotlin.collections.ArraysKt;
 import kotlin.collections.CollectionsKt;
 import kotlin.jvm.JvmStatic;
-import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Ref;
 import kotlin.text.Charsets;
@@ -50,495 +52,502 @@ import org.apache.commons.io.IOUtils;
 import org.jetbrains.annotations.NotNull;
 
 public class SixthLayer {
-   public static SixthLayer INSTANCE;
+    public static SixthLayer Field37;
 
-   @JvmStatic
-   public static void run(@NotNull LoaderGui gui, @NotNull DataInputStream si, @NotNull DataOutputStream so) {
-      EncryptedStreamWrapper stream = new EncryptedStreamWrapper(si, so);
-      ClassSigGen var5 = ClassSigGen.INSTANCE;
-      Class[] classes$iv = new Class[]{SecondLayer.class, ThirdLayer.class, FifthLayer.class, FourthLayer.class};
-      boolean var7 = false;
-      MessageDigest hash$iv = MessageDigest.getInstance("MD5");
-      boolean var10 = false;
-      Class[] var11 = classes$iv;
-      int length$iv$iv$iv = classes$iv.length;
-
-      int var13;
-      Class var14;
-      boolean var16;
-      boolean var19;
-      boolean var21;
-      boolean var24;
-      for(var13 = 0; var13 < length$iv$iv$iv; ++var13) {
-         var14 = var11[var13];
-         var16 = false;
-         ClassSigGen var17 = ClassSigGen.INSTANCE;
-         var19 = false;
-         MessageDigest hash$iv$iv = MessageDigest.getInstance("MD5");
-         var21 = false;
-         List var22 = (List)(new ArrayList());
-         List methods$iv$iv = var22;
-         var24 = false;
-         var22 = (List)(new ArrayList());
-         List fields$iv$iv = var22;
-         Field[] var102 = var14.getDeclaredFields();
-         boolean var25 = false;
-         Field[] var26 = var102;
-         int var27 = var102.length;
-
-         String var10000;
-         StringBuilder var10001;
-         int var28;
-         boolean var31;
-         ClassSigGen var32;
-         boolean var36;
-         for(var28 = 0; var28 < var27; ++var28) {
-            StringBuilder var34;
-            label1777: {
-               Field var29 = var26[var28];
-               var31 = false;
-               var10001 = (new StringBuilder()).append(var29.getModifiers()).append(' ').append(var29.getName()).append(' ');
-               var32 = ClassSigGen.INSTANCE;
-               String name$iv$iv$iv = var29.getType().getName();
-               var34 = var10001;
-               var36 = false;
-               switch(name$iv$iv$iv.hashCode()) {
-               case -1325958191:
-                  if (name$iv$iv$iv.equals("double")) {
-                     var10000 = "D";
-                     break label1777;
-                  }
-                  break;
-               case 104431:
-                  if (name$iv$iv$iv.equals("int")) {
-                     var10000 = "I";
-                     break label1777;
-                  }
-                  break;
-               case 3039496:
-                  if (name$iv$iv$iv.equals("byte")) {
-                     var10000 = "B";
-                     break label1777;
-                  }
-                  break;
-               case 3625364:
-                  if (name$iv$iv$iv.equals("void")) {
-                     var10000 = "V";
-                     break label1777;
-                  }
-                  break;
-               case 64711720:
-                  if (name$iv$iv$iv.equals("boolean")) {
-                     var10000 = "Z";
-                     break label1777;
-                  }
-                  break;
-               case 97526364:
-                  if (name$iv$iv$iv.equals("float")) {
-                     var10000 = "F";
-                     break label1777;
-                  }
-               }
-
-               var10000 = StringsKt.startsWith$default(name$iv$iv$iv, "[", false, 2, (Object)null) ? StringsKt.replace$default(name$iv$iv$iv, ".", "/", false, 4, (Object)null) : 'L' + StringsKt.replace$default(name$iv$iv$iv, ".", "/", false, 4, (Object)null) + ';';
+    /*
+     * Unable to fully structure code
+     * Could not resolve type clashes
+     */
+    @JvmStatic
+    public static void Method80(@NotNull LoaderGui var0, @NotNull DataInputStream var1_1, @NotNull DataOutputStream var2_2) {
+        stream = new EncryptedStreamWrapper((DataInputStream)si, (DataOutputStream)so);
+        var5_4 = ClassSigGen.Field911;
+        classes$iv = new Class[]{SecondLayer.class, ThirdLayer.class, FifthLayer.class, FourthLayer.class};
+        $i$f$getCombinedChecksum2 = false;
+        hash$iv = MessageDigest.getInstance("MD5");
+        $this$forEach$iv$iv = classes$iv;
+        $i$f$forEach = false;
+        var11_34 = $this$forEach$iv$iv;
+        var12_40 = var11_34.length;
+        for (var13_46 = 0; var13_46 < var12_40; ++var13_46) {
+            it$iv = element$iv$iv = var11_34[var13_46];
+            $i$a$-forEach-ClassSigGen$getCombinedChecksum2$1$iv = false;
+            var17_66 = ClassSigGen.Field911;
+            var18_70 = hash$iv;
+            $i$f$getClassChecksum2 = false;
+            hash$iv$iv = MessageDigest.getInstance("MD5");
+            var21_84 = false;
+            methods$iv$iv = var22_88 = (List)new ArrayList<E>();
+            var24_93 = false;
+            fields$iv$iv = var22_88 = (List)new ArrayList<E>();
+            $this$forEach$iv$iv$iv = it$iv.getDeclaredFields();
+            $i$f$forEach = false;
+            var26_99 = $this$forEach$iv$iv$iv;
+            var27_100 = ((Field[])var26_99).length;
+            for (var28_103 = 0; var28_103 < var27_100; ++var28_103) {
+                block54: {
+                    block50: {
+                        block52: {
+                            block51: {
+                                block53: {
+                                    it$iv$iv = element$iv$iv$iv /* !! */  = var26_99[var28_103];
+                                    $i$a$-forEach-ClassSigGen$getClassChecksum2$1$iv$iv = false;
+                                    v0 = new StringBuilder();
+                                    var32_113 = ClassSigGen.Field911;
+                                    it$iv$iv.getType().getName();
+                                    var34_117 = v0.append(it$iv$iv.getModifiers()).append(' ').append(it$iv$iv.getName()).append(' ');
+                                    var35_118 = fields$iv$iv;
+                                    $i$f$getDescriptor = false;
+                                    var37_122 = name$iv$iv$iv;
+                                    switch (var37_122.hashCode()) {
+                                        case 64711720: {
+                                            if (!var37_122.equals("boolean")) ** break;
+                                            break;
+                                        }
+                                        case 3625364: {
+                                            if (!var37_122.equals("void")) ** break;
+                                            break block50;
+                                        }
+                                        case -1325958191: {
+                                            if (!var37_122.equals("double")) ** break;
+                                            break block51;
+                                        }
+                                        case 3039496: {
+                                            if (!var37_122.equals("byte")) ** break;
+                                            break block52;
+                                        }
+                                        case 97526364: {
+                                            if (!var37_122.equals("float")) ** break;
+                                            break block53;
+                                        }
+                                        case 104431: {
+                                            if (!var37_122.equals("int")) ** break;
+                                            v1 = "I";
+                                            break block54;
+                                        }
+                                    }
+                                    v1 = "Z";
+                                    break block54;
+                                }
+                                v1 = "F";
+                                break block54;
+                            }
+                            v1 = "D";
+                            break block54;
+                        }
+                        v1 = "B";
+                        break block54;
+                    }
+                    v1 = "V";
+                    break block54;
+                    v1 = StringsKt.Method9998((String)name$iv$iv$iv, "[", false, 2, null) != false ? StringsKt.Method9968((String)name$iv$iv$iv, ".", "/", false, 4, null) : 'L' + StringsKt.Method9968((String)name$iv$iv$iv, ".", "/", false, 4, null) + ';';
+                }
+                var38_123 = v1;
+                var35_118.add(var34_117.append(var38_123).toString());
             }
-
-            String var38 = var10000;
-            fields$iv$iv.add(var34.append(var38).toString());
-         }
-
-         Method[] $this$forEach$iv$iv$iv = var14.getDeclaredMethods();
-         var25 = false;
-         Method[] var106 = $this$forEach$iv$iv$iv;
-         var27 = $this$forEach$iv$iv$iv.length;
-
-         for(var28 = 0; var28 < var27; ++var28) {
-            Object element$iv$iv$iv = var106[var28];
-            var31 = false;
-            var10001 = (new StringBuilder()).append(element$iv$iv$iv.getName()).append(" (");
-            Parameter[] var114 = element$iv$iv$iv.getParameters();
-            StringBuilder var116 = var10001;
-            boolean var35 = false;
-            Collection destination$iv$iv$iv$iv = (Collection)(new ArrayList(var114.length));
-            boolean var121 = false;
-            Parameter[] var39 = var114;
-            int var40 = var114.length;
-
-            for(int var41 = 0; var41 < var40; ++var41) {
-               Object item$iv$iv$iv$iv = var39[var41];
-               boolean var45 = false;
-               Class var46 = item$iv$iv$iv$iv.getType();
-               destination$iv$iv$iv$iv.add(var46);
+            $this$forEach$iv$iv$iv = it$iv.getDeclaredMethods();
+            $i$f$forEach = false;
+            var26_99 = $this$forEach$iv$iv$iv;
+            var27_100 = ((AccessibleObject[])var26_99).length;
+            for (var28_103 = 0; var28_103 < var27_100; ++var28_103) {
+                block64: {
+                    block60: {
+                        block62: {
+                            block61: {
+                                block63: {
+                                    it$iv$iv = element$iv$iv$iv /* !! */  = var26_99[var28_103];
+                                    $i$a$-forEach-ClassSigGen$getClassChecksum2$2$iv$iv = false;
+                                    v2 = new StringBuilder();
+                                    it$iv$iv.getParameters();
+                                    var33_114 = v2.append(it$iv$iv.getName()).append(" (");
+                                    var34_117 = methods$iv$iv;
+                                    $i$f$map = false;
+                                    $i$f$getDescriptor = $this$map$iv$iv$iv;
+                                    destination$iv$iv$iv$iv = new ArrayList<E>(((void)$this$map$iv$iv$iv).length);
+                                    $i$f$mapTo = false;
+                                    var39_125 = $this$mapTo$iv$iv$iv$iv;
+                                    var40_126 = ((void)var39_125).length;
+                                    for (var41_128 = 0; var41_128 < var40_126; ++var41_128) {
+                                        var43_132 = item$iv$iv$iv$iv = var39_125[var41_128];
+                                        var44_133 = destination$iv$iv$iv$iv;
+                                        $i$a$-map-ClassSigGen$getClassChecksum2$2$1$iv$iv = false;
+                                        var46_136 = it$iv$iv.getType();
+                                        var44_133.add(var46_136);
+                                    }
+                                    var44_133 = (List)destination$iv$iv$iv$iv;
+                                    $this$map$iv$iv$iv = (Iterable)var44_133;
+                                    $i$f$map = false;
+                                    $this$mapTo$iv$iv$iv$iv = $this$map$iv$iv$iv;
+                                    destination$iv$iv$iv$iv = new ArrayList<E>(CollectionsKt.Method9458($this$map$iv$iv$iv, 10));
+                                    $i$f$mapTo = false;
+                                    for (T item$iv$iv$iv$iv : $this$mapTo$iv$iv$iv$iv) {
+                                        block59: {
+                                            block55: {
+                                                block57: {
+                                                    block56: {
+                                                        block58: {
+                                                            var41_129 = (Class)item$iv$iv$iv$iv;
+                                                            var44_133 = destination$iv$iv$iv$iv;
+                                                            $i$a$-map-ClassSigGen$getClassChecksum2$2$2$iv$iv = false;
+                                                            it$iv$iv = ClassSigGen.Field911;
+                                                            it$iv$iv.getName();
+                                                            $i$f$getDescriptor = false;
+                                                            var48_138 = name$iv$iv$iv;
+                                                            switch (var48_138.hashCode()) {
+                                                                case 64711720: {
+                                                                    if (!var48_138.equals("boolean")) ** break;
+                                                                    break;
+                                                                }
+                                                                case 3625364: {
+                                                                    if (!var48_138.equals("void")) ** break;
+                                                                    break block55;
+                                                                }
+                                                                case -1325958191: {
+                                                                    if (!var48_138.equals("double")) ** break;
+                                                                    break block56;
+                                                                }
+                                                                case 3039496: {
+                                                                    if (!var48_138.equals("byte")) ** break;
+                                                                    break block57;
+                                                                }
+                                                                case 97526364: {
+                                                                    if (!var48_138.equals("float")) ** break;
+                                                                    break block58;
+                                                                }
+                                                                case 104431: {
+                                                                    if (!var48_138.equals("int")) ** break;
+                                                                    v3 = "I";
+                                                                    break block59;
+                                                                }
+                                                            }
+                                                            v3 = "Z";
+                                                            break block59;
+                                                        }
+                                                        v3 = "F";
+                                                        break block59;
+                                                    }
+                                                    v3 = "D";
+                                                    break block59;
+                                                }
+                                                v3 = "B";
+                                                break block59;
+                                            }
+                                            v3 = "V";
+                                            break block59;
+                                            v3 = StringsKt.Method9998(name$iv$iv$iv, "[", false, 2, null) ? StringsKt.Method9968(name$iv$iv$iv, ".", "/", false, 4, null) : 'L' + StringsKt.Method9968(name$iv$iv$iv, ".", "/", false, 4, null) + ';';
+                                        }
+                                        var46_136 = v3;
+                                        var44_133.add(var46_136);
+                                    }
+                                    var44_133 = (List)destination$iv$iv$iv$iv;
+                                    $this$map$iv$iv$iv = ClassSigGen.Field911;
+                                    it$iv$iv.getReturnType().getName();
+                                    var33_114 = var33_114.append(CollectionsKt.Method3238((Iterable)var44_133, "", null, null, 0, null, null, 62, null)).append(')');
+                                    $i$f$getDescriptor = false;
+                                    var37_122 = name$iv$iv$iv;
+                                    switch (var37_122.hashCode()) {
+                                        case 64711720: {
+                                            if (!var37_122.equals("boolean")) ** break;
+                                            break;
+                                        }
+                                        case 3625364: {
+                                            if (!var37_122.equals("void")) ** break;
+                                            break block60;
+                                        }
+                                        case -1325958191: {
+                                            if (!var37_122.equals("double")) ** break;
+                                            break block61;
+                                        }
+                                        case 3039496: {
+                                            if (!var37_122.equals("byte")) ** break;
+                                            break block62;
+                                        }
+                                        case 97526364: {
+                                            if (!var37_122.equals("float")) ** break;
+                                            break block63;
+                                        }
+                                        case 104431: {
+                                            if (!var37_122.equals("int")) ** break;
+                                            v4 = "I";
+                                            break block64;
+                                        }
+                                    }
+                                    v4 = "Z";
+                                    break block64;
+                                }
+                                v4 = "F";
+                                break block64;
+                            }
+                            v4 = "D";
+                            break block64;
+                        }
+                        v4 = "B";
+                        break block64;
+                    }
+                    v4 = "V";
+                    break block64;
+                    v4 = StringsKt.Method9998((String)name$iv$iv$iv, "[", false, 2, null) ? StringsKt.Method9968((String)name$iv$iv$iv, ".", "/", false, 4, null) : 'L' + StringsKt.Method9968((String)name$iv$iv$iv, ".", "/", false, 4, null) + ';';
+                }
+                var44_133 = v4;
+                var34_117.add(var33_114.append((String)var44_133).toString());
             }
-
-            List var44 = (List)destination$iv$iv$iv$iv;
-            Iterable $this$map$iv$iv$iv = (Iterable)var44;
-            var35 = false;
-            destination$iv$iv$iv$iv = (Collection)(new ArrayList(CollectionsKt.collectionSizeOrDefault($this$map$iv$iv$iv, 10)));
-            var121 = false;
-            Iterator var122 = $this$map$iv$iv$iv.iterator();
-
-            while(var122.hasNext()) {
-               label1804: {
-                  Object var123 = var122.next();
-                  Class it$iv$iv = (Class)var123;
-                  boolean var125 = false;
-                  ClassSigGen var43 = ClassSigGen.INSTANCE;
-                  String name$iv$iv$iv = it$iv$iv.getName();
-                  boolean var47 = false;
-                  switch(name$iv$iv$iv.hashCode()) {
-                  case -1325958191:
-                     if (name$iv$iv$iv.equals("double")) {
-                        var10000 = "D";
-                        break label1804;
-                     }
-                     break;
-                  case 104431:
-                     if (name$iv$iv$iv.equals("int")) {
-                        var10000 = "I";
-                        break label1804;
-                     }
-                     break;
-                  case 3039496:
-                     if (name$iv$iv$iv.equals("byte")) {
-                        var10000 = "B";
-                        break label1804;
-                     }
-                     break;
-                  case 3625364:
-                     if (name$iv$iv$iv.equals("void")) {
-                        var10000 = "V";
-                        break label1804;
-                     }
-                     break;
-                  case 64711720:
-                     if (name$iv$iv$iv.equals("boolean")) {
-                        var10000 = "Z";
-                        break label1804;
-                     }
-                     break;
-                  case 97526364:
-                     if (name$iv$iv$iv.equals("float")) {
-                        var10000 = "F";
-                        break label1804;
-                     }
-                  }
-
-                  var10000 = StringsKt.startsWith$default(name$iv$iv$iv, "[", false, 2, (Object)null) ? StringsKt.replace$default(name$iv$iv$iv, ".", "/", false, 4, (Object)null) : 'L' + StringsKt.replace$default(name$iv$iv$iv, ".", "/", false, 4, (Object)null) + ';';
-               }
-
-               String var128 = var10000;
-               destination$iv$iv$iv$iv.add(var128);
+            $this$forEach$iv$iv$iv = CollectionsKt.Method3129(fields$iv$iv, ClassSigGen$getClassChecksum2$3.Field7245);
+            $i$f$forEach = false;
+            var26_99 = $this$forEach$iv$iv$iv.iterator();
+            while (var26_99.hasNext()) {
+                element$iv$iv$iv = var26_99.next();
+                it$iv$iv = (String)element$iv$iv$iv;
+                $i$a$-forEach-ClassSigGen$getClassChecksum2$4$iv$iv = false;
+                var30_109 = it$iv$iv;
+                var31_111 = hash$iv$iv;
+                var32_113 = Charsets.Field5722;
+                var33_115 = false;
+                v5 = var30_109;
+                if (v5 == null) {
+                    throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
+                }
+                var34_117 = v5.getBytes((Charset)var32_113);
+                var31_111.update((byte[])var34_117);
             }
-
-            label1819: {
-               var44 = (List)destination$iv$iv$iv$iv;
-               var10001 = var116.append(CollectionsKt.joinToString$default((Iterable)var44, (CharSequence)"", (CharSequence)null, (CharSequence)null, 0, (CharSequence)null, (Function1)null, 62, (Object)null)).append(')');
-               var32 = ClassSigGen.INSTANCE;
-               String name$iv$iv$iv = element$iv$iv$iv.getReturnType().getName();
-               var116 = var10001;
-               var36 = false;
-               switch(name$iv$iv$iv.hashCode()) {
-               case -1325958191:
-                  if (name$iv$iv$iv.equals("double")) {
-                     var10000 = "D";
-                     break label1819;
-                  }
-                  break;
-               case 104431:
-                  if (name$iv$iv$iv.equals("int")) {
-                     var10000 = "I";
-                     break label1819;
-                  }
-                  break;
-               case 3039496:
-                  if (name$iv$iv$iv.equals("byte")) {
-                     var10000 = "B";
-                     break label1819;
-                  }
-                  break;
-               case 3625364:
-                  if (name$iv$iv$iv.equals("void")) {
-                     var10000 = "V";
-                     break label1819;
-                  }
-                  break;
-               case 64711720:
-                  if (name$iv$iv$iv.equals("boolean")) {
-                     var10000 = "Z";
-                     break label1819;
-                  }
-                  break;
-               case 97526364:
-                  if (name$iv$iv$iv.equals("float")) {
-                     var10000 = "F";
-                     break label1819;
-                  }
-               }
-
-               var10000 = StringsKt.startsWith$default(name$iv$iv$iv, "[", false, 2, (Object)null) ? StringsKt.replace$default(name$iv$iv$iv, ".", "/", false, 4, (Object)null) : 'L' + StringsKt.replace$default(name$iv$iv$iv, ".", "/", false, 4, (Object)null) + ';';
+            $this$forEach$iv$iv$iv = CollectionsKt.Method3129(methods$iv$iv, ClassSigGen$getClassChecksum2$5.Field7246);
+            $i$f$forEach = false;
+            var26_99 = $this$forEach$iv$iv$iv.iterator();
+            while (var26_99.hasNext()) {
+                element$iv$iv$iv = var26_99.next();
+                it$iv$iv = (String)element$iv$iv$iv;
+                $i$a$-forEach-ClassSigGen$getClassChecksum2$6$iv$iv = false;
+                var30_109 = it$iv$iv;
+                var31_112 = hash$iv$iv;
+                var32_113 = Charsets.Field5722;
+                var33_116 = false;
+                v6 = var30_109;
+                if (v6 == null) {
+                    throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
+                }
+                var34_117 = v6.getBytes((Charset)var32_113);
+                var31_112.update((byte[])var34_117);
             }
-
-            String var126 = var10000;
-            methods$iv$iv.add(var116.append(var126).toString());
-         }
-
-         Iterable $this$forEach$iv$iv$iv = (Iterable)CollectionsKt.sortedWith((Iterable)fields$iv$iv, (Comparator)ClassSigGen$getClassChecksum2$3.INSTANCE);
-         var25 = false;
-         Iterator var108 = $this$forEach$iv$iv$iv.iterator();
-
-         Object var110;
-         String it$iv$iv;
-         boolean var113;
-         Charset var117;
-         boolean var118;
-         byte[] var119;
-         while(var108.hasNext()) {
-            var110 = var108.next();
-            it$iv$iv = (String)var110;
-            var113 = false;
-            var117 = Charsets.UTF_8;
-            var118 = false;
-            if (it$iv$iv == null) {
-               throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
+            var18_70.update(var49_139.digest());
+        }
+        $this$forEach$iv$iv = classes$iv;
+        $i$f$forEach = false;
+        var11_34 = $this$forEach$iv$iv;
+        var12_40 = var11_34.length;
+        for (var13_46 = 0; var13_46 < var12_40; ++var13_46) {
+            it$iv = element$iv$iv = var11_34[var13_46];
+            $i$a$-forEach-ClassSigGen$getCombinedChecksum2$2$iv = false;
+            this_$iv$iv = hash$iv;
+            $i$f$getClassBytes = false;
+            v7 = it$iv.getClassLoader().getResourceAsStream(StringsKt.Method9968(it$iv.getName(), ".", "/", false, 4, null) + ".class");
+            if (v7 == null) {
+                $i$f$getClassChecksum2 = LaunchClassLoader.class.getDeclaredField("resourceCache");
+                var50_140 = false;
+                fields$iv$iv = false;
+                it$iv$iv = $i$f$getClassChecksum2;
+                $i$a$-let-ClassSigGen$getClassBytes$1$iv$iv = false;
+                it$iv$iv.setAccessible(true);
+                v8 = it$iv$iv.get((Object)Launch.classLoader);
+                if (v8 == null) {
+                    throw new TypeCastException("null cannot be cast to non-null type kotlin.collections.Map<kotlin.String, kotlin.ByteArray?>");
+                }
+                var25_98 = (Map)v8;
+                var51_141 = (byte[])var25_98.get(it$iv.getName());
+                v7 = new ByteArrayInputStream(var51_141);
             }
-
-            var119 = it$iv$iv.getBytes(var117);
-            hash$iv$iv.update(var119);
-         }
-
-         $this$forEach$iv$iv$iv = (Iterable)CollectionsKt.sortedWith((Iterable)methods$iv$iv, (Comparator)ClassSigGen$getClassChecksum2$5.INSTANCE);
-         var25 = false;
-         var108 = $this$forEach$iv$iv$iv.iterator();
-
-         while(var108.hasNext()) {
-            var110 = var108.next();
-            it$iv$iv = (String)var110;
-            var113 = false;
-            var117 = Charsets.UTF_8;
-            var118 = false;
-            if (it$iv$iv == null) {
-               throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
-            }
-
-            var119 = it$iv$iv.getBytes(var117);
-            hash$iv$iv.update(var119);
-         }
-
-         hash$iv.update(hash$iv$iv.digest());
-      }
-
-      var10 = false;
-      var11 = classes$iv;
-      length$iv$iv$iv = classes$iv.length;
-
-      Object var133;
-      for(var13 = 0; var13 < length$iv$iv$iv; ++var13) {
-         var14 = var11[var13];
-         var16 = false;
-         boolean var18 = false;
-         InputStream var132 = var14.getClassLoader().getResourceAsStream(StringsKt.replace$default(var14.getName(), ".", "/", false, 4, (Object)null) + ".class");
-         if (var132 == null) {
-            Field var95 = LaunchClassLoader.class.getDeclaredField("resourceCache");
-            boolean var50 = false;
-            var21 = false;
-            var24 = false;
-            var95.setAccessible(true);
-            var133 = var95.get(Launch.classLoader);
-            if (var133 == null) {
-               throw new TypeCastException("null cannot be cast to non-null type kotlin.collections.Map<kotlin.String, kotlin.ByteArray?>");
-            }
-
-            Map var107 = (Map)var133;
-            byte[] var51 = (byte[])var107.get(var14.getName());
-            var132 = (InputStream)(new ByteArrayInputStream(var51));
-         }
-
-         byte[] var109 = IOUtils.toByteArray(var132);
-         hash$iv.update(var109);
-      }
-
-      byte[] cs = hash$iv.digest();
-      var7 = false;
-      byte[] var129 = new byte[]{32, 120, 45, 34, 66, 43, 87, 54, 0, 0, 0};
-      byte var57;
-      stream.setI((byte)((var57 = stream.getI()) + 1));
-      var129[8] = var57;
-      var129[9] = 16;
-      var129[10] = 86;
-      stream.setSalt(var129);
-      var129 = Encryption.INSTANCE.getRandomNonce(12);
-      if (var129 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      stream.setIv(var129);
-      Encryption var9 = Encryption.INSTANCE;
-      boolean $i$f$writeByteArray = false;
-      String name$iv = ArraysKt.joinToString$default(cs, (CharSequence)"", (CharSequence)null, (CharSequence)null, 0, (CharSequence)null, (Function1)UtilsKt$hexString$1.INSTANCE, 30, (Object)null);
-      $i$f$writeByteArray = false;
-      if (name$iv == null) {
-         throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
-      } else {
-         char[] var75 = name$iv.toCharArray();
-         SecretKey var130 = var9.getAESKeyFromPassword(var75, stream.getSalt());
-         if (var130 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         stream.setKey(var130);
-         byte value$iv = 42;
-         var7 = false;
-         byte[] var61 = ByteBuffer.allocate(4).putInt(value$iv).array();
-         var10 = false;
-         byte[] var72 = Encryption.INSTANCE.encryptWithPrefixIV(var61, stream.getKey(), stream.getIv());
-         DataOutputStream $this$writeByteArray$iv$iv$iv = stream.getOutStream();
-         if (var72 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         boolean var83 = false;
-         $this$writeByteArray$iv$iv$iv.writeInt(var72.length);
-         $this$writeByteArray$iv$iv$iv.write(var72);
-         int value$iv = "life, the universe, and everything";
-         Charset var56 = Charsets.UTF_8;
-         boolean $i$f$readByteArray = false;
-         byte[] nextBytes = value$iv.getBytes(var56);
-         var7 = false;
-         byte[] var60 = Encryption.INSTANCE.encryptWithPrefixIV(nextBytes, stream.getKey(), stream.getIv());
-         DataOutputStream $this$writeByteArray$iv$iv = stream.getOutStream();
-         if (var60 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         $i$f$writeByteArray = false;
-         $this$writeByteArray$iv$iv.writeInt(var60.length);
-         $this$writeByteArray$iv$iv.write(var60);
-         NestedClassloader classloaderA = new NestedClassloader(INSTANCE.getClass().getClassLoader());
-         $i$f$readByteArray = false;
-         DataInputStream var63 = stream.getInStream();
-         var10 = false;
-         InputStream $this$readByteArray$iv$iv$iv = (InputStream)var63;
-         length$iv$iv$iv = var63.readInt();
-         boolean var81 = false;
-         byte[] array$iv$iv$iv = new byte[length$iv$iv$iv];
-
-         int bytesRead$iv$iv$iv;
-         int read$iv$iv$iv;
-         for(bytesRead$iv$iv$iv = 0; bytesRead$iv$iv$iv < length$iv$iv$iv; bytesRead$iv$iv$iv += read$iv$iv$iv) {
+            var26_99 = IOUtils.toByteArray((InputStream)v7);
+            this_$iv$iv.update((byte[])var26_99);
+        }
+        cs = hash$iv.digest();
+        this_$iv = stream;
+        key$iv = cs;
+        $i$f$setKey = false;
+        v9 = new byte[11];
+        v9[0] = 32;
+        v9[1] = 120;
+        v9[2] = 45;
+        v9[3] = 34;
+        v9[4] = 66;
+        v9[5] = 43;
+        v9[6] = 87;
+        v9[7] = 54;
+        v10 = this_$iv;
+        hash$iv = v10.Method8438();
+        v10.Method8431((byte)(hash$iv + 1));
+        v9[8] = hash$iv;
+        v9[9] = 16;
+        v9[10] = 86;
+        this_$iv.Method8444(v9);
+        v11 = Encryption.Field4545.Method6540(12);
+        if (v11 == null) {
+            Intrinsics.Method6551();
+        }
+        this_$iv.Method8440(v11);
+        hash$iv = key$iv;
+        $this$forEach$iv$iv = Encryption.Field4545;
+        $i$f$forEach = this_$iv;
+        $i$f$hexString = false;
+        $this$hexString$iv$iv = var12_41 = ArraysKt.Method11276((byte[])$this$hexString$iv$iv, "", null, null, 0, null, UtilsKt$hexString$1.Field3792, 30, null);
+        $i$f$hexString = false;
+        v12 = $this$hexString$iv$iv;
+        if (v12 == null) {
+            throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
+        }
+        var12_41 = v12.toCharArray();
+        v13 = $this$forEach$iv$iv.Method6537((char[])var12_41, this_$iv.Method8436());
+        if (v13 == null) {
+            Intrinsics.Method6551();
+        }
+        $i$f$forEach.Method8432(v13);
+        this_$iv = stream;
+        value$iv = 42;
+        $i$f$writeInt = false;
+        $this$hexString$iv$iv = this_$iv;
+        byteArray$iv$iv /* !! */  = ByteBuffer.allocate(4).putInt(value$iv).array();
+        $i$f$writeByteArray = false;
+        newBytes$iv$iv = Encryption.Field4545.Method6534(byteArray$iv$iv /* !! */ , this_$iv$iv.Method8442(), this_$iv$iv.Method8445());
+        var12_41 = this_$iv$iv.Method8441();
+        if (newBytes$iv$iv == null) {
+            Intrinsics.Method6551();
+        }
+        bytes$iv$iv$iv = newBytes$iv$iv;
+        $i$f$writeByteArray = false;
+        $this$writeByteArray$iv$iv$iv.writeInt(bytes$iv$iv$iv.length);
+        $this$writeByteArray$iv$iv$iv.write(bytes$iv$iv$iv);
+        this_$iv = stream;
+        value$iv = "life, the universe, and everything";
+        $i$f$writeInt = Charsets.Field5722;
+        this_$iv$iv = false;
+        byteArray$iv = value$iv.getBytes($i$f$writeInt);
+        $i$f$writeByteArray = false;
+        newBytes$iv = Encryption.Field4545.Method6534(byteArray$iv, this_$iv.Method8442(), this_$iv.Method8445());
+        byteArray$iv$iv /* !! */  = (byte[])this_$iv.Method8441();
+        if (newBytes$iv == null) {
+            Intrinsics.Method6551();
+        }
+        bytes$iv$iv = newBytes$iv;
+        $i$f$writeByteArray = false;
+        $this$writeByteArray$iv$iv.writeInt(bytes$iv$iv.length);
+        $this$writeByteArray$iv$iv.write(bytes$iv$iv);
+        classloaderA = new NestedClassloader(SixthLayer.Field37.getClass().getClassLoader());
+        this_$iv = stream;
+        $i$f$readByteArray = false;
+        $this$readByteArray$iv$iv = this_$iv.Method8437();
+        $i$f$readByteArray = false;
+        $i$f$writeByteArray = $this$readByteArray$iv$iv;
+        length$iv$iv$iv = $this$readByteArray$iv$iv.readInt();
+        $i$f$readByteArray = false;
+        array$iv$iv$iv = new byte[length$iv$iv$iv];
+        for (bytesRead$iv$iv$iv = 0; bytesRead$iv$iv$iv < length$iv$iv$iv; bytesRead$iv$iv$iv += read$iv$iv$iv) {
             read$iv$iv$iv = $this$readByteArray$iv$iv$iv.read(array$iv$iv$iv, bytesRead$iv$iv$iv, array$iv$iv$iv.length - bytesRead$iv$iv$iv);
-            if (read$iv$iv$iv == -1) {
-               break;
+            if (read$iv$iv$iv == -1) break;
+        }
+        encrypted$iv = array$iv$iv$iv;
+        nextBytes = Encryption.Field4545.Method6539(encrypted$iv, this_$iv.Method8442());
+        $i$f$dpkgZip = false;
+        $this$readByteArray$iv$iv = false;
+        map$iv = new LinkedHashMap<K, V>();
+        zipIn$iv = new ZipInputStream(new ByteArrayInputStream(nextBytes));
+        entry$iv = new Ref.ObjectRef<T>();
+        while (true) {
+            length$iv$iv$iv = zipIn$iv.getNextEntry();
+            $i$f$readByteArray = false;
+            array$iv$iv$iv = false;
+            it$iv = length$iv$iv$iv;
+            $i$a$-also-Utils$dpkgZip$1$iv = false;
+            entry$iv.Field5552 = it$iv;
+            if (length$iv$iv$iv == null) break;
+            contents$iv = new byte[4096];
+            direct$iv = new Ref.IntRef();
+            stream$iv = new ByteArrayOutputStream();
+            while (true) {
+                it$iv = zipIn$iv.read((byte[])contents$iv, 0, ((byte[])contents$iv).length);
+                $i$a$-also-Utils$dpkgZip$1$iv = false;
+                encrypted$iv = false;
+                it$iv = it$iv;
+                $i$a$-also-Utils$dpkgZip$2$iv = false;
+                direct$iv.Field284 = it$iv;
+                if (it$iv < 0) break;
+                stream$iv.write((byte[])contents$iv, 0, direct$iv.Field284);
             }
-         }
-
-         nextBytes = Encryption.INSTANCE.decryptWithPrefixIV(array$iv$iv$iv, stream.getKey());
-         $i$f$readByteArray = false;
-         boolean var65 = false;
-         Map map$iv = (Map)(new LinkedHashMap());
-         ZipInputStream zipIn$iv = new ZipInputStream((InputStream)(new ByteArrayInputStream(nextBytes)));
-         Ref.ObjectRef entry$iv = new Ref.ObjectRef();
-
-         while(true) {
-            ZipEntry var80 = zipIn$iv.getNextEntry();
-            var81 = false;
-            var83 = false;
-            var16 = false;
-            entry$iv.element = var80;
-            boolean var92;
-            if (var80 == null) {
-               var65 = false;
-               var10 = false;
-               Map classMap$iv = (Map)(new LinkedHashMap());
-               var81 = false;
-               Iterator var89 = map$iv.entrySet().iterator();
-
-               while(var89.hasNext()) {
-                  Entry var71 = (Entry)var89.next();
-                  var16 = false;
-                  name$iv = (String)var71.getKey();
-                  var16 = false;
-                  byte[] bytes$iv = (byte[])var71.getValue();
-                  if (StringsKt.endsWith$default(name$iv, ".class", false, 2, (Object)null)) {
-                     classMap$iv.put(StringsKt.substringBefore$default(StringsKt.replace$default(name$iv, "/", ".", false, 4, (Object)null), ".class", (String)null, 2, (Object)null), bytes$iv);
-                  } else {
-                     classMap$iv.put(name$iv, bytes$iv);
-                     PyroClientLoadingPlugin.resources.put(name$iv, bytes$iv);
-                  }
-               }
-
-               var65 = false;
-               var10 = false;
-               boolean var86 = false;
-               var83 = false;
-               var16 = false;
-               Iterator var93 = classMap$iv.entrySet().iterator();
-
-               while(var93.hasNext()) {
-                  Entry var94 = (Entry)var93.next();
-                  boolean var96 = false;
-                  boolean var100 = false;
-                  String name = (String)var94.getKey();
-                  var100 = false;
-                  byte[] bytes = (byte[])var94.getValue();
-                  classloaderA.loadResource(name, bytes);
-               }
-
-               Class classloaderBClass = classloaderA.loadClass("dev.nuker.pyro.security.NestedClassloader");
-               Object classloaderB = classloaderBClass.getConstructor(ClassLoader.class).newInstance(INSTANCE.getClass().getClassLoader());
-               $i$f$writeByteArray = false;
-               var81 = false;
-               var89 = classMap$iv.entrySet().iterator();
-
-               while(var89.hasNext()) {
-                  Entry var90 = (Entry)var89.next();
-                  var92 = false;
-                  var19 = false;
-                  String name = (String)var90.getKey();
-                  var19 = false;
-                  byte[] bytes = (byte[])var90.getValue();
-                  classloaderBClass.getMethod("loadResource", String.class, byte[].class).invoke(classloaderB, name, bytes);
-               }
-
-               var133 = classloaderBClass.getMethod("loadClass", String.class).invoke(classloaderB, "dev.nuker.pyro.layer.SeventhLayer");
-               if (var133 == null) {
-                  throw new TypeCastException("null cannot be cast to non-null type java.lang.Class<*>");
-               }
-
-               Method var74 = ((Class)var133).getMethod("run", ClassLoader.class, LoaderGui.class, byte[].class, DataInputStream.class, DataOutputStream.class);
-               var74.invoke((Object)null, INSTANCE.getClass().getClassLoader(), gui, cs, si, so);
-               return;
+            v14 = (ZipEntry)entry$iv.Field5552;
+            if (v14 == null) {
+                Intrinsics.Method6551();
             }
-
-            byte[] contents$iv = new byte[4096];
-            Ref.IntRef direct$iv = new Ref.IntRef();
-            ByteArrayOutputStream stream$iv = new ByteArrayOutputStream();
-
-            while(true) {
-               bytesRead$iv$iv$iv = zipIn$iv.read(contents$iv, 0, contents$iv.length);
-               var16 = false;
-               var92 = false;
-               var19 = false;
-               direct$iv.element = bytesRead$iv$iv$iv;
-               if (bytesRead$iv$iv$iv < 0) {
-                  ZipEntry var131 = (ZipEntry)entry$iv.element;
-                  if (var131 == null) {
-                     Intrinsics.throwNpe();
-                  }
-
-                  map$iv.put(var131.getName(), stream$iv.toByteArray());
-                  zipIn$iv.closeEntry();
-                  break;
-               }
-
-               stream$iv.write(contents$iv, 0, direct$iv.element);
+            map$iv.put(v14.getName(), stream$iv.toByteArray());
+            zipIn$iv.closeEntry();
+        }
+        files$iv = map$iv;
+        $i$f$process = false;
+        map$iv = false;
+        classMap$iv = new LinkedHashMap<K, V>();
+        contents$iv = files$iv;
+        direct$iv = false;
+        stream$iv = contents$iv.entrySet().iterator();
+        while (stream$iv.hasNext()) {
+            it$iv = map$iv = stream$iv.next();
+            $i$a$-also-Utils$dpkgZip$1$iv = false;
+            name$iv = (String)it$iv.getKey();
+            it$iv = map$iv;
+            $i$a$-also-Utils$dpkgZip$1$iv = false;
+            bytes$iv = (byte[])it$iv.getValue();
+            if (StringsKt.Method10002(name$iv, ".class", false, 2, null)) {
+                classMap$iv.put(StringsKt.Method11415(StringsKt.Method9968(name$iv, "/", ".", false, 4, null), ".class", null, 2, null), bytes$iv);
+                continue;
             }
-         }
-      }
-   }
+            classMap$iv.put(name$iv, bytes$iv);
+            PyroClientLoadingPlugin.Field7534.put(name$iv, bytes$iv);
+        }
+        files$iv = classMap$iv;
+        $i$f$process = false;
+        map$iv = false;
+        it = files$iv;
+        $i$a$-also-SixthLayer$run$classes$1 = false;
+        $this$forEach$iv = it;
+        $i$f$forEach = false;
+        it$iv = $this$forEach$iv;
+        $i$a$-also-Utils$dpkgZip$1$iv = false;
+        encrypted$iv = it$iv.entrySet().iterator();
+        while (encrypted$iv.hasNext()) {
+            $dstr$name$bytes = element$iv = encrypted$iv.next();
+            $i$a$-forEach-SixthLayer$run$classes$1$1 = false;
+            fields$iv$iv = $dstr$name$bytes;
+            var22_90 = false;
+            name = (String)fields$iv$iv.getKey();
+            fields$iv$iv = $dstr$name$bytes;
+            var22_90 = false;
+            bytes = (byte[])fields$iv$iv.getValue();
+            classloaderA.Method4761(name, bytes);
+        }
+        classes = files$iv;
+        classloaderBClass = classloaderA.loadClass("dev.nuker.pyro.security.NestedClassloader");
+        classloaderB = classloaderBClass.getConstructor(new Class[]{ClassLoader.class}).newInstance(new Object[]{SixthLayer.Field37.getClass().getClassLoader()});
+        $this$forEach$iv = classes;
+        $i$f$forEach = false;
+        var12_45 = $this$forEach$iv;
+        var13_53 = false;
+        var14_60 = var12_45.entrySet().iterator();
+        while (var14_60.hasNext()) {
+            $dstr$name$bytes = element$iv = var14_60.next();
+            $i$a$-forEach-SixthLayer$run$1 = false;
+            var18_74 = $dstr$name$bytes;
+            var19_79 = false;
+            name = (String)var18_74.getKey();
+            var18_74 = $dstr$name$bytes;
+            var19_79 = false;
+            bytes = (byte[])var18_74.getValue();
+            classloaderBClass.getMethod("loadResource", new Class[]{String.class, byte[].class}).invoke(classloaderB, new Object[]{name, bytes});
+        }
+        v15 = classloaderBClass.getMethod("loadClass", new Class[]{String.class}).invoke(classloaderB, new Object[]{"dev.nuker.pyro.layer.SeventhLayer"});
+        if (v15 == null) {
+            throw new TypeCastException("null cannot be cast to non-null type java.lang.Class<*>");
+        }
+        method = ((Class)v15).getMethod("run", new Class[]{ClassLoader.class, LoaderGui.class, byte[].class, DataInputStream.class, DataOutputStream.class});
+        method.invoke(null, new Object[]{SixthLayer.Field37.getClass().getClassLoader(), gui, cs, si, so});
+    }
 
-   static {
-      SixthLayer var0 = new SixthLayer();
-      INSTANCE = var0;
-   }
+    static {
+        SixthLayer sixthLayer;
+        Field37 = sixthLayer = new SixthLayer();
+    }
 }
+

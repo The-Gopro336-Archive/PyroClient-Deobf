@@ -1,36 +1,41 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-public enum fe0 {
-   // $FF: renamed from: c dev.nuker.pyro.fe0
-   field_1264,
-   // $FF: renamed from: 0 dev.nuker.pyro.fe0
-   field_1265,
-   // $FF: renamed from: 1 dev.nuker.pyro.fe0
-   field_1266,
-   // $FF: renamed from: 2 dev.nuker.pyro.fe0
-   field_1267,
-   // $FF: renamed from: 3 dev.nuker.pyro.fe0
-   field_1268,
-   // $FF: renamed from: 4 dev.nuker.pyro.fe0
-   field_1269,
-   // $FF: renamed from: 5 dev.nuker.pyro.fe0
-   field_1270,
-   // $FF: renamed from: 6 dev.nuker.pyro.fe0
-   field_1271,
-   // $FF: renamed from: 7 dev.nuker.pyro.fe0
-   field_1272,
-   // $FF: renamed from: 8 dev.nuker.pyro.fe0
-   field_1273;
+public class fe0
+extends Enum {
+    public static /* enum */ fe0 f$b = new fe0("f$b", 0);
+    public static /* enum */ fe0 f$j = new fe0("f$j", 1);
+    public static /* enum */ fe0 f$i = new fe0("f$i", 2);
+    public static /* enum */ fe0 f$M = new fe0("f$M", 3);
+    public static /* enum */ fe0 f$g = new fe0("f$g", 4);
+    public static /* enum */ fe0 f$C = new fe0("f$C", 5);
+    public static /* enum */ fe0 f$e = new fe0("f$e", 6);
+    public static /* enum */ fe0 f$I = new fe0("f$I", 7);
+    public static /* enum */ fe0 f$K = new fe0("f$K", 8);
+    public static /* enum */ fe0 f$a = new fe0("f$a", 9);
+    public static /* synthetic */ fe0[] Field271;
 
-   // $FF: renamed from: c dev.nuker.pyro.fe0[]
-   public static fe0[] field_1274 = new fe0[]{field_1264, field_1265, field_1266, field_1267, field_1268, field_1269, field_1270, field_1271, field_1272, field_1273};
+    static {
+        Field271 = new fe0[]{f$b, f$j, f$i, f$M, f$g, f$C, f$e, f$I, f$K, f$a};
+    }
 
-   // $FF: renamed from: c (java.lang.String) dev.nuker.pyro.fe0
-   public static fe0 method_1955(String var0) {
-      return (fe0)Enum.valueOf(fe0.class, var0);
-   }
+    public static fe0[] Method448() {
+        return (fe0[])Field271.clone();
+    }
+
+    /*
+     * WARNING - Possible parameter corruption
+     * WARNING - void declaration
+     */
+    public fe0() {
+        void var2_-1;
+        void var1_-1;
+    }
+
+    public static fe0 Method449(String string) {
+        return Enum.valueOf(fe0.class, string);
+    }
 }
+

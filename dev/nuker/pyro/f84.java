@@ -1,23 +1,26 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.Module;
+import dev.nuker.pyro.f0g;
+import dev.nuker.pyro.f41;
+import dev.nuker.pyro.f4u;
 import dev.nuker.pyro.security.inject.LauncherEventHide;
 
-public class f84 extends Module {
-   // $FF: renamed from: c (dev.nuker.pyro.f4u) void
-   @f0g
-   @LauncherEventHide
-   public void method_679(f4u var1) {
-      if (var1.c() == f41.field_2120 && (double)this.c.player.getHealth() <= 0.0D) {
-         this.c.player.respawnPlayer();
-      }
+public class f84
+extends Module {
+    @f0g
+    @LauncherEventHide
+    public void Method203(f4u f4u2) {
+        if (f4u2.Method5619() == f41.Pre && (double)this.Field5233.player.getHealth() <= 0.0) {
+            this.Field5233.player.respawnPlayer();
+        }
+    }
 
-   }
-
-   public f84() {
-      super("autorespawn", "AutoRespawn", (String)null);
-   }
+    public f84() {
+        super("autorespawn", "AutoRespawn", null);
+    }
 }
+

@@ -1,35 +1,40 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraftforge.common.ForgeModContainer
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.f0w;
+import dev.nuker.pyro.fbP;
+import dev.nuker.pyro.fbT;
 import java.util.function.Consumer;
 import net.minecraftforge.common.ForgeModContainer;
 import org.jetbrains.annotations.NotNull;
 
-public class fbQ implements Consumer {
-   // $FF: renamed from: c dev.nuker.pyro.fbT
-   public fbT field_1612;
+public class fbQ
+implements Consumer {
+    public fbT Field1938;
 
-   public void accept(Object var1) {
-      this.method_2816((f0w)var1);
-   }
+    public void accept(Object object) {
+        this.Method374((f0w)object);
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.f0w) void
-   public void method_2816(@NotNull f0w var1) {
-      if ((Boolean)this.field_1612.c.method_3034() && (Boolean)var1.method_3318()) {
-         if (fbT.method_1039(this.field_1612).world != null && fbT.method_1039(this.field_1612).renderGlobal != null) {
-            fbT.method_1039(this.field_1612).addScheduledTask((Runnable)(new fbP(this)));
-         }
+    public void Method374(@NotNull f0w f0w2) {
+        if (((Boolean)this.Field1938.Field5236.Method5264()).booleanValue() && ((Boolean)f0w2.Method7979()).booleanValue()) {
+            if (fbT.Method2610((fbT)this.Field1938).world != null) {
+                if (fbT.Method2610((fbT)this.Field1938).renderGlobal != null) {
+                    fbT.Method2610(this.Field1938).addScheduledTask((Runnable)new fbP(this));
+                }
+            }
+            ForgeModContainer.forgeLightPipelineEnabled = !this.Field1938.Method2622();
+        }
+    }
 
-         ForgeModContainer.forgeLightPipelineEnabled = !this.field_1612.method_1056();
-      }
-
-   }
-
-   public fbQ(fbT var1) {
-      this.field_1612 = var1;
-      super();
-   }
+    public fbQ(fbT fbT2) {
+        this.Field1938 = fbT2;
+    }
 }
+

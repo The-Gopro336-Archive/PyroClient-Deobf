@@ -1,26 +1,95 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.block.state.IBlockState
+ *  net.minecraft.client.entity.EntityPlayerSP
+ *  net.minecraft.client.network.NetHandlerPlayClient
+ *  net.minecraft.client.renderer.GlStateManager
+ *  net.minecraft.enchantment.EnchantmentHelper
+ *  net.minecraft.entity.Entity
+ *  net.minecraft.entity.EntityLivingBase
+ *  net.minecraft.entity.EnumCreatureAttribute
+ *  net.minecraft.entity.SharedMonsterAttributes
+ *  net.minecraft.entity.item.EntityEnderCrystal
+ *  net.minecraft.entity.player.EntityPlayer
+ *  net.minecraft.init.Blocks
+ *  net.minecraft.init.Items
+ *  net.minecraft.init.MobEffects
+ *  net.minecraft.item.ItemFood
+ *  net.minecraft.item.ItemPickaxe
+ *  net.minecraft.item.ItemStack
+ *  net.minecraft.item.ItemSword
+ *  net.minecraft.item.ItemTool
+ *  net.minecraft.network.Packet
+ *  net.minecraft.network.play.client.CPacketAnimation
+ *  net.minecraft.network.play.client.CPacketHeldItemChange
+ *  net.minecraft.network.play.client.CPacketPlayerTryUseItemOnBlock
+ *  net.minecraft.potion.PotionEffect
+ *  net.minecraft.util.EnumFacing
+ *  net.minecraft.util.EnumHand
+ *  net.minecraft.util.math.BlockPos
+ *  net.minecraft.util.math.MathHelper
+ *  net.minecraft.util.math.RayTraceResult
+ *  net.minecraft.util.math.RayTraceResult$Type
+ *  net.minecraft.util.math.Vec3d
+ *  net.minecraft.util.math.Vec3i
+ *  net.minecraft.world.World
+ *  org.jetbrains.annotations.NotNull
+ *  org.jetbrains.annotations.Nullable
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.BindSetting;
+import dev.nuker.pyro.BooleanSetting;
+import dev.nuker.pyro.DoubleSetting;
+import dev.nuker.pyro.IntegerSetting;
+import dev.nuker.pyro.Module;
+import dev.nuker.pyro.Pyro;
+import dev.nuker.pyro.PyroRenderUtil;
+import dev.nuker.pyro.PyroStatic;
+import dev.nuker.pyro.Rotation;
+import dev.nuker.pyro.f00;
+import dev.nuker.pyro.f0g;
+import dev.nuker.pyro.f0l;
+import dev.nuker.pyro.f0n;
+import dev.nuker.pyro.f0o;
+import dev.nuker.pyro.f0t;
+import dev.nuker.pyro.f41;
+import dev.nuker.pyro.f43;
+import dev.nuker.pyro.f49;
+import dev.nuker.pyro.f4I;
+import dev.nuker.pyro.f4J;
+import dev.nuker.pyro.f4u;
+import dev.nuker.pyro.f6n;
+import dev.nuker.pyro.f6o;
+import dev.nuker.pyro.f6p;
+import dev.nuker.pyro.f6q;
+import dev.nuker.pyro.f6r;
+import dev.nuker.pyro.f6s;
+import dev.nuker.pyro.fdM;
+import dev.nuker.pyro.fdN;
+import dev.nuker.pyro.fdX;
+import dev.nuker.pyro.fe3;
+import dev.nuker.pyro.fe4;
+import dev.nuker.pyro.fe5;
+import dev.nuker.pyro.fe8;
+import dev.nuker.pyro.feg;
+import dev.nuker.pyro.feh;
+import dev.nuker.pyro.few;
+import dev.nuker.pyro.fex;
 import dev.nuker.pyro.mixin.CPacketPlayerTryUseItemOnBlockAccessor;
 import dev.nuker.pyro.security.inject.LauncherEventHide;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Iterator;
-import java.util.List;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.function.Predicate;
 import kotlin.TypeCastException;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Ref;
 import kotlin.jvm.internal.StringCompanionObject;
 import kotlin.ranges.RangesKt;
-import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.network.NetHandlerPlayClient;
@@ -47,1557 +116,1160 @@ import net.minecraft.network.play.client.CPacketPlayerTryUseItemOnBlock;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.Vec3i;
-import net.minecraft.util.math.RayTraceResult.Type;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class AutoCrystal extends Module {
-   // $FF: renamed from: c dev.nuker.pyro.f0o
-   @NotNull
-   public f0o field_100;
-   // $FF: renamed from: c dev.nuker.pyro.IntegerSetting
-   @NotNull
-   public IntegerSetting field_101;
-   @NotNull
-   public IntegerSetting placeDelay;
-   // $FF: renamed from: c dev.nuker.pyro.DoubleSetting
-   @NotNull
-   public DoubleSetting field_102;
-   @NotNull
-   public DoubleSetting breakRange;
-   // $FF: renamed from: 1 dev.nuker.pyro.DoubleSetting
-   @NotNull
-   public DoubleSetting field_103;
-   // $FF: renamed from: 2 dev.nuker.pyro.DoubleSetting
-   @NotNull
-   public DoubleSetting field_104;
-   // $FF: renamed from: c dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_105;
-   // $FF: renamed from: 3 dev.nuker.pyro.DoubleSetting
-   @NotNull
-   public DoubleSetting field_106;
-   @NotNull
-   public BooleanSetting ak47;
-   // $FF: renamed from: 4 dev.nuker.pyro.DoubleSetting
-   @NotNull
-   public DoubleSetting field_107;
-   // $FF: renamed from: 5 dev.nuker.pyro.DoubleSetting
-   @NotNull
-   public DoubleSetting field_108;
-   // $FF: renamed from: 1 dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_109;
-   // $FF: renamed from: 2 dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_110;
-   // $FF: renamed from: 1 dev.nuker.pyro.IntegerSetting
-   @NotNull
-   public IntegerSetting field_111;
-   // $FF: renamed from: c dev.nuker.pyro.BindSetting
-   @NotNull
-   public BindSetting field_112;
-   // $FF: renamed from: 2 dev.nuker.pyro.IntegerSetting
-   @NotNull
-   public IntegerSetting field_113;
-   // $FF: renamed from: 3 dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_114;
-   // $FF: renamed from: 0 dev.nuker.pyro.f0o
-   @NotNull
-   public f0o field_115;
-   // $FF: renamed from: 4 dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_116;
-   // $FF: renamed from: 6 dev.nuker.pyro.DoubleSetting
-   @NotNull
-   public DoubleSetting field_117;
-   // $FF: renamed from: 5 dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_118;
-   // $FF: renamed from: 6 dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_119;
-   // $FF: renamed from: 7 dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_120;
-   // $FF: renamed from: 8 dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_121;
-   // $FF: renamed from: 9 dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_122;
-   // $FF: renamed from: a dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_123;
-   // $FF: renamed from: b dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_124;
-   // $FF: renamed from: d dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_125;
-   // $FF: renamed from: e dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_126;
-   // $FF: renamed from: 7 dev.nuker.pyro.DoubleSetting
-   @NotNull
-   public DoubleSetting field_127;
-   // $FF: renamed from: f dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_128;
-   // $FF: renamed from: g dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_129;
-   // $FF: renamed from: h dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_130;
-   // $FF: renamed from: i dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_131;
-   // $FF: renamed from: j dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_132;
-   // $FF: renamed from: k dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_133;
-   // $FF: renamed from: l dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_134;
-   // $FF: renamed from: c dev.nuker.pyro.f0l
-   @NotNull
-   public f0l field_135;
-   // $FF: renamed from: m dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_136;
-   // $FF: renamed from: n dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_137;
-   // $FF: renamed from: 0 dev.nuker.pyro.f0l
-   @NotNull
-   public f0l field_138;
-   // $FF: renamed from: 1 dev.nuker.pyro.f0l
-   @NotNull
-   public f0l field_139;
-   // $FF: renamed from: c dev.nuker.pyro.fe8
-   @NotNull
-   public fe8 field_140;
-   // $FF: renamed from: c boolean
-   public boolean field_141;
-   // $FF: renamed from: c float
-   public float field_142;
-   // $FF: renamed from: 0 float
-   public float field_143;
-   // $FF: renamed from: c dev.nuker.pyro.f6n
-   @Nullable
-   public f6n field_144;
-   // $FF: renamed from: c net.minecraft.entity.EntityLivingBase
-   @Nullable
-   public EntityLivingBase field_145;
-   // $FF: renamed from: c java.util.concurrent.CopyOnWriteArrayList
-   @NotNull
-   public CopyOnWriteArrayList field_146;
-   // $FF: renamed from: 0 dev.nuker.pyro.fe8
-   @NotNull
-   public fe8 field_147;
-   // $FF: renamed from: 1 int
-   public int field_148;
-   // $FF: renamed from: 0 boolean
-   public boolean field_149;
-   // $FF: renamed from: c java.util.concurrent.ConcurrentLinkedQueue
-   @NotNull
-   public ConcurrentLinkedQueue field_150;
-   // $FF: renamed from: 1 dev.nuker.pyro.fe8
-   @NotNull
-   public fe8 field_151;
-   // $FF: renamed from: 2 int
-   public int field_152;
-   // $FF: renamed from: 3 int
-   public int field_153;
-   // $FF: renamed from: c double
-   public double field_154;
-   // $FF: renamed from: 0 double
-   public double field_155;
+public class AutoCrystal
+extends Module {
+    @NotNull
+    public f0o<f6o> Field6087 = new f0o("breakMode", "BreakModes", null, f6o.Smart);
+    @NotNull
+    public IntegerSetting Field6088 = new IntegerSetting("breakTickDelay", "BreakTickDelay", null, 0, 0, 10, 0, 64, null);
+    @NotNull
+    public IntegerSetting Field6089 = new IntegerSetting("placeTickDelay", "PlaceTickDelay", null, 0, 0, 10, 0, 64, null);
+    @NotNull
+    public DoubleSetting Field6090 = new DoubleSetting("randomDelay", "RandomDelay", "Random delay in seconds", 0.0, 0.0, 1.0, 0.0, 64, null);
+    @NotNull
+    public DoubleSetting Field6091 = new DoubleSetting("breakRange", "BreakRange", null, 6.0, 1.0, 6.0, 0.0, 64, null);
+    @NotNull
+    public DoubleSetting Field6092 = new DoubleSetting("placeRange", "PlaceRange", null, 6.0, 1.0, 6.0, 0.0, 64, null);
+    @NotNull
+    public DoubleSetting Field6093 = new DoubleSetting("enemyRange", "EnemyRange", null, 6.0, 0.0, 6.0, 0.0, 64, null);
+    @NotNull
+    public BooleanSetting Field6094 = new BooleanSetting("ncp", "NCP", null, true);
+    @NotNull
+    public DoubleSetting Field6095 = new DoubleSetting("wallsRange", "WallsRange", null, 3.0, 0.0, 6.0, 0.0, 64, null);
+    @NotNull
+    public BooleanSetting Field6096 = new BooleanSetting("ak47", "AK47", "Crystalaura go brr", true);
+    @NotNull
+    public DoubleSetting Field6097 = new DoubleSetting("minDmg", "MinDMG", null, 6.0, 0.1, 20.0, 0.0, 64, null);
+    @NotNull
+    public DoubleSetting Field6098 = new DoubleSetting("maxSelfDMG", "MaxSelfDMG", null, 6.0, 0.1, 20.0, 0.0, 64, null);
+    @NotNull
+    public BooleanSetting Field6099 = new BooleanSetting("noSuicide", "NoSuicide", null, false);
+    @NotNull
+    public BooleanSetting Field6100 = new BooleanSetting("ignoreSelfDamage", "IgnoreSelfDamage", "May boost FPS", false);
+    @NotNull
+    public IntegerSetting Field6101 = new IntegerSetting("facePlaceHP", "FacePlace", null, 9, 0, 20, 0, 64, null);
+    @NotNull
+    public BindSetting Field6102 = new BindSetting("forceFacePlace", "ForceFacePlace", "Force's you to faceplace when this key is held down", -1);
+    @NotNull
+    public IntegerSetting Field6103 = new IntegerSetting("lethalMultiplier", "LethalMultiplier", null, 0, 0, 10, 0, 64, null);
+    @NotNull
+    public BooleanSetting Field6104 = new BooleanSetting("throughWalls", "ThroughWalls", null, true);
+    @NotNull
+    public f0o<f6p> Field6105 = new f0o("switchMode", "SwitchMode", null, f6p.Auto);
+    @NotNull
+    public BooleanSetting Field6106 = new BooleanSetting("armorBreaker", "ArmorBreaker", null, false);
+    @NotNull
+    public DoubleSetting Field6107 = new DoubleSetting("armorBreakerPct", "Pct", "Percentage of armor to faceplace at", 20.0, 0.0, 100.0, 0.0, 64, null);
+    @NotNull
+    public BooleanSetting Field6108 = new BooleanSetting("antiweakness", "AntiWeakness", "Uses sword to break weakness crystals", false);
+    @NotNull
+    public BooleanSetting Field6109 = new BooleanSetting("rotate", "Rotate", "Uses rotation system of client", true);
+    @NotNull
+    public BooleanSetting Field6110 = new BooleanSetting("offhandBreak", "OffhandBreak", "Swings offhand instead of mainhand", false);
+    @NotNull
+    public BooleanSetting Field6111 = new BooleanSetting("players", "Players", null, true);
+    @NotNull
+    public BooleanSetting Field6112 = new BooleanSetting("onlyInFrustram", "OnlyInFrustram", "Only targets entities in the frustram", false);
+    @NotNull
+    public BooleanSetting Field6113 = new BooleanSetting("armorCheck", "ArmorCheck", "Only targets entities with armor", false);
+    @NotNull
+    public BooleanSetting Field6114 = new BooleanSetting("pauseWhileEating", "Eating", null, true);
+    @NotNull
+    public BooleanSetting Field6115 = new BooleanSetting("pauseWhileXPing", "XPing", null, true);
+    @NotNull
+    public BooleanSetting Field6116 = new BooleanSetting("pauseWhileMining", "Mining", null, true);
+    @NotNull
+    public DoubleSetting Field6117 = new DoubleSetting("pauseWhenBelow", "BelowHealth", "Pauses AutoCrystal when below a certain HP", 0.0, 0.0, 20.0, 0.0, 64, null);
+    @NotNull
+    public BooleanSetting Field6118 = new BooleanSetting("autoPlace", "AutoPlace", null, true);
+    @NotNull
+    public BooleanSetting Field6119 = new BooleanSetting("useNewLogic", "1.13 Placements", null, false);
+    @NotNull
+    public BooleanSetting Field6120 = new BooleanSetting("placeInLiquid", "PlaceInLiquid", null, false);
+    @NotNull
+    public BooleanSetting Field6121 = new BooleanSetting("searchOffline", "SearchOffline", null, false);
+    @NotNull
+    public BooleanSetting Field6122 = new BooleanSetting("strict", "Strict", null, false);
+    @NotNull
+    public BooleanSetting Field6123 = new BooleanSetting("fpsFix", "FPSFix", "Does optimized calculations", true);
+    @NotNull
+    public BooleanSetting Field6124 = new BooleanSetting("chams", "Chams", "Renders chams on the targeted entity", true);
+    @NotNull
+    public f0l Field6125 = new f0l("targetColor", "Target", "Tint to render the targeted entity", new f00(0.85f, 0.85f, 1.0f, 0.166666f));
+    @NotNull
+    public BooleanSetting Field6126 = new BooleanSetting("blockOverlay", "BlockOverlay", "Renders an overlay over blocks", true);
+    @NotNull
+    public BooleanSetting Field6127 = new BooleanSetting("renderDamage", "RenderDamage", "Renders damage over blocks", false);
+    @NotNull
+    public f0l Field6128 = new f0l("placeOverlayColor", "Overlay Color", "Tint to render underneath the block being placed", new f00(0.0f, 1.0f, 0.5f, 0.3f));
+    @NotNull
+    public f0l Field6129 = new f0l("placeOutlineColor", "Outline", "Tint to render underneath the block being placed", new f00(0.0f, 1.0f, 0.5f, 1.0f));
+    @NotNull
+    public fe8 Field6130;
+    public boolean Field6131;
+    public float Field6132;
+    public float Field6133;
+    @Nullable
+    public f6n Field6134;
+    @Nullable
+    public EntityLivingBase Field6135;
+    @NotNull
+    public CopyOnWriteArrayList<Integer> Field6136;
+    @NotNull
+    public fe8 Field6137;
+    public int Field6138;
+    public boolean Field6139;
+    @NotNull
+    public ConcurrentLinkedQueue<fe3<Long, BlockPos>> Field6140;
+    @NotNull
+    public fe8 Field6141;
+    public int Field6142;
+    public int Field6143;
+    public double Field6144;
+    public double Field6145;
 
-   // $FF: renamed from: o () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_144() {
-      return this.field_129;
-   }
+    @NotNull
+    public BooleanSetting Method8833() {
+        return this.Field6119;
+    }
 
-   // $FF: renamed from: X () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_145() {
-      return this.field_114;
-   }
+    @NotNull
+    public BooleanSetting Method8834() {
+        return this.Field6104;
+    }
 
-   // $FF: renamed from: 6 () int
-   public int method_146() {
-      return this.field_153;
-   }
+    public int Method5414() {
+        return this.Field6143;
+    }
 
-   // $FF: renamed from: 4 () dev.nuker.pyro.DoubleSetting
-   @NotNull
-   public DoubleSetting method_147() {
-      return this.field_104;
-   }
+    @NotNull
+    public DoubleSetting Method228() {
+        return this.Field6093;
+    }
 
-   // $FF: renamed from: s () dev.nuker.pyro.DoubleSetting
-   @NotNull
-   public DoubleSetting method_148() {
-      return this.field_102;
-   }
+    @NotNull
+    public DoubleSetting Method8835() {
+        return this.Field6090;
+    }
 
-   // $FF: renamed from: 0c () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_149() {
-      return this.field_137;
-   }
+    @NotNull
+    public BooleanSetting Method8836() {
+        return this.Field6127;
+    }
 
-   // $FF: renamed from: I () boolean
-   public boolean method_150() {
-      return this.field_141;
-   }
+    public boolean Method8837() {
+        return this.Field6131;
+    }
 
-   // $FF: renamed from: B () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_151() {
-      return this.field_134;
-   }
+    @NotNull
+    public BooleanSetting Method8838() {
+        return this.Field6124;
+    }
 
-   // $FF: renamed from: c (net.minecraft.entity.EntityLivingBase) void
-   public void method_152(@Nullable EntityLivingBase var1) {
-      this.field_145 = var1;
-   }
+    public void Method8839(@Nullable EntityLivingBase entityLivingBase) {
+        this.Field6135 = entityLivingBase;
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.fe8) void
-   public void method_153(@NotNull fe8 var1) {
-      this.field_140 = var1;
-   }
+    public void Method4965(@NotNull fe8 fe82) {
+        this.Field6130 = fe82;
+    }
 
-   // $FF: renamed from: l () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_154() {
-      return this.field_136;
-   }
+    @NotNull
+    public BooleanSetting Method2714() {
+        return this.Field6126;
+    }
 
-   // $FF: renamed from: A () dev.nuker.pyro.f0l
-   @NotNull
-   public f0l method_155() {
-      return this.field_138;
-   }
+    @NotNull
+    public f0l Method8840() {
+        return this.Field6128;
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.f4J) void
-   @f0g
-   @LauncherEventHide
-   public void method_156(@Nullable f4J var1) {
-      this.field_146.clear();
-      this.field_145 = (EntityLivingBase)null;
-   }
+    @f0g
+    @LauncherEventHide
+    public void Method187(@Nullable f4J f4J2) {
+        this.Field6136.clear();
+        this.Field6135 = null;
+    }
 
-   // $FF: renamed from: 0 (boolean) void
-   public void method_157(boolean var1) {
-      this.field_149 = var1;
-   }
+    public void Method2402(boolean bl) {
+        this.Field6139 = bl;
+    }
 
-   // $FF: renamed from: v () dev.nuker.pyro.BindSetting
-   @NotNull
-   public BindSetting method_158() {
-      return this.field_112;
-   }
+    @NotNull
+    public BindSetting Method8841() {
+        return this.Field6102;
+    }
 
-   // $FF: renamed from: e () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_159() {
-      return this.field_119;
-   }
+    @NotNull
+    public BooleanSetting Method281() {
+        return this.Field6109;
+    }
 
-   // $FF: renamed from: z () int
-   public int method_160() {
-      return this.field_148;
-   }
+    public int Method8842() {
+        return this.Field6138;
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.f4u) void
-   @f0g
-   @LauncherEventHide
-   public void method_161(@NotNull f4u var1) {
-      if ((Boolean)this.c.method_3034() && !var1.c() && var1.c() == f41.field_2120) {
-         if ((Boolean)this.field_119.c()) {
-            if (this.field_141) {
-               var1.0();
-               var1.method_3140(this.field_142);
-               var1.method_3139(this.field_143);
+    @f0g
+    @LauncherEventHide
+    public void Method203(@NotNull f4u f4u2) {
+        block6: {
+            block5: {
+                if (!((Boolean)this.Field5236.Method5264()).booleanValue() || f4u2.Method7947()) break block5;
+                if (f4u2.Method5619() == f41.Pre) break block6;
             }
-
-         }
-      }
-   }
-
-   // $FF: renamed from: Q () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_162() {
-      return this.field_122;
-   }
-
-   // $FF: renamed from: R () dev.nuker.pyro.f6n
-   @Nullable
-   public f6n method_163() {
-      return this.field_144;
-   }
-
-   // $FF: renamed from: M () dev.nuker.pyro.f0l
-   @NotNull
-   public f0l method_164() {
-      return this.field_135;
-   }
-
-   // $FF: renamed from: L () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_165() {
-      return this.field_109;
-   }
-
-   // $FF: renamed from: 0 (float) void
-   public void method_166(float var1) {
-      this.field_142 = var1;
-   }
-
-   // $FF: renamed from: K () dev.nuker.pyro.fe8
-   @NotNull
-   public fe8 method_167() {
-      return this.field_151;
-   }
-
-   // $FF: renamed from: U () double
-   public double method_168() {
-      return this.field_154;
-   }
-
-   // $FF: renamed from: y () dev.nuker.pyro.IntegerSetting
-   @NotNull
-   public IntegerSetting method_169() {
-      return this.field_113;
-   }
-
-   // $FF: renamed from: c (dev.nuker.pyro.f43) void
-   @f0g
-   @LauncherEventHide
-   public void method_170(@NotNull f43 var1) {
-      if (this.c.player != null) {
-         Ref.LongRef var2 = new Ref.LongRef();
-         var2.element = System.currentTimeMillis();
-         this.field_150.removeIf((Predicate)(new f6s(var2)));
-         this.field_152 += -1;
-         int var10000 = this.field_152;
-         this.field_153 += -1;
-         var10000 = this.field_153;
-         if ((Boolean)this.field_131.c() || (Boolean)this.c.method_3034()) {
-            if (this.field_151.method_1980(this.field_154)) {
-               if ((Boolean)this.c.method_3034() && this.field_140.method_1980(1000.0D) && this.field_141) {
-                  this.field_141 = false;
-               }
-
-               if (this.field_147.method_1980(500.0D) && !this.field_146.isEmpty()) {
-                  this.field_146.clear();
-               }
-
-               if ((!(Boolean)this.c.method_3034() || this.method_217() || !this.method_192()) && (Boolean)this.field_128.c()) {
-                  this.method_184();
-                  if (!this.method_217() && (Boolean)this.c.method_3034() && this.field_144 != null && this.field_153 <= 0) {
-                     if (!this.method_204()) {
-                        return;
-                     }
-
-                     EnumFacing var3 = null;
-                     boolean var4 = Intrinsics.areEqual((Object)this.c.player.getHeldItemOffhand().getItem(), (Object)Items.END_CRYSTAL);
-                     f6n var14 = this.field_144;
-                     if (var14 == null) {
-                        Intrinsics.throwNpe();
-                     }
-
-                     if (var14.method_2995() != null) {
-                        var14 = this.field_144;
-                        if (var14 == null) {
-                           Intrinsics.throwNpe();
-                        }
-
-                        feh var15 = var14.method_2995();
-                        if (var15 == null) {
-                           Intrinsics.throwNpe();
-                        }
-
-                        Rotation var5 = var15.method_2042().method_2076();
-                        this.field_143 = var5.meth3();
-                        this.field_142 = var5.meth4();
-                        this.field_141 = true;
-                        var14 = this.field_144;
-                        if (var14 == null) {
-                           Intrinsics.throwNpe();
-                        }
-
-                        var15 = var14.method_2995();
-                        if (var15 == null) {
-                           Intrinsics.throwNpe();
-                        }
-
-                        var3 = var15.method_2039();
-                     } else {
-                        var3 = few.method_1732((BlockPos)this.field_144, true);
-                        float[] var12 = few.method_1716().method_1736((BlockPos)this.field_144, var3);
-                        this.field_143 = var12[0];
-                        this.field_142 = var12[1];
-                        this.field_141 = true;
-                     }
-
-                     float var13 = this.c.player.rotationPitch;
-                     float var6 = this.c.player.rotationYaw;
-                     float var7 = this.c.getRenderPartialTicks();
-                     this.c.player.rotationPitch = this.field_142;
-                     this.c.player.rotationYaw = this.field_143;
-                     RayTraceResult var8 = this.c.player.rayTrace((double)this.c.playerController.getBlockReachDistance(), var7);
-                     float var9 = 0.0F;
-                     float var10 = 0.0F;
-                     float var11 = 0.0F;
-                     if (var8 != null) {
-                        double var16 = var8.hitVec.x;
-                        f6n var10001 = this.field_144;
-                        if (var10001 == null) {
-                           Intrinsics.throwNpe();
-                        }
-
-                        var9 = (float)(var16 - (double)var10001.getX());
-                        var16 = var8.hitVec.y;
-                        var10001 = this.field_144;
-                        if (var10001 == null) {
-                           Intrinsics.throwNpe();
-                        }
-
-                        var10 = (float)(var16 - (double)var10001.getY());
-                        var16 = var8.hitVec.z;
-                        var10001 = this.field_144;
-                        if (var10001 == null) {
-                           Intrinsics.throwNpe();
-                        }
-
-                        var11 = (float)(var16 - (double)var10001.getZ());
-                     }
-
-                     this.c.player.rotationPitch = var13;
-                     this.c.player.rotationYaw = var6;
-                     NetHandlerPlayClient var17 = this.c.getConnection();
-                     if (var17 == null) {
-                        Intrinsics.throwNpe();
-                     }
-
-                     var17.sendPacket((Packet)(new CPacketPlayerTryUseItemOnBlock((BlockPos)this.field_144, var3, var4 ? EnumHand.OFF_HAND : EnumHand.MAIN_HAND, var9, var10, var11)));
-                     var17 = this.c.getConnection();
-                     if (var17 == null) {
-                        Intrinsics.throwNpe();
-                     }
-
-                     var17.sendPacket((Packet)(new CPacketAnimation(var4 ? EnumHand.OFF_HAND : EnumHand.MAIN_HAND)));
-                     this.field_153 = ((Number)this.placeDelay.c()).intValue();
-                     this.field_154 = RangesKt.coerceAtMost(((Number)this.field_102.c()).doubleValue() * (double)1000, Math.random() * (double)1000);
-                     if (this.field_148 != -1 && (f6p)this.field_115.c() == f6p.field_1782 && this.field_148 != this.c.player.inventory.currentItem) {
-                        var17 = this.c.getConnection();
-                        if (var17 == null) {
-                           Intrinsics.throwNpe();
-                        }
-
-                        var17.sendPacket((Packet)(new CPacketHeldItemChange(this.c.player.inventory.currentItem)));
-                     }
-                  }
-               }
-
-            }
-         }
-      }
-   }
-
-   // $FF: renamed from: u () dev.nuker.pyro.DoubleSetting
-   @NotNull
-   public DoubleSetting method_171() {
-      return this.field_103;
-   }
-
-   // $FF: renamed from: a () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_172() {
-      return this.field_130;
-   }
-
-   // $FF: renamed from: J () dev.nuker.pyro.IntegerSetting
-   @NotNull
-   public IntegerSetting method_173() {
-      return this.field_111;
-   }
-
-   // $FF: renamed from: n () dev.nuker.pyro.DoubleSetting
-   @NotNull
-   public DoubleSetting method_174() {
-      return this.field_127;
-   }
-
-   // $FF: renamed from: 4 (int) void
-   public void method_175(int var1) {
-      this.field_152 = var1;
-   }
-
-   // $FF: renamed from: c (boolean, net.minecraft.client.entity.EntityPlayerSP, net.minecraft.world.World) void
-   public void method_116(boolean var1, @Nullable EntityPlayerSP var2, @Nullable World var3) {
-      this.field_146.clear();
-      this.field_150.clear();
-      this.field_152 = 0;
-      this.field_153 = 0;
-   }
-
-   // $FF: renamed from: c (java.util.concurrent.ConcurrentLinkedQueue) void
-   public void method_176(@NotNull ConcurrentLinkedQueue var1) {
-      this.field_150 = var1;
-   }
-
-   // $FF: renamed from: c (double) void
-   public void method_177(double var1) {
-      this.field_155 = var1;
-   }
-
-   // $FF: renamed from: P () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_178() {
-      return this.ak47;
-   }
-
-   // $FF: renamed from: E () int
-   public int method_179() {
-      return this.field_152;
-   }
-
-   // $FF: renamed from: f () dev.nuker.pyro.DoubleSetting
-   @NotNull
-   public DoubleSetting method_180() {
-      return this.field_107;
-   }
-
-   // $FF: renamed from: T () dev.nuker.pyro.fe8
-   @NotNull
-   public fe8 method_181() {
-      return this.field_140;
-   }
-
-   // $FF: renamed from: d () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_182() {
-      return this.field_132;
-   }
-
-   // $FF: renamed from: O () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_183() {
-      return this.field_125;
-   }
-
-   // $FF: renamed from: p () void
-   public void method_184() {
-      f6n var1 = (f6n)null;
-      EntityLivingBase var2 = (EntityLivingBase)null;
-      float var3 = 0.0F;
-      ArrayList var4;
-      double var10;
-      double var11;
-      double var12;
-      if ((Boolean)this.field_133.c()) {
-         var4 = new ArrayList();
-         if (this.c.world.playerEntities.size() == 1) {
             return;
-         }
+        }
+        if (!((Boolean)this.Field6109.Method7979()).booleanValue()) {
+            return;
+        }
+        if (this.Field6131) {
+            f4u2.Method7948();
+            f4u2.Method5647(this.Field6132);
+            f4u2.Method5653(this.Field6133);
+        }
+    }
 
-         try {
-            Iterator var6 = this.c.world.playerEntities.iterator();
+    @NotNull
+    public BooleanSetting Method8843() {
+        return this.Field6112;
+    }
 
-            while(var6.hasNext()) {
-               EntityPlayer var5 = (EntityPlayer)var6.next();
-               if (var5 != null && this.method_202((Entity)var5) && (double)this.c.player.getDistance((Entity)var5) <= 18.0D) {
-                  var4.add(var5);
-               }
+    @Nullable
+    public f6n Method8844() {
+        return this.Field6134;
+    }
+
+    @NotNull
+    public f0l Method8845() {
+        return this.Field6125;
+    }
+
+    @NotNull
+    public BooleanSetting Method8846() {
+        return this.Field6099;
+    }
+
+    public void Method540(float f) {
+        this.Field6132 = f;
+    }
+
+    @NotNull
+    public fe8 Method8847() {
+        return this.Field6141;
+    }
+
+    public double Method8848() {
+        return this.Field6144;
+    }
+
+    @NotNull
+    public IntegerSetting Method8849() {
+        return this.Field6103;
+    }
+
+    @f0g
+    @LauncherEventHide
+    public void Method277(@NotNull f43 f432) {
+        block29: {
+            block28: {
+                if (this.Field5233.player == null) {
+                    return;
+                }
+                Ref.LongRef longRef = new Ref.LongRef();
+                longRef.Field4347 = System.currentTimeMillis();
+                this.Field6140.removeIf(new f6s(longRef));
+                this.Field6142 += -1;
+                this.Field6143 += -1;
+                if (!((Boolean)this.Field6121.Method7979()).booleanValue() && !((Boolean)this.Field5236.Method5264()).booleanValue()) {
+                    return;
+                }
+                if (!this.Field6141.Method491(this.Field6144)) {
+                    return;
+                }
+                if (((Boolean)this.Field5236.Method5264()).booleanValue() && this.Field6130.Method491(1000.0) && this.Field6131) {
+                    this.Field6131 = false;
+                }
+                if (this.Field6137.Method491(500.0) && !this.Field6136.isEmpty()) {
+                    this.Field6136.clear();
+                }
+                if (!((Boolean)this.Field5236.Method5264()).booleanValue() || this.Method4876()) break block28;
+                if (this.Method2689()) break block29;
             }
-         } catch (Exception var24) {
-         }
-
-         ArrayList var25 = this.method_195();
-         boolean var27 = this.field_112.method_3330();
-         if ((Boolean)this.field_122.c()) {
-            Entity var7 = this.c.getRenderViewEntity() == null ? (Entity)this.c.player : this.c.getRenderViewEntity();
-            if (var7 == null) {
-               Intrinsics.throwNpe();
-            }
-
-            double var8 = var7.lastTickPosX + (var7.posX - var7.lastTickPosX) * (double)this.c.getRenderPartialTicks();
-            var10 = var7.lastTickPosY + (var7.posY - var7.lastTickPosY) * (double)this.c.getRenderPartialTicks();
-            var12 = var7.lastTickPosZ + (var7.posZ - var7.lastTickPosZ) * (double)this.c.getRenderPartialTicks();
-            PyroRenderUtil.field_983.setPosition(var8, var10, var12);
-         }
-
-         Iterator var33 = var4.iterator();
-
-         label1052:
-         while(true) {
-            EntityPlayer var30;
-            do {
-               do {
-                  do {
-                     if (!var33.hasNext()) {
-                        break label1052;
-                     }
-
-                     var30 = (EntityPlayer)var33.next();
-                  } while(var30 == null);
-               } while(!this.method_202((Entity)var30));
-            } while(!(var30 instanceof EntityLivingBase));
-
-            Iterator var37 = var25.iterator();
-
-            while(true) {
-               f6n var9;
-               double var13;
-               double var15;
-               do {
-                  do {
-                     do {
-                        if (!var37.hasNext()) {
-                           continue label1052;
+            if (((Boolean)this.Field6118.Method7979()).booleanValue()) {
+                this.Method8858();
+                if (!this.Method4876()) {
+                    if (((Boolean)this.Field5236.Method5264()).booleanValue() && this.Field6134 != null && this.Field6143 <= 0) {
+                        Object object;
+                        if (!this.Method8872()) {
+                            return;
                         }
-
-                        var9 = (f6n)var37.next();
-                     } while((Boolean)this.field_132.c() && var9.method_2995() == null);
-                  } while(var30.getDistanceSq((BlockPos)var9) >= 144.0D);
-
-                  var11 = (double)var9.getX() + 0.5D;
-                  var13 = (double)var9.getY() + 1.0D;
-                  var15 = (double)var9.getZ() + 0.5D;
-               } while(((Number)this.field_104.c()).doubleValue() != 0.0D && var30.getDistanceSq(var11, var13, var15) >= ((Number)this.field_104.c()).doubleValue() * ((Number)this.field_104.c()).doubleValue());
-
-               float var17 = fdM.method_1881((BlockPos)var9, (EntityLivingBase)var30);
-               double var18 = 1.0D;
-               if (!var27) {
-                  var18 = var30.getHealth() + var30.getAbsorptionAmount() <= ((Number)this.field_111.c()).floatValue() ? 1.0D : ((Number)this.field_107.c()).doubleValue();
-               }
-
-               if (((Number)this.field_113.c()).intValue() > 0 && var18 != 1.0D) {
-                  float var20 = var17 * ((Number)this.field_113.c()).floatValue();
-                  if (var20 >= var30.getHealth() + var30.getAbsorptionAmount()) {
-                     var18 = 1.0D;
-                  }
-               }
-
-               if ((Boolean)this.field_116.c() && var30 instanceof EntityPlayer) {
-                  boolean var40 = false;
-                  Iterator var22 = var30.inventory.armorInventory.iterator();
-
-                  while(var22.hasNext()) {
-                     ItemStack var21 = (ItemStack)var22.next();
-                     if (!var21.isEmpty()) {
-                        float var23 = fe9.method_1832(var21);
-                        if (var23 <= (float)((Number)this.field_117.c()).doubleValue()) {
-                           var40 = true;
-                           break;
+                        EnumFacing enumFacing = null;
+                        boolean bl = Intrinsics.Method6572((Object)this.Field5233.player.getHeldItemOffhand().getItem(), (Object)Items.END_CRYSTAL);
+                        f6n f6n2 = this.Field6134;
+                        if (f6n2 == null) {
+                            Intrinsics.Method6551();
                         }
-                     }
-                  }
-
-                  if (var40) {
-                     var18 = 1.0D;
-                  }
-               }
-
-               if ((double)var17 >= var18 && var3 <= var17) {
-                  var1 = var9;
-                  var3 = var17;
-                  var2 = (EntityLivingBase)var30;
-               }
-            }
-         }
-      } else {
-         var4 = this.method_195();
-         boolean var26 = this.field_112.method_3330();
-         if ((Boolean)this.field_122.c()) {
-            Entity var28 = this.c.getRenderViewEntity() == null ? (Entity)this.c.player : this.c.getRenderViewEntity();
-            if (var28 == null) {
-               Intrinsics.throwNpe();
-            }
-
-            double var31 = var28.lastTickPosX + (var28.posX - var28.lastTickPosX) * (double)this.c.getRenderPartialTicks();
-            double var35 = var28.lastTickPosY + (var28.posY - var28.lastTickPosY) * (double)this.c.getRenderPartialTicks();
-            var11 = var28.lastTickPosZ + (var28.posZ - var28.lastTickPosZ) * (double)this.c.getRenderPartialTicks();
-            PyroRenderUtil.field_983.setPosition(var31, var35, var11);
-         }
-
-         Iterator var32 = this.c.world.playerEntities.iterator();
-
-         label993:
-         while(true) {
-            EntityPlayer var29;
-            do {
-               do {
-                  do {
-                     if (!var32.hasNext()) {
-                        break label993;
-                     }
-
-                     var29 = (EntityPlayer)var32.next();
-                  } while(var29 == null);
-               } while(!this.method_202((Entity)var29));
-            } while(!(var29 instanceof EntityLivingBase));
-
-            Iterator var36 = var4.iterator();
-
-            while(true) {
-               double var14;
-               f6n var34;
-               do {
-                  do {
-                     do {
-                        if (!var36.hasNext()) {
-                           continue label993;
+                        if (f6n2.Method5106() != null) {
+                            f6n f6n3 = this.Field6134;
+                            if (f6n3 == null) {
+                                Intrinsics.Method6551();
+                            }
+                            feh feh2 = f6n3.Method5106();
+                            if (feh2 == null) {
+                                Intrinsics.Method6551();
+                            }
+                            object = feh2.Method786().Method891();
+                            this.Field6133 = ((Rotation)object).Method6942();
+                            this.Field6132 = ((Rotation)object).Method6936();
+                            this.Field6131 = true;
+                            f6n f6n4 = this.Field6134;
+                            if (f6n4 == null) {
+                                Intrinsics.Method6551();
+                            }
+                            feh feh3 = f6n4.Method5106();
+                            if (feh3 == null) {
+                                Intrinsics.Method6551();
+                            }
+                            enumFacing = feh3.Method783();
+                        } else {
+                            enumFacing = few.Method848(this.Field6134, true);
+                            object = few.Method835().Method850(this.Field6134, enumFacing);
+                            this.Field6133 = (float)object[0];
+                            this.Field6132 = (float)object[1];
+                            this.Field6131 = true;
                         }
-
-                        var34 = (f6n)var36.next();
-                     } while((Boolean)this.field_132.c() && var34.method_2995() == null);
-                  } while(var29.getDistanceSq((BlockPos)var34) >= 144.0D);
-
-                  var10 = (double)var34.getX() + 0.5D;
-                  var12 = (double)var34.getY() + 1.0D;
-                  var14 = (double)var34.getZ() + 0.5D;
-               } while(((Number)this.field_104.c()).doubleValue() != 0.0D && var29.getDistanceSq(var10, var12, var14) >= ((Number)this.field_104.c()).doubleValue() * ((Number)this.field_104.c()).doubleValue());
-
-               float var16 = fdM.method_1881((BlockPos)var34, (EntityLivingBase)var29);
-               double var38 = 1.0D;
-               if (!var26) {
-                  var38 = var29.getHealth() + var29.getAbsorptionAmount() <= ((Number)this.field_111.c()).floatValue() ? 1.0D : ((Number)this.field_107.c()).doubleValue();
-               }
-
-               if (((Number)this.field_113.c()).intValue() > 0 && var38 != 1.0D) {
-                  float var19 = var16 * ((Number)this.field_113.c()).floatValue();
-                  if (var19 >= var29.getHealth() + var29.getAbsorptionAmount()) {
-                     var38 = 1.0D;
-                  }
-               }
-
-               if ((Boolean)this.field_116.c() && var29 instanceof EntityPlayer) {
-                  boolean var39 = false;
-                  Iterator var41 = var29.inventory.armorInventory.iterator();
-
-                  while(var41.hasNext()) {
-                     ItemStack var42 = (ItemStack)var41.next();
-                     if (!var42.isEmpty()) {
-                        float var43 = fe9.method_1832(var42);
-                        if (var43 <= (float)((Number)this.field_117.c()).doubleValue()) {
-                           var39 = true;
-                           break;
+                        float f = this.Field5233.player.rotationPitch;
+                        float f2 = this.Field5233.player.rotationYaw;
+                        float f3 = this.Field5233.getRenderPartialTicks();
+                        this.Field5233.player.rotationPitch = this.Field6132;
+                        this.Field5233.player.rotationYaw = this.Field6133;
+                        RayTraceResult rayTraceResult = this.Field5233.player.rayTrace((double)this.Field5233.playerController.getBlockReachDistance(), f3);
+                        float f4 = 0.0f;
+                        float f5 = 0.0f;
+                        float f6 = 0.0f;
+                        if (rayTraceResult != null) {
+                            f6n f6n5 = this.Field6134;
+                            if (f6n5 == null) {
+                                Intrinsics.Method6551();
+                            }
+                            f4 = (float)(rayTraceResult.hitVec.x - (double)f6n5.getX());
+                            f6n f6n6 = this.Field6134;
+                            if (f6n6 == null) {
+                                Intrinsics.Method6551();
+                            }
+                            f5 = (float)(rayTraceResult.hitVec.y - (double)f6n6.getY());
+                            f6n f6n7 = this.Field6134;
+                            if (f6n7 == null) {
+                                Intrinsics.Method6551();
+                            }
+                            f6 = (float)(rayTraceResult.hitVec.z - (double)f6n7.getZ());
                         }
-                     }
-                  }
-
-                  if (var39) {
-                     var38 = 1.0D;
-                  }
-               }
-
-               if ((double)var16 >= var38 && var3 <= var16) {
-                  var1 = var34;
-                  var3 = var16;
-                  var2 = (EntityLivingBase)var29;
-               }
+                        this.Field5233.player.rotationPitch = f;
+                        this.Field5233.player.rotationYaw = f2;
+                        NetHandlerPlayClient netHandlerPlayClient = this.Field5233.getConnection();
+                        if (netHandlerPlayClient == null) {
+                            Intrinsics.Method6551();
+                        }
+                        netHandlerPlayClient.sendPacket((Packet)new CPacketPlayerTryUseItemOnBlock((BlockPos)this.Field6134, enumFacing, bl ? EnumHand.OFF_HAND : EnumHand.MAIN_HAND, f4, f5, f6));
+                        NetHandlerPlayClient netHandlerPlayClient2 = this.Field5233.getConnection();
+                        if (netHandlerPlayClient2 == null) {
+                            Intrinsics.Method6551();
+                        }
+                        netHandlerPlayClient2.sendPacket((Packet)new CPacketAnimation(bl ? EnumHand.OFF_HAND : EnumHand.MAIN_HAND));
+                        this.Field6143 = ((Number)this.Field6089.Method7979()).intValue();
+                        this.Field6144 = RangesKt.Method4268(((Number)this.Field6090.Method7979()).doubleValue() * (double)1000, Math.random() * (double)1000);
+                        if (this.Field6138 != -1 && (f6p)((Object)this.Field6105.Method7979()) == f6p.Packet) {
+                            if (this.Field6138 != this.Field5233.player.inventory.currentItem) {
+                                NetHandlerPlayClient netHandlerPlayClient3 = this.Field5233.getConnection();
+                                if (netHandlerPlayClient3 == null) {
+                                    Intrinsics.Method6551();
+                                }
+                                netHandlerPlayClient3.sendPacket((Packet)new CPacketHeldItemChange(this.Field5233.player.inventory.currentItem));
+                            }
+                        }
+                    }
+                }
             }
-         }
-      }
+        }
+    }
 
-      this.field_144 = var1;
-      this.field_145 = var2;
-      this.field_149 = var3 != 0.0F && (double)var3 < ((Number)this.field_107.c()).doubleValue();
-      this.field_155 = (double)var3;
-   }
+    @NotNull
+    public DoubleSetting Method8850() {
+        return this.Field6092;
+    }
 
-   // $FF: renamed from: g () java.util.concurrent.ConcurrentLinkedQueue
-   @NotNull
-   public ConcurrentLinkedQueue method_185() {
-      return this.field_150;
-   }
+    @NotNull
+    public BooleanSetting Method283() {
+        return this.Field6120;
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.AutoCrystal, net.minecraft.entity.item.EntityEnderCrystal, boolean, int, java.lang.Object) boolean
-   public static boolean method_186(AutoCrystal var0, EntityEnderCrystal var1, boolean var2, int var3, Object var4) {
-      if ((var3 & 2) != 0) {
-         var2 = false;
-      }
+    @NotNull
+    public IntegerSetting Method8851() {
+        return this.Field6101;
+    }
 
-      return var0.method_210(var1, var2);
-   }
+    @NotNull
+    public DoubleSetting Method8852() {
+        return this.Field6117;
+    }
 
-   // $FF: renamed from: 1 () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_187() {
-      return this.field_105;
-   }
+    public void Method551(int n) {
+        this.Field6142 = n;
+    }
 
-   public AutoCrystal() {
-      super("autocrystal", "AutoCrystal", "Places and breaks Ender Crystals");
-      this.field_100 = new f0o("breakMode", "BreakModes", (String)null, (Enum)f6o.field_1775);
-      this.field_101 = new IntegerSetting("breakTickDelay", "BreakTickDelay", (String)null, 0, 0, 10, 0, 64, (DefaultConstructorMarker)null);
-      this.placeDelay = new IntegerSetting("placeTickDelay", "PlaceTickDelay", (String)null, 0, 0, 10, 0, 64, (DefaultConstructorMarker)null);
-      this.field_102 = new DoubleSetting("randomDelay", "RandomDelay", "Random delay in seconds", 0.0D, 0.0D, 1.0D, 0.0D, 64, (DefaultConstructorMarker)null);
-      this.breakRange = new DoubleSetting("breakRange", "BreakRange", (String)null, 6.0D, 1.0D, 6.0D, 0.0D, 64, (DefaultConstructorMarker)null);
-      this.field_103 = new DoubleSetting("placeRange", "PlaceRange", (String)null, 6.0D, 1.0D, 6.0D, 0.0D, 64, (DefaultConstructorMarker)null);
-      this.field_104 = new DoubleSetting("enemyRange", "EnemyRange", (String)null, 6.0D, 0.0D, 6.0D, 0.0D, 64, (DefaultConstructorMarker)null);
-      this.field_105 = new BooleanSetting("ncp", "NCP", (String)null, true);
-      this.field_106 = new DoubleSetting("wallsRange", "WallsRange", (String)null, 3.0D, 0.0D, 6.0D, 0.0D, 64, (DefaultConstructorMarker)null);
-      this.ak47 = new BooleanSetting("ak47", "AK47", "Crystalaura go brr", true);
-      this.field_107 = new DoubleSetting("minDmg", "MinDMG", (String)null, 6.0D, 0.1D, 20.0D, 0.0D, 64, (DefaultConstructorMarker)null);
-      this.field_108 = new DoubleSetting("maxSelfDMG", "MaxSelfDMG", (String)null, 6.0D, 0.1D, 20.0D, 0.0D, 64, (DefaultConstructorMarker)null);
-      this.field_109 = new BooleanSetting("noSuicide", "NoSuicide", (String)null, false);
-      this.field_110 = new BooleanSetting("ignoreSelfDamage", "IgnoreSelfDamage", "May boost FPS", false);
-      this.field_111 = new IntegerSetting("facePlaceHP", "FacePlace", (String)null, 9, 0, 20, 0, 64, (DefaultConstructorMarker)null);
-      this.field_112 = new BindSetting("forceFacePlace", "ForceFacePlace", "Force's you to faceplace when this key is held down", -1);
-      this.field_113 = new IntegerSetting("lethalMultiplier", "LethalMultiplier", (String)null, 0, 0, 10, 0, 64, (DefaultConstructorMarker)null);
-      this.field_114 = new BooleanSetting("throughWalls", "ThroughWalls", (String)null, true);
-      this.field_115 = new f0o("switchMode", "SwitchMode", (String)null, (Enum)f6p.field_1780);
-      this.field_116 = new BooleanSetting("armorBreaker", "ArmorBreaker", (String)null, false);
-      this.field_117 = new DoubleSetting("armorBreakerPct", "Pct", "Percentage of armor to faceplace at", 20.0D, 0.0D, 100.0D, 0.0D, 64, (DefaultConstructorMarker)null);
-      this.field_118 = new BooleanSetting("antiweakness", "AntiWeakness", "Uses sword to break weakness crystals", false);
-      this.field_119 = new BooleanSetting("rotate", "Rotate", "Uses rotation system of client", true);
-      this.field_120 = new BooleanSetting("offhandBreak", "OffhandBreak", "Swings offhand instead of mainhand", false);
-      this.field_121 = new BooleanSetting("players", "Players", (String)null, true);
-      this.field_122 = new BooleanSetting("onlyInFrustram", "OnlyInFrustram", "Only targets entities in the frustram", false);
-      this.field_123 = new BooleanSetting("armorCheck", "ArmorCheck", "Only targets entities with armor", false);
-      this.field_124 = new BooleanSetting("pauseWhileEating", "Eating", (String)null, true);
-      this.field_125 = new BooleanSetting("pauseWhileXPing", "XPing", (String)null, true);
-      this.field_126 = new BooleanSetting("pauseWhileMining", "Mining", (String)null, true);
-      this.field_127 = new DoubleSetting("pauseWhenBelow", "BelowHealth", "Pauses AutoCrystal when below a certain HP", 0.0D, 0.0D, 20.0D, 0.0D, 64, (DefaultConstructorMarker)null);
-      this.field_128 = new BooleanSetting("autoPlace", "AutoPlace", (String)null, true);
-      this.field_129 = new BooleanSetting("useNewLogic", "1.13 Placements", (String)null, false);
-      this.field_130 = new BooleanSetting("placeInLiquid", "PlaceInLiquid", (String)null, false);
-      this.field_131 = new BooleanSetting("searchOffline", "SearchOffline", (String)null, false);
-      this.field_132 = new BooleanSetting("strict", "Strict", (String)null, false);
-      this.field_133 = new BooleanSetting("fpsFix", "FPSFix", "Does optimized calculations", true);
-      this.field_134 = new BooleanSetting("chams", "Chams", "Renders chams on the targeted entity", true);
-      this.field_135 = new f0l("targetColor", "Target", "Tint to render the targeted entity", new f00(0.85F, 0.85F, 1.0F, 0.166666F));
-      this.field_136 = new BooleanSetting("blockOverlay", "BlockOverlay", "Renders an overlay over blocks", true);
-      this.field_137 = new BooleanSetting("renderDamage", "RenderDamage", "Renders damage over blocks", false);
-      this.field_138 = new f0l("placeOverlayColor", "Overlay Color", "Tint to render underneath the block being placed", new f00(0.0F, 1.0F, 0.5F, 0.3F));
-      this.field_139 = new f0l("placeOutlineColor", "Outline", "Tint to render underneath the block being placed", new f00(0.0F, 1.0F, 0.5F, 1.0F));
-      this.register((f0w)this.field_100);
-      this.register((f0w)(new f0t((f0w)(new f0n("timers", "Timers", "Right click to view or modify the timers")), new f0w[]{(f0w)this.field_101, (f0w)this.placeDelay, (f0w)this.field_102})));
-      this.register((f0w)(new f0t((f0w)(new f0n("ranges", "Ranges", "Right click to view or modify the range settings")), new f0w[]{(f0w)this.breakRange, (f0w)this.field_103, (f0w)this.field_104, (f0w)this.field_105, (f0w)this.field_106})));
-      this.register((f0w)(new f0t((f0w)(new f0n("general", "General", "Right click to view or modify the general settings")), new f0w[]{(f0w)this.ak47, (f0w)this.field_118, (f0w)this.field_107, (f0w)this.field_108, (f0w)this.field_109, (f0w)this.field_110, (f0w)this.field_111, (f0w)this.field_112, (f0w)this.field_113, (f0w)this.field_114, (f0w)(new f0t((f0w)this.field_116, new f0w[]{(f0w)this.field_117})), (f0w)this.field_115, (f0w)this.field_133, (f0w)this.field_119, (f0w)this.field_120})));
-      this.register((f0w)(new f0t((f0w)(new f0n("targets", "Targets", "Right click to view or modify the target settings")), new f0w[]{(f0w)this.field_121, (f0w)this.field_122, (f0w)this.field_123})));
-      this.register((f0w)(new f0t((f0w)(new f0n("pauseWhen", "PauseWhen", "Right click to view or modify the pausing settings")), new f0w[]{(f0w)this.field_127, (f0w)this.field_124, (f0w)this.field_126, (f0w)this.field_125})));
-      this.register((f0w)(new f0t((f0w)(new f0n("placeOptions", "PlaceOptions", "Right click to view or modify the place settings")), new f0w[]{(f0w)this.field_128, (f0w)this.field_129, (f0w)this.field_130, (f0w)this.field_131, (f0w)this.field_132})));
-      this.register((f0w)(new f0t((f0w)(new f0n("render", "Render", "Right click to view or modify the render settings")), new f0w[]{(f0w)(new f0t((f0w)this.field_134, new f0w[]{(f0w)this.field_135})), (f0w)(new f0t((f0w)this.field_136, new f0w[]{(f0w)this.field_137, (f0w)this.field_138, (f0w)this.field_139}))})));
-      Pyro.getEventManager().method_31(this);
-      this.field_140 = new fe8();
-      this.field_142 = -1337.0F;
-      this.field_143 = -1337.0F;
-      this.field_146 = new CopyOnWriteArrayList();
-      this.field_147 = new fe8();
-      this.field_148 = -1;
-      this.field_150 = new ConcurrentLinkedQueue();
-      this.field_151 = new fe8();
-   }
+    @Override
+    public void Method205(boolean bl, @Nullable EntityPlayerSP entityPlayerSP, @Nullable World world) {
+        this.Field6136.clear();
+        this.Field6140.clear();
+        this.Field6142 = 0;
+        this.Field6143 = 0;
+    }
 
-   // $FF: renamed from: N () dev.nuker.pyro.f0o
-   @NotNull
-   public f0o method_188() {
-      return this.field_115;
-   }
+    public void Method8853(@NotNull ConcurrentLinkedQueue concurrentLinkedQueue) {
+        this.Field6140 = concurrentLinkedQueue;
+    }
 
-   // $FF: renamed from: 8 () dev.nuker.pyro.f0o
-   @NotNull
-   public f0o method_189() {
-      return this.field_100;
-   }
+    public void Method2401(double d) {
+        this.Field6145 = d;
+    }
 
-   // $FF: renamed from: t () dev.nuker.pyro.fe8
-   @NotNull
-   public fe8 method_190() {
-      return this.field_147;
-   }
+    @NotNull
+    public BooleanSetting Method8854() {
+        return this.Field6096;
+    }
 
-   // $FF: renamed from: m () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_191() {
-      return this.field_131;
-   }
+    public int Method8855() {
+        return this.Field6142;
+    }
 
-   // $FF: renamed from: 7 () boolean
-   public boolean method_192() {
-      if ((f6o)this.field_100.c() == f6o.field_1775 && this.field_145 == null) {
-         return false;
-      } else {
-         Iterator var2 = this.c.world.loadedEntityList.iterator();
+    @NotNull
+    public DoubleSetting Method223() {
+        return this.Field6097;
+    }
 
-         Entity var1;
-         do {
-            if (!var2.hasNext()) {
-               return false;
+    @NotNull
+    public fe8 Method8856() {
+        return this.Field6130;
+    }
+
+    @NotNull
+    public BooleanSetting Method273() {
+        return this.Field6122;
+    }
+
+    @NotNull
+    public BooleanSetting Method8857() {
+        return this.Field6115;
+    }
+
+    /*
+     * Exception decompiling
+     */
+    public void Method8858() {
+        /*
+         * This method has failed to decompile.  When submitting a bug report, please provide this stack trace, and (if you hold appropriate legal rights) the relevant class file.
+         * org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [0[TRYBLOCK]], but top level block is 15[UNCONDITIONALDOLOOP]
+         * org.benf.cfr.reader.bytecode.analysis.opgraph.Op04StructuredStatement.processEndingBlocks(Op04StructuredStatement.java:429)
+         * org.benf.cfr.reader.bytecode.analysis.opgraph.Op04StructuredStatement.buildNestedBlocks(Op04StructuredStatement.java:478)
+         * org.benf.cfr.reader.bytecode.analysis.opgraph.Op03SimpleStatement.createInitialStructuredBlock(Op03SimpleStatement.java:728)
+         * org.benf.cfr.reader.bytecode.CodeAnalyser.getAnalysisInner(CodeAnalyser.java:806)
+         * org.benf.cfr.reader.bytecode.CodeAnalyser.getAnalysisOrWrapFail(CodeAnalyser.java:258)
+         * org.benf.cfr.reader.bytecode.CodeAnalyser.getAnalysis(CodeAnalyser.java:192)
+         * org.benf.cfr.reader.entities.attributes.AttributeCode.analyse(AttributeCode.java:94)
+         * org.benf.cfr.reader.entities.Method.analyse(Method.java:521)
+         * org.benf.cfr.reader.entities.ClassFile.analyseMid(ClassFile.java:1035)
+         * org.benf.cfr.reader.entities.ClassFile.analyseTop(ClassFile.java:922)
+         * org.benf.cfr.reader.Driver.doJarVersionTypes(Driver.java:253)
+         * org.benf.cfr.reader.Driver.doJar(Driver.java:135)
+         * org.benf.cfr.reader.CfrDriverImpl.analyse(CfrDriverImpl.java:65)
+         * org.benf.cfr.reader.Main.main(Main.java:49)
+         */
+        throw new IllegalStateException(Decompilation failed);
+    }
+
+    @NotNull
+    public ConcurrentLinkedQueue Method8859() {
+        return this.Field6140;
+    }
+
+    public static boolean Method8860(AutoCrystal autoCrystal, EntityEnderCrystal entityEnderCrystal, boolean bl, int n, Object object) {
+        if ((n & 2) != 0) {
+            bl = false;
+        }
+        return autoCrystal.Method8874(entityEnderCrystal, bl);
+    }
+
+    @NotNull
+    public BooleanSetting Method213() {
+        return this.Field6094;
+    }
+
+    public AutoCrystal() {
+        super("autocrystal", "AutoCrystal", "Places and breaks Ender Crystals");
+        this.Method7264(this.Field6087);
+        this.Method7264(new f0t(new f0n("timers", "Timers", "Right click to view or modify the timers"), this.Field6088, this.Field6089, this.Field6090));
+        this.Method7264(new f0t(new f0n("ranges", "Ranges", "Right click to view or modify the range settings"), this.Field6091, this.Field6092, this.Field6093, this.Field6094, this.Field6095));
+        this.Method7264(new f0t(new f0n("general", "General", "Right click to view or modify the general settings"), this.Field6096, this.Field6108, this.Field6097, this.Field6098, this.Field6099, this.Field6100, this.Field6101, this.Field6102, this.Field6103, this.Field6104, new f0t(this.Field6106, this.Field6107), this.Field6105, this.Field6123, this.Field6109, this.Field6110));
+        this.Method7264(new f0t(new f0n("targets", "Targets", "Right click to view or modify the target settings"), this.Field6111, this.Field6112, this.Field6113));
+        this.Method7264(new f0t(new f0n("pauseWhen", "PauseWhen", "Right click to view or modify the pausing settings"), this.Field6117, this.Field6114, this.Field6116, this.Field6115));
+        this.Method7264(new f0t(new f0n("placeOptions", "PlaceOptions", "Right click to view or modify the place settings"), this.Field6118, this.Field6119, this.Field6120, this.Field6121, this.Field6122));
+        this.Method7264(new f0t(new f0n("render", "Render", "Right click to view or modify the render settings"), new f0t(this.Field6124, this.Field6125), new f0t(this.Field6126, this.Field6127, this.Field6128, this.Field6129)));
+        Pyro.Method8978().Method7915(this);
+        this.Field6130 = new fe8();
+        this.Field6132 = -1337.0f;
+        this.Field6133 = -1337.0f;
+        this.Field6136 = new CopyOnWriteArrayList();
+        this.Field6137 = new fe8();
+        this.Field6138 = -1;
+        this.Field6140 = new ConcurrentLinkedQueue();
+        this.Field6141 = new fe8();
+    }
+
+    @NotNull
+    public f0o Method8861() {
+        return this.Field6105;
+    }
+
+    @NotNull
+    public f0o Method4928() {
+        return this.Field6087;
+    }
+
+    @NotNull
+    public fe8 Method8862() {
+        return this.Field6137;
+    }
+
+    @NotNull
+    public BooleanSetting Method8863() {
+        return this.Field6121;
+    }
+
+    /*
+     * Enabled aggressive block sorting
+     */
+    public boolean Method2689() {
+        boolean bl;
+        Entity entity;
+        block16: {
+            block17: {
+                if ((f6o)((Object)this.Field6087.Method7979()) == f6o.Smart && this.Field6135 == null) {
+                    return false;
+                }
+                Iterator iterator2 = this.Field5233.world.loadedEntityList.iterator();
+                do {
+                    if (!iterator2.hasNext()) return false;
+                } while (!((entity = (Entity)iterator2.next()) instanceof EntityEnderCrystal) || entity.isDead || !AutoCrystal.Method8860(this, (EntityEnderCrystal)entity, false, 2, null) || !fdN.Method348(entity));
+                boolean bl2 = few.Method835().Method852(entity, ((Number)this.Field6091.Method7979()).doubleValue());
+                fex fex2 = null;
+                if (!bl2 && !((Boolean)this.Field6109.Method7979()).booleanValue()) {
+                    bl2 = true;
+                }
+                if (!bl2) {
+                    fex2 = few.Method835().Method843(((EntityEnderCrystal)entity).getEntityBoundingBox(), false, false, false, (Boolean)this.Field6104.Method7979());
+                }
+                if (fex2 == null) {
+                    if (!bl2) return true;
+                }
+                if (!bl2) {
+                    if (fex2 == null) return true;
+                    this.Field6133 = fex2.Method891().Method6942();
+                    this.Field6132 = fex2.Method891().Method6936();
+                    this.Field6131 = true;
+                    this.Field6130.Method490();
+                    return true;
+                }
+                bl = true;
+                if (!((Boolean)this.Field6108.Method7979()).booleanValue()) break block16;
+                double d = this.Field5233.player.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue();
+                ItemStack itemStack = this.Field5233.player.getHeldItemMainhand();
+                if (itemStack.getItem() instanceof ItemSword || itemStack.getItem() instanceof ItemTool) {
+                    d = 3.0;
+                } else if (this.Field5233.player.isPotionActive(MobEffects.WEAKNESS)) {
+                    d = 0.0;
+                }
+                PotionEffect potionEffect = this.Field5233.player.getActivePotionEffect(MobEffects.STRENGTH);
+                if (potionEffect != null && (float)potionEffect.getAmplifier() >= 1.0f) {
+                    d = 1.0;
+                }
+                float f = EnchantmentHelper.getModifierForCreature((ItemStack)this.Field5233.player.getHeldItemMainhand(), (EnumCreatureAttribute)EnumCreatureAttribute.UNDEFINED);
+                float f2 = this.Field5233.player.getCooledAttackStrength(0.5f);
+                boolean bl3 = bl = (d *= (double)(0.2f + f2 * f2 * 0.8f)) > (double)0.0f || (f *= f2) > 0.0f;
+                if (bl) break block16;
+                if (this.Field5233.player.getHeldItemMainhand().isEmpty()) break block17;
+                if (this.Field5233.player.getHeldItemMainhand().getItem() instanceof ItemSword) break block16;
+                if (this.Field5233.player.getHeldItemMainhand().getItem() instanceof ItemTool) break block16;
             }
-
-            var1 = (Entity)var2.next();
-         } while(!(var1 instanceof EntityEnderCrystal) || var1.isDead || !method_186(this, (EntityEnderCrystal)var1, false, 2, (Object)null) || !fdN.method_1859(var1));
-
-         boolean var3 = few.method_1716().method_1738(var1, ((Number)this.breakRange.c()).doubleValue());
-         fex var4 = (fex)null;
-         if (!var3 && !(Boolean)this.field_119.c()) {
-            var3 = true;
-         }
-
-         if (!var3) {
-            var4 = few.method_1716().method_1725(((EntityEnderCrystal)var1).getEntityBoundingBox(), false, false, false, (Boolean)this.field_114.c());
-         }
-
-         if (var4 != null || var3) {
-            if (!var3) {
-               if (var4 != null) {
-                  this.field_143 = var4.method_2076().meth3();
-                  this.field_142 = var4.method_2076().meth4();
-                  this.field_141 = true;
-                  this.field_140.method_1979();
-               }
-
-               return true;
+            int n = 8;
+            for (int i = 0; i <= n; ++i) {
+                ItemStack itemStack;
+                this.Field5233.player.inventory.getStackInSlot(i);
+                if (itemStack.isEmpty() || !(itemStack.getItem() instanceof ItemTool) && !(itemStack.getItem() instanceof ItemSword)) continue;
+                this.Field5233.player.inventory.currentItem = i;
+                this.Field5233.playerController.updateController();
+                break;
             }
+        }
+        if (this.Field6142 > 0) return true;
+        if (!bl) return true;
+        this.Field6130.Method490();
+        this.Field5233.playerController.attackEntity((EntityPlayer)this.Field5233.player, entity);
+        if (((Boolean)this.Field6110.Method7979()).booleanValue()) {
+            this.Field5233.player.swingArm(EnumHand.OFF_HAND);
+        } else {
+            this.Field5233.player.swingArm(EnumHand.MAIN_HAND);
+        }
+        if (((Boolean)this.Field6096.Method7979()).booleanValue()) {
+            this.Field6136.add(((EntityEnderCrystal)entity).getEntityId());
+        }
+        this.Field6137.Method490();
+        this.Field6142 = ((Number)this.Field6088.Method7979()).intValue();
+        this.Field6144 = RangesKt.Method4268(((Number)this.Field6090.Method7979()).doubleValue() * (double)1000, Math.random() * (double)1000);
+        return true;
+    }
 
-            boolean var5 = true;
-            if ((Boolean)this.field_118.c()) {
-               double var6 = this.c.player.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue();
-               ItemStack var8 = this.c.player.getHeldItemMainhand();
-               if (!(var8.getItem() instanceof ItemSword) && !(var8.getItem() instanceof ItemTool)) {
-                  if (this.c.player.isPotionActive(MobEffects.WEAKNESS)) {
-                     var6 = 0.0D;
-                  }
-               } else {
-                  var6 = 3.0D;
-               }
-
-               PotionEffect var9 = this.c.player.getActivePotionEffect(MobEffects.STRENGTH);
-               if (var9 != null && (float)var9.getAmplifier() >= 1.0F) {
-                  var6 = 1.0D;
-               }
-
-               float var10 = EnchantmentHelper.getModifierForCreature(this.c.player.getHeldItemMainhand(), EnumCreatureAttribute.UNDEFINED);
-               float var11 = this.c.player.getCooledAttackStrength(0.5F);
-               var6 *= (double)(0.2F + var11 * var11 * 0.8F);
-               var10 *= var11;
-               var5 = var6 > (double)0.0F || var10 > 0.0F;
-               if (!var5 && (this.c.player.getHeldItemMainhand().isEmpty() || !(this.c.player.getHeldItemMainhand().getItem() instanceof ItemSword) && !(this.c.player.getHeldItemMainhand().getItem() instanceof ItemTool))) {
-                  int var12 = 0;
-
-                  for(byte var13 = 8; var12 <= var13; ++var12) {
-                     ItemStack var14 = this.c.player.inventory.getStackInSlot(var12);
-                     if (!var14.isEmpty() && (var14.getItem() instanceof ItemTool || var14.getItem() instanceof ItemSword)) {
-                        this.c.player.inventory.currentItem = var12;
-                        this.c.playerController.updateController();
-                        break;
-                     }
-                  }
-               }
-            }
-
-            if (this.field_152 <= 0 && var5) {
-               this.field_140.method_1979();
-               this.c.playerController.attackEntity((EntityPlayer)this.c.player, var1);
-               if ((Boolean)this.field_120.c()) {
-                  this.c.player.swingArm(EnumHand.OFF_HAND);
-               } else {
-                  this.c.player.swingArm(EnumHand.MAIN_HAND);
-               }
-
-               if ((Boolean)this.ak47.c()) {
-                  this.field_146.add(((EntityEnderCrystal)var1).getEntityId());
-               }
-
-               this.field_147.method_1979();
-               this.field_152 = ((Number)this.field_101.c()).intValue();
-               this.field_154 = RangesKt.coerceAtMost(((Number)this.field_102.c()).doubleValue() * (double)1000, Math.random() * (double)1000);
-            }
-         }
-
-         return true;
-      }
-   }
-
-   // $FF: renamed from: c (net.minecraft.entity.item.EntityEnderCrystal) boolean
-   public boolean method_193(EntityEnderCrystal var1) {
-      Iterator var3 = this.field_150.iterator();
-
-      fe3 var2;
-      do {
-         if (!var3.hasNext()) {
-            return false;
-         }
-
-         var2 = (fe3)var3.next();
-      } while(!(var1.getDistance((double)((BlockPos)var2.method_1959()).getX() + 0.5D, (double)((BlockPos)var2.method_1959()).getY() + 0.5D, (double)((BlockPos)var2.method_1959()).getZ() + 0.5D) <= (double)3));
-
-      return true;
-   }
-
-   // $FF: renamed from: c (net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, boolean) boolean
-   public boolean method_194(@NotNull BlockPos var1, @Nullable IBlockState var2, boolean var3) {
-      BlockPos var4 = var1.up();
-      BlockPos var5 = var4.up();
-      boolean var6 = !this.c.world.isAirBlock(var4) && !this.c.world.getBlockState(var1).getBlock().isReplaceable((IBlockAccess)this.c.world, var4);
-      if (!(Boolean)this.field_129.c()) {
-         var6 |= !this.c.world.isAirBlock(var5) && !this.c.world.getBlockState(var5).getBlock().isReplaceable((IBlockAccess)this.c.world, var5);
-      }
-
-      if (!(Boolean)this.field_130.c()) {
-         var6 |= feg.method_1779(var4) instanceof BlockLiquid;
-      }
-
-      if (var6) {
-         return false;
-      } else {
-         double var7 = (double)var4.getX();
-         double var9 = (double)var4.getY();
-         double var11 = (double)var4.getZ();
-
-         try {
-            List var13 = this.c.world.getEntitiesWithinAABBExcludingEntity((Entity)null, new AxisAlignedBB(var7, var9, var11, var7 + 1.0D, var9 + 2.0D, var11 + 1.0D));
-            Collection var14 = (Collection)var13;
-            boolean var15 = false;
-            if (!var14.isEmpty()) {
-               if (!var3) {
-                  return false;
-               }
-
-               Iterator var18 = var13.iterator();
-
-               while(var18.hasNext()) {
-                  Entity var17 = (Entity)var18.next();
-                  if (!(var17 instanceof EntityEnderCrystal)) {
-                     return false;
-                  }
-
-                  if (!this.method_210((EntityEnderCrystal)var17, true)) {
-                     return false;
-                  }
-               }
-            }
-
+    public boolean Method8864(EntityEnderCrystal entityEnderCrystal) {
+        Iterator<fe3<Long, BlockPos>> iterator2 = this.Field6140.iterator();
+        while (iterator2.hasNext()) {
+            fe3<Long, BlockPos> fe32 = iterator2.next();
+            Object object = fe32.Method465();
+            Object object2 = fe32.Method465();
+            Object object3 = fe32.Method465();
+            if (!(entityEnderCrystal.getDistance((double)((BlockPos)object).getX() + 0.5, (double)((BlockPos)object2).getY() + 0.5, (double)((BlockPos)object3).getZ() + 0.5) <= (double)3)) continue;
             return true;
-         } catch (Exception var16) {
-            return true;
-         }
-      }
-   }
+        }
+        return false;
+    }
 
-   // $FF: renamed from: i () java.util.ArrayList
-   @NotNull
-   public ArrayList method_195() {
-      ArrayList var1 = new ArrayList();
-      BlockPos var2 = new BlockPos(this.c.player.getPositionVector());
-      int var3 = (int)((float)var2.getY() + this.c.player.getEyeHeight() - (float)10);
-      int var4 = (int)((float)var2.getY() + this.c.player.getEyeHeight() + (float)10);
-      int var5 = var2.getX() - 10;
-      int var6 = var2.getX() + 10;
-      if (var5 <= var6) {
-         while(true) {
-            int var7 = var3;
-            int var8 = var4;
-            if (var3 <= var4) {
-               while(true) {
-                  int var9 = var2.getZ() - 10;
-                  int var10 = var2.getZ() + 10;
-                  if (var9 <= var10) {
-                     while(true) {
-                        BlockPos var11 = new BlockPos(var5, var7, var9);
-                        if (this.method_223(var11)) {
-                           IBlockState var12 = feg.method_1791(var11);
-                           if ((var12.getBlock() == Blocks.OBSIDIAN || var12.getBlock() == Blocks.BEDROCK) && this.method_194(var11, var12, true)) {
-                              float var13 = (Boolean)this.field_110.c() ? 0.0F : fdM.method_1881(var11, (EntityLivingBase)this.c.player);
-                              if (!((double)var13 > ((Number)this.field_108.c()).doubleValue()) && (!(Boolean)this.field_109.c() || !(var13 + 1.0F >= this.c.player.getHealth() + this.c.player.getAbsorptionAmount()))) {
-                                 if (!(Boolean)this.field_132.c()) {
-                                    var1.add(new f6n(var11, (feh)null, false));
-                                 } else {
-                                    boolean var14 = false;
-                                    feh var15 = (feh)null;
-                                    Vec3d var16 = new Vec3d(this.c.player.posX, this.c.player.getEntityBoundingBox().minY + (double)this.c.player.getEyeHeight(), this.c.player.posZ);
-                                    double[] var17 = new double[]{0.05D, 0.95D};
-                                    double[] var18 = new double[]{0.05D, 0.95D};
-                                    double[] var19 = new double[]{0.05D, 0.95D};
-                                    double[] var23 = var17;
-                                    int var24 = var17.length;
-                                    int var22 = 0;
+    /*
+     * Exception decompiling
+     */
+    public boolean Method8865(@NotNull BlockPos var1_1, @Nullable IBlockState var2_2, boolean var3_3) {
+        /*
+         * This method has failed to decompile.  When submitting a bug report, please provide this stack trace, and (if you hold appropriate legal rights) the relevant class file.
+         * org.benf.cfr.reader.util.ConfusedCFRException: Tried to end blocks [16[DOLOOP]], but top level block is 14[TRYBLOCK]
+         * org.benf.cfr.reader.bytecode.analysis.opgraph.Op04StructuredStatement.processEndingBlocks(Op04StructuredStatement.java:429)
+         * org.benf.cfr.reader.bytecode.analysis.opgraph.Op04StructuredStatement.buildNestedBlocks(Op04StructuredStatement.java:478)
+         * org.benf.cfr.reader.bytecode.analysis.opgraph.Op03SimpleStatement.createInitialStructuredBlock(Op03SimpleStatement.java:728)
+         * org.benf.cfr.reader.bytecode.CodeAnalyser.getAnalysisInner(CodeAnalyser.java:806)
+         * org.benf.cfr.reader.bytecode.CodeAnalyser.getAnalysisOrWrapFail(CodeAnalyser.java:258)
+         * org.benf.cfr.reader.bytecode.CodeAnalyser.getAnalysis(CodeAnalyser.java:192)
+         * org.benf.cfr.reader.entities.attributes.AttributeCode.analyse(AttributeCode.java:94)
+         * org.benf.cfr.reader.entities.Method.analyse(Method.java:521)
+         * org.benf.cfr.reader.entities.ClassFile.analyseMid(ClassFile.java:1035)
+         * org.benf.cfr.reader.entities.ClassFile.analyseTop(ClassFile.java:922)
+         * org.benf.cfr.reader.Driver.doJarVersionTypes(Driver.java:253)
+         * org.benf.cfr.reader.Driver.doJar(Driver.java:135)
+         * org.benf.cfr.reader.CfrDriverImpl.analyse(CfrDriverImpl.java:65)
+         * org.benf.cfr.reader.Main.main(Main.java:49)
+         */
+        throw new IllegalStateException(Decompilation failed);
+    }
 
-                                    while(true) {
-                                       if (var22 >= var24) {
-                                          float var49 = 36.0F;
-                                          boolean var21 = false;
-                                          if (!var14) {
-                                             var49 = (float)(((Number)this.field_106.c()).doubleValue() * ((Number)this.field_106.c()).doubleValue());
-                                             if (!(Boolean)this.field_114.c()) {
-                                                break;
-                                             }
-
-                                             var21 = true;
-                                          }
-
-                                          if (!(this.c.player.getDistanceSq(var11) > (double)var49)) {
-                                             var1.add(new f6n(var11, var15, var21));
-                                          }
-                                          break;
-                                       }
-
-                                       double var20 = var23[var22];
-                                       double[] var28 = var18;
-                                       int var29 = var18.length;
-
-                                       for(int var27 = 0; var27 < var29; ++var27) {
-                                          double var25 = var28[var27];
-                                          double[] var33 = var19;
-                                          int var34 = var19.length;
-
-                                          for(int var32 = 0; var32 < var34; ++var32) {
-                                             double var30 = var33[var32];
-                                             Vec3d var35 = (new Vec3d((Vec3i)var11)).addVector(var20, var25, var30);
-                                             double var36 = var16.distanceTo(var35);
-                                             double var38 = var35.x - var16.x;
-                                             double var40 = var35.y - var16.y;
-                                             double var42 = var35.z - var16.z;
-                                             float var44 = MathHelper.sqrt(var38 * var38 + var42 * var42);
-                                             Rotation var45 = new Rotation(MathHelper.wrapDegrees((float)Math.toDegrees(MathHelper.atan2(var42, var38)) - 90.0F), MathHelper.wrapDegrees((float)(-Math.toDegrees(MathHelper.atan2(var40, (double)var44)))));
-                                             Vec3d var46 = few.method_1716().method_1714(var45);
-                                             Vec3d var47 = var16.addVector(var46.x * var36, var46.y * var36, var46.z * var36);
-                                             RayTraceResult var48 = this.c.world.rayTraceBlocks(var16, var47, false, false, true);
-                                             if (var48 != null && var48.typeOfHit == Type.BLOCK && var48.getBlockPos().equals(var11)) {
-                                                var14 = true;
-                                                var15 = new feh(var11, var48.sideHit, var48.hitVec.subtract((double)var11.getX(), (double)var11.getY(), (double)var11.getZ()), new fex(var35, var45, var48.sideHit));
-                                                break;
-                                             }
-                                          }
-                                       }
-
-                                       ++var22;
+    @NotNull
+    public ArrayList Method8866() {
+        ArrayList<f6n> arrayList;
+        block9: {
+            arrayList = new ArrayList<f6n>();
+            BlockPos blockPos = new BlockPos(this.Field5233.player.getPositionVector());
+            int n = (int)((float)blockPos.getY() + this.Field5233.player.getEyeHeight() - (float)10);
+            int n2 = (int)((float)blockPos.getY() + this.Field5233.player.getEyeHeight() + (float)10);
+            int n3 = blockPos.getX() - 10;
+            int n4 = blockPos.getX() + 10;
+            if (n3 > n4) break block9;
+            while (true) {
+                block10: {
+                    int n5;
+                    int n6;
+                    if ((n6 = n) > (n5 = n2)) break block10;
+                    while (true) {
+                        block11: {
+                            int n7;
+                            int n8;
+                            if ((n8 = blockPos.getZ() - 10) > (n7 = blockPos.getZ() + 10)) break block11;
+                            while (true) {
+                                block12: {
+                                    BlockPos blockPos2;
+                                    block14: {
+                                        boolean bl;
+                                        float f;
+                                        feh feh2;
+                                        block15: {
+                                            block13: {
+                                                float f2;
+                                                IBlockState iBlockState;
+                                                if (!this.Method4842(blockPos2 = new BlockPos(n3, n6, n8)) || (iBlockState = feg.Method701(blockPos2)).getBlock() != Blocks.OBSIDIAN && iBlockState.getBlock() != Blocks.BEDROCK || !this.Method8865(blockPos2, iBlockState, true)) break block12;
+                                                float f3 = f2 = (Boolean)this.Field6100.Method7979() != false ? 0.0f : fdM.Method339(blockPos2, (EntityLivingBase)this.Field5233.player);
+                                                if ((double)f2 > ((Number)this.Field6098.Method7979()).doubleValue()) break block12;
+                                                if (!((Boolean)this.Field6099.Method7979()).booleanValue()) break block13;
+                                                if (f2 + 1.0f >= this.Field5233.player.getHealth() + this.Field5233.player.getAbsorptionAmount()) break block12;
+                                            }
+                                            if (!((Boolean)this.Field6122.Method7979()).booleanValue()) break block14;
+                                            boolean bl2 = false;
+                                            feh2 = null;
+                                            Vec3d vec3d = new Vec3d(this.Field5233.player.posX, this.Field5233.player.getEntityBoundingBox().minY + (double)this.Field5233.player.getEyeHeight(), this.Field5233.player.posZ);
+                                            double[] arrd = new double[]{0.05, 0.95};
+                                            double[] arrd2 = new double[]{0.05, 0.95};
+                                            double[] arrd3 = new double[]{0.05, 0.95};
+                                            for (double d : arrd) {
+                                                block4: for (double d2 : arrd2) {
+                                                    for (double d3 : arrd3) {
+                                                        Vec3d vec3d2 = new Vec3d((Vec3i)blockPos2).addVector(d, d2, d3);
+                                                        double d4 = vec3d.distanceTo(vec3d2);
+                                                        double d5 = vec3d2.x - vec3d.x;
+                                                        double d6 = vec3d2.y - vec3d.y;
+                                                        double d7 = vec3d2.z - vec3d.z;
+                                                        float f4 = MathHelper.sqrt((double)(d5 * d5 + d7 * d7));
+                                                        Rotation rotation = new Rotation(MathHelper.wrapDegrees((float)((float)Math.toDegrees(MathHelper.atan2((double)d7, (double)d5)) - 90.0f)), MathHelper.wrapDegrees((float)((float)(-Math.toDegrees(MathHelper.atan2((double)d6, (double)f4))))));
+                                                        Vec3d vec3d3 = few.Method835().Method834(rotation);
+                                                        Vec3d vec3d4 = vec3d.addVector(vec3d3.x * d4, vec3d3.y * d4, vec3d3.z * d4);
+                                                        RayTraceResult rayTraceResult = this.Field5233.world.rayTraceBlocks(vec3d, vec3d4, false, false, true);
+                                                        if (rayTraceResult == null || rayTraceResult.typeOfHit != RayTraceResult.Type.BLOCK || !rayTraceResult.getBlockPos().equals((Object)blockPos2)) continue;
+                                                        bl2 = true;
+                                                        feh2 = new feh(blockPos2, rayTraceResult.sideHit, rayTraceResult.hitVec.subtract((double)blockPos2.getX(), (double)blockPos2.getY(), (double)blockPos2.getZ()), new fex(vec3d2, rotation, rayTraceResult.sideHit));
+                                                        continue block4;
+                                                    }
+                                                }
+                                            }
+                                            f = 36.0f;
+                                            bl = false;
+                                            if (bl2) break block15;
+                                            f = (float)(((Number)this.Field6095.Method7979()).doubleValue() * ((Number)this.Field6095.Method7979()).doubleValue());
+                                            if (!((Boolean)this.Field6104.Method7979()).booleanValue()) break block12;
+                                            bl = true;
+                                        }
+                                        if (!(this.Field5233.player.getDistanceSq(blockPos2) > (double)f)) {
+                                            arrayList.add(new f6n(blockPos2, feh2, bl));
+                                        }
+                                        break block12;
                                     }
-                                 }
-                              }
-                           }
+                                    arrayList.add(new f6n(blockPos2, null, false));
+                                }
+                                if (n8 == n7) break;
+                                ++n8;
+                            }
                         }
+                        if (n6 == n5) break;
+                        ++n6;
+                    }
+                }
+                if (n3 == n4) break;
+                ++n3;
+            }
+        }
+        return arrayList;
+    }
 
-                        if (var9 == var10) {
-                           break;
+    public void Method541(int n) {
+        this.Field6138 = n;
+    }
+
+    @NotNull
+    public BooleanSetting Method8867() {
+        return this.Field6123;
+    }
+
+    @NotNull
+    public f0l Method2368() {
+        return this.Field6129;
+    }
+
+    @NotNull
+    public BooleanSetting Method8868() {
+        return this.Field6116;
+    }
+
+    @NotNull
+    public DoubleSetting Method8869() {
+        return this.Field6107;
+    }
+
+    @NotNull
+    public CopyOnWriteArrayList Method8870() {
+        return this.Field6136;
+    }
+
+    /*
+     * Enabled force condition propagation
+     * Lifted jumps to return sites
+     */
+    public boolean Method2425(Entity entity) {
+        if (!(entity instanceof EntityLivingBase)) {
+            return false;
+        }
+        if (!((EntityLivingBase)entity).isEntityAlive()) {
+            return false;
+        }
+        if (((Boolean)this.Field6112.Method7979()).booleanValue() && !PyroRenderUtil.Field7388.isBoundingBoxInFrustum(((EntityLivingBase)entity).getEntityBoundingBox())) {
+            return false;
+        }
+        if (entity instanceof EntityPlayer) {
+            if (((Boolean)this.Field6113.Method7979()).booleanValue()) {
+                boolean bl = false;
+                Iterator iterator2 = ((EntityPlayer)entity).inventory.armorInventory.iterator();
+                while (iterator2.hasNext()) {
+                    ItemStack itemStack = (ItemStack)iterator2.next();
+                    if (itemStack.isEmpty()) continue;
+                    bl = true;
+                    break;
+                }
+                if (!bl) {
+                    return false;
+                }
+            }
+            if ((Boolean)this.Field6111.Method7979() == false) return false;
+            if (!fe4.Field250.Method387((EntityPlayer)entity)) return false;
+            return true;
+        }
+        if (!(this.Field5233.player.getDistanceSq(entity) <= 300.0)) return false;
+        return true;
+    }
+
+    @NotNull
+    public BooleanSetting Method8871() {
+        return this.Field6100;
+    }
+
+    @Override
+    public void Method195(@Nullable Vec3d vec3d, float f) {
+        super.Method195(vec3d, f);
+        if (this.Field5233.player != null && this.Field6134 != null) {
+            if (((Boolean)this.Field6126.Method7979()).booleanValue()) {
+                fe5.Field252.Method408(7);
+                f6n f6n2 = this.Field6134;
+                if (f6n2 == null) {
+                    Intrinsics.Method6551();
+                }
+                fe5.Field252.Method410(f6n2, ((f00)this.Field6128.Method7979()).Method7515(), 63);
+                fe5.Field252.Method405();
+                PyroRenderUtil.Method12305(this.Field6134, ((f00)this.Field6129.Method7979()).Method7515(), 1.5f, false);
+                if (this.Field6135 != null) {
+                    if (((Boolean)this.Field6127.Method7979()).booleanValue()) {
+                        GlStateManager.pushMatrix();
+                        EntityPlayer entityPlayer = this.Field5233.getRenderViewEntity() instanceof EntityPlayer ? (EntityPlayer)this.Field5233.getRenderViewEntity() : (EntityPlayer)this.Field5233.player;
+                        f6n f6n3 = this.Field6134;
+                        if (f6n3 == null) {
+                            Intrinsics.Method6551();
                         }
-
-                        ++var9;
-                     }
-                  }
-
-                  if (var7 == var8) {
-                     break;
-                  }
-
-                  ++var7;
-               }
+                        float f2 = (float)f6n3.getX() + 0.5f;
+                        f6n f6n4 = this.Field6134;
+                        if (f6n4 == null) {
+                            Intrinsics.Method6551();
+                        }
+                        float f3 = (float)f6n4.getY() + 0.5f;
+                        f6n f6n5 = this.Field6134;
+                        if (f6n5 == null) {
+                            Intrinsics.Method6551();
+                        }
+                        PyroRenderUtil.Method12315(f2, f3, (float)f6n5.getZ() + 0.5f, (Entity)entityPlayer, 1.0f);
+                        StringCompanionObject stringCompanionObject = StringCompanionObject.Field4618;
+                        String string = "%.1f";
+                        Object[] arrobject = new Object[]{this.Field6145};
+                        boolean bl = false;
+                        String string2 = String.format(string, Arrays.copyOf(arrobject, arrobject.length));
+                        GlStateManager.disableDepth();
+                        GlStateManager.translate((double)(-((double)PyroRenderUtil.Method12314(string2) / 2.0)), (double)0.0, (double)0.0);
+                        PyroRenderUtil.Method12313(string2, 0.0f, 0.0f, -1);
+                        GlStateManager.popMatrix();
+                    }
+                }
             }
+        }
+    }
 
-            if (var5 == var6) {
-               break;
+    public boolean Method8872() {
+        if (Intrinsics.Method6572((Object)this.Field5233.player.getHeldItemMainhand().getItem(), (Object)Items.END_CRYSTAL) ^ true) {
+            if (Intrinsics.Method6572((Object)this.Field5233.player.getHeldItemOffhand().getItem(), (Object)Items.END_CRYSTAL) ^ true) {
+                if ((f6p)((Object)this.Field6105.Method7979()) != f6p.None) {
+                    int n;
+                    this.Field6138 = n = fdX.Field311.Method497(Items.END_CRYSTAL);
+                    if (n != -1) {
+                        if ((f6p)((Object)this.Field6105.Method7979()) == f6p.Auto) {
+                            this.Field5233.player.inventory.currentItem = n;
+                            this.Field5233.playerController.updateController();
+                        } else if ((f6p)((Object)this.Field6105.Method7979()) == f6p.Packet) {
+                            NetHandlerPlayClient netHandlerPlayClient = this.Field5233.getConnection();
+                            if (netHandlerPlayClient == null) {
+                                Intrinsics.Method6551();
+                            }
+                            netHandlerPlayClient.sendPacket((Packet)new CPacketHeldItemChange(n));
+                        }
+                        return true;
+                    }
+                }
+                return false;
             }
+        }
+        return true;
+    }
 
-            ++var5;
-         }
-      }
+    public void Method544(float f) {
+        this.Field6133 = f;
+    }
 
-      return var1;
-   }
+    public void Method557(boolean bl) {
+        this.Field6131 = bl;
+    }
 
-   // $FF: renamed from: 3 (int) void
-   public void method_196(int var1) {
-      this.field_148 = var1;
-   }
+    public boolean Method8873(@NotNull BlockPos blockPos, @Nullable IBlockState iBlockState) {
+        return this.Method8865(blockPos, iBlockState, false);
+    }
 
-   // $FF: renamed from: Z () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_197() {
-      return this.field_133;
-   }
+    @NotNull
+    public IntegerSetting Method2749() {
+        return this.Field6089;
+    }
 
-   // $FF: renamed from: 0 () dev.nuker.pyro.f0l
-   @NotNull
-   public f0l method_198() {
-      return this.field_139;
-   }
+    public void Method5285(@Nullable f6n f6n2) {
+        this.Field6134 = f6n2;
+    }
 
-   // $FF: renamed from: w () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_199() {
-      return this.field_126;
-   }
-
-   // $FF: renamed from: V () dev.nuker.pyro.DoubleSetting
-   @NotNull
-   public DoubleSetting method_200() {
-      return this.field_117;
-   }
-
-   // $FF: renamed from: 5 () java.util.concurrent.CopyOnWriteArrayList
-   @NotNull
-   public CopyOnWriteArrayList method_201() {
-      return this.field_146;
-   }
-
-   // $FF: renamed from: c (net.minecraft.entity.Entity) boolean
-   public boolean method_202(Entity var1) {
-      if (!(var1 instanceof EntityLivingBase)) {
-         return false;
-      } else if (!((EntityLivingBase)var1).isEntityAlive()) {
-         return false;
-      } else if ((Boolean)this.field_122.c() && !PyroRenderUtil.field_983.isBoundingBoxInFrustum(((EntityLivingBase)var1).getEntityBoundingBox())) {
-         return false;
-      } else if (!(var1 instanceof EntityPlayer)) {
-         return this.c.player.getDistanceSq(var1) <= 300.0D;
-      } else {
-         if ((Boolean)this.field_123.c()) {
-            boolean var2 = false;
-            Iterator var4 = ((EntityPlayer)var1).inventory.armorInventory.iterator();
-
-            while(var4.hasNext()) {
-               ItemStack var3 = (ItemStack)var4.next();
-               if (!var3.isEmpty()) {
-                  var2 = true;
-                  break;
-               }
+    public boolean Method8874(EntityEnderCrystal entityEnderCrystal, boolean bl) {
+        if (!bl) {
+            if (this.Field6136.contains(entityEnderCrystal.getEntityId())) {
+                return false;
             }
-
-            if (!var2) {
-               return false;
+        }
+        double d = this.Field5233.player.getDistanceSq((Entity)entityEnderCrystal);
+        switch (f6q.Field3310[((f6o)((Object)this.Field6087.Method7979())).ordinal()]) {
+            case 1: {
+                if (this.Field6135 == null) {
+                    return false;
+                }
+                float f = fdM.Method341(entityEnderCrystal, (EntityLivingBase)this.Field5233.player);
+                float f2 = fdM.Method341(entityEnderCrystal, this.Field6135);
+                if ((double)f >= ((Number)this.Field6098.Method7979()).doubleValue() + 1.0) {
+                    return false;
+                }
+                if (!(!this.Field6139 ? (double)f2 <= ((Number)this.Field6097.Method7979()).doubleValue() - 1.0 : (double)f2 < 1.0)) break;
+                return false;
             }
-         }
-
-         return (Boolean)this.field_121.c() && fe4.field_1243.method_1894((EntityPlayer)var1);
-      }
-   }
-
-   // $FF: renamed from: W () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_203() {
-      return this.field_110;
-   }
-
-   // $FF: renamed from: c (net.minecraft.util.math.Vec3d, float) void
-   public void method_123(@Nullable Vec3d var1, float var2) {
-      super.method_123(var1, var2);
-      if (this.c.player != null && this.field_144 != null && (Boolean)this.field_136.c()) {
-         fe5.field_1245.method_1915(7);
-         fe5 var10000 = fe5.field_1245;
-         f6n var10001 = this.field_144;
-         if (var10001 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         var10000.method_1917((BlockPos)var10001, ((f00)this.field_138.c()).meth1(), 63);
-         fe5.field_1245.method_1912();
-         PyroRenderUtil.method_1433((BlockPos)this.field_144, ((f00)this.field_139.c()).meth1(), 1.5F, false);
-         if (this.field_145 != null && (Boolean)this.field_137.c()) {
-            GlStateManager.pushMatrix();
-            EntityPlayer var3 = this.c.getRenderViewEntity() instanceof EntityPlayer ? (EntityPlayer)this.c.getRenderViewEntity() : (EntityPlayer)this.c.player;
-            f6n var9 = this.field_144;
-            if (var9 == null) {
-               Intrinsics.throwNpe();
+            case 2: {
+                if (this.Field6135 == null) {
+                    return false;
+                }
+                float f = fdM.Method341(entityEnderCrystal, (EntityLivingBase)this.Field5233.player);
+                float f3 = fdM.Method341(entityEnderCrystal, this.Field6135);
+                if ((double)f >= ((Number)this.Field6098.Method7979()).doubleValue() + 1.0) {
+                    return false;
+                }
+                if (!((double)f3 < 1.0)) break;
+                return false;
             }
-
-            float var10 = (float)var9.getX() + 0.5F;
-            var10001 = this.field_144;
-            if (var10001 == null) {
-               Intrinsics.throwNpe();
+            case 3: {
+                if (this.Method8864(entityEnderCrystal)) break;
+                return false;
             }
+        }
+        return ((Number)this.Field6091.Method7979()).doubleValue() * ((Number)this.Field6091.Method7979()).doubleValue() >= d;
+    }
 
-            float var11 = (float)var10001.getY() + 0.5F;
-            f6n var10002 = this.field_144;
-            if (var10002 == null) {
-               Intrinsics.throwNpe();
+    public float Method8875() {
+        return this.Field6133;
+    }
+
+    @NotNull
+    public BooleanSetting Method8876() {
+        return this.Field6106;
+    }
+
+    @NotNull
+    public BooleanSetting Method8877() {
+        return this.Field6111;
+    }
+
+    public double Method8878() {
+        return this.Field6145;
+    }
+
+    @NotNull
+    public BooleanSetting Method8879() {
+        return this.Field6108;
+    }
+
+    public void Method5011(@NotNull fe8 fe82) {
+        this.Field6141 = fe82;
+    }
+
+    public boolean Method4876() {
+        if (((Boolean)this.Field6114.Method7979()).booleanValue()) {
+            if (this.Field5233.player.isHandActive()) {
+                if (this.Field5233.player.getHeldItemMainhand().getItem() instanceof ItemFood) {
+                    return true;
+                }
             }
-
-            PyroRenderUtil.method_1440(var10, var11, (float)var10002.getZ() + 0.5F, (Entity)var3, 1.0F);
-            StringCompanionObject var5 = StringCompanionObject.INSTANCE;
-            String var6 = "%.1f";
-            Object[] var7 = new Object[]{this.field_155};
-            boolean var8 = false;
-            String var4 = String.format(var6, Arrays.copyOf(var7, var7.length));
-            GlStateManager.disableDepth();
-            GlStateManager.translate(-((double)PyroRenderUtil.method_1439(var4) / 2.0D), 0.0D, 0.0D);
-            PyroRenderUtil.meth1(var4, 0.0F, 0.0F, -1);
-            GlStateManager.popMatrix();
-         }
-      }
-
-   }
-
-   // $FF: renamed from: C () boolean
-   public boolean method_204() {
-      if (Intrinsics.areEqual((Object)this.c.player.getHeldItemMainhand().getItem(), (Object)Items.END_CRYSTAL) ^ true && Intrinsics.areEqual((Object)this.c.player.getHeldItemOffhand().getItem(), (Object)Items.END_CRYSTAL) ^ true) {
-         if ((f6p)this.field_115.c() != f6p.field_1781) {
-            int var1 = fdX.field_1227.method_1839(Items.END_CRYSTAL);
-            this.field_148 = var1;
-            if (var1 != -1) {
-               if ((f6p)this.field_115.c() == f6p.field_1780) {
-                  this.c.player.inventory.currentItem = var1;
-                  this.c.playerController.updateController();
-               } else if ((f6p)this.field_115.c() == f6p.field_1782) {
-                  NetHandlerPlayClient var10000 = this.c.getConnection();
-                  if (var10000 == null) {
-                     Intrinsics.throwNpe();
-                  }
-
-                  var10000.sendPacket((Packet)(new CPacketHeldItemChange(var1)));
-               }
-
-               return true;
+        }
+        if (((Boolean)this.Field6116.Method7979()).booleanValue()) {
+            if (this.Field5233.playerController.getIsHittingBlock()) {
+                if (this.Field5233.player.getHeldItemMainhand().getItem() instanceof ItemPickaxe) {
+                    return true;
+                }
             }
-         }
-
-         return false;
-      } else {
-         return true;
-      }
-   }
-
-   // $FF: renamed from: c (float) void
-   public void method_205(float var1) {
-      this.field_143 = var1;
-   }
-
-   // $FF: renamed from: c (boolean) void
-   public void method_206(boolean var1) {
-      this.field_141 = var1;
-   }
-
-   // $FF: renamed from: c (net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState) boolean
-   public boolean method_207(@NotNull BlockPos var1, @Nullable IBlockState var2) {
-      return this.method_194(var1, var2, false);
-   }
-
-   // $FF: renamed from: 9 () dev.nuker.pyro.IntegerSetting
-   @NotNull
-   public IntegerSetting method_208() {
-      return this.placeDelay;
-   }
-
-   // $FF: renamed from: c (dev.nuker.pyro.f6n) void
-   public void method_209(@Nullable f6n var1) {
-      this.field_144 = var1;
-   }
-
-   // $FF: renamed from: c (net.minecraft.entity.item.EntityEnderCrystal, boolean) boolean
-   public boolean method_210(EntityEnderCrystal var1, boolean var2) {
-      // $FF: Couldn't be decompiled
-   }
-
-   // $FF: renamed from: H () float
-   public float method_211() {
-      return this.field_143;
-   }
-
-   // $FF: renamed from: D () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_212() {
-      return this.field_116;
-   }
-
-   // $FF: renamed from: S () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_213() {
-      return this.field_121;
-   }
-
-   // $FF: renamed from: F () double
-   public double method_214() {
-      return this.field_155;
-   }
-
-   // $FF: renamed from: Y () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_215() {
-      return this.field_118;
-   }
-
-   // $FF: renamed from: 0 (dev.nuker.pyro.fe8) void
-   public void method_216(@NotNull fe8 var1) {
-      this.field_151 = var1;
-   }
-
-   // $FF: renamed from: c () boolean
-   public boolean method_217() {
-      if ((Boolean)this.field_124.c() && this.c.player.isHandActive() && this.c.player.getHeldItemMainhand().getItem() instanceof ItemFood) {
-         return true;
-      } else if ((Boolean)this.field_126.c() && this.c.playerController.getIsHittingBlock() && this.c.player.getHeldItemMainhand().getItem() instanceof ItemPickaxe) {
-         return true;
-      } else if ((Boolean)this.field_125.c() && this.c.gameSettings.keyBindRight.isKeyDown() && Intrinsics.areEqual((Object)this.c.player.getHeldItemMainhand().getItem(), (Object)Items.EXPERIENCE_BOTTLE)) {
-         return true;
-      } else if ((Boolean)PyroStatic.field_2472.c.method_3034() && !PyroStatic.field_2472.method_916((Entity)this.c.player)) {
-         return true;
-      } else if ((Boolean)PyroStatic.field_2508.c.method_3034() && PyroStatic.field_2508.field_451) {
-         return true;
-      } else {
-         if ((Boolean)PyroStatic.field_2570.c.method_3034()) {
-            if ((Boolean)PyroStatic.field_2570.field_572.c() && PyroStatic.field_2472.method_904((Entity)this.c.player) && !PyroStatic.field_2570.method_862((Entity)this.c.player)) {
-               return true;
+        }
+        if (((Boolean)this.Field6115.Method7979()).booleanValue()) {
+            if (this.Field5233.gameSettings.keyBindRight.isKeyDown()) {
+                if (Intrinsics.Method6572((Object)this.Field5233.player.getHeldItemMainhand().getItem(), (Object)Items.EXPERIENCE_BOTTLE)) {
+                    return true;
+                }
             }
-
-            if (!(Boolean)PyroStatic.field_2570.field_572.c()) {
-               return true;
+        }
+        if (((Boolean)PyroStatic.Field6408.Field5236.Method5264()).booleanValue()) {
+            if (!PyroStatic.Field6408.Method4852((Entity)this.Field5233.player)) {
+                return true;
             }
-         }
-
-         return ((Number)this.field_127.c()).doubleValue() > 0.0D && (double)(this.c.player.getHealth() + this.c.player.getAbsorptionAmount()) < ((Number)this.field_127.c()).doubleValue();
-      }
-   }
-
-   // $FF: renamed from: b () boolean
-   public boolean method_218() {
-      return this.field_149;
-   }
-
-   // $FF: renamed from: 00 () float
-   public float method_219() {
-      return this.field_142;
-   }
-
-   // $FF: renamed from: j () dev.nuker.pyro.IntegerSetting
-   @NotNull
-   public IntegerSetting method_220() {
-      return this.field_101;
-   }
-
-   // $FF: renamed from: r () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_221() {
-      return this.field_123;
-   }
-
-   // $FF: renamed from: c (java.util.concurrent.CopyOnWriteArrayList) void
-   public void method_222(@NotNull CopyOnWriteArrayList var1) {
-      this.field_146 = var1;
-   }
-
-   // $FF: renamed from: c (net.minecraft.util.math.BlockPos) boolean
-   public boolean method_223(BlockPos var1) {
-      double var2 = this.c.player.posX - ((double)var1.getX() + 0.5D);
-      double var4 = this.c.player.posY - ((double)var1.getY() + 0.5D) + 1.5D;
-      double var6 = this.c.player.posZ - ((double)var1.getZ() + 0.5D);
-      double var8 = var2 * var2 + var4 * var4 + var6 * var6;
-      if (var8 > 36.0D) {
-         return false;
-      } else if (var8 > ((Number)this.field_103.c()).doubleValue() * ((Number)this.field_103.c()).doubleValue()) {
-         return false;
-      } else {
-         if ((Boolean)this.field_105.c()) {
-            boolean var10 = this.c.playerController.gameIsSurvivalOrAdventure();
-            if (var8 >= (var10 ? 27.0D : 31.0D)) {
-               return false;
+        }
+        if (((Boolean)PyroStatic.Field6444.Field5236.Method5264()).booleanValue() && PyroStatic.Field6444.Field3340) {
+            return true;
+        }
+        if (((Boolean)PyroStatic.Field6506.Field5236.Method5264()).booleanValue()) {
+            if (((Boolean)PyroStatic.Field6506.Field3067.Method7979()).booleanValue()) {
+                if (PyroStatic.Field6408.Method4844((Entity)this.Field5233.player) && !PyroStatic.Field6506.Method4852((Entity)this.Field5233.player)) {
+                    return true;
+                }
             }
-         }
-
-         return true;
-      }
-   }
-
-   // $FF: renamed from: q () dev.nuker.pyro.DoubleSetting
-   @NotNull
-   public DoubleSetting method_224() {
-      return this.field_106;
-   }
-
-   // $FF: renamed from: 2 () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_225() {
-      return this.field_128;
-   }
-
-   // $FF: renamed from: 3 () dev.nuker.pyro.DoubleSetting
-   @NotNull
-   public DoubleSetting method_226() {
-      return this.breakRange;
-   }
-
-   // $FF: renamed from: G () dev.nuker.pyro.DoubleSetting
-   @NotNull
-   public DoubleSetting method_227() {
-      return this.field_108;
-   }
-
-   // $FF: renamed from: c (dev.nuker.pyro.f4I) void
-   @f0g
-   @LauncherEventHide
-   public void method_228(@NotNull f4I var1) {
-      if (var1.method_3243() instanceof EntityEnderCrystal && this.field_146.contains(var1.method_3243().getEntityId())) {
-         this.field_146.remove(var1.method_3243().getEntityId());
-      }
-
-   }
-
-   // $FF: renamed from: k () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_229() {
-      return this.field_120;
-   }
-
-   // $FF: renamed from: x () net.minecraft.entity.EntityLivingBase
-   @Nullable
-   public EntityLivingBase method_230() {
-      return this.field_145;
-   }
-
-   // $FF: renamed from: 0 (double) void
-   public void method_231(double var1) {
-      this.field_154 = var1;
-   }
-
-   // $FF: renamed from: h () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_232() {
-      return this.field_124;
-   }
-
-   // $FF: renamed from: c (dev.nuker.pyro.f49) void
-   @f0g
-   @LauncherEventHide
-   public void method_233(@NotNull f49 var1) {
-      if (var1.c() == f41.field_2120 && var1.c() instanceof CPacketPlayerTryUseItemOnBlock) {
-         Packet var10000 = var1.c();
-         if (var10000 == null) {
-            throw new TypeCastException("null cannot be cast to non-null type net.minecraft.network.play.client.CPacketPlayerTryUseItemOnBlock");
-         }
-
-         CPacketPlayerTryUseItemOnBlock var2 = (CPacketPlayerTryUseItemOnBlock)var10000;
-         ItemStack var3 = this.c.player.getHeldItem(var2.getHand());
-         if (Intrinsics.areEqual((Object)var3.getItem(), (Object)Items.END_CRYSTAL)) {
-            this.field_150.removeIf((Predicate)(new f6r(var2)));
-            this.field_150.add(new fe3(System.currentTimeMillis() + (long)500, var2.getPos()));
-            if (var2.getPos().getY() >= this.c.world.getHeight() - 1 && var2.getDirection() == EnumFacing.UP) {
-               if (var2 == null) {
-                  throw new TypeCastException("null cannot be cast to non-null type dev.nuker.pyro.mixin.CPacketPlayerTryUseItemOnBlockAccessor");
-               }
-
-               ((CPacketPlayerTryUseItemOnBlockAccessor)var2).setPlacedBlockDirection(EnumFacing.DOWN);
+            if (!((Boolean)PyroStatic.Field6506.Field3067.Method7979()).booleanValue()) {
+                return true;
             }
-         }
-      }
+        }
+        if (((Number)this.Field6117.Method7979()).doubleValue() > 0.0) {
+            EntityPlayerSP entityPlayerSP = this.Field5233.player;
+            EntityPlayerSP entityPlayerSP2 = this.Field5233.player;
+            if ((double)(entityPlayerSP.getHealth() + entityPlayerSP2.getAbsorptionAmount()) < ((Number)this.Field6117.Method7979()).doubleValue()) {
+                return true;
+            }
+        }
+        return false;
+    }
 
-   }
+    public boolean Method8880() {
+        return this.Field6139;
+    }
 
-   // $FF: renamed from: 5 (int) void
-   public void method_234(int var1) {
-      this.field_153 = var1;
-   }
+    public float Method8881() {
+        return this.Field6132;
+    }
 
-   // $FF: renamed from: 1 (dev.nuker.pyro.fe8) void
-   public void method_235(@NotNull fe8 var1) {
-      this.field_147 = var1;
-   }
+    @NotNull
+    public IntegerSetting Method8882() {
+        return this.Field6088;
+    }
+
+    @NotNull
+    public BooleanSetting Method8883() {
+        return this.Field6113;
+    }
+
+    public void Method316(@NotNull CopyOnWriteArrayList copyOnWriteArrayList) {
+        this.Field6136 = copyOnWriteArrayList;
+    }
+
+    public boolean Method4842(BlockPos blockPos) {
+        double d = this.Field5233.player.posX - ((double)blockPos.getX() + 0.5);
+        double d2 = this.Field5233.player.posY - ((double)blockPos.getY() + 0.5) + 1.5;
+        double d3 = this.Field5233.player.posZ - ((double)blockPos.getZ() + 0.5);
+        double d4 = d * d + d2 * d2 + d3 * d3;
+        if (d4 > 36.0) {
+            return false;
+        }
+        if (d4 > ((Number)this.Field6092.Method7979()).doubleValue() * ((Number)this.Field6092.Method7979()).doubleValue()) {
+            return false;
+        }
+        if (((Boolean)this.Field6094.Method7979()).booleanValue()) {
+            boolean bl = this.Field5233.playerController.gameIsSurvivalOrAdventure();
+            double d5 = bl ? 27.0 : 31.0;
+            if (d4 >= d5) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @NotNull
+    public DoubleSetting Method8884() {
+        return this.Field6095;
+    }
+
+    @NotNull
+    public BooleanSetting Method282() {
+        return this.Field6118;
+    }
+
+    @NotNull
+    public DoubleSetting Method2279() {
+        return this.Field6091;
+    }
+
+    @NotNull
+    public DoubleSetting Method8885() {
+        return this.Field6098;
+    }
+
+    @f0g
+    @LauncherEventHide
+    public void Method5022(@NotNull f4I f4I2) {
+        if (f4I2.Method5702() instanceof EntityEnderCrystal && this.Field6136.contains(f4I2.Method5702().getEntityId())) {
+            this.Field6136.remove((Object)f4I2.Method5702().getEntityId());
+        }
+    }
+
+    @NotNull
+    public BooleanSetting Method8886() {
+        return this.Field6110;
+    }
+
+    @Nullable
+    public EntityLivingBase Method8887() {
+        return this.Field6135;
+    }
+
+    public void Method2415(double d) {
+        this.Field6144 = d;
+    }
+
+    @NotNull
+    public BooleanSetting Method2723() {
+        return this.Field6114;
+    }
+
+    @f0g
+    @LauncherEventHide
+    public void Method2393(@NotNull f49 f492) {
+        if (f492.Method5619() == f41.Pre && f492.Method5784() instanceof CPacketPlayerTryUseItemOnBlock) {
+            Packet packet = f492.Method5784();
+            if (packet == null) {
+                throw new TypeCastException("null cannot be cast to non-null type net.minecraft.network.play.client.CPacketPlayerTryUseItemOnBlock");
+            }
+            CPacketPlayerTryUseItemOnBlock cPacketPlayerTryUseItemOnBlock = (CPacketPlayerTryUseItemOnBlock)packet;
+            ItemStack itemStack = this.Field5233.player.getHeldItem(cPacketPlayerTryUseItemOnBlock.getHand());
+            if (Intrinsics.Method6572((Object)itemStack.getItem(), (Object)Items.END_CRYSTAL)) {
+                this.Field6140.removeIf(new f6r(cPacketPlayerTryUseItemOnBlock));
+                this.Field6140.add(new fe3(System.currentTimeMillis() + (long)500, (Object)cPacketPlayerTryUseItemOnBlock.getPos()));
+                if (cPacketPlayerTryUseItemOnBlock.getPos().getY() >= this.Field5233.world.getHeight() - 1 && cPacketPlayerTryUseItemOnBlock.getDirection() == EnumFacing.UP) {
+                    CPacketPlayerTryUseItemOnBlock cPacketPlayerTryUseItemOnBlock2 = cPacketPlayerTryUseItemOnBlock;
+                    if (cPacketPlayerTryUseItemOnBlock2 == null) {
+                        throw new TypeCastException("null cannot be cast to non-null type dev.nuker.pyro.mixin.CPacketPlayerTryUseItemOnBlockAccessor");
+                    }
+                    ((CPacketPlayerTryUseItemOnBlockAccessor)cPacketPlayerTryUseItemOnBlock2).Method6416(EnumFacing.DOWN);
+                }
+            }
+        }
+    }
+
+    public void Method4977(int n) {
+        this.Field6143 = n;
+    }
+
+    public void Method5003(@NotNull fe8 fe82) {
+        this.Field6137 = fe82;
+    }
 }
+

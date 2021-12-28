@@ -1,6 +1,9 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  com.mojang.authlib.GameProfile
+ *  net.minecraft.entity.player.EntityPlayer
  */
 package dev.nuker.pyro.mixin;
 
@@ -9,8 +12,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
-@Mixin({EntityPlayer.class})
+@Mixin(value={EntityPlayer.class})
 public interface EntityPlayerAccessor {
-   @Accessor("gameProfile")
-   void setGameProfile(GameProfile var1);
+    @Accessor(value="gameProfile")
+    public void Method3038(GameProfile var1);
 }
+

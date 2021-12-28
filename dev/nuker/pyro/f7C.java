@@ -1,9 +1,22 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.entity.EntityPlayerSP
+ *  net.minecraft.client.network.NetHandlerPlayClient
+ *  net.minecraft.network.Packet
+ *  net.minecraft.network.play.client.CPacketAnimation
+ *  net.minecraft.network.play.client.CPacketPlayerTryUseItemOnBlock
+ *  net.minecraft.util.EnumFacing
+ *  net.minecraft.util.EnumHand
+ *  net.minecraft.util.math.BlockPos
+ *  net.minecraft.util.math.Vec3d
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.Pyro;
+import dev.nuker.pyro.PyroStatic;
+import dev.nuker.pyro.f7G;
 import java.util.function.Consumer;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Ref;
@@ -17,56 +30,46 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 
-public class f7C implements Consumer {
-   // $FF: renamed from: c dev.nuker.pyro.f7G
-   public f7G field_1760;
-   // $FF: renamed from: c net.minecraft.util.math.BlockPos
-   public BlockPos field_1761;
-   // $FF: renamed from: c net.minecraft.util.EnumFacing
-   public EnumFacing field_1762;
-   // $FF: renamed from: c kotlin.jvm.internal.Ref$FloatRef
-   public Ref.FloatRef field_1763;
-   // $FF: renamed from: 0 kotlin.jvm.internal.Ref$FloatRef
-   public Ref.FloatRef field_1764;
-   // $FF: renamed from: 1 kotlin.jvm.internal.Ref$FloatRef
-   public Ref.FloatRef field_1765;
+public class f7C
+implements Consumer {
+    public f7G Field3175;
+    public BlockPos Field3176;
+    public EnumFacing Field3177;
+    public Ref.FloatRef Field3178;
+    public Ref.FloatRef Field3179;
+    public Ref.FloatRef Field3180;
 
-   // $FF: renamed from: c (net.minecraft.client.entity.EntityPlayerSP) void
-   public void method_2989(EntityPlayerSP var1) {
-      NetHandlerPlayClient var10000 = f7G.method_803(this.field_1760).getConnection();
-      if (var10000 == null) {
-         Intrinsics.throwNpe();
-      }
+    public void Method597(EntityPlayerSP entityPlayerSP) {
+        NetHandlerPlayClient netHandlerPlayClient = f7G.Method5021(this.Field3175).getConnection();
+        if (netHandlerPlayClient == null) {
+            Intrinsics.Method6551();
+        }
+        netHandlerPlayClient.sendPacket((Packet)new CPacketPlayerTryUseItemOnBlock(this.Field3176, this.Field3177, EnumHand.MAIN_HAND, this.Field3178.Field5298, this.Field3179.Field5298, this.Field3180.Field5298));
+        NetHandlerPlayClient netHandlerPlayClient2 = f7G.Method5021(this.Field3175).getConnection();
+        if (netHandlerPlayClient2 == null) {
+            Intrinsics.Method6551();
+        }
+        netHandlerPlayClient2.sendPacket((Packet)new CPacketAnimation(EnumHand.MAIN_HAND));
+        Pyro.Field6182.Method8989("Pressed button!");
+        Vec3d vec3d = this.Field3175.Method4988();
+        if (vec3d == null) {
+            Intrinsics.Method6551();
+        }
+        this.Field3175.Method2283(vec3d);
+        PyroStatic.Field6445.Field5236.Method5266(true);
+    }
 
-      var10000.sendPacket((Packet)(new CPacketPlayerTryUseItemOnBlock(this.field_1761, this.field_1762, EnumHand.MAIN_HAND, this.field_1763.element, this.field_1764.element, this.field_1765.element)));
-      var10000 = f7G.method_803(this.field_1760).getConnection();
-      if (var10000 == null) {
-         Intrinsics.throwNpe();
-      }
+    public f7C(f7G f7G2, BlockPos blockPos, EnumFacing enumFacing, Ref.FloatRef floatRef, Ref.FloatRef floatRef2, Ref.FloatRef floatRef3) {
+        this.Field3175 = f7G2;
+        this.Field3176 = blockPos;
+        this.Field3177 = enumFacing;
+        this.Field3178 = floatRef;
+        this.Field3179 = floatRef2;
+        this.Field3180 = floatRef3;
+    }
 
-      var10000.sendPacket((Packet)(new CPacketAnimation(EnumHand.MAIN_HAND)));
-      Pyro.INSTANCE.sendMessage("Pressed button!");
-      f7G var2 = this.field_1760;
-      Vec3d var10001 = this.field_1760.method_759();
-      if (var10001 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      var2.method_836(var10001);
-      PyroStatic.field_2509.c.method_3033(true);
-   }
-
-   public f7C(f7G var1, BlockPos var2, EnumFacing var3, Ref.FloatRef var4, Ref.FloatRef var5, Ref.FloatRef var6) {
-      this.field_1760 = var1;
-      this.field_1761 = var2;
-      this.field_1762 = var3;
-      this.field_1763 = var4;
-      this.field_1764 = var5;
-      this.field_1765 = var6;
-      super();
-   }
-
-   public void accept(Object var1) {
-      this.method_2989((EntityPlayerSP)var1);
-   }
+    public void accept(Object object) {
+        this.Method597((EntityPlayerSP)object);
+    }
 }
+

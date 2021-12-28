@@ -1,25 +1,73 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.util.math.AxisAlignedBB
+ *  net.minecraft.util.math.BlockPos
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
-public class fbI {
-   // $FF: renamed from: c int[]
-   public static int[] field_1584 = new int[fbH.values().length];
-   // $FF: renamed from: 0 int[]
-   public static int[] field_1585;
-   // $FF: renamed from: 1 int[]
-   public static int[] field_1586;
+import dev.nuker.pyro.f00;
+import dev.nuker.pyro.fbl;
+import kotlin.NoWhenBranchMatchedException;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
+import org.jetbrains.annotations.NotNull;
 
-   static {
-      field_1584[fbH.field_1608.ordinal()] = 1;
-      field_1585 = new int[fbH.values().length];
-      field_1585[fbH.field_1608.ordinal()] = 1;
-      field_1585[fbH.field_1609.ordinal()] = 2;
-      field_1585[fbH.field_1610.ordinal()] = 3;
-      field_1586 = new int[fbG.values().length];
-      field_1586[fbG.field_1604.ordinal()] = 1;
-      field_1586[fbG.field_1605.ordinal()] = 2;
-   }
+public class fbi {
+    @NotNull
+    public AxisAlignedBB Field2092;
+    @NotNull
+    public BlockPos Field2093;
+    public boolean Field2094;
+    public fbl Field2095;
+
+    @NotNull
+    public AxisAlignedBB Method2735() {
+        return this.Field2092;
+    }
+
+    @NotNull
+    public BlockPos Method2736() {
+        return this.Field2093;
+    }
+
+    public int Method2737() {
+        int n;
+        boolean bl = this.Field2094;
+        if (bl) {
+            n = ((f00)this.Field2095.Method2368().Method7979()).Method7515();
+        } else if (!bl) {
+            n = ((f00)this.Field2095.Method2752().Method7979()).Method7515();
+        } else {
+            throw new NoWhenBranchMatchedException();
+        }
+        return n;
+    }
+
+    public int Method2738() {
+        int n;
+        boolean bl = this.Field2094;
+        if (bl) {
+            n = ((f00)this.Field2095.Method216().Method7979()).Method7515();
+        } else if (!bl) {
+            n = ((f00)this.Field2095.Method2746().Method7979()).Method7515();
+        } else {
+            throw new NoWhenBranchMatchedException();
+        }
+        return n;
+    }
+
+    public fbi(@NotNull fbl fbl2, @NotNull AxisAlignedBB axisAlignedBB, BlockPos blockPos, boolean bl) {
+        this.Field2095 = fbl2;
+        this.Field2092 = axisAlignedBB;
+        this.Field2093 = blockPos;
+        this.Field2094 = bl;
+    }
+
+    public boolean Method2739() {
+        return this.Field2094;
+    }
 }
+

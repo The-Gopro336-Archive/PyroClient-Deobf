@@ -1,29 +1,27 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
-import com.mojang.brigadier.Command;
-import com.mojang.brigadier.context.CommandContext;
-import java.awt.Desktop;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentString;
+import com.mojang.brigadier.CommandDispatcher;
+import com.mojang.brigadier.builder.LiteralArgumentBuilder;
+import dev.nuker.pyro.f2x;
+import dev.nuker.pyro.f3e;
+import org.jetbrains.annotations.NotNull;
 
-public class f2Y implements Command {
-   // $FF: renamed from: c dev.nuker.pyro.f2Y
-   public static f2Y field_2019 = new f2Y();
+public class f2y {
+    public static f2y Field3927;
 
-   public int run(CommandContext var1) {
-      String var2 = "Opened the " + Config.INSTANCE.watermark + " folder.";
+    static {
+        f2y f2y2;
+        Field3927 = f2y2 = new f2y();
+    }
 
-      try {
-         Desktop.getDesktop().open(Pyro.FOLDER);
-      } catch (Exception var4) {
-         var2 = "Failed to open folder.";
-      }
-
-      ((f1s)var1.getSource()).method_3083((ITextComponent)(new TextComponentString(var2)));
-      return 0;
-   }
+    public void Method5624(@NotNull CommandDispatcher commandDispatcher) {
+        commandDispatcher.Method8399((LiteralArgumentBuilder)f3e.Method5657("legit").Method12044(f2x.Field3949));
+    }
 }
+

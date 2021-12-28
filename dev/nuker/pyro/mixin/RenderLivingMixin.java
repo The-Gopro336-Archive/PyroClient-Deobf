@@ -1,27 +1,25 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.renderer.entity.RenderLiving
  */
 package dev.nuker.pyro.mixin;
 
 import dev.nuker.pyro.PyroStatic;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Class0;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin({RenderLiving.class})
+@Mixin(value={RenderLiving.class})
 public class RenderLivingMixin {
-   @Inject(
-      method = {"renderLeash"},
-      at = {@At("HEAD")},
-      cancellable = true
-   )
-   private void renderLeash(CallbackInfo var1) {
-      if (!PyroStatic.field_2498.method_986()) {
-         var1.cancel();
-      }
-
-   }
+    @Inject(method={"renderLeash"}, at={@Class0(value="HEAD")}, cancellable=true)
+    private void Method11707(CallbackInfo var1) {
+        if (!PyroStatic.Field6434.Method2715()) {
+            var1.Method9034();
+        }
+    }
 }
+

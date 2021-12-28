@@ -1,14 +1,29 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.gui.Gui
+ *  net.minecraft.client.renderer.GlStateManager
+ *  net.minecraft.util.Tuple
+ *  org.jetbrains.annotations.NotNull
+ *  org.jetbrains.annotations.Nullable
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.Class57;
+import dev.nuker.pyro.f0F;
+import dev.nuker.pyro.f0H;
+import dev.nuker.pyro.f0T;
+import dev.nuker.pyro.f0U;
+import dev.nuker.pyro.f13;
+import dev.nuker.pyro.f14;
+import dev.nuker.pyro.f15;
+import dev.nuker.pyro.f16;
+import dev.nuker.pyro.f17;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-import java.util.function.Supplier;
 import kotlin.jvm.JvmField;
 import kotlin.jvm.internal.Intrinsics;
 import net.minecraft.client.gui.Gui;
@@ -17,516 +32,414 @@ import net.minecraft.util.Tuple;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class f0V implements f13 {
-   // $FF: renamed from: c java.util.List
-   @JvmField
-   @NotNull
-   public List field_2385;
-   // $FF: renamed from: c dev.nuker.pyro.f0F
-   @JvmField
-   @Nullable
-   public f0F field_2386;
-   // $FF: renamed from: c dev.nuker.pyro.fw
-   @NotNull
-   public class_6 field_2387;
-   // $FF: renamed from: c dev.nuker.pyro.f13
-   @Nullable
-   public f13 field_2388;
-   // $FF: renamed from: 0 java.util.List
-   @NotNull
-   public List field_2389;
+public class f0V
+implements f13 {
+    @JvmField
+    @NotNull
+    public List<f0F> Field5553;
+    @JvmField
+    @Nullable
+    public f0F Field5554;
+    @NotNull
+    public Class57<Boolean> Field5555;
+    @Nullable
+    public f13 Field5556;
+    @NotNull
+    public List<? extends f13> Field5557;
 
-   // $FF: renamed from: c (dev.nuker.pyro.f0F, double, double, dev.nuker.pyro.f0H) void
-   public void method_22(@NotNull f0F var1, double var2, double var4, @NotNull f0H var6) {
-      f13 var10000 = this.field_2388;
-      if (var10000 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      if (var10000.method_21(var1, var2, var4, var6)) {
-         var10000 = this.field_2388;
-         if (var10000 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         f0F var10001 = this.field_2386;
-         if (var10001 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         var10000.method_22(var10001, var2, var4, var6);
-      }
-
-      if ((Boolean)this.field_2387.method_3034()) {
-         f0F var12 = this.field_2386;
-         if (var12 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         int var7 = var12.method_3583();
-         int var8 = 0;
-
-         for(int var9 = ((Collection)this.field_2389).size(); var8 < var9; ++var8) {
-            f13 var10 = (f13)this.field_2389.get(var8);
-            Object var13 = this.field_2385.get(var8);
-            if (var13 == null) {
-               Intrinsics.throwNpe();
+    @Override
+    public void Method7839(@NotNull f0F f0F2, double d, double d2, @NotNull f0H f0H2) {
+        f13 f132 = this.Field5556;
+        if (f132 == null) {
+            Intrinsics.Method6551();
+        }
+        if (f132.Method7838(f0F2, d, d2, f0H2)) {
+            f13 f133 = this.Field5556;
+            if (f133 == null) {
+                Intrinsics.Method6551();
             }
-
-            f0F var11 = (f0F)var13;
-            if (var10.method_21(var1, var2, var4 - (double)var7, var6)) {
-               GlStateManager.pushMatrix();
-               GlStateManager.translate(1.0F, (float)var7, 0.0F);
-               var10.method_22(var11, var2, var4 - (double)var7, var6);
-               GlStateManager.popMatrix();
+            f0F f0F3 = this.Field5554;
+            if (f0F3 == null) {
+                Intrinsics.Method6551();
             }
-
-            var7 += var11.method_3583();
-         }
-      }
-
-   }
-
-   // $FF: renamed from: 1 () dev.nuker.pyro.fw
-   @NotNull
-   public class_6 method_3624() {
-      return this.field_2387;
-   }
-
-   // $FF: renamed from: 1 (dev.nuker.pyro.f0F, double, double, dev.nuker.pyro.f0H) boolean
-   public boolean method_25(@NotNull f0F var1, double var2, double var4, @NotNull f0H var6) {
-      f13 var10000 = this.field_2388;
-      if (var10000 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      f0F var10001 = this.field_2386;
-      if (var10001 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      if (var10000.method_25(var10001, var2, var4, var6)) {
-         return true;
-      } else {
-         if ((Boolean)this.field_2387.method_3034()) {
-            f0F var12 = this.field_2386;
-            if (var12 == null) {
-               Intrinsics.throwNpe();
+            f133.Method7839(f0F3, d, d2, f0H2);
+        }
+        if (((Boolean)this.Field5555.Method5264()).booleanValue()) {
+            f0F f0F4 = this.Field5554;
+            if (f0F4 == null) {
+                Intrinsics.Method6551();
             }
-
-            int var7 = var12.method_3583();
-            int var8 = 0;
-
-            for(int var9 = ((Collection)this.field_2389).size(); var8 < var9; ++var8) {
-               f13 var10 = (f13)this.field_2389.get(var8);
-               Object var13 = this.field_2385.get(var8);
-               if (var13 == null) {
-                  Intrinsics.throwNpe();
-               }
-
-               f0F var11 = (f0F)var13;
-               if (var10.method_25(var11, var2, var4 - (double)var7, var6)) {
-                  return true;
-               }
-
-               var7 += var11.method_3583();
+            int n = f0F4.Method7815();
+            int n2 = ((Collection)this.Field5557).size();
+            for (int i = 0; i < n2; ++i) {
+                f0F f0F5;
+                f13 f134 = this.Field5557.get(i);
+                if (this.Field5553.get(i) == null) {
+                    Intrinsics.Method6551();
+                }
+                if (f134.Method7838(f0F2, d, d2 - (double)n, f0H2)) {
+                    GlStateManager.pushMatrix();
+                    GlStateManager.translate((float)1.0f, (float)n, (float)0.0f);
+                    f134.Method7839(f0F5, d, d2 - (double)n, f0H2);
+                    GlStateManager.popMatrix();
+                }
+                n += f0F5.Method7815();
             }
-         }
+        }
+    }
 
-         return false;
-      }
-   }
+    @NotNull
+    public Class57 Method7885() {
+        return this.Field5555;
+    }
 
-   // $FF: renamed from: c (char, int) void
-   public void method_23(char var1, int var2) {
-      Iterator var4 = this.field_2389.iterator();
-
-      while(var4.hasNext()) {
-         f13 var3 = (f13)var4.next();
-         var3.method_23(var1, var2);
-      }
-
-   }
-
-   // $FF: renamed from: 0 (dev.nuker.pyro.f0F, dev.nuker.pyro.f0H, dev.nuker.pyro.f17) void
-   public void method_24(@NotNull f0F var1, @NotNull f0H var2, @NotNull f17 var3) {
-      if (var3 instanceof f14 && var3.method_3645() == 1) {
-         double var10000 = var3.method_3646();
-         f0F var10001 = this.field_2386;
-         if (var10001 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         if (var10000 < (double)var10001.method_3583()) {
-            this.field_2387.method_3033(!(Boolean)this.field_2387.method_3034());
-            Iterator var8 = this.field_2389.iterator();
-
-            while(var8.hasNext()) {
-               f13 var7 = (f13)var8.next();
-               var7.method_20();
+    @Override
+    public boolean Method7841(@NotNull f0F f0F2, double d, double d2, @NotNull f0H f0H2) {
+        f13 f132 = this.Field5556;
+        if (f132 == null) {
+            Intrinsics.Method6551();
+        }
+        f0F f0F3 = this.Field5554;
+        if (f0F3 == null) {
+            Intrinsics.Method6551();
+        }
+        if (f132.Method7841(f0F3, d, d2, f0H2)) {
+            return true;
+        }
+        if (((Boolean)this.Field5555.Method5264()).booleanValue()) {
+            f0F f0F4 = this.Field5554;
+            if (f0F4 == null) {
+                Intrinsics.Method6551();
             }
-
-            var1.method_3579();
-            return;
-         }
-      }
-
-      Tuple var9 = this.method_3631(var3 instanceof f15 ? ((f15)var3).method_3650() : (var3 instanceof f16 ? ((f16)var3).method_3658() : var3.method_3646()));
-      if (var9 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      Tuple var4 = var9;
-      f13 var10 = (f13)((Tuple)var4.getFirst()).getFirst();
-      Object var11 = ((Tuple)var4.getFirst()).getSecond();
-      if (var11 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      var10.method_24((f0F)var11, var2, var3.method_3648(1.0D, (double)((Number)var4.getSecond()).intValue()));
-      Iterator var6 = this.field_2389.iterator();
-
-      while(var6.hasNext()) {
-         f13 var5 = (f13)var6.next();
-         if (var5 != (f13)((Tuple)var4.getFirst()).getFirst()) {
-            var5.method_20();
-         }
-      }
-
-   }
-
-   // $FF: renamed from: c (dev.nuker.pyro.fw) void
-   public void method_3625(@NotNull class_6 var1) {
-      this.field_2387 = var1;
-   }
-
-   // $FF: renamed from: 0 () dev.nuker.pyro.f13
-   @Nullable
-   public f13 method_3626() {
-      return this.field_2388;
-   }
-
-   // $FF: renamed from: c () void
-   public void method_20() {
-      f13 var10000 = this.field_2388;
-      if (var10000 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      var10000.method_20();
-      Iterator var2 = this.field_2389.iterator();
-
-      while(var2.hasNext()) {
-         f13 var1 = (f13)var2.next();
-         var1.method_20();
-      }
-
-   }
-
-   public f0V(@Nullable f13 var1, @NotNull List var2, @NotNull class_6 var3) {
-      this.field_2388 = var1;
-      this.field_2389 = var2;
-      this.field_2385 = (List)(new ArrayList());
-      this.field_2387 = var3;
-   }
-
-   // $FF: renamed from: c (dev.nuker.pyro.f0F) void
-   public void method_3627(@NotNull f0F var1) {
-      this.field_2385.clear();
-      int var2 = 0;
-
-      for(int var3 = ((Collection)this.field_2389).size(); var2 < var3; ++var2) {
-         this.field_2385.add(new f0F((Supplier)(new f0T(var1)), var1.method_3573(), 0, var1.method_3571(), var1.method_3582()));
-      }
-
-   }
-
-   // $FF: renamed from: c (dev.nuker.pyro.f0F, dev.nuker.pyro.f0H, dev.nuker.pyro.f17) void
-   public void method_27(@NotNull f0F var1, @NotNull f0H var2, @NotNull f17 var3) {
-      double var4 = var3 instanceof f15 ? ((f15)var3).method_3656() : var3.method_3647();
-      double var6 = var3 instanceof f15 ? ((f15)var3).method_3650() : var3.method_3646();
-      f13 var10000 = this.field_2388;
-      if (var10000 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      f0F var10001 = this.field_2386;
-      if (var10001 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      if (var10000.method_25(var10001, var4, var6, var2)) {
-         var10000 = this.field_2388;
-         if (var10000 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         var10000.method_27(var1, var2, var3);
-      }
-
-      if ((Boolean)this.field_2387.method_3034()) {
-         f0F var13 = this.field_2386;
-         if (var13 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         int var8 = var13.method_3583();
-         int var9 = 0;
-
-         for(int var10 = ((Collection)this.field_2389).size(); var9 < var10; ++var9) {
-            f13 var11 = (f13)this.field_2389.get(var9);
-            Object var14 = this.field_2385.get(var9);
-            if (var14 == null) {
-               Intrinsics.throwNpe();
+            int n = f0F4.Method7815();
+            int n2 = ((Collection)this.Field5557).size();
+            for (int i = 0; i < n2; ++i) {
+                f0F f0F5;
+                f13 f133 = this.Field5557.get(i);
+                if (this.Field5553.get(i) == null) {
+                    Intrinsics.Method6551();
+                }
+                if (f133.Method7841(f0F5, d, d2 - (double)n, f0H2)) {
+                    return true;
+                }
+                n += f0F5.Method7815();
             }
+        }
+        return false;
+    }
 
-            f0F var12 = (f0F)var14;
-            if (var11.method_25(var12, var4, var6 - (double)var8, var2)) {
-               var11.method_27(var1, var2, var3.method_3648(0.0D, (double)var8));
+    @Override
+    public void Method7840(char c, int n) {
+        for (f13 f132 : this.Field5557) {
+            f132.Method7840(c, n);
+        }
+    }
+
+    /*
+     * Enabled aggressive block sorting
+     */
+    @Override
+    public void Method7818(@NotNull f0F f0F2, @NotNull f0H f0H2, @NotNull f17 f172) {
+        if (f172 instanceof f14 && f172.Method7895() == 1) {
+            double d = f172.Method7896();
+            f0F f0F3 = this.Field5554;
+            if (f0F3 == null) {
+                Intrinsics.Method6551();
             }
-
-            var8 += var12.method_3583();
-         }
-      }
-
-   }
-
-   // $FF: renamed from: 2 (dev.nuker.pyro.f0F, double, double, dev.nuker.pyro.f0H) boolean
-   public boolean method_21(@NotNull f0F var1, double var2, double var4, @NotNull f0H var6) {
-      f13 var10000 = this.field_2388;
-      if (var10000 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      f0F var10001 = this.field_2386;
-      if (var10001 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      if (var10000.method_21(var10001, var2, var4, var6)) {
-         return true;
-      } else {
-         if ((Boolean)this.field_2387.method_3034()) {
-            f0F var12 = this.field_2386;
-            if (var12 == null) {
-               Intrinsics.throwNpe();
+            if (d < (double)f0F3.Method7815()) {
+                this.Field5555.Method5266((Object)((Boolean)this.Field5555.Method5264() == false ? 1 : 0));
+                Iterator<? extends f13> iterator2 = this.Field5557.iterator();
+                while (true) {
+                    if (!iterator2.hasNext()) {
+                        f0F2.Method7811();
+                        return;
+                    }
+                    f13 f132 = iterator2.next();
+                    f132.Method7837();
+                }
             }
+        }
+        Tuple tuple = this.Method7890(f172 instanceof f15 ? ((f15)f172).Method7875() : (f172 instanceof f16 ? ((f16)f172).Method7879() : f172.Method7896()));
+        if (tuple == null) {
+            Intrinsics.Method6551();
+        }
+        Tuple tuple2 = tuple;
+        f13 f133 = (f13)((Tuple)tuple2.getFirst()).getFirst();
+        Object object = ((Tuple)tuple2.getFirst()).getSecond();
+        if (object == null) {
+            Intrinsics.Method6551();
+        }
+        f133.Method7818((f0F)object, f0H2, f172.Method7865(1.0, ((Number)tuple2.getSecond()).intValue()));
+        Iterator<? extends f13> iterator3 = this.Field5557.iterator();
+        while (iterator3.hasNext()) {
+            f13 f134 = iterator3.next();
+            if (f134 == (f13)((Tuple)tuple2.getFirst()).getFirst()) continue;
+            f134.Method7837();
+        }
+    }
 
-            int var7 = var12.method_3583();
-            int var8 = 0;
+    public void Method7843(@NotNull Class57 class57) {
+        this.Field5555 = class57;
+    }
 
-            for(int var9 = ((Collection)this.field_2389).size(); var8 < var9; ++var8) {
-               f13 var10 = (f13)this.field_2389.get(var8);
-               Object var13 = this.field_2385.get(var8);
-               if (var13 == null) {
-                  Intrinsics.throwNpe();
-               }
+    @Nullable
+    public f13 Method7886() {
+        return this.Field5556;
+    }
 
-               f0F var11 = (f0F)var13;
-               if (var10.method_21(var11, var2, var4 - (double)var7, var6)) {
-                  return true;
-               }
+    @Override
+    public void Method7837() {
+        f13 f132 = this.Field5556;
+        if (f132 == null) {
+            Intrinsics.Method6551();
+        }
+        f132.Method7837();
+        for (f13 f133 : this.Field5557) {
+            f133.Method7837();
+        }
+    }
 
-               var7 += var11.method_3583();
+    public f0V(@Nullable f13 f132, @NotNull List list, @NotNull Class57 class57) {
+        this.Field5556 = f132;
+        this.Field5557 = list;
+        this.Field5553 = new ArrayList();
+        this.Field5555 = class57;
+    }
+
+    public void Method7824(@NotNull f0F f0F2) {
+        this.Field5553.clear();
+        int n = ((Collection)this.Field5557).size();
+        for (int i = 0; i < n; ++i) {
+            this.Field5553.add(new f0F(new f0T(f0F2), f0F2.Method7805(), 0, f0F2.Method7803(), f0F2.Method7814()));
+        }
+    }
+
+    @Override
+    public void Method7842(@NotNull f0F f0F2, @NotNull f0H f0H2, @NotNull f17 f172) {
+        double d = f172 instanceof f15 ? ((f15)f172).Method7881() : f172.Method7897();
+        double d2 = f172 instanceof f15 ? ((f15)f172).Method7875() : f172.Method7896();
+        f13 f132 = this.Field5556;
+        if (f132 == null) {
+            Intrinsics.Method6551();
+        }
+        f0F f0F3 = this.Field5554;
+        if (f0F3 == null) {
+            Intrinsics.Method6551();
+        }
+        if (f132.Method7841(f0F3, d, d2, f0H2)) {
+            f13 f133 = this.Field5556;
+            if (f133 == null) {
+                Intrinsics.Method6551();
             }
-         }
-
-         return false;
-      }
-   }
-
-   // $FF: renamed from: 0 (dev.nuker.pyro.f0F, dev.nuker.pyro.f0H) int
-   public int method_26(@NotNull f0F var1, @NotNull f0H var2) {
-      this.method_3630(var1);
-      f13 var10000 = this.field_2388;
-      if (var10000 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      f0F var10001 = this.field_2386;
-      if (var10001 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      int var3 = var10000.method_26(var10001, var2);
-      f0F var8 = this.field_2386;
-      if (var8 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      var8.method_3578(var3);
-      if ((Boolean)this.field_2387.method_3034()) {
-         int var4 = 0;
-
-         for(int var5 = ((Collection)this.field_2389).size(); var4 < var5; ++var4) {
-            f13 var6 = (f13)this.field_2389.get(var4);
-            Object var10 = this.field_2385.get(var4);
-            if (var10 == null) {
-               Intrinsics.throwNpe();
+            f133.Method7842(f0F2, f0H2, f172);
+        }
+        if (((Boolean)this.Field5555.Method5264()).booleanValue()) {
+            f0F f0F4 = this.Field5554;
+            if (f0F4 == null) {
+                Intrinsics.Method6551();
             }
-
-            int var7 = var6.method_26((f0F)var10, var2);
-            Object var9 = this.field_2385.get(var4);
-            if (var9 == null) {
-               Intrinsics.throwNpe();
+            int n = f0F4.Method7815();
+            int n2 = ((Collection)this.Field5557).size();
+            for (int i = 0; i < n2; ++i) {
+                f0F f0F5;
+                f13 f134 = this.Field5557.get(i);
+                if (this.Field5553.get(i) == null) {
+                    Intrinsics.Method6551();
+                }
+                if (f134.Method7841(f0F5, d, d2 - (double)n, f0H2)) {
+                    f134.Method7842(f0F2, f0H2, f172.Method7865(0.0, n));
+                }
+                n += f0F5.Method7815();
             }
+        }
+    }
 
-            ((f0F)var9).method_3578(var7);
-            var3 += var7;
-         }
-      }
-
-      return var3;
-   }
-
-   // $FF: renamed from: c (dev.nuker.pyro.f13) void
-   public void method_3628(@Nullable f13 var1) {
-      this.field_2388 = var1;
-   }
-
-   // $FF: renamed from: 0 (dev.nuker.pyro.f0F, double, double, dev.nuker.pyro.f0H) void
-   public void method_28(@NotNull f0F var1, double var2, double var4, @NotNull f0H var6) {
-      this.method_3630(var1);
-      f0F var10000 = this.field_2386;
-      if (var10000 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      var10000.method_3576(var1.method_3582());
-      f13 var12 = this.field_2388;
-      if (var12 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      f0F var10001 = this.field_2386;
-      if (var10001 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      var12.method_28(var10001, var2, var4, var6);
-      if ((Boolean)this.field_2387.method_3034()) {
-         var10000 = this.field_2386;
-         if (var10000 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         int var7 = var10000.method_3583();
-         int var8 = 0;
-
-         for(int var9 = ((Collection)this.field_2389).size(); var8 < var9; ++var8) {
-            f13 var10 = (f13)this.field_2389.get(var8);
-            Object var13 = this.field_2385.get(var8);
-            if (var13 == null) {
-               Intrinsics.throwNpe();
+    @Override
+    public boolean Method7838(@NotNull f0F f0F2, double d, double d2, @NotNull f0H f0H2) {
+        f13 f132 = this.Field5556;
+        if (f132 == null) {
+            Intrinsics.Method6551();
+        }
+        f0F f0F3 = this.Field5554;
+        if (f0F3 == null) {
+            Intrinsics.Method6551();
+        }
+        if (f132.Method7838(f0F3, d, d2, f0H2)) {
+            return true;
+        }
+        if (((Boolean)this.Field5555.Method5264()).booleanValue()) {
+            f0F f0F4 = this.Field5554;
+            if (f0F4 == null) {
+                Intrinsics.Method6551();
             }
-
-            f0F var11 = (f0F)var13;
-            GlStateManager.pushMatrix();
-            GlStateManager.translate(1.0F, (float)var7, 0.0F);
-            var10.method_28(var11, var2, var4 - (double)var7, var6);
-            GlStateManager.popMatrix();
-            var7 += var11.method_3583();
-         }
-
-         var10001 = this.field_2386;
-         if (var10001 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         Gui.drawRect(1, var10001.method_3583(), 2, var7, var6.method_3505());
-      }
-
-   }
-
-   // $FF: renamed from: c () java.util.List
-   @NotNull
-   public List method_3629() {
-      return this.field_2389;
-   }
-
-   // $FF: renamed from: 0 (dev.nuker.pyro.f0F) void
-   public void method_3630(@NotNull f0F var1) {
-      if (this.field_2386 == null) {
-         this.field_2386 = new f0F((Supplier)(new f0U(var1)), var1.method_3573(), 0, var1.method_3571(), var1.method_3582());
-         this.method_3627(var1);
-      }
-
-   }
-
-   // $FF: renamed from: c (double) net.minecraft.util.Tuple
-   @Nullable
-   public Tuple method_3631(double var1) {
-      f0F var10000 = this.field_2386;
-      if (var10000 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      int var3 = var10000.method_3583();
-      if (var1 <= (double)var3) {
-         Tuple var8 = new Tuple;
-         Tuple var10002 = new Tuple;
-         f13 var10004 = this.field_2388;
-         if (var10004 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         var10002.<init>(var10004, this.field_2386);
-         var8.<init>(var10002, 0);
-         return var8;
-      } else {
-         int var4 = 0;
-
-         for(int var5 = ((Collection)this.field_2389).size(); var4 < var5; ++var4) {
-            Object var7 = this.field_2385.get(var4);
-            if (var7 == null) {
-               Intrinsics.throwNpe();
+            int n = f0F4.Method7815();
+            int n2 = ((Collection)this.Field5557).size();
+            for (int i = 0; i < n2; ++i) {
+                f0F f0F5;
+                f13 f133 = this.Field5557.get(i);
+                if (this.Field5553.get(i) == null) {
+                    Intrinsics.Method6551();
+                }
+                if (f133.Method7838(f0F5, d, d2 - (double)n, f0H2)) {
+                    return true;
+                }
+                n += f0F5.Method7815();
             }
+        }
+        return false;
+    }
 
-            f0F var6 = (f0F)var7;
-            var3 += var6.method_3583();
-            if (var1 <= (double)var3) {
-               return new Tuple(new Tuple(this.field_2389.get(var4), var6), var3 - var6.method_3583());
+    @Override
+    public int Method7817(@NotNull f0F f0F2, @NotNull f0H f0H2) {
+        this.Method7889(f0F2);
+        f13 f132 = this.Field5556;
+        if (f132 == null) {
+            Intrinsics.Method6551();
+        }
+        f0F f0F3 = this.Field5554;
+        if (f0F3 == null) {
+            Intrinsics.Method6551();
+        }
+        int n = f132.Method7817(f0F3, f0H2);
+        f0F f0F4 = this.Field5554;
+        if (f0F4 == null) {
+            Intrinsics.Method6551();
+        }
+        f0F4.Method7810(n);
+        if (((Boolean)this.Field5555.Method5264()).booleanValue()) {
+            int n2 = ((Collection)this.Field5557).size();
+            for (int i = 0; i < n2; ++i) {
+                f13 f133 = this.Field5557.get(i);
+                f0F f0F5 = this.Field5553.get(i);
+                if (f0F5 == null) {
+                    Intrinsics.Method6551();
+                }
+                int n3 = f133.Method7817(f0F5, f0H2);
+                f0F f0F6 = this.Field5553.get(i);
+                if (f0F6 == null) {
+                    Intrinsics.Method6551();
+                }
+                f0F6.Method7810(n3);
+                n += n3;
             }
-         }
+        }
+        return n;
+    }
 
-         return null;
-      }
-   }
+    public void Method7887(@Nullable f13 f132) {
+        this.Field5556 = f132;
+    }
 
-   // $FF: renamed from: c (java.util.List) void
-   public void method_3632(@NotNull List var1) {
-      this.field_2389 = var1;
-   }
+    @Override
+    public void Method7819(@NotNull f0F f0F2, double d, double d2, @NotNull f0H f0H2) {
+        this.Method7889(f0F2);
+        f0F f0F3 = this.Field5554;
+        if (f0F3 == null) {
+            Intrinsics.Method6551();
+        }
+        f0F3.Method7808(f0F2.Method7814());
+        f13 f132 = this.Field5556;
+        if (f132 == null) {
+            Intrinsics.Method6551();
+        }
+        f0F f0F4 = this.Field5554;
+        if (f0F4 == null) {
+            Intrinsics.Method6551();
+        }
+        f132.Method7819(f0F4, d, d2, f0H2);
+        if (((Boolean)this.Field5555.Method5264()).booleanValue()) {
+            f0F f0F5 = this.Field5554;
+            if (f0F5 == null) {
+                Intrinsics.Method6551();
+            }
+            int n = f0F5.Method7815();
+            int n2 = ((Collection)this.Field5557).size();
+            for (int i = 0; i < n2; ++i) {
+                f0F f0F6;
+                f13 f133 = this.Field5557.get(i);
+                if (this.Field5553.get(i) == null) {
+                    Intrinsics.Method6551();
+                }
+                GlStateManager.pushMatrix();
+                GlStateManager.translate((float)1.0f, (float)n, (float)0.0f);
+                f133.Method7819(f0F6, d, d2 - (double)n, f0H2);
+                GlStateManager.popMatrix();
+                n += f0F6.Method7815();
+            }
+            f0F f0F7 = this.Field5554;
+            if (f0F7 == null) {
+                Intrinsics.Method6551();
+            }
+            Gui.drawRect((int)1, (int)f0F7.Method7815(), (int)2, (int)n, (int)f0H2.Method7719());
+        }
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.f0F, dev.nuker.pyro.f0H) int
-   public int method_29(@NotNull f0F var1, @NotNull f0H var2) {
-      this.method_3630(var1);
-      f13 var10000 = this.field_2388;
-      if (var10000 == null) {
-         Intrinsics.throwNpe();
-      }
+    @NotNull
+    public List Method7888() {
+        return this.Field5557;
+    }
 
-      f0F var10001 = this.field_2386;
-      if (var10001 == null) {
-         Intrinsics.throwNpe();
-      }
+    public void Method7889(@NotNull f0F f0F2) {
+        if (this.Field5554 == null) {
+            this.Field5554 = new f0F(new f0U(f0F2), f0F2.Method7805(), 0, f0F2.Method7803(), f0F2.Method7814());
+            this.Method7824(f0F2);
+        }
+    }
 
-      int var3 = var10000.method_29(var10001, var2);
-      int var4 = 0;
+    @Nullable
+    public Tuple Method7890(double d) {
+        f0F f0F2 = this.Field5554;
+        if (f0F2 == null) {
+            Intrinsics.Method6551();
+        }
+        int n = f0F2.Method7815();
+        if (d <= (double)n) {
+            f13 f132 = this.Field5556;
+            if (f132 == null) {
+                Intrinsics.Method6551();
+            }
+            return new Tuple((Object)new Tuple((Object)f132, (Object)this.Field5554), (Object)0);
+        }
+        int n2 = ((Collection)this.Field5557).size();
+        for (int i = 0; i < n2; ++i) {
+            f0F f0F3;
+            if (this.Field5553.get(i) == null) {
+                Intrinsics.Method6551();
+            }
+            if (!(d <= (double)(n += f0F3.Method7815()))) continue;
+            return new Tuple((Object)new Tuple((Object)this.Field5557.get(i), (Object)f0F3), (Object)(n - f0F3.Method7815()));
+        }
+        return null;
+    }
 
-      for(int var5 = ((Collection)this.field_2389).size(); var4 < var5; ++var4) {
-         f13 var6 = (f13)this.field_2389.get(var4);
-         Object var8 = this.field_2385.get(var4);
-         if (var8 == null) {
-            Intrinsics.throwNpe();
-         }
+    public void Method7891(@NotNull List list) {
+        this.Field5557 = list;
+    }
 
-         int var7 = var6.method_29((f0F)var8, var2) + 1;
-         if (var7 > var3) {
-            var3 = var7;
-         }
-      }
-
-      return var3;
-   }
+    @Override
+    public int Method7820(@NotNull f0F f0F2, @NotNull f0H f0H2) {
+        this.Method7889(f0F2);
+        f13 f132 = this.Field5556;
+        if (f132 == null) {
+            Intrinsics.Method6551();
+        }
+        f0F f0F3 = this.Field5554;
+        if (f0F3 == null) {
+            Intrinsics.Method6551();
+        }
+        int n = f132.Method7820(f0F3, f0H2);
+        int n2 = ((Collection)this.Field5557).size();
+        for (int i = 0; i < n2; ++i) {
+            f13 f133 = this.Field5557.get(i);
+            f0F f0F4 = this.Field5553.get(i);
+            if (f0F4 == null) {
+                Intrinsics.Method6551();
+            }
+            int n3 = f133.Method7820(f0F4, f0H2) + 1;
+            if (n3 <= n) continue;
+            n = n3;
+        }
+        return n;
+    }
 }
+

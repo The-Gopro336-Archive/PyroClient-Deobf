@@ -1,25 +1,27 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
-import com.mojang.brigadier.Command;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
+import dev.nuker.pyro.f2Y;
+import dev.nuker.pyro.f3e;
 import org.jetbrains.annotations.NotNull;
 
 public class f2Z {
-   // $FF: renamed from: c dev.nuker.pyro.f2Z
-   public static f2Z field_2021;
+    public static f2Z Field3786;
 
-   // $FF: renamed from: c (com.mojang.brigadier.CommandDispatcher) void
-   public void method_3098(@NotNull CommandDispatcher var1) {
-      var1.register((LiteralArgumentBuilder)f3e.method_3215("openfolder").executes((Command)f2Y.field_2019));
-   }
+    public void Method5503(@NotNull CommandDispatcher commandDispatcher) {
+        commandDispatcher.Method8399((LiteralArgumentBuilder)f3e.Method5657("openfolder").Method12044(f2Y.Field3783));
+    }
 
-   static {
-      f2Z var0 = new f2Z();
-      field_2021 = var0;
-   }
+    static {
+        f2Z f2Z2;
+        Field3786 = f2Z2 = new f2Z();
+    }
 }
+

@@ -1,26 +1,25 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.f0F;
 import java.util.function.Supplier;
 
-public class f10 implements Supplier {
-   // $FF: renamed from: c dev.nuker.pyro.f0F
-   public f0F field_2382;
+public class f10
+implements Supplier {
+    public f0F Field5505;
 
-   // $FF: renamed from: c () int
-   public int method_3622() {
-      return ((Number)this.field_2382.method_3575().get()).intValue() - 1;
-   }
+    public int Method7822() {
+        return ((Number)this.Field5505.Method7807().get()).intValue() - 1;
+    }
 
-   public f10(f0F var1) {
-      this.field_2382 = var1;
-      super();
-   }
+    public f10(f0F f0F2) {
+        this.Field5505 = f0F2;
+    }
 
-   public Object get() {
-      return this.method_3622();
-   }
+    public Object get() {
+        return this.Method7822();
+    }
 }
+

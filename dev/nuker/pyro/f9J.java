@@ -1,9 +1,27 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.entity.EntityPlayerSP
+ *  net.minecraft.client.network.NetHandlerPlayClient
+ *  net.minecraft.entity.Entity
+ *  net.minecraft.network.Packet
+ *  net.minecraft.network.play.client.CPacketEntityAction
+ *  net.minecraft.network.play.client.CPacketEntityAction$Action
+ *  net.minecraft.network.play.client.CPacketPlayerTryUseItemOnBlock
+ *  net.minecraft.world.World
+ *  org.jetbrains.annotations.NotNull
+ *  org.jetbrains.annotations.Nullable
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.Module;
+import dev.nuker.pyro.f0g;
+import dev.nuker.pyro.f41;
+import dev.nuker.pyro.f49;
+import dev.nuker.pyro.f4u;
+import dev.nuker.pyro.f9I;
+import dev.nuker.pyro.fec;
 import dev.nuker.pyro.security.inject.LauncherEventHide;
 import kotlin.jvm.internal.Intrinsics;
 import net.minecraft.client.entity.EntityPlayerSP;
@@ -12,49 +30,65 @@ import net.minecraft.entity.Entity;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.client.CPacketEntityAction;
 import net.minecraft.network.play.client.CPacketPlayerTryUseItemOnBlock;
-import net.minecraft.network.play.client.CPacketEntityAction.Action;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class f9J extends Module {
-   // $FF: renamed from: c (dev.nuker.pyro.f49) void
-   @f0g
-   @LauncherEventHide
-   public void method_435(@NotNull f49 var1) {
-      if (var1.c() == f41.field_2120 && var1.c() instanceof CPacketPlayerTryUseItemOnBlock && !this.c.player.isSneaking()) {
-         this.method_436(true);
-      }
+public class f9J
+extends Module {
+    @f0g
+    @LauncherEventHide
+    public void Method2393(@NotNull f49 f492) {
+        if (f492.Method5619() == f41.Pre && f492.Method5784() instanceof CPacketPlayerTryUseItemOnBlock) {
+            if (!this.Field5233.player.isSneaking()) {
+                this.Method557(true);
+            }
+        }
+    }
 
-   }
+    public f9J() {
+        super("sneak", "Sneak", "Makes you always sneaking serverside");
+    }
 
-   public f9J() {
-      super("sneak", "Sneak", "Makes you always sneaking serverside");
-   }
+    @Override
+    public void Method205(boolean bl, @Nullable EntityPlayerSP entityPlayerSP, @Nullable World world) {
+        super.Method205(bl, entityPlayerSP, world);
+        if (!bl && this.Field5233.player != null && !this.Field5233.player.movementInput.sneak) {
+            this.Method557(true);
+        }
+    }
 
-   // $FF: renamed from: c (boolean, net.minecraft.client.entity.EntityPlayerSP, net.minecraft.world.World) void
-   public void method_116(boolean var1, @Nullable EntityPlayerSP var2, @Nullable World var3) {
-      super.method_116(var1, var2, var3);
-      if (!var1 && this.c.player != null && !this.c.player.movementInput.sneak) {
-         this.method_436(true);
-      }
+    public void Method557(boolean bl) {
+        NetHandlerPlayClient netHandlerPlayClient = this.Field5233.getConnection();
+        if (netHandlerPlayClient == null) {
+            Intrinsics.Method6551();
+        }
+        netHandlerPlayClient.sendPacket((Packet)new CPacketEntityAction((Entity)this.Field5233.player, bl ? CPacketEntityAction.Action.STOP_SNEAKING : CPacketEntityAction.Action.START_SNEAKING));
+    }
 
-   }
-
-   // $FF: renamed from: c (boolean) void
-   public void method_436(boolean var1) {
-      NetHandlerPlayClient var10000 = this.c.getConnection();
-      if (var10000 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      var10000.sendPacket((Packet)(new CPacketEntityAction((Entity)this.c.player, var1 ? Action.STOP_SNEAKING : Action.START_SNEAKING)));
-   }
-
-   // $FF: renamed from: c (dev.nuker.pyro.f4u) void
-   @f0g
-   @LauncherEventHide
-   public void method_437(@NotNull f4u var1) {
-      // $FF: Couldn't be decompiled
-   }
+    @f0g
+    @LauncherEventHide
+    public void Method203(@NotNull f4u f4u2) {
+        f41 f412 = f4u2.Method5619();
+        if (f412 != null) {
+            switch (f9I.Field3569[f412.ordinal()]) {
+                case 1: {
+                    if (this.Field5233.player.isSneaking()) break;
+                    if (fec.Method727()) {
+                        this.Method557(false);
+                        this.Method557(true);
+                        break;
+                    }
+                    this.Method557(false);
+                    break;
+                }
+                case 2: {
+                    if (!fec.Method727()) break;
+                    this.Method557(false);
+                    break;
+                }
+            }
+        }
+    }
 }
+

@@ -1,74 +1,73 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  com.mojang.realmsclient.gui.ChatFormatting
+ *  net.minecraft.client.gui.ScaledResolution
+ *  org.jetbrains.annotations.NotNull
+ *  org.jetbrains.annotations.Nullable
  */
 package dev.nuker.pyro;
 
 import com.mojang.realmsclient.gui.ChatFormatting;
+import dev.nuker.pyro.f5T;
+import dev.nuker.pyro.f5w;
 import net.minecraft.client.gui.ScaledResolution;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class f5G extends f5T {
-   // $FF: renamed from: 1 java.lang.String
-   @NotNull
-   public String field_1071;
-   // $FF: renamed from: 2 java.lang.String
-   @Nullable
-   public String field_1072;
-   // $FF: renamed from: c int
-   public int field_1073;
-   // $FF: renamed from: c dev.nuker.pyro.f5w
-   public f5w field_1074;
+public class f5G
+extends f5T {
+    @NotNull
+    public String Field4133;
+    @Nullable
+    public String Field4134;
+    public int Field4135;
+    public f5w Field4136;
 
-   // $FF: renamed from: 0 (java.lang.String) void
-   public void method_1584(@NotNull String var1) {
-      this.field_1071 = var1;
-   }
+    public void Method4800(@NotNull String string) {
+        this.Field4133 = string;
+    }
 
-   // $FF: renamed from: 2 () java.lang.String
-   @NotNull
-   public String method_1585() {
-      return this.field_1071;
-   }
+    @NotNull
+    public String Method5782() {
+        return this.Field4133;
+    }
 
-   // $FF: renamed from: 0 () java.lang.String
-   @Nullable
-   public String method_1586() {
-      return this.field_1072;
-   }
+    @Nullable
+    public String Method5783() {
+        return this.Field4134;
+    }
 
-   // $FF: renamed from: c (java.lang.String) void
-   public void method_1587(@Nullable String var1) {
-      this.field_1072 = var1;
-   }
+    public void Method5736(@Nullable String string) {
+        this.Field4134 = string;
+    }
 
-   // $FF: renamed from: c (int) void
-   public void method_1588(int var1) {
-      this.field_1073 = var1;
-   }
+    public void Method2377(int n) {
+        this.Field4135 = n;
+    }
 
-   // $FF: renamed from: c (net.minecraft.client.gui.ScaledResolution, float, float) int
-   public int method_1558(@Nullable ScaledResolution var1, float var2, float var3) {
-      return this.field_1074.method_1598(this);
-   }
+    @Override
+    public int Method4968(@Nullable ScaledResolution scaledResolution, float f, float f2) {
+        return this.Field4136.Method4948(this);
+    }
 
-   // $FF: renamed from: 1 () int
-   public int method_1589() {
-      return this.field_1073;
-   }
+    public int Method5742() {
+        return this.Field4135;
+    }
 
-   // $FF: renamed from: 4 () java.lang.String
-   @NotNull
-   public String method_1559() {
-      return this.field_1071 + ChatFormatting.GRAY + (this.field_1072 == null ? "" : ' ' + this.field_1072);
-   }
+    @Override
+    @NotNull
+    public String Method4969() {
+        return this.Field4133 + (Object)ChatFormatting.GRAY + (this.Field4134 == null ? "" : ' ' + this.Field4134);
+    }
 
-   public f5G(@NotNull String var1, @Nullable String var2, int var3, @NotNull f5w var4) {
-      super("");
-      this.field_1071 = var1;
-      this.field_1072 = var2;
-      this.field_1073 = var3;
-      this.field_1074 = var4;
-   }
+    public f5G(@NotNull String string, @Nullable String string2, int n, @NotNull f5w f5w2) {
+        super("");
+        this.Field4133 = string;
+        this.Field4134 = string2;
+        this.Field4135 = n;
+        this.Field4136 = f5w2;
+    }
 }
+

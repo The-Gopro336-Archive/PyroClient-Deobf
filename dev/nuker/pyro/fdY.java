@@ -1,51 +1,49 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.entity.Entity
+ *  net.minecraft.util.math.Vec3d
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.fdZ;
 import dev.nuker.pyro.mixin.RenderManagerAccessor;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.Vec3d;
 
-public class fdY extends fdZ {
-   // $FF: renamed from: c (double, double, float) double
-   public static double method_1814(double var0, double var2, float var4) {
-      return var2 + (var0 - var2) * (double)c.getRenderPartialTicks();
-   }
+public class fdY
+extends fdZ {
+    public static double Method510(double d, double d2, float f) {
+        return d2 + (d - d2) * (double)Field313.getRenderPartialTicks();
+    }
 
-   // $FF: renamed from: 0 (net.minecraft.util.math.Vec3d, net.minecraft.util.math.Vec3d) net.minecraft.util.math.Vec3d
-   public static Vec3d method_1815(Vec3d var0, Vec3d var1) {
-      return new Vec3d(var0.x * var1.x, var0.y * var1.y, var0.z * var1.z);
-   }
+    public static Vec3d Method511(Vec3d vec3d, Vec3d vec3d2) {
+        return new Vec3d(vec3d.x * vec3d2.x, vec3d.y * vec3d2.y, vec3d.z * vec3d2.z);
+    }
 
-   // $FF: renamed from: c (net.minecraft.entity.Entity, float) net.minecraft.util.math.Vec3d
-   public static Vec3d method_1816(Entity var0, float var1) {
-      return new Vec3d(method_1814(var0.posX, var0.lastTickPosX, var1) - ((RenderManagerAccessor)c.getRenderManager()).getRenderPosX(), method_1814(var0.posY, var0.lastTickPosY, var1) - ((RenderManagerAccessor)c.getRenderManager()).getRenderPosY(), method_1814(var0.posZ, var0.lastTickPosZ, var1) - ((RenderManagerAccessor)c.getRenderManager()).getRenderPosZ());
-   }
+    public static Vec3d Method364(Entity entity, float f) {
+        return new Vec3d(fdY.Method510(entity.posX, entity.lastTickPosX, f) - ((RenderManagerAccessor)Field313.getRenderManager()).Method2421(), fdY.Method510(entity.posY, entity.lastTickPosY, f) - ((RenderManagerAccessor)Field313.getRenderManager()).Method2422(), fdY.Method510(entity.posZ, entity.lastTickPosZ, f) - ((RenderManagerAccessor)Field313.getRenderManager()).Method2423());
+    }
 
-   // $FF: renamed from: 0 (net.minecraft.util.math.Vec3d, float) net.minecraft.util.math.Vec3d
-   public static Vec3d method_1817(Vec3d var0, float var1) {
-      return new Vec3d(method_1814(var0.x, var0.x, var1) - ((RenderManagerAccessor)c.getRenderManager()).getRenderPosX(), method_1814(var0.y, var0.y, var1) - ((RenderManagerAccessor)c.getRenderManager()).getRenderPosY(), method_1814(var0.z, var0.z, var1) - ((RenderManagerAccessor)c.getRenderManager()).getRenderPosZ());
-   }
+    public static Vec3d Method512(Vec3d vec3d, float f) {
+        return new Vec3d(fdY.Method510(vec3d.x, vec3d.x, f) - ((RenderManagerAccessor)Field313.getRenderManager()).Method2421(), fdY.Method510(vec3d.y, vec3d.y, f) - ((RenderManagerAccessor)Field313.getRenderManager()).Method2422(), fdY.Method510(vec3d.z, vec3d.z, f) - ((RenderManagerAccessor)Field313.getRenderManager()).Method2423());
+    }
 
-   // $FF: renamed from: c (net.minecraft.util.math.Vec3d, net.minecraft.util.math.Vec3d) net.minecraft.util.math.Vec3d
-   public static Vec3d method_1818(Vec3d var0, Vec3d var1) {
-      return new Vec3d(var0.x / var1.x, var0.y / var1.y, var0.z / var1.z);
-   }
+    public static Vec3d Method513(Vec3d vec3d, Vec3d vec3d2) {
+        return new Vec3d(vec3d.x / vec3d2.x, vec3d.y / vec3d2.y, vec3d.z / vec3d2.z);
+    }
 
-   // $FF: renamed from: 1 (net.minecraft.util.math.Vec3d, float) net.minecraft.util.math.Vec3d
-   public static Vec3d method_1819(Vec3d var0, float var1) {
-      return new Vec3d(method_1814(var0.x, var0.x, var1) - ((RenderManagerAccessor)c.getRenderManager()).getRenderPosX(), method_1814(var0.y, var0.y - 0.021D, var1) - ((RenderManagerAccessor)c.getRenderManager()).getRenderPosY(), method_1814(var0.z, var0.z, var1) - ((RenderManagerAccessor)c.getRenderManager()).getRenderPosZ());
-   }
+    public static Vec3d Method514(Vec3d vec3d, float f) {
+        return new Vec3d(fdY.Method510(vec3d.x, vec3d.x, f) - ((RenderManagerAccessor)Field313.getRenderManager()).Method2421(), fdY.Method510(vec3d.y, vec3d.y - 0.021, f) - ((RenderManagerAccessor)Field313.getRenderManager()).Method2422(), fdY.Method510(vec3d.z, vec3d.z, f) - ((RenderManagerAccessor)Field313.getRenderManager()).Method2423());
+    }
 
-   // $FF: renamed from: 2 (net.minecraft.util.math.Vec3d, float) net.minecraft.util.math.Vec3d
-   public static Vec3d method_1820(Vec3d var0, float var1) {
-      return new Vec3d(var0.x / (double)var1, var0.y / (double)var1, var0.z / (double)var1);
-   }
+    public static Vec3d Method515(Vec3d vec3d, float f) {
+        return new Vec3d(vec3d.x / (double)f, vec3d.y / (double)f, vec3d.z / (double)f);
+    }
 
-   // $FF: renamed from: c (net.minecraft.util.math.Vec3d, float) net.minecraft.util.math.Vec3d
-   public static Vec3d method_1821(Vec3d var0, float var1) {
-      return new Vec3d(var0.x * (double)var1, var0.y * (double)var1, var0.z * (double)var1);
-   }
+    public static Vec3d Method516(Vec3d vec3d, float f) {
+        return new Vec3d(vec3d.x * (double)f, vec3d.y * (double)f, vec3d.z * (double)f);
+    }
 }
+

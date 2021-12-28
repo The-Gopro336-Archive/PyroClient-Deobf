@@ -1,6 +1,8 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
@@ -8,27 +10,24 @@ import java.io.File;
 import org.jetbrains.annotations.NotNull;
 
 public class f66 {
-   // $FF: renamed from: c java.io.File
-   @NotNull
-   public File field_2198;
-   // $FF: renamed from: c java.lang.String
-   @NotNull
-   public String field_2199;
+    @NotNull
+    public File Field4180;
+    @NotNull
+    public String Field4181;
 
-   // $FF: renamed from: 0 () java.io.File
-   @NotNull
-   public File method_3272() {
-      return this.field_2198;
-   }
+    @NotNull
+    public File Method5809() {
+        return this.Field4180;
+    }
 
-   // $FF: renamed from: c () java.lang.String
-   @NotNull
-   public String method_3273() {
-      return this.field_2199;
-   }
+    @NotNull
+    public String Method5810() {
+        return this.Field4181;
+    }
 
-   public f66(@NotNull File var1, @NotNull String var2) {
-      this.field_2198 = var1;
-      this.field_2199 = var2;
-   }
+    public f66(@NotNull File file, @NotNull String string) {
+        this.Field4180 = file;
+        this.Field4181 = string;
+    }
 }
+

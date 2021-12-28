@@ -1,30 +1,36 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.network.NetHandlerPlayClient
+ *  net.minecraft.network.Packet
+ *  net.minecraft.network.play.client.CPacketTabComplete
  */
 package dev.nuker.pyro;
 
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.context.CommandContext;
+import dev.nuker.pyro.Pyro;
+import dev.nuker.pyro.PyroStatic;
+import dev.nuker.pyro.fdZ;
 import kotlin.jvm.internal.Intrinsics;
 import net.minecraft.client.network.NetHandlerPlayClient;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.client.CPacketTabComplete;
-import net.minecraft.util.math.BlockPos;
 
-public class f31 implements Command {
-   // $FF: renamed from: c dev.nuker.pyro.f31
-   public static f31 field_2017 = new f31();
+public class f31
+implements Command {
+    public static f31 Field3781 = new f31();
 
-   public int run(CommandContext var1) {
-      PyroStatic.field_2613.c.method_3033(true);
-      NetHandlerPlayClient var10000 = fdZ.field_976.getConnection();
-      if (var10000 == null) {
-         Intrinsics.throwNpe();
-      }
-
-      var10000.sendPacket((Packet)(new CPacketTabComplete("/", (BlockPos)null, false)));
-      Pyro.INSTANCE.sendMessage("Discovering plugins...");
-      return 0;
-   }
+    public int Method152(CommandContext commandContext) {
+        PyroStatic.Field6549.Field5236.Method5266(true);
+        NetHandlerPlayClient netHandlerPlayClient = fdZ.Field313.getConnection();
+        if (netHandlerPlayClient == null) {
+            Intrinsics.Method6551();
+        }
+        netHandlerPlayClient.sendPacket((Packet)new CPacketTabComplete("/", null, false));
+        Pyro.Field6182.Method8989("Discovering plugins...");
+        return 0;
+    }
 }
+

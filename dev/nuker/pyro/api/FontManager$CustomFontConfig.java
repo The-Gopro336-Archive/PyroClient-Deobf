@@ -1,10 +1,12 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro.api;
 
+import dev.nuker.pyro.api.FontManager$CustomFontConfig$Insets;
+
 public class FontManager$CustomFontConfig {
-   public int size = 40;
-   public FontManager$CustomFontConfig$Insets insets = new FontManager$CustomFontConfig$Insets();
+    public int Field1896 = 40;
+    public FontManager$CustomFontConfig$Insets Field1897 = new FontManager$CustomFontConfig$Insets();
 }
+

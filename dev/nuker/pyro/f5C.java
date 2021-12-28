@@ -1,71 +1,77 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  com.mojang.realmsclient.gui.ChatFormatting
+ *  net.minecraft.client.Minecraft
+ *  net.minecraft.client.gui.ScaledResolution
+ *  org.jetbrains.annotations.NotNull
+ *  org.jetbrains.annotations.Nullable
  */
 package dev.nuker.pyro;
 
 import com.mojang.realmsclient.gui.ChatFormatting;
+import dev.nuker.pyro.f0g;
+import dev.nuker.pyro.f41;
+import dev.nuker.pyro.f43;
+import dev.nuker.pyro.f5T;
+import dev.nuker.pyro.fdZ;
+import dev.nuker.pyro.fe8;
 import dev.nuker.pyro.security.inject.LauncherEventHide;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScaledResolution;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class f5C extends f5T {
-   // $FF: renamed from: c dev.nuker.pyro.fe8
-   public fe8 field_1066 = new fe8();
-   // $FF: renamed from: 1 java.lang.String
-   @NotNull
-   public String field_1067 = "FPS";
-   // $FF: renamed from: c int[]
-   public int[] field_1068 = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+public class f5C
+extends f5T {
+    public fe8 Field4143 = new fe8();
+    @NotNull
+    public String Field4144 = "FPS";
+    public int[] Field4145 = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
-   public f5C() {
-      super("fps");
-   }
+    public f5C() {
+        super("fps");
+    }
 
-   // $FF: renamed from: 4 () java.lang.String
-   @NotNull
-   public String method_1559() {
-      return this.field_1067;
-   }
+    @Override
+    @NotNull
+    public String Method4969() {
+        return this.Field4144;
+    }
 
-   // $FF: renamed from: c () int
-   public int method_1578() {
-      int var1 = 0;
-      int[] var4 = this.field_1068;
-      int var5 = var4.length;
+    public int Method2376() {
+        int n = 0;
+        for (int n2 : this.Field4145) {
+            n += n2;
+        }
+        return n / 10;
+    }
 
-      for(int var3 = 0; var3 < var5; ++var3) {
-         int var2 = var4[var3];
-         var1 += var2;
-      }
+    @Override
+    public int Method4968(@Nullable ScaledResolution scaledResolution, float f, float f2) {
+        return 0xAAAAAA;
+    }
 
-      return var1 / 10;
-   }
-
-   // $FF: renamed from: c (net.minecraft.client.gui.ScaledResolution, float, float) int
-   public int method_1558(@Nullable ScaledResolution var1, float var2, float var3) {
-      return 11184810;
-   }
-
-   // $FF: renamed from: c (dev.nuker.pyro.f43) void
-   @f0g
-   @LauncherEventHide
-   public void method_1579(@NotNull f43 var1) {
-      if (var1.c() == f41.field_2120 && fdZ.field_976.world != null && fdZ.field_976.player != null) {
-         if (this.field_1066.method_1980(1000.0D)) {
-            this.field_1066.method_1979();
-            int var2 = 0;
-
-            for(int var3 = this.field_1068.length - 1; var2 < var3; ++var2) {
-               this.field_1068[var2] = this.field_1068[var2 + 1];
+    @f0g
+    @LauncherEventHide
+    public void Method840(@NotNull f43 f432) {
+        block6: {
+            block5: {
+                if (f432.Method5619() != f41.Pre) break block5;
+                if (fdZ.Field313.world != null && fdZ.Field313.player != null) break block6;
             }
-
-            this.field_1068[this.field_1068.length - 1] = Minecraft.getDebugFPS();
-         }
-
-         this.field_1067 = "FPS " + ChatFormatting.WHITE + Minecraft.getDebugFPS() + ChatFormatting.RESET + " Average " + ChatFormatting.WHITE + this.method_1578();
-      }
-   }
+            return;
+        }
+        if (this.Field4143.Method491(1000.0)) {
+            this.Field4143.Method490();
+            int n = this.Field4145.length - 1;
+            for (int i = 0; i < n; ++i) {
+                this.Field4145[i] = this.Field4145[i + 1];
+            }
+            this.Field4145[this.Field4145.length - 1] = Minecraft.getDebugFPS();
+        }
+        this.Field4144 = "FPS " + (Object)ChatFormatting.WHITE + Minecraft.getDebugFPS() + (Object)ChatFormatting.RESET + " Average " + (Object)ChatFormatting.WHITE + this.Method2376();
+    }
 }
+

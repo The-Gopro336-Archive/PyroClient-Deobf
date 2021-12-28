@@ -1,62 +1,41 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-import java.util.List;
-import kotlin.TypeCastException;
-import kotlin.collections.CollectionsKt;
-import kotlin.jvm.internal.Intrinsics;
-import org.jetbrains.annotations.NotNull;
+public class f7m
+extends Enum {
+    public static /* enum */ f7m Down;
+    public static /* enum */ f7m Up;
+    public static /* enum */ f7m Preserve;
+    public static /* enum */ f7m Bounds;
+    public static /* synthetic */ f7m[] Field3458;
 
-public class f7M extends f3Y {
-   // $FF: renamed from: c java.lang.String
-   @NotNull
-   public String field_1743;
+    /*
+     * WARNING - Possible parameter corruption
+     * WARNING - void declaration
+     */
+    public f7m() {
+        void var2_-1;
+        void var1_-1;
+    }
 
-   public f7M(@NotNull String var1) {
-      this();
-      this.field_1743 = var1;
-   }
+    public static f7m Method5260(String string) {
+        return Enum.valueOf(f7m.class, string);
+    }
 
-   // $FF: renamed from: c (java.util.List) void
-   public void method_2977(@NotNull List var1) {
-      Object var10001 = var1.get(0);
-      if (var10001 == null) {
-         throw new TypeCastException("null cannot be cast to non-null type kotlin.String");
-      } else {
-         this.field_1743 = (String)var10001;
-      }
-   }
+    static {
+        f7m[] arrf7m = new f7m[4];
+        f7m[] arrf7m2 = arrf7m;
+        arrf7m[0] = Down = new f7m("Down", 0);
+        arrf7m[1] = Up = new f7m("Up", 1);
+        arrf7m[2] = Preserve = new f7m("Preserve", 2);
+        arrf7m[3] = Bounds = new f7m("Bounds", 3);
+        Field3458 = arrf7m;
+    }
 
-   // $FF: renamed from: c (java.lang.String) void
-   public void method_2978(@NotNull String var1) {
-      this.field_1743 = var1;
-   }
-
-   public f7M() {
-   }
-
-   // $FF: renamed from: c () java.lang.String
-   @NotNull
-   public String method_2979() {
-      String var10000 = this.field_1743;
-      if (var10000 == null) {
-         Intrinsics.throwUninitializedPropertyAccessException("ourEntityId");
-      }
-
-      return var10000;
-   }
-
-   // $FF: renamed from: c () java.util.List
-   @NotNull
-   public List method_2976() {
-      String var10000 = this.field_1743;
-      if (var10000 == null) {
-         Intrinsics.throwUninitializedPropertyAccessException("ourEntityId");
-      }
-
-      return CollectionsKt.listOf(var10000);
-   }
+    public static f7m[] Method5261() {
+        return (f7m[])Field3458.clone();
+    }
 }
+

@@ -1,30 +1,34 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.util.math.AxisAlignedBB
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.f41;
+import dev.nuker.pyro.f42;
 import net.minecraft.util.math.AxisAlignedBB;
 import org.jetbrains.annotations.NotNull;
 
-public class f40 extends f42 {
-   // $FF: renamed from: c net.minecraft.util.math.AxisAlignedBB
-   @NotNull
-   public AxisAlignedBB field_2099;
+public class f40
+extends f42 {
+    @NotNull
+    public AxisAlignedBB Field3909;
 
-   // $FF: renamed from: c (net.minecraft.util.math.AxisAlignedBB) void
-   public void method_3182(@NotNull AxisAlignedBB var1) {
-      this.field_2099 = var1;
-   }
+    public void Method5607(@NotNull AxisAlignedBB axisAlignedBB) {
+        this.Field3909 = axisAlignedBB;
+    }
 
-   public f40(@NotNull AxisAlignedBB var1, @NotNull f41 var2) {
-      super(var2);
-      this.field_2099 = var1;
-   }
+    public f40(@NotNull AxisAlignedBB axisAlignedBB, @NotNull f41 f412) {
+        super(f412);
+        this.Field3909 = axisAlignedBB;
+    }
 
-   // $FF: renamed from: c () net.minecraft.util.math.AxisAlignedBB
-   @NotNull
-   public AxisAlignedBB method_3183() {
-      return this.field_2099;
-   }
+    @NotNull
+    public AxisAlignedBB Method5608() {
+        return this.Field3909;
+    }
 }
+

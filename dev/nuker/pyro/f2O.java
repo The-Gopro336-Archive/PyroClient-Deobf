@@ -1,25 +1,28 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
-import com.mojang.brigadier.Command;
 import com.mojang.brigadier.CommandDispatcher;
+import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
+import dev.nuker.pyro.f2n;
+import dev.nuker.pyro.f3e;
 import org.jetbrains.annotations.NotNull;
 
-public class f2O {
-   // $FF: renamed from: c dev.nuker.pyro.f2O
-   public static f2O field_2013;
+public class f2o {
+    public static f2o Field3916;
 
-   // $FF: renamed from: c (com.mojang.brigadier.CommandDispatcher) void
-   public void method_3094(@NotNull CommandDispatcher var1) {
-      var1.register((LiteralArgumentBuilder)f3e.method_3215("modulelist").executes((Command)f2N.field_2011));
-   }
+    public void Method5616(@NotNull CommandDispatcher commandDispatcher) {
+        commandDispatcher.Method8399((LiteralArgumentBuilder)f3e.Method5657("grab").Method12041(f3e.Method5658("type", StringArgumentType.Method5879()).Method12044(f2n.Field3907)));
+    }
 
-   static {
-      f2O var0 = new f2O();
-      field_2013 = var0;
-   }
+    static {
+        f2o f2o2;
+        Field3916 = f2o2 = new f2o();
+    }
 }
+

@@ -1,9 +1,14 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.f3X;
+import dev.nuker.pyro.f3Y;
+import dev.nuker.pyro.f4c;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.util.ArrayList;
@@ -14,93 +19,80 @@ import kotlin.jvm.internal.Intrinsics;
 import org.jetbrains.annotations.NotNull;
 
 public class f3Z {
-   // $FF: renamed from: c dev.nuker.pyro.f3Z
-   public static f3Z field_2126;
+    public static f3Z Field3928;
 
-   // $FF: renamed from: c (java.lang.Object, java.io.DataOutputStream) void
-   public void method_3202(@NotNull Object var1, @NotNull DataOutputStream var2) {
-      List var4 = f3X.field_0.method_3192();
-      boolean var5 = false;
-      int var6 = 0;
-      Iterator var7 = var4.iterator();
+    public void Method5625(@NotNull Object object, @NotNull DataOutputStream dataOutputStream) {
+        int n;
+        Object object2;
+        block3: {
+            int n2;
+            object2 = f3X.Field3948.Method5599();
+            boolean bl = false;
+            int n3 = 0;
+            Iterator iterator2 = object2.iterator();
+            while (iterator2.hasNext()) {
+                Object e = iterator2.next();
+                Pair pair = (Pair)e;
+                boolean bl2 = false;
+                if (Intrinsics.Method6572((Class)pair.Method998(), object.getClass())) {
+                    n2 = n3;
+                    break block3;
+                }
+                ++n3;
+            }
+            n2 = n = -1;
+        }
+        if (n == -1) {
+            throw (Throwable)new IllegalArgumentException("Invalid data type");
+        }
+        dataOutputStream.writeInt(n);
+        object2 = (Pair)f3X.Field3948.Method5599().get(n);
+        ((f3X)((Pair)object2).Method999()).Method5603(object, dataOutputStream);
+    }
 
-      int var10000;
-      while(true) {
-         if (!var7.hasNext()) {
-            var10000 = -1;
-            break;
-         }
+    @NotNull
+    public Object Method5626(@NotNull DataInputStream dataInputStream) {
+        int n = dataInputStream.readInt();
+        return ((f3X)((Pair)f3X.Field3948.Method5599().get(n)).Method999()).Method5602(dataInputStream);
+    }
 
-         Object var8 = var7.next();
-         Pair var9 = (Pair)var8;
-         boolean var10 = false;
-         if (Intrinsics.areEqual((Object)((Class)var9.getFirst()), (Object)var1.getClass())) {
-            var10000 = var6;
-            break;
-         }
+    @NotNull
+    public f3Y Method5627(@NotNull DataInputStream dataInputStream, @NotNull f4c f4c2) {
+        int n = dataInputStream.readInt();
+        f3Y f3Y2 = f4c2.Method5764(n);
+        int n2 = dataInputStream.readInt();
+        int n3 = 0;
+        List list = new ArrayList();
+        int n4 = n2;
+        for (n3 = 0; n3 < n4; ++n3) {
+            list.add(this.Method5626(dataInputStream));
+        }
+        f3Y2.Method5071(list);
+        return f3Y2;
+    }
 
-         ++var6;
-      }
+    public void Method5628(@NotNull f3Y f3Y2, @NotNull f4c f4c2, @NotNull DataOutputStream dataOutputStream) {
+        int n = f4c2.Method5763().indexOf(f3Y2.getClass());
+        if (n == -1) {
+            throw (Throwable)new IllegalArgumentException("Invalid packet");
+        }
+        dataOutputStream.writeInt(n);
+        List list = f3Y2.Method5070();
+        dataOutputStream.writeInt(list.size());
+        Iterable iterable = list;
+        boolean bl = false;
+        Iterator iterator2 = iterable.iterator();
+        while (iterator2.hasNext()) {
+            Object t;
+            Object t2 = t = iterator2.next();
+            boolean bl2 = false;
+            Field3928.Method5625(t2, dataOutputStream);
+        }
+    }
 
-      int var3 = var10000;
-      if (var3 == -1) {
-         throw (Throwable)(new IllegalArgumentException("Invalid data type"));
-      } else {
-         var2.writeInt(var3);
-         Pair var11 = (Pair)f3X.field_0.method_3192().get(var3);
-         ((f3X)var11.getSecond()).method_18(var1, var2);
-      }
-   }
-
-   // $FF: renamed from: c (java.io.DataInputStream) java.lang.Object
-   @NotNull
-   public Object method_3203(@NotNull DataInputStream var1) {
-      int var2 = var1.readInt();
-      return ((f3X)((Pair)f3X.field_0.method_3192().get(var2)).getSecond()).method_17(var1);
-   }
-
-   // $FF: renamed from: c (java.io.DataInputStream, dev.nuker.pyro.f4c) dev.nuker.pyro.f3Y
-   @NotNull
-   public f3Y method_3204(@NotNull DataInputStream var1, @NotNull f4c var2) {
-      int var3 = var1.readInt();
-      f3Y var4 = var2.method_3254(var3);
-      int var5 = var1.readInt();
-      boolean var7 = false;
-      List var6 = (List)(new ArrayList());
-      int var9 = 0;
-
-      for(int var8 = var5; var9 < var8; ++var9) {
-         var6.add(this.method_3203(var1));
-      }
-
-      var4.method_2977(var6);
-      return var4;
-   }
-
-   // $FF: renamed from: c (dev.nuker.pyro.f3Y, dev.nuker.pyro.f4c, java.io.DataOutputStream) void
-   public void method_3205(@NotNull f3Y var1, @NotNull f4c var2, @NotNull DataOutputStream var3) {
-      int var4 = var2.method_3253().indexOf(var1.getClass());
-      if (var4 == -1) {
-         throw (Throwable)(new IllegalArgumentException("Invalid packet"));
-      } else {
-         var3.writeInt(var4);
-         List var5 = var1.method_2976();
-         var3.writeInt(var5.size());
-         Iterable var6 = (Iterable)var5;
-         boolean var7 = false;
-         Iterator var8 = var6.iterator();
-
-         while(var8.hasNext()) {
-            Object var9 = var8.next();
-            boolean var11 = false;
-            field_2126.method_3202(var9, var3);
-         }
-
-      }
-   }
-
-   static {
-      f3Z var0 = new f3Z();
-      field_2126 = var0;
-   }
+    static {
+        f3Z f3Z2;
+        Field3928 = f3Z2 = new f3Z();
+    }
 }
+

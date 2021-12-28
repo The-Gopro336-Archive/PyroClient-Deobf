@@ -1,6 +1,8 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.util.Timer
  */
 package dev.nuker.pyro.mixin;
 
@@ -8,11 +10,12 @@ import net.minecraft.util.Timer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
-@Mixin({Timer.class})
+@Mixin(value={Timer.class})
 public interface TimerAccessor {
-   @Accessor("tickLength")
-   float getTickLength();
+    @Accessor(value="tickLength")
+    public float Method12405();
 
-   @Accessor("tickLength")
-   void setTickLength(float var1);
+    @Accessor(value="tickLength")
+    public void Method12406(float var1);
 }
+

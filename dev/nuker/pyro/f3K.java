@@ -1,6 +1,8 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  com.mojang.realmsclient.gui.ChatFormatting
  */
 package dev.nuker.pyro;
 
@@ -8,68 +10,64 @@ import com.mojang.brigadier.Command;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.realmsclient.gui.ChatFormatting;
+import dev.nuker.pyro.Pyro;
+import dev.nuker.pyro.Waypoint;
+import dev.nuker.pyro.WaypointManager;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import kotlin.jvm.internal.Intrinsics;
 
-public class f3K implements Command {
-   // $FF: renamed from: c dev.nuker.pyro.f3K
-   public static f3K field_2044 = new f3K();
+public class f3K
+implements Command {
+    public static f3K Field3868 = new f3K();
 
-   public int run(CommandContext var1) {
-      String var2 = StringArgumentType.getString(var1, "name");
-      Iterable var3 = (Iterable)WaypointManager.INSTANCE.getWaypoints();
-      boolean var4 = false;
-      boolean var10000;
-      Iterator var5;
-      Object var6;
-      Waypoint var7;
-      boolean var8;
-      if (var3 instanceof Collection && ((Collection)var3).isEmpty()) {
-         var10000 = false;
-      } else {
-         var5 = var3.iterator();
-
-         while(true) {
-            if (!var5.hasNext()) {
-               var10000 = false;
-               break;
+    /*
+     * Enabled aggressive block sorting
+     */
+    public int Method152(CommandContext commandContext) {
+        boolean bl;
+        Waypoint waypoint;
+        Object t2;
+        boolean bl2;
+        boolean bl3;
+        Iterable iterable;
+        String string;
+        block5: {
+            string = StringArgumentType.Method5880(commandContext, "name");
+            iterable = WaypointManager.Field6777.Method9798();
+            bl3 = false;
+            if (iterable instanceof Collection && ((Collection)iterable).isEmpty()) {
+                bl2 = false;
+            } else {
+                for (Object t2 : iterable) {
+                    waypoint = (Waypoint)t2;
+                    bl = false;
+                    if (!Intrinsics.Method6572(waypoint.Method9897(), string)) continue;
+                    bl2 = true;
+                    break block5;
+                }
+                bl2 = false;
             }
-
-            var6 = var5.next();
-            var7 = (Waypoint)var6;
-            var8 = false;
-            if (Intrinsics.areEqual((Object)var7.getName(), (Object)var2)) {
-               var10000 = true;
-               break;
-            }
-         }
-      }
-
-      if (var10000) {
-         WaypointManager var11 = WaypointManager.INSTANCE;
-         var3 = (Iterable)WaypointManager.INSTANCE.getWaypoints();
-         WaypointManager var9 = var11;
-         var4 = false;
-         var5 = var3.iterator();
-
-         do {
-            if (!var5.hasNext()) {
-               throw (Throwable)(new NoSuchElementException("Collection contains no element matching the predicate."));
-            }
-
-            var6 = var5.next();
-            var7 = (Waypoint)var6;
-            var8 = false;
-         } while(!Intrinsics.areEqual((Object)var7.getName(), (Object)var2));
-
-         var9.deleteWaypoint((Waypoint)var6);
-         Pyro.INSTANCE.sendAndKeepMessage(ChatFormatting.GREEN + "Removed waypoint '" + var2 + '\'');
-      } else {
-         Pyro.INSTANCE.sendAndKeepMessage(ChatFormatting.RED + "The waypoint '" + var2 + "' does not exist");
-      }
-
-      return 0;
-   }
+        }
+        if (!bl2) {
+            Pyro.Field6182.Method8986((Object)ChatFormatting.RED + "The waypoint '" + string + "' does not exist");
+            return 0;
+        }
+        iterable = WaypointManager.Field6777.Method9798();
+        WaypointManager waypointManager = WaypointManager.Field6777;
+        bl3 = false;
+        Iterator iterator2 = iterable.iterator();
+        do {
+            if (!iterator2.hasNext()) throw (Throwable)new NoSuchElementException("Collection contains no element matching the predicate.");
+            t2 = iterator2.next();
+            waypoint = (Waypoint)t2;
+            bl = false;
+        } while (!Intrinsics.Method6572(waypoint.Method9897(), string));
+        Object t3 = t2;
+        waypointManager.Method9800((Waypoint)t3);
+        Pyro.Field6182.Method8986((Object)ChatFormatting.GREEN + "Removed waypoint '" + string + '\'');
+        return 0;
+    }
 }
+

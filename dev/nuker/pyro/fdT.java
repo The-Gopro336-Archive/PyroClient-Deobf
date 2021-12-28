@@ -1,18 +1,32 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.item.ItemStack
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
-import net.minecraft.util.EnumFacing.Axis;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.Lambda;
+import net.minecraft.item.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
-public class fdT {
-   // $FF: renamed from: c int[]
-   public static int[] field_1244 = new int[Axis.values().length];
+public class fdt
+extends Lambda
+implements Function1 {
+    public static fdt Field395 = new fdt();
 
-   static {
-      field_1244[Axis.X.ordinal()] = 1;
-      field_1244[Axis.Y.ordinal()] = 2;
-      field_1244[Axis.Z.ordinal()] = 3;
-   }
+    public fdt() {
+        super(1);
+    }
+
+    public boolean Method297(@NotNull ItemStack itemStack) {
+        return itemStack.isEmpty();
+    }
+
+    public Object Method41(Object object) {
+        return this.Method297((ItemStack)object);
+    }
 }
+

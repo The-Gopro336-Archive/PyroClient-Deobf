@@ -1,46 +1,43 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.suggestion.SuggestionProvider;
 import com.mojang.brigadier.suggestion.SuggestionsBuilder;
-import java.util.Iterator;
+import dev.nuker.pyro.f66;
+import dev.nuker.pyro.f67;
 import java.util.concurrent.CompletableFuture;
 import kotlin.TypeCastException;
 import kotlin.text.StringsKt;
 
-public class f35 implements SuggestionProvider {
-   // $FF: renamed from: c dev.nuker.pyro.f35
-   public static f35 field_2007 = new f35();
+public class f35
+implements SuggestionProvider {
+    public static f35 Field3771 = new f35();
 
-   public CompletableFuture getSuggestions(CommandContext var1, SuggestionsBuilder var2) {
-      Iterator var4 = f67.field_2201.method_3278().iterator();
-
-      while(var4.hasNext()) {
-         f66 var3 = (f66)var4.next();
-         String var5 = var3.method_3273();
-         boolean var6 = false;
-         if (var5 == null) {
-            throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
-         }
-
-         String var10000 = var5.toLowerCase();
-         var5 = var2.getRemaining();
-         String var7 = var10000;
-         var6 = false;
-         if (var5 == null) {
-            throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
-         }
-
-         String var8 = var5.toLowerCase();
-         if (StringsKt.startsWith$default(var7, var8, false, 2, (Object)null)) {
-            var2.suggest(var3.method_3273());
-         }
-      }
-
-      return var2.buildFuture();
-   }
+    public CompletableFuture Method5478(CommandContext commandContext, SuggestionsBuilder suggestionsBuilder) {
+        for (f66 f662 : f67.Field4191.Method5825()) {
+            String string;
+            String string2;
+            String string3 = f662.Method5810();
+            boolean bl = false;
+            String string4 = string3;
+            if (string4 == null) {
+                throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
+            }
+            string4.toLowerCase();
+            string3 = suggestionsBuilder.Method2698();
+            bl = false;
+            String string5 = string3;
+            if (string5 == null) {
+                throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
+            }
+            string5.toLowerCase();
+            if (!StringsKt.Method9998(string2, string, false, 2, null)) continue;
+            suggestionsBuilder.Method2701(f662.Method5810());
+        }
+        return suggestionsBuilder.Method2700();
+    }
 }
+

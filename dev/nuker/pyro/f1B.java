@@ -1,26 +1,29 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.util.text.ITextComponent
+ *  net.minecraft.util.text.TextComponentString
  */
 package dev.nuker.pyro;
 
 import com.mojang.brigadier.Command;
+import com.mojang.brigadier.arguments.IntegerArgumentType;
+import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
+import dev.nuker.pyro.PyroStatic;
+import dev.nuker.pyro.f1s;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
 
-public class f1B implements Command {
-   // $FF: renamed from: c dev.nuker.pyro.f1B
-   public static f1B field_2410 = new f1B();
+public class f1b
+implements Command {
+    public static f1b Field3723 = new f1b();
 
-   public int run(CommandContext var1) {
-      if ((Boolean)PyroStatic.field_2612.c.method_3034()) {
-         PyroStatic.field_2612.c.method_3033(false);
-         ((f1s)var1.getSource()).method_3083((ITextComponent)(new TextComponentString("Forced a remount.")));
-      } else {
-         ((f1s)var1.getSource()).method_3083((ITextComponent)(new TextComponentString("You have not forced a dismount.")));
-      }
-
-      return 0;
-   }
+    public int Method152(CommandContext commandContext) {
+        ((f1s)commandContext.Method6876()).Method5489((ITextComponent)new TextComponentString("Attempting to connect to " + StringArgumentType.Method5880(commandContext, "host") + IntegerArgumentType.Method9838(commandContext, "port")));
+        PyroStatic.Field6541.Method5006(StringArgumentType.Method5880(commandContext, "host"), IntegerArgumentType.Method9838(commandContext, "port"));
+        return 0;
+    }
 }
+

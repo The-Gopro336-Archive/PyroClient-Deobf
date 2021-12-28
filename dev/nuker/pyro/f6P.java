@@ -1,9 +1,18 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.network.NetHandlerPlayClient
+ *  net.minecraft.entity.player.EntityPlayer
+ *  net.minecraft.init.Items
+ *  net.minecraft.inventory.ClickType
+ *  net.minecraft.item.ItemStack
+ *  net.minecraft.network.Packet
+ *  net.minecraft.network.play.client.CPacketClickWindow
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.keypearl;
 import kotlin.jvm.internal.Intrinsics;
 import net.minecraft.client.network.NetHandlerPlayClient;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,27 +22,26 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.client.CPacketClickWindow;
 
-public class f6P implements Runnable {
-   // $FF: renamed from: c dev.nuker.pyro.keypearl
-   public keypearl field_1695;
-   // $FF: renamed from: c int
-   public int field_1696;
+public class f6P
+implements Runnable {
+    public keypearl Field2981;
+    public int Field2982;
 
-   public void run() {
-      keypearl.method_239(this.field_1695).playerController.windowClick(0, 44, 0, ClickType.PICKUP, (EntityPlayer)keypearl.method_239(this.field_1695).player);
-      keypearl.method_239(this.field_1695).playerController.windowClick(0, this.field_1696, 0, ClickType.PICKUP, (EntityPlayer)keypearl.method_239(this.field_1695).player);
-      NetHandlerPlayClient var10000 = keypearl.method_239(this.field_1695).getConnection();
-      if (var10000 == null) {
-         Intrinsics.throwNpe();
-      }
+    @Override
+    public void run() {
+        keypearl.Method7044((keypearl)this.Field2981).playerController.windowClick(0, 44, 0, ClickType.PICKUP, (EntityPlayer)keypearl.Method7044((keypearl)this.Field2981).player);
+        keypearl.Method7044((keypearl)this.Field2981).playerController.windowClick(0, this.Field2982, 0, ClickType.PICKUP, (EntityPlayer)keypearl.Method7044((keypearl)this.Field2981).player);
+        NetHandlerPlayClient netHandlerPlayClient = keypearl.Method7044(this.Field2981).getConnection();
+        if (netHandlerPlayClient == null) {
+            Intrinsics.Method6551();
+        }
+        netHandlerPlayClient.sendPacket((Packet)new CPacketClickWindow(0, 0, 0, ClickType.PICKUP, new ItemStack(Items.TOTEM_OF_UNDYING, 5), 420));
+        keypearl.Method7044((keypearl)this.Field2981).playerController.updateController();
+    }
 
-      var10000.sendPacket((Packet)(new CPacketClickWindow(0, 0, 0, ClickType.PICKUP, new ItemStack(Items.TOTEM_OF_UNDYING, 5), (short)420)));
-      keypearl.method_239(this.field_1695).playerController.updateController();
-   }
-
-   public f6P(keypearl var1, int var2) {
-      this.field_1695 = var1;
-      this.field_1696 = var2;
-      super();
-   }
+    public f6P(keypearl keypearl2, int n) {
+        this.Field2981 = keypearl2;
+        this.Field2982 = n;
+    }
 }
+

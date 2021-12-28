@@ -1,40 +1,43 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-public enum f87 {
-   // $FF: renamed from: c dev.nuker.pyro.f87
-   field_1795,
-   // $FF: renamed from: 0 dev.nuker.pyro.f87
-   field_1796,
-   // $FF: renamed from: 1 dev.nuker.pyro.f87
-   field_1797,
-   // $FF: renamed from: 2 dev.nuker.pyro.f87
-   field_1798,
-   // $FF: renamed from: 3 dev.nuker.pyro.f87
-   field_1799,
-   // $FF: renamed from: 4 dev.nuker.pyro.f87
-   field_1800,
-   // $FF: renamed from: 5 dev.nuker.pyro.f87
-   field_1801,
-   // $FF: renamed from: 6 dev.nuker.pyro.f87
-   field_1802,
-   // $FF: renamed from: 7 dev.nuker.pyro.f87
-   field_1803,
-   // $FF: renamed from: 8 dev.nuker.pyro.f87
-   field_1804,
-   // $FF: renamed from: 9 dev.nuker.pyro.f87
-   field_1805,
-   // $FF: renamed from: a dev.nuker.pyro.f87
-   field_1806;
+public class f87
+extends Enum {
+    public static /* enum */ f87 White = new f87("White", 0);
+    public static /* enum */ f87 Gray = new f87("Gray", 1);
+    public static /* enum */ f87 DarkGray = new f87("DarkGray", 2);
+    public static /* enum */ f87 Red = new f87("Red", 3);
+    public static /* enum */ f87 DarkRed = new f87("DarkRed", 4);
+    public static /* enum */ f87 Green = new f87("Green", 5);
+    public static /* enum */ f87 DarkGreen = new f87("DarkGreen", 6);
+    public static /* enum */ f87 Blue = new f87("Blue", 7);
+    public static /* enum */ f87 DarkBlue = new f87("DarkBlue", 8);
+    public static /* enum */ f87 Aqua = new f87("Aqua", 9);
+    public static /* enum */ f87 Yellow = new f87("Yellow", 10);
+    public static /* enum */ f87 Gold = new f87("Gold", 11);
+    public static /* synthetic */ f87[] Field3263;
 
-   // $FF: renamed from: c dev.nuker.pyro.f87[]
-   public static f87[] field_1807 = new f87[]{field_1795, field_1796, field_1797, field_1798, field_1799, field_1800, field_1801, field_1802, field_1803, field_1804, field_1805, field_1806};
+    public static f87[] Method5144() {
+        return (f87[])Field3263.clone();
+    }
 
-   // $FF: renamed from: c (java.lang.String) dev.nuker.pyro.f87
-   public static f87 method_3005(String var0) {
-      return (f87)Enum.valueOf(f87.class, var0);
-   }
+    /*
+     * WARNING - Possible parameter corruption
+     * WARNING - void declaration
+     */
+    public f87() {
+        void var2_-1;
+        void var1_-1;
+    }
+
+    public static f87 Method5145(String string) {
+        return Enum.valueOf(f87.class, string);
+    }
+
+    static {
+        Field3263 = new f87[]{White, Gray, DarkGray, Red, DarkRed, Green, DarkGreen, Blue, DarkBlue, Aqua, Yellow, Gold};
+    }
 }
+

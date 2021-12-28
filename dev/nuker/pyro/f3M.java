@@ -1,30 +1,37 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.Minecraft
+ *  net.minecraft.client.network.NetHandlerPlayClient
+ *  net.minecraft.network.Packet
+ *  net.minecraft.network.play.client.CPacketChatMessage
+ *  org.jetbrains.annotations.Nullable
  */
 package dev.nuker.pyro;
 
 import com.mojang.brigadier.Command;
-import com.mojang.brigadier.CommandDispatcher;
-import com.mojang.brigadier.arguments.ArgumentType;
-import com.mojang.brigadier.arguments.DoubleArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
-import com.mojang.brigadier.builder.ArgumentBuilder;
-import com.mojang.brigadier.builder.LiteralArgumentBuilder;
-import com.mojang.brigadier.builder.RequiredArgumentBuilder;
-import org.jetbrains.annotations.NotNull;
+import com.mojang.brigadier.context.CommandContext;
+import dev.nuker.pyro.f3n;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.network.NetHandlerPlayClient;
+import net.minecraft.network.Packet;
+import net.minecraft.network.play.client.CPacketChatMessage;
+import org.jetbrains.annotations.Nullable;
 
-public class f3M {
-   // $FF: renamed from: c dev.nuker.pyro.f3M
-   public static f3M field_2046;
+public class f3m
+implements Command {
+    public static f3m Field4025 = new f3m();
 
-   // $FF: renamed from: c (com.mojang.brigadier.CommandDispatcher) void
-   public void method_3104(@NotNull CommandDispatcher var1) {
-      var1.register((LiteralArgumentBuilder)((LiteralArgumentBuilder)((LiteralArgumentBuilder)f3e.method_3215("waypoint").then(f3e.method_3215("add").then(((RequiredArgumentBuilder)f3e.method_3216("name", (ArgumentType)StringArgumentType.string()).executes((Command)f3I.field_2054)).then(((RequiredArgumentBuilder)((RequiredArgumentBuilder)f3e.method_3216("x", (ArgumentType)DoubleArgumentType.doubleArg()).then((ArgumentBuilder)f3e.method_3216("y", (ArgumentType)DoubleArgumentType.doubleArg()))).then((ArgumentBuilder)f3e.method_3216("z", (ArgumentType)DoubleArgumentType.doubleArg()))).executes((Command)f3J.field_2043))))).then(f3e.method_3215("remove").then(f3e.method_3216("name", (ArgumentType)StringArgumentType.string()).executes((Command)f3K.field_2044)))).then(f3e.method_3215("list").executes((Command)f3L.field_2045)));
-   }
-
-   static {
-      f3M var0 = new f3M();
-      field_2046 = var0;
-   }
+    public int Method152(@Nullable CommandContext commandContext) {
+        block0: {
+            f3n.Field4075.Method5727(StringArgumentType.Method5880(commandContext, "message"));
+            NetHandlerPlayClient netHandlerPlayClient = Minecraft.getMinecraft().getConnection();
+            if (netHandlerPlayClient == null) break block0;
+            netHandlerPlayClient.sendPacket((Packet)new CPacketChatMessage(f3n.Field4075.Method5728()));
+        }
+        return 0;
+    }
 }
+

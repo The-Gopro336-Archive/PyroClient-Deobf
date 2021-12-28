@@ -1,50 +1,53 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.block.Block
+ *  net.minecraft.util.ResourceLocation
+ *  net.minecraft.util.text.ITextComponent
+ *  net.minecraft.util.text.Style
+ *  net.minecraft.util.text.TextComponentString
+ *  net.minecraft.util.text.TextFormatting
  */
 package dev.nuker.pyro;
 
+import com.mojang.brigadier.Command;
+import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
-import com.mojang.brigadier.suggestion.SuggestionProvider;
-import com.mojang.brigadier.suggestion.SuggestionsBuilder;
-import java.util.Iterator;
-import java.util.concurrent.CompletableFuture;
-import kotlin.TypeCastException;
+import dev.nuker.pyro.PyroStatic;
+import dev.nuker.pyro.f1s;
 import kotlin.text.StringsKt;
 import net.minecraft.block.Block;
 import net.minecraft.util.ResourceLocation;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.Style;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextFormatting;
 
-public class f3P implements SuggestionProvider {
-   // $FF: renamed from: c dev.nuker.pyro.f3P
-   public static f3P field_2119 = new f3P();
+public class f3p
+implements Command {
+    public static f3p Field4082 = new f3p();
 
-   public CompletableFuture getSuggestions(@Nullable CommandContext var1, @NotNull SuggestionsBuilder var2) {
-      Iterator var4 = Block.REGISTRY.iterator();
-
-      while(var4.hasNext()) {
-         Block var3 = (Block)var4.next();
-         String var5 = ((ResourceLocation)Block.REGISTRY.getNameForObject(var3)).toString();
-         boolean var7 = false;
-         if (var5 == null) {
-            throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
-         }
-
-         String var10000 = StringsKt.substringAfter$default(var5.toLowerCase(), "minecraft:", (String)null, 2, (Object)null);
-         String var6 = var2.getRemaining();
-         String var8 = var10000;
-         var7 = false;
-         if (var6 == null) {
-            throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
-         }
-
-         String var9 = var6.toLowerCase();
-         if (StringsKt.startsWith$default(var8, StringsKt.substringAfter$default(var9, "minecraft:", (String)null, 2, (Object)null), false, 2, (Object)null)) {
-            var2.suggest(var5);
-         }
-      }
-
-      return var2.buildFuture();
-   }
+    public int Method152(CommandContext commandContext) {
+        String string = StringArgumentType.Method5880(commandContext, "block");
+        if (!StringsKt.Method11503(string, ":", false, 2, null)) {
+            string = "minecraft:" + string;
+        }
+        if (Block.REGISTRY.containsKey((Object)new ResourceLocation(string))) {
+            if (PyroStatic.Field6520.Method2488().Method2451().contains(string)) {
+                ((f1s)commandContext.Method6876()).Method5489(new TextComponentString(string + " is already an search block").setStyle(new Style().setColor(TextFormatting.RED)));
+            } else {
+                PyroStatic.Field6520.Method2488().Method2451().add(string);
+                ((f1s)commandContext.Method6876()).Method5489((ITextComponent)new TextComponentString("Added search block " + string));
+                PyroStatic.Field6520.Method2491();
+                if (((Boolean)PyroStatic.Field6520.Field5236.Method5264()).booleanValue()) {
+                    PyroStatic.Field6520.Method205(true, null, null);
+                }
+            }
+        } else {
+            ((f1s)commandContext.Method6876()).Method5489(new TextComponentString(string + " is not a valid block").setStyle(new Style().setColor(TextFormatting.RED)));
+        }
+        return 0;
+    }
 }
+

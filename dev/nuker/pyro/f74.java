@@ -1,113 +1,118 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.network.play.client.CPacketEntityAction
+ *  net.minecraft.network.play.client.CPacketEntityAction$Action
+ *  net.minecraft.network.play.client.CPacketPlayer
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.BooleanSetting;
+import dev.nuker.pyro.Module;
+import dev.nuker.pyro.f0g;
+import dev.nuker.pyro.f41;
+import dev.nuker.pyro.f49;
+import dev.nuker.pyro.fe8;
 import dev.nuker.pyro.mixin.CPacketPlayerAccessor;
 import dev.nuker.pyro.security.inject.LauncherEventHide;
 import kotlin.TypeCastException;
-import net.minecraft.network.Packet;
 import net.minecraft.network.play.client.CPacketEntityAction;
 import net.minecraft.network.play.client.CPacketPlayer;
-import net.minecraft.network.play.client.CPacketEntityAction.Action;
 import org.jetbrains.annotations.NotNull;
 
-public class f74 extends Module {
-   // $FF: renamed from: c dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_560 = (BooleanSetting)this.register((f0w)(new BooleanSetting("ground", "Ground", (String)null, true)));
-   // $FF: renamed from: 0 dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting field_561 = (BooleanSetting)this.register((f0w)(new BooleanSetting("sprint", "Sprint", (String)null, true)));
-   // $FF: renamed from: c boolean
-   public boolean field_562;
-   // $FF: renamed from: c dev.nuker.pyro.fe8
-   @NotNull
-   public fe8 field_563 = new fe8();
+public class f74
+extends Module {
+    @NotNull
+    public BooleanSetting Field3092 = (BooleanSetting)this.Method7264(new BooleanSetting("ground", "Ground", null, true));
+    @NotNull
+    public BooleanSetting Field3093 = (BooleanSetting)this.Method7264(new BooleanSetting("sprint", "Sprint", null, true));
+    public boolean Field3094;
+    @NotNull
+    public fe8 Field3095 = new fe8();
 
-   // $FF: renamed from: c () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_839() {
-      return this.field_561;
-   }
+    @NotNull
+    public BooleanSetting Method215() {
+        return this.Field3093;
+    }
 
-   // $FF: renamed from: 0 () dev.nuker.pyro.BooleanSetting
-   @NotNull
-   public BooleanSetting method_840() {
-      return this.field_560;
-   }
+    @NotNull
+    public BooleanSetting Method274() {
+        return this.Field3092;
+    }
 
-   // $FF: renamed from: 2 () boolean
-   public boolean method_841() {
-      return this.field_562;
-   }
+    public boolean Method2390() {
+        return this.Field3094;
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.f49) void
-   @f0g
-   @LauncherEventHide
-   public void method_842(@NotNull f49 var1) {
-      if (var1.c() == f41.field_2120) {
-         if (this.c.player != null) {
-            Packet var10000;
-            if (var1.c() instanceof CPacketPlayer && (Boolean)this.field_560.c()) {
-               if (this.field_563.method_1980(5000.0D) && !this.c.player.isElytraFlying() && this.field_562) {
-                  this.field_562 = false;
-               }
-
-               if (!this.c.player.isElytraFlying() && !this.field_562) {
-                  var10000 = var1.c();
-                  if (var10000 == null) {
-                     throw new TypeCastException("null cannot be cast to non-null type dev.nuker.pyro.mixin.CPacketPlayerAccessor");
-                  }
-
-                  CPacketPlayerAccessor var2 = (CPacketPlayerAccessor)var10000;
-                  if (!(this.c.player.fallDistance > (float)0) && !this.c.playerController.getIsHittingBlock()) {
-                     var2.setOnGround(false);
-                  } else {
-                     var2.setOnGround(true);
-                  }
-               }
+    /*
+     * Unable to fully structure code
+     * Enabled aggressive block sorting
+     * Lifted jumps to return sites
+     */
+    @f0g
+    @LauncherEventHide
+    public void Method2393(@NotNull f49 var1_1) {
+        block9: {
+            if (var1_1.Method5619() != f41.Pre) {
+                return;
             }
-
-            if (var1.c() instanceof CPacketEntityAction && (Boolean)this.field_561.c()) {
-               var10000 = var1.c();
-               if (var10000 == null) {
-                  throw new TypeCastException("null cannot be cast to non-null type net.minecraft.network.play.client.CPacketEntityAction");
-               }
-
-               CPacketEntityAction var3 = (CPacketEntityAction)var10000;
-               if (var3.getAction() == Action.START_SPRINTING || var3.getAction() == Action.STOP_SPRINTING) {
-                  var1.0();
-               }
-
-               if (var3.getAction() == Action.START_FALL_FLYING) {
-                  this.field_562 = true;
-                  this.field_563.method_1979();
-               }
+            if (this.Field5233.player == null) {
+                return;
             }
+            if (!(var1_1.Method5784() instanceof CPacketPlayer) || !((Boolean)this.Field3092.Method7979()).booleanValue()) break block9;
+            if (this.Field3095.Method491(5000.0)) {
+                if (!this.Field5233.player.isElytraFlying() && this.Field3094) {
+                    this.Field3094 = false;
+                }
+            }
+            if (this.Field5233.player.isElytraFlying() || this.Field3094) break block9;
+            v0 = var1_1.Method5784();
+            if (v0 == null) {
+                throw new TypeCastException("null cannot be cast to non-null type dev.nuker.pyro.mixin.CPacketPlayerAccessor");
+            }
+            var2_2 = (CPacketPlayerAccessor)v0;
+            if (this.Field5233.player.fallDistance > (float)false) ** GOTO lbl-1000
+            if (this.Field5233.playerController.getIsHittingBlock()) lbl-1000:
+            // 2 sources
 
-         }
-      }
-   }
+            {
+                var2_2.Method8722(true);
+            } else {
+                var2_2.Method8722(false);
+            }
+        }
+        if (var1_1.Method5784() instanceof CPacketEntityAction == false) return;
+        if ((Boolean)this.Field3093.Method7979() == false) return;
+        v1 = var1_1.Method5784();
+        if (v1 == null) {
+            throw new TypeCastException("null cannot be cast to non-null type net.minecraft.network.play.client.CPacketEntityAction");
+        }
+        var2_2 = (CPacketEntityAction)v1;
+        if (var2_2.getAction() == CPacketEntityAction.Action.START_SPRINTING || var2_2.getAction() == CPacketEntityAction.Action.STOP_SPRINTING) {
+            var1_1.Method7948();
+        }
+        if (var2_2.getAction() != CPacketEntityAction.Action.START_FALL_FLYING) return;
+        this.Field3094 = true;
+        this.Field3095.Method490();
+    }
 
-   // $FF: renamed from: c (boolean) void
-   public void method_843(boolean var1) {
-      this.field_562 = var1;
-   }
+    public void Method557(boolean bl) {
+        this.Field3094 = bl;
+    }
 
-   // $FF: renamed from: 1 () dev.nuker.pyro.fe8
-   @NotNull
-   public fe8 method_844() {
-      return this.field_563;
-   }
+    @NotNull
+    public fe8 Method4964() {
+        return this.Field3095;
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.fe8) void
-   public void method_845(@NotNull fe8 var1) {
-      this.field_563 = var1;
-   }
+    public void Method4965(@NotNull fe8 fe82) {
+        this.Field3095 = fe82;
+    }
 
-   public f74() {
-      super("antihunger", "AntiHunger", "Allows you greatly reduce hunger loss by modifying packets you send");
-   }
+    public f74() {
+        super("antihunger", "AntiHunger", "Allows you greatly reduce hunger loss by modifying packets you send");
+    }
 }
+

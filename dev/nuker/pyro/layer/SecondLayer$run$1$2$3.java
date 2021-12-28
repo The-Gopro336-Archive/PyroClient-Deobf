@@ -1,18 +1,21 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro.layer;
 
-public class SecondLayer$run$1$2$3 implements Runnable {
-   public SecondLayer$run$1$2 this$0;
+import dev.nuker.pyro.layer.SecondLayer$run$1$2;
 
-   public void run() {
-      this.this$0.this$0.$gui.setUI(this.this$0.this$0.$gui.getTextPanel("Verifying"));
-   }
+public class SecondLayer$run$1$2$3
+implements Runnable {
+    public SecondLayer$run$1$2 Field4801;
 
-   public SecondLayer$run$1$2$3(SecondLayer$run$1$2 var1) {
-      this.this$0 = var1;
-      super();
-   }
+    @Override
+    public void run() {
+        this.Field4801.Field7040.$gui.Method12446(this.Field4801.Field7040.$gui.Method12443("Verifying"));
+    }
+
+    public SecondLayer$run$1$2$3(SecondLayer$run$1$2 secondLayer$run$1$2) {
+        this.Field4801 = secondLayer$run$1$2;
+    }
 }
+

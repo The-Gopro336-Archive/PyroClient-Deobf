@@ -1,192 +1,191 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  com.google.gson.JsonElement
+ *  com.google.gson.JsonObject
+ *  com.google.gson.JsonPrimitive
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
+import dev.nuker.pyro.f0c;
 import java.awt.Color;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import org.jetbrains.annotations.NotNull;
 
 public class f00 {
-   // $FF: renamed from: c float
-   public float field_2294;
-   public float var0;
-   public float var1;
-   public float var2;
-   // $FF: renamed from: c dev.nuker.pyro.f00
-   @NotNull
-   public static f00 field_2295 = new f00(0, 0, 0, 0);
-   // $FF: renamed from: c dev.nuker.pyro.f0c
-   public static f0c field_2296 = new f0c((DefaultConstructorMarker)null);
+    public float Field5374;
+    public float Field5375;
+    public float Field5376;
+    public float Field5377;
+    @NotNull
+    public static f00 Field5378;
+    public static f0c Field5379;
 
-   public void meth6(float var1x) {
-      this.field_2294 = var1x;
-   }
+    public void Method7507(float f) {
+        this.Field5374 = f;
+    }
 
-   public void meth1(float var1x) {
-      float[] var2x = this.method_3452();
-      var2x[2] = var1x;
-      float[] var3 = field_2296.method_3692(var2x);
-      this.method_3453(var3[0]);
-      this.var0 = var3[1];
-      this.var1 = var3[2];
-   }
+    public void Method7508(float f) {
+        float[] arrf = this.Method7533();
+        arrf[2] = f;
+        float[] arrf2 = Field5379.Method7936(arrf);
+        this.Method7535(arrf2[0]);
+        this.Field5375 = arrf2[1];
+        this.Field5376 = arrf2[2];
+    }
 
-   public float meth5() {
-      return this.field_2294 < (float)0 ? (float)((int)((double)((float)(System.currentTimeMillis() % (long)1048576) * -this.field_2294) * 0.4D) % 255) / 255.0F : this.field_2294;
-   }
+    public float Method7509() {
+        return this.Field5374 < 0.0f ? (float)((int)((double)((float)(System.currentTimeMillis() % (long)0x100000) * -this.Field5374) * 0.4) % 255) / 255.0f : this.Field5374;
+    }
 
-   // $FF: renamed from: a () float
-   public float method_3445() {
-      return this.var0;
-   }
+    public float Method7510() {
+        return this.Field5375;
+    }
 
-   @NotNull
-   public float[] meth6() {
-      return new float[]{this.meth5(), this.var0, this.var1, this.var2};
-   }
+    @NotNull
+    public float[] Method7511() {
+        return new float[]{this.Method7509(), this.Field5375, this.Field5376, this.Field5377};
+    }
 
-   public void meth5(float var1x) {
-      float[] var2x = this.method_3452();
-      var2x[0] = var1x;
-      float[] var3 = field_2296.method_3692(var2x);
-      this.method_3453(var3[0]);
-      this.var0 = var3[1];
-      this.var1 = var3[2];
-   }
+    public void Method7512(float f) {
+        float[] arrf = this.Method7533();
+        arrf[0] = f;
+        float[] arrf2 = Field5379.Method7936(arrf);
+        this.Method7535(arrf2[0]);
+        this.Field5375 = arrf2[1];
+        this.Field5376 = arrf2[2];
+    }
 
-   public f00(@NotNull float[] var1x) {
-      this(var1x[0], var1x[1], var1x[2], var1x[3]);
-   }
+    public f00(@NotNull float[] arrf) {
+        this(arrf[0], arrf[1], arrf[2], arrf[3]);
+    }
 
-   @NotNull
-   public f00 meth0() {
-      return new f00(this.field_2294, this.var0, this.var1, this.var2);
-   }
+    static {
+        Field5379 = new f0c(null);
+        Field5378 = new f00(0, 0, 0, 0);
+    }
 
-   public float meth7() {
-      return this.method_3452()[0];
-   }
+    @NotNull
+    public f00 Method7513() {
+        return new f00(this.Field5374, this.Field5375, this.Field5376, this.Field5377);
+    }
 
-   public int meth1() {
-      return this.meth8().getRGB();
-   }
+    public float Method7514() {
+        return this.Method7533()[0];
+    }
 
-   public void meth0(float var1x) {
-      this.var2 = var1x;
-   }
+    public int Method7515() {
+        return this.Method7524().getRGB();
+    }
 
-   // $FF: renamed from: g () float
-   public float method_3446() {
-      return this.method_3452()[1];
-   }
+    public void Method7516(float f) {
+        this.Field5377 = f;
+    }
 
-   // $FF: renamed from: d () float
-   public float method_3447() {
-      return this.var1;
-   }
+    public float Method7517() {
+        return this.Method7533()[1];
+    }
 
-   // $FF: renamed from: c (int) java.awt.Color
-   @NotNull
-   public Color method_3448(int var1x) {
-      return field_2296.method_3694(this.meth02(var1x));
-   }
+    public float Method7518() {
+        return this.Field5376;
+    }
 
-   public f00(int var1x, int var2x, int var3, int var4) {
-      this((float)var1x / 255.0F, (float)var2x / 255.0F, (float)var3 / 255.0F, (float)var4 / 255.0F);
-   }
+    @NotNull
+    public Color Method7519(int n) {
+        return Field5379.Method7938(this.Method7529(n));
+    }
 
-   public boolean meth4() {
-      return this.field_2294 < (float)0;
-   }
+    public f00(int n, int n2, int n3, int n4) {
+        this((float)n / 255.0f, (float)n2 / 255.0f, (float)n3 / 255.0f, (float)n4 / 255.0f);
+    }
 
-   public void meth2(float var1x) {
-      this.method_3453(-var1x);
-   }
+    public boolean Method7520() {
+        return this.Field5374 < 0.0f;
+    }
 
-   public float meth9() {
-      return this.var2;
-   }
+    public void Method7521(float f) {
+        this.Method7535(-f);
+    }
 
-   // $FF: renamed from: f () float
-   public float method_3449() {
-      return Math.max(0.0F, -this.field_2294);
-   }
+    public float Method7522() {
+        return this.Field5377;
+    }
 
-   @NotNull
-   public Color meth8() {
-      return field_2296.method_3694(this.meth6());
-   }
+    public float Method7523() {
+        return Math.max(0.0f, -this.Field5374);
+    }
 
-   public float meth1(int var1x) {
-      return this.field_2294 < (float)0 ? (float)((int)((double)((float)((System.currentTimeMillis() + (long)var1x) % (long)1048576) * -this.field_2294) * 0.4D) % 255) / 255.0F : this.field_2294;
-   }
+    @NotNull
+    public Color Method7524() {
+        return Field5379.Method7938(this.Method7511());
+    }
 
-   // $FF: renamed from: e () com.google.gson.JsonObject
-   @NotNull
-   public JsonObject method_3450() {
-      JsonObject var1x = new JsonObject();
-      var1x.add("hue_", (JsonElement)(new JsonPrimitive((Number)this.field_2294)));
-      var1x.add("saturation", (JsonElement)(new JsonPrimitive((Number)this.var0)));
-      var1x.add("value", (JsonElement)(new JsonPrimitive((Number)this.var1)));
-      var1x.add("alpha", (JsonElement)(new JsonPrimitive((Number)this.var2)));
-      return var1x;
-   }
+    public float Method7525(int n) {
+        return this.Field5374 < 0.0f ? (float)((int)((double)((float)((System.currentTimeMillis() + (long)n) % (long)0x100000) * -this.Field5374) * 0.4) % 255) / 255.0f : this.Field5374;
+    }
 
-   public void meth3(float var1x) {
-      float[] var2x = this.method_3452();
-      var2x[1] = var1x;
-      float[] var3 = field_2296.method_3692(var2x);
-      this.method_3453(var3[0]);
-      this.var0 = var3[1];
-      this.var1 = var3[2];
-   }
+    @NotNull
+    public JsonObject Method7526() {
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.add("hue_", (JsonElement)new JsonPrimitive((Number)Float.valueOf(this.Field5374)));
+        jsonObject.add("saturation", (JsonElement)new JsonPrimitive((Number)Float.valueOf(this.Field5375)));
+        jsonObject.add("value", (JsonElement)new JsonPrimitive((Number)Float.valueOf(this.Field5376)));
+        jsonObject.add("alpha", (JsonElement)new JsonPrimitive((Number)Float.valueOf(this.Field5377)));
+        return jsonObject;
+    }
 
-   public static f00 meth32() {
-      return field_2295;
-   }
+    public void Method7527(float f) {
+        float[] arrf = this.Method7533();
+        arrf[1] = f;
+        float[] arrf2 = Field5379.Method7936(arrf);
+        this.Method7535(arrf2[0]);
+        this.Field5375 = arrf2[1];
+        this.Field5376 = arrf2[2];
+    }
 
-   public f00(float var1x, float var2x, float var3, float var4) {
-      this.field_2294 = var1x;
-      this.var0 = var2x;
-      this.var1 = var3;
-      this.var2 = var4;
-   }
+    public static f00 Method7528() {
+        return Field5378;
+    }
 
-   @NotNull
-   public float[] meth02(int var1x) {
-      return new float[]{this.meth1(var1x), this.var0, this.var1, this.var2};
-   }
+    public f00(float f, float f2, float f3, float f4) {
+        this.Field5374 = f;
+        this.Field5375 = f2;
+        this.Field5376 = f3;
+        this.Field5377 = f4;
+    }
 
-   // $FF: renamed from: c () float
-   public float method_3451() {
-      return this.field_2294;
-   }
+    @NotNull
+    public float[] Method7529(int n) {
+        return new float[]{this.Method7525(n), this.Field5375, this.Field5376, this.Field5377};
+    }
 
-   public float meth22() {
-      return this.method_3452()[2];
-   }
+    public float Method7530() {
+        return this.Field5374;
+    }
 
-   public void meth72(float var1x) {
-      this.var1 = var1x;
-   }
+    public float Method7531() {
+        return this.Method7533()[2];
+    }
 
-   // $FF: renamed from: b () float[]
-   @NotNull
-   public float[] method_3452() {
-      return field_2296.method_3689(this.meth5(), this.var0, this.var1, this.var2);
-   }
+    public void Method7532(float f) {
+        this.Field5376 = f;
+    }
 
-   public void meth42(float var1x) {
-      this.var0 = var1x;
-   }
+    @NotNull
+    public float[] Method7533() {
+        return Field5379.Method7933(this.Method7509(), this.Field5375, this.Field5376, this.Field5377);
+    }
 
-   // $FF: renamed from: c (float) void
-   public void method_3453(float var1x) {
-      this.field_2294 = var1x;
-   }
+    public void Method7534(float f) {
+        this.Field5375 = f;
+    }
+
+    public void Method7535(float f) {
+        this.Field5374 = f;
+    }
 }
+

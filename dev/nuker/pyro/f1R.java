@@ -1,19 +1,37 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.Minecraft
+ *  net.minecraft.client.entity.EntityOtherPlayerMP
+ *  net.minecraft.util.math.Vec2f
+ *  net.minecraft.util.math.Vec3d
+ *  net.minecraft.world.GameType
+ *  org.jetbrains.annotations.NotNull
  */
 package dev.nuker.pyro;
 
-import com.mojang.brigadier.Command;
 import com.mojang.brigadier.CommandDispatcher;
-import com.mojang.brigadier.SingleRedirectModifier;
-import com.mojang.brigadier.arguments.ArgumentType;
 import com.mojang.brigadier.arguments.DoubleArgumentType;
 import com.mojang.brigadier.arguments.FloatArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
-import com.mojang.brigadier.tree.CommandNode;
 import com.mojang.brigadier.tree.LiteralCommandNode;
+import dev.nuker.pyro.f1E;
+import dev.nuker.pyro.f1F;
+import dev.nuker.pyro.f1G;
+import dev.nuker.pyro.f1H;
+import dev.nuker.pyro.f1I;
+import dev.nuker.pyro.f1J;
+import dev.nuker.pyro.f1K;
+import dev.nuker.pyro.f1L;
+import dev.nuker.pyro.f1M;
+import dev.nuker.pyro.f1N;
+import dev.nuker.pyro.f1O;
+import dev.nuker.pyro.f1P;
+import dev.nuker.pyro.f1Q;
+import dev.nuker.pyro.f3e;
+import dev.nuker.pyro.fe4;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -28,188 +46,150 @@ import net.minecraft.world.GameType;
 import org.jetbrains.annotations.NotNull;
 
 public class f1R {
-   // $FF: renamed from: c java.util.List
-   @NotNull
-   public static List field_2435;
-   // $FF: renamed from: c int
-   public static int field_2436;
-   // $FF: renamed from: c dev.nuker.pyro.f1R
-   public static f1R field_2437;
+    @NotNull
+    public static List<EntityOtherPlayerMP> Field5608;
+    public static int Field5609;
+    public static f1R Field5610;
 
-   // $FF: renamed from: c (java.lang.String) boolean
-   public boolean method_3701(String var1) {
-      Iterable var2 = (Iterable)field_2435;
-      boolean var3 = false;
-      boolean var10000;
-      if (var2 instanceof Collection && ((Collection)var2).isEmpty()) {
-         var10000 = false;
-      } else {
-         Iterator var4 = var2.iterator();
-
-         while(true) {
-            if (!var4.hasNext()) {
-               var10000 = false;
-               break;
+    /*
+     * Enabled force condition propagation
+     * Lifted jumps to return sites
+     */
+    public boolean Method7953(String string) {
+        Object v1;
+        Iterable iterable;
+        block5: {
+            Iterable iterable2;
+            EntityOtherPlayerMP entityOtherPlayerMP;
+            iterable = Field5608;
+            boolean bl = false;
+            if (iterable instanceof Collection) {
+                if (((Collection)iterable).isEmpty()) {
+                    return false;
+                }
             }
-
-            Object var5 = var4.next();
-            EntityOtherPlayerMP var6 = (EntityOtherPlayerMP)var5;
-            boolean var7 = false;
-            if (Intrinsics.areEqual((Object)var6.getGameProfile().getName(), (Object)var1)) {
-               var10000 = true;
-               break;
+            Iterator iterator2 = iterable.iterator();
+            do {
+                if (!iterator2.hasNext()) return false;
+                iterable2 = iterator2.next();
+                entityOtherPlayerMP = (EntityOtherPlayerMP)iterable2;
+                boolean bl2 = false;
+            } while (!Intrinsics.Method6572(entityOtherPlayerMP.getGameProfile().getName(), string));
+            boolean bl3 = true;
+            if (!bl3) return false;
+            Iterable iterable3 = Field5608;
+            boolean bl4 = false;
+            iterable2 = iterable3;
+            boolean bl5 = false;
+            for (Object t : iterable2) {
+                EntityOtherPlayerMP entityOtherPlayerMP2 = (EntityOtherPlayerMP)t;
+                boolean bl6 = false;
+                if (!Intrinsics.Method6572(entityOtherPlayerMP2.getGameProfile().getName(), string)) continue;
+                v1 = t;
+                break block5;
             }
-         }
-      }
+            v1 = null;
+        }
+        Iterable iterable4 = iterable = (EntityOtherPlayerMP)v1;
+        if (iterable4 == null) {
+            Intrinsics.Method6551();
+        }
+        fe4.Field250.Method389((EntityOtherPlayerMP)iterable4);
+        Field5608.remove(iterable);
+        return true;
+    }
 
-      if (var10000) {
-         Iterable var12 = (Iterable)field_2435;
-         boolean var13 = false;
-         boolean var14 = false;
-         Iterator var15 = var12.iterator();
+    public void Method7954(int n) {
+        Field5609 = n;
+    }
 
-         Object var16;
-         while(true) {
-            if (!var15.hasNext()) {
-               var16 = null;
-               break;
+    @JvmStatic
+    public static void Method7955(@NotNull CommandDispatcher commandDispatcher) {
+        LiteralCommandNode literalCommandNode = commandDispatcher.Method8399(f3e.Method5657("fakeplayer"));
+        commandDispatcher.Method8399((LiteralArgumentBuilder)((LiteralArgumentBuilder)((LiteralArgumentBuilder)((LiteralArgumentBuilder)((LiteralArgumentBuilder)((LiteralArgumentBuilder)((LiteralArgumentBuilder)((LiteralArgumentBuilder)((LiteralArgumentBuilder)((LiteralArgumentBuilder)((LiteralArgumentBuilder)f3e.Method5657("fakeplayer").Method12041(f3e.Method5657("spawn").Method12044(f1E.Field5596))).Method12041(f3e.Method5657("position").Method12041(f3e.Method5658("x", DoubleArgumentType.Method8091()).Method12041(f3e.Method5658("y", DoubleArgumentType.Method8091()).Method12041(f3e.Method5658("z", DoubleArgumentType.Method8091()).Method12049(literalCommandNode, f1J.Field5586)))))).Method12041(f3e.Method5657("name").Method12041(f3e.Method5658("name", StringArgumentType.Method5877()).Method12049(literalCommandNode, f1K.Field5590)))).Method12041(((LiteralArgumentBuilder)((LiteralArgumentBuilder)f3e.Method5657("gamemode").Method12041(f3e.Method5657("creative").Method12049(literalCommandNode, f1L.Field5616))).Method12041(f3e.Method5657("survival").Method12049(literalCommandNode, f1M.Field5621))).Method12041(f3e.Method5657("spectator").Method12049(literalCommandNode, f1N.Field5622)))).Method12041(f3e.Method5657("health").Method12041(f3e.Method5658("health", FloatArgumentType.Method9247(0.0f)).Method12049(literalCommandNode, f1O.Field5623)))).Method12041(f3e.Method5657("rotate").Method12041(f3e.Method5658("yaw", FloatArgumentType.Method9248(0.0f, 360.0f)).Method12041(f3e.Method5658("pitch", FloatArgumentType.Method9248(-90.0f, 90.0f)).Method12049(literalCommandNode, f1P.Field5600))))).Method12041(f3e.Method5657("modsignore").Method12049(literalCommandNode, f1Q.Field5602))).Method12041(f3e.Method5657("naked").Method12049(literalCommandNode, f1F.Field5598))).Method12041(f3e.Method5657("remove").Method12041(f3e.Method5658("name", StringArgumentType.Method5877()).Method12044(f1G.Field5599)))).Method12041(f3e.Method5657("list").Method12044(f1H.Field5578))).Method12041(f3e.Method5657("purge").Method12044(f1I.Field5584)));
+    }
+
+    public boolean Method7956(String string, Vec3d vec3d, Vec2f vec2f, GameType gameType, float f, boolean bl, boolean bl2) {
+        boolean bl3;
+        boolean bl4;
+        int n;
+        Iterable iterable;
+        block6: {
+            iterable = Field5608;
+            n = 0;
+            if (iterable instanceof Collection && ((Collection)iterable).isEmpty()) {
+                bl4 = false;
+            } else {
+                for (Object t : iterable) {
+                    EntityOtherPlayerMP entityOtherPlayerMP = (EntityOtherPlayerMP)t;
+                    boolean bl5 = false;
+                    if (!Intrinsics.Method6572(entityOtherPlayerMP.getGameProfile().getName(), string)) continue;
+                    bl4 = true;
+                    break block6;
+                }
+                bl4 = false;
             }
-
-            Object var8 = var15.next();
-            EntityOtherPlayerMP var9 = (EntityOtherPlayerMP)var8;
-            boolean var10 = false;
-            if (Intrinsics.areEqual((Object)var9.getGameProfile().getName(), (Object)var1)) {
-               var16 = var8;
-               break;
+        }
+        if (!bl4) {
+            n = Field5609;
+            Field5609 = n + 1;
+            iterable = fe4.Field250.Method391(string, -10000 - n, bl);
+            iterable.setGameType(gameType);
+            iterable.capabilities.disableDamage = true;
+            iterable.setPositionAndRotation(vec3d.x, vec3d.y, vec3d.z, vec2f.x, vec2f.y);
+            ((EntityOtherPlayerMP)iterable).rotationYawHead = vec2f.x;
+            iterable.setHealth(f);
+            if (!bl2) {
+                ((EntityOtherPlayerMP)iterable).inventory.copyInventory(Minecraft.getMinecraft().player.inventory);
             }
-         }
+            Field5608.add((EntityOtherPlayerMP)iterable);
+            bl3 = true;
+        } else {
+            bl3 = false;
+        }
+        return bl3;
+    }
 
-         EntityOtherPlayerMP var11 = (EntityOtherPlayerMP)var16;
-         fe4 var17 = fe4.field_1243;
-         if (var11 == null) {
-            Intrinsics.throwNpe();
-         }
+    public void Method7957(@NotNull List list) {
+        Field5608 = list;
+    }
 
-         var17.method_1896(var11);
-         field_2435.remove(var11);
-         var10000 = true;
-      } else {
-         var10000 = false;
-      }
-
-      return var10000;
-   }
-
-   // $FF: renamed from: c (int) void
-   public void method_3702(int var1) {
-      field_2436 = var1;
-   }
-
-   // $FF: renamed from: c (com.mojang.brigadier.CommandDispatcher) void
-   @JvmStatic
-   public static void method_3703(@NotNull CommandDispatcher var0) {
-      LiteralCommandNode var1 = var0.register(f3e.method_3215("fakeplayer"));
-      var0.register((LiteralArgumentBuilder)((LiteralArgumentBuilder)((LiteralArgumentBuilder)((LiteralArgumentBuilder)((LiteralArgumentBuilder)((LiteralArgumentBuilder)((LiteralArgumentBuilder)((LiteralArgumentBuilder)((LiteralArgumentBuilder)((LiteralArgumentBuilder)((LiteralArgumentBuilder)f3e.method_3215("fakeplayer").then(f3e.method_3215("spawn").executes((Command)f1E.field_2430))).then(f3e.method_3215("position").then(f3e.method_3216("x", (ArgumentType)DoubleArgumentType.doubleArg()).then(f3e.method_3216("y", (ArgumentType)DoubleArgumentType.doubleArg()).then(f3e.method_3216("z", (ArgumentType)DoubleArgumentType.doubleArg()).redirect((CommandNode)var1, (SingleRedirectModifier)f1J.field_2427)))))).then(f3e.method_3215("name").then(f3e.method_3216("name", (ArgumentType)StringArgumentType.word()).redirect((CommandNode)var1, (SingleRedirectModifier)f1K.field_2428)))).then(((LiteralArgumentBuilder)((LiteralArgumentBuilder)f3e.method_3215("gamemode").then(f3e.method_3215("creative").redirect((CommandNode)var1, (SingleRedirectModifier)f1L.field_2440))).then(f3e.method_3215("survival").redirect((CommandNode)var1, (SingleRedirectModifier)f1M.field_2441))).then(f3e.method_3215("spectator").redirect((CommandNode)var1, (SingleRedirectModifier)f1N.field_2442)))).then(f3e.method_3215("health").then(f3e.method_3216("health", (ArgumentType)FloatArgumentType.floatArg(0.0F)).redirect((CommandNode)var1, (SingleRedirectModifier)f1O.field_2443)))).then(f3e.method_3215("rotate").then(f3e.method_3216("yaw", (ArgumentType)FloatArgumentType.floatArg(0.0F, 360.0F)).then(f3e.method_3216("pitch", (ArgumentType)FloatArgumentType.floatArg(-90.0F, 90.0F)).redirect((CommandNode)var1, (SingleRedirectModifier)f1P.field_2433))))).then(f3e.method_3215("modsignore").redirect((CommandNode)var1, (SingleRedirectModifier)f1Q.field_2434))).then(f3e.method_3215("naked").redirect((CommandNode)var1, (SingleRedirectModifier)f1F.field_2431))).then(f3e.method_3215("remove").then(f3e.method_3216("name", (ArgumentType)StringArgumentType.word()).executes((Command)f1G.field_2432)))).then(f3e.method_3215("list").executes((Command)f1H.field_2418))).then(f3e.method_3215("purge").executes((Command)f1I.field_2422)));
-   }
-
-   // $FF: renamed from: c (java.lang.String, net.minecraft.util.math.Vec3d, net.minecraft.util.math.Vec2f, net.minecraft.world.GameType, float, boolean, boolean) boolean
-   public boolean method_3704(String var1, Vec3d var2, Vec2f var3, GameType var4, float var5, boolean var6, boolean var7) {
-      Iterable var8 = (Iterable)field_2435;
-      boolean var9 = false;
-      boolean var10000;
-      if (var8 instanceof Collection && ((Collection)var8).isEmpty()) {
-         var10000 = false;
-      } else {
-         Iterator var10 = var8.iterator();
-
-         while(true) {
-            if (!var10.hasNext()) {
-               var10000 = false;
-               break;
+    public void Method7958() {
+        while (true) {
+            Collection collection = Field5608;
+            boolean bl = false;
+            if (!(!collection.isEmpty())) break;
+            EntityOtherPlayerMP entityOtherPlayerMP = Field5608.get(0);
+            if (entityOtherPlayerMP == null) {
+                Intrinsics.Method6551();
             }
+            this.Method7953(entityOtherPlayerMP.getGameProfile().getName());
+        }
+        Field5609 = 0;
+    }
 
-            Object var11 = var10.next();
-            EntityOtherPlayerMP var12 = (EntityOtherPlayerMP)var11;
-            boolean var13 = false;
-            if (Intrinsics.areEqual((Object)var12.getGameProfile().getName(), (Object)var1)) {
-               var10000 = true;
-               break;
-            }
-         }
-      }
+    public static boolean Method7959(f1R f1R2, String string) {
+        return f1R2.Method7953(string);
+    }
 
-      if (!var10000) {
-         fe4 var16 = fe4.field_1243;
-         int var15;
-         field_2436 = (var15 = field_2436) + 1;
-         EntityOtherPlayerMP var14 = var16.method_1898(var1, -10000 - var15, var6);
-         var14.setGameType(var4);
-         var14.capabilities.disableDamage = true;
-         var14.setPositionAndRotation(var2.x, var2.y, var2.z, var3.x, var3.y);
-         var14.rotationYawHead = var3.x;
-         var14.setHealth(var5);
-         if (!var7) {
-            var14.inventory.copyInventory(Minecraft.getMinecraft().player.inventory);
-         }
+    static {
+        f1R f1R2;
+        Field5610 = f1R2 = new f1R();
+        boolean bl = false;
+        Field5608 = new ArrayList();
+    }
 
-         field_2435.add(var14);
-         var10000 = true;
-      } else {
-         var10000 = false;
-      }
+    public static boolean Method7960(f1R f1R2, String string, Vec3d vec3d, Vec2f vec2f, GameType gameType, float f, boolean bl, boolean bl2) {
+        return f1R2.Method7956(string, vec3d, vec2f, gameType, f, bl, bl2);
+    }
 
-      return var10000;
-   }
+    @NotNull
+    public List Method7961() {
+        return Field5608;
+    }
 
-   // $FF: renamed from: c (java.util.List) void
-   public void method_3705(@NotNull List var1) {
-      field_2435 = var1;
-   }
-
-   // $FF: renamed from: 0 () void
-   public void method_3706() {
-      while(true) {
-         Collection var1 = (Collection)field_2435;
-         boolean var2 = false;
-         if (var1.isEmpty()) {
-            field_2436 = 0;
-            return;
-         }
-
-         Object var10001 = field_2435.get(0);
-         if (var10001 == null) {
-            Intrinsics.throwNpe();
-         }
-
-         this.method_3701(((EntityOtherPlayerMP)var10001).getGameProfile().getName());
-      }
-   }
-
-   // $FF: renamed from: c (dev.nuker.pyro.f1R, java.lang.String) boolean
-   public static boolean method_3707(f1R var0, String var1) {
-      return var0.method_3701(var1);
-   }
-
-   static {
-      f1R var0 = new f1R();
-      field_2437 = var0;
-      boolean var1 = false;
-      field_2435 = (List)(new ArrayList());
-   }
-
-   // $FF: renamed from: c (dev.nuker.pyro.f1R, java.lang.String, net.minecraft.util.math.Vec3d, net.minecraft.util.math.Vec2f, net.minecraft.world.GameType, float, boolean, boolean) boolean
-   public static boolean method_3708(f1R var0, String var1, Vec3d var2, Vec2f var3, GameType var4, float var5, boolean var6, boolean var7) {
-      return var0.method_3704(var1, var2, var3, var4, var5, var6, var7);
-   }
-
-   // $FF: renamed from: c () java.util.List
-   @NotNull
-   public List method_3709() {
-      return field_2435;
-   }
-
-   // $FF: renamed from: 1 () int
-   public int method_3710() {
-      return field_2436;
-   }
+    public int Method7962() {
+        return Field5609;
+    }
 }
+

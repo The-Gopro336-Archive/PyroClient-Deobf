@@ -1,6 +1,28 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.Minecraft
+ *  net.minecraft.client.audio.ISound
+ *  net.minecraft.client.audio.PositionedSoundRecord
+ *  net.minecraft.client.entity.EntityPlayerSP
+ *  net.minecraft.client.network.NetHandlerPlayClient
+ *  net.minecraft.entity.Entity
+ *  net.minecraft.entity.MoverType
+ *  net.minecraft.entity.item.EntityBoat
+ *  net.minecraft.init.SoundEvents
+ *  net.minecraft.inventory.IInventory
+ *  net.minecraft.network.Packet
+ *  net.minecraft.network.play.client.CPacketChatMessage
+ *  net.minecraft.network.play.client.CPacketEntityAction
+ *  net.minecraft.network.play.client.CPacketEntityAction$Action
+ *  net.minecraft.network.play.client.CPacketPlayer
+ *  net.minecraft.network.play.client.CPacketPlayer$Position
+ *  net.minecraft.network.play.client.CPacketPlayer$PositionRotation
+ *  net.minecraft.network.play.client.CPacketPlayer$Rotation
+ *  net.minecraft.util.MovementInput
+ *  net.minecraft.util.SoundEvent
+ *  net.minecraft.util.math.AxisAlignedBB
  */
 package dev.nuker.pyro.mixin;
 
@@ -17,7 +39,9 @@ import dev.nuker.pyro.f4u;
 import dev.nuker.pyro.f4v;
 import dev.nuker.pyro.f4x;
 import dev.nuker.pyro.fb2;
+import dev.nuker.pyro.mixin.EntityPlayerMixin;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.audio.ISound;
 import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.network.NetHandlerPlayClient;
@@ -26,315 +50,255 @@ import net.minecraft.entity.MoverType;
 import net.minecraft.entity.item.EntityBoat;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.network.Packet;
 import net.minecraft.network.play.client.CPacketChatMessage;
 import net.minecraft.network.play.client.CPacketEntityAction;
 import net.minecraft.network.play.client.CPacketPlayer;
-import net.minecraft.network.play.client.CPacketEntityAction.Action;
-import net.minecraft.network.play.client.CPacketPlayer.Position;
-import net.minecraft.network.play.client.CPacketPlayer.PositionRotation;
-import net.minecraft.network.play.client.CPacketPlayer.Rotation;
 import net.minecraft.util.MovementInput;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.AxisAlignedBB;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Class0;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin({EntityPlayerSP.class})
-public abstract class EntityPlayerSPMixin extends EntityPlayerMixin {
-   private f4u currWalkingPlayerEvent;
-   @Shadow
-   @Final
-   private NetHandlerPlayClient connection;
-   @Shadow
-   private double lastReportedPosX;
-   @Shadow
-   private double lastReportedPosY;
-   @Shadow
-   private double lastReportedPosZ;
-   @Shadow
-   private float lastReportedYaw;
-   @Shadow
-   private float lastReportedPitch;
-   @Shadow
-   private boolean prevOnGround;
-   @Shadow
-   private boolean serverSneakState;
-   @Shadow
-   private boolean serverSprintState;
-   @Shadow
-   private int positionUpdateTicks;
-   @Shadow
-   private boolean autoJumpEnabled;
-   // $FF: renamed from: mc net.minecraft.client.Minecraft
-   @Shadow
-   private Minecraft field_1398;
-   @Shadow
-   public float timeInPortal;
-   @Shadow
-   public MovementInput movementInput;
-   @Shadow
-   private boolean rowingBoat;
+@Mixin(value={EntityPlayerSP.class})
+public abstract class EntityPlayerSPMixin
+extends EntityPlayerMixin {
+    private f4u Field614;
+    @Shadow
+    @Final
+    private NetHandlerPlayClient Field615;
+    @Shadow
+    private double Field616;
+    @Shadow
+    private double Field617;
+    @Shadow
+    private double Field618;
+    @Shadow
+    private float Field619;
+    @Shadow
+    private float Field620;
+    @Shadow
+    private boolean Field621;
+    @Shadow
+    private boolean Field622;
+    @Shadow
+    private boolean Field623;
+    @Shadow
+    private int Field624;
+    @Shadow
+    private boolean Field625;
+    @Shadow
+    private Minecraft Field626;
+    @Shadow
+    public float Field627;
+    @Shadow
+    public MovementInput Field628;
+    @Shadow
+    private boolean Field629;
 
-   @Shadow
-   public void closeScreenAndDropStack() {
-   }
+    @Shadow
+    public void Method1120() {
+    }
 
-   @Shadow
-   public abstract boolean isCurrentViewEntity();
+    @Shadow
+    public abstract boolean Method1121();
 
-   @Shadow
-   public abstract boolean isSneaking();
+    @Override
+    @Shadow
+    public abstract boolean Method1122();
 
-   @Inject(
-      method = {"move"},
-      at = {@At("HEAD")},
-      cancellable = true
-   )
-   private void move(MoverType type, double x, double y, double z, CallbackInfo info) {
-      if ((Boolean)PyroStatic.field_2481.c.method_3034() && PyroStatic.field_2481.field_777.method_3334().c() == fb2.field_1472) {
-         Minecraft.getMinecraft().player.noClip = true;
-      }
+    @Inject(method={"move"}, at={@Class0(value="HEAD")}, cancellable=true)
+    private void Method1123(MoverType type, double x, double y, double z, CallbackInfo info) {
+        if (((Boolean)PyroStatic.Field6417.Field5236.Method5264()).booleanValue() && PyroStatic.Field6417.Field1714.Method7991().Method7979() == fb2.PACKET) {
+            Minecraft.getMinecraft().player.noClip = true;
+        }
+        f4p event = new f4p(f41.Pre, type, x, y, z, this.Method1122());
+        Pyro.Method8978().Method7918(event);
+        if (event.Method7947()) {
+            boolean wasSneaking = this.Method1122();
+            this.Field628.sneak = event.Method5594();
+            info.Method9034();
+            super.Method12582(event.Method5836(), event.Method5839(), event.Method5815(), event.Method5835());
+            this.Field628.sneak = wasSneaking;
+            Pyro.Method8978().Method7918(new f4p(f41.Post, type, x, y, z, this.Method1122()));
+        }
+    }
 
-      f4p event = new f4p(f41.field_2120, type, x, y, z, this.isSneaking());
-      Pyro.getEventManager().method_32(event);
-      if (event.c()) {
-         boolean wasSneaking = this.isSneaking();
-         this.movementInput.sneak = event.method_3121();
-         info.cancel();
-         super.move(event.method_3124(), event.method_3128(), event.method_3119(), event.method_3123());
-         this.movementInput.sneak = wasSneaking;
-         Pyro.getEventManager().method_32(new f4p(f41.field_2121, type, x, y, z, this.isSneaking()));
-      }
+    @Inject(method={"move"}, at={@Class0(value="RETURN")})
+    private void Method1124(MoverType type, double x, double y, double z, CallbackInfo info) {
+        Pyro.Method8978().Method7918(new f4p(f41.Post, type, x, y, z, this.Method1122()));
+    }
 
-   }
+    @Inject(method={"updateRidden"}, at={@Class0(value="RETURN")})
+    private void Method1125(CallbackInfo info) {
+        if (((Boolean)PyroStatic.Field6474.Field5236.Method5264()).booleanValue() && this.Method12586() instanceof EntityBoat) {
+            EntityBoat entityboat = (EntityBoat)this.Method12586();
+            entityboat.updateInputs(this.Field628.leftKeyDown, this.Field628.rightKeyDown, this.Field628.moveForward > 0.0f, this.Field628.backKeyDown);
+            this.Field629 |= this.Field628.leftKeyDown || this.Field628.rightKeyDown || this.Field628.moveForward > 0.0f || this.Field628.backKeyDown;
+        }
+    }
 
-   @Inject(
-      method = {"move"},
-      at = {@At("RETURN")}
-   )
-   private void movePost(MoverType type, double x, double y, double z, CallbackInfo info) {
-      Pyro.getEventManager().method_32(new f4p(f41.field_2121, type, x, y, z, this.isSneaking()));
-   }
+    @Inject(method={"isCurrentViewEntity"}, at={@Class0(value="HEAD")}, cancellable=true)
+    private void Method1126(CallbackInfoReturnable cir) {
+        if (((Boolean)PyroStatic.Field6417.Field5236.Method5264()).booleanValue() && PyroStatic.Field6417.Field1714.Method7991().Method7979() == fb2.CAMERA) {
+            cir.Method521(true);
+        }
+    }
 
-   @Inject(
-      method = {"updateRidden"},
-      at = {@At("RETURN")}
-   )
-   private void updateRiddenPost(CallbackInfo info) {
-      if ((Boolean)PyroStatic.field_2538.c.method_3034() && this.getRidingEntity() instanceof EntityBoat) {
-         EntityBoat entityboat = (EntityBoat)this.getRidingEntity();
-         entityboat.updateInputs(this.movementInput.leftKeyDown, this.movementInput.rightKeyDown, this.movementInput.moveForward > 0.0F, this.movementInput.backKeyDown);
-         this.rowingBoat |= this.movementInput.leftKeyDown || this.movementInput.rightKeyDown || this.movementInput.moveForward > 0.0F || this.movementInput.backKeyDown;
-      }
+    @Inject(method={"isUser"}, at={@Class0(value="HEAD")}, cancellable=true)
+    private void Method1127(CallbackInfoReturnable cir) {
+        if (((Boolean)PyroStatic.Field6417.Field5236.Method5264()).booleanValue() && PyroStatic.Field6417.Field1714.Method7991().Method7979() == fb2.CAMERA) {
+            cir.Method521(false);
+        }
+    }
 
-   }
+    @Inject(method={"onUpdate"}, at={@Class0(value="HEAD")})
+    public void Method1128(CallbackInfo ci) {
+        Pyro.Method8978().Method7918(new f4t());
+    }
 
-   @Inject(
-      method = {"isCurrentViewEntity"},
-      at = {@At("HEAD")},
-      cancellable = true
-   )
-   private void isFreecamOrRenderView(CallbackInfoReturnable cir) {
-      if ((Boolean)PyroStatic.field_2481.c.method_3034() && PyroStatic.field_2481.field_777.method_3334().c() == fb2.field_1471) {
-         cir.setReturnValue(true);
-      }
-
-   }
-
-   @Inject(
-      method = {"isUser"},
-      at = {@At("HEAD")},
-      cancellable = true
-   )
-   private void isFreecamingOrUser(CallbackInfoReturnable cir) {
-      if ((Boolean)PyroStatic.field_2481.c.method_3034() && PyroStatic.field_2481.field_777.method_3334().c() == fb2.field_1471) {
-         cir.setReturnValue(false);
-      }
-
-   }
-
-   @Inject(
-      method = {"onUpdate"},
-      at = {@At("HEAD")}
-   )
-   public void onUpdate(CallbackInfo ci) {
-      Pyro.getEventManager().method_32(new f4t());
-   }
-
-   private void syncSprintSneakPackets() {
-      boolean flag = this.isSprinting();
-      if (flag != this.serverSprintState) {
-         if (flag) {
-            this.connection.sendPacket(new CPacketEntityAction((EntityPlayerSP)this, Action.START_SPRINTING));
-         } else {
-            this.connection.sendPacket(new CPacketEntityAction((EntityPlayerSP)this, Action.STOP_SPRINTING));
-         }
-
-         this.serverSprintState = flag;
-      }
-
-      boolean flag1 = this.isSneaking();
-      if (flag1 != this.serverSneakState) {
-         if (flag1) {
-            this.connection.sendPacket(new CPacketEntityAction((EntityPlayerSP)this, Action.START_SNEAKING));
-         } else {
-            this.connection.sendPacket(new CPacketEntityAction((EntityPlayerSP)this, Action.STOP_SNEAKING));
-         }
-
-         this.serverSneakState = flag1;
-      }
-
-   }
-
-   private void sendPositionPackets(AxisAlignedBB axisAlignedBB) {
-      this.syncSprintSneakPackets();
-      if (this.isCurrentViewEntity()) {
-         double d0 = this.posX - this.lastReportedPosX;
-         double d1 = this.currWalkingPlayerEvent.method_3130() - this.lastReportedPosY;
-         double d2 = this.posZ - this.lastReportedPosZ;
-         double d3 = (double)(this.currWalkingPlayerEvent.method_3134() - this.lastReportedYaw);
-         double d4 = (double)(this.currWalkingPlayerEvent.method_3131() - this.lastReportedPitch);
-         ++this.positionUpdateTicks;
-         boolean flag2 = d0 * d0 + d1 * d1 + d2 * d2 > 9.0E-4D || this.positionUpdateTicks >= 20;
-         boolean flag3 = d3 != 0.0D || d4 != 0.0D;
-         if (this.isRiding()) {
-            this.connection.sendPacket(new PositionRotation(this.motionX, -999.0D, this.motionZ, this.currWalkingPlayerEvent.method_3134(), this.currWalkingPlayerEvent.method_3131(), this.currWalkingPlayerEvent.method_3132()));
-            flag2 = false;
-         } else if (flag2 && flag3) {
-            this.connection.sendPacket(new PositionRotation(this.posX, this.currWalkingPlayerEvent.method_3130(), this.posZ, this.currWalkingPlayerEvent.method_3134(), this.currWalkingPlayerEvent.method_3131(), this.currWalkingPlayerEvent.method_3132()));
-         } else if (flag2) {
-            this.connection.sendPacket(new Position(this.posX, this.currWalkingPlayerEvent.method_3130(), this.posZ, this.currWalkingPlayerEvent.method_3132()));
-         } else if (flag3) {
-            this.connection.sendPacket(new Rotation(this.currWalkingPlayerEvent.method_3134(), this.currWalkingPlayerEvent.method_3131(), this.currWalkingPlayerEvent.method_3132()));
-         } else if (this.prevOnGround != this.currWalkingPlayerEvent.method_3132()) {
-            this.connection.sendPacket(new CPacketPlayer(this.currWalkingPlayerEvent.method_3132()));
-         }
-
-         if (flag2) {
-            this.lastReportedPosX = this.posX;
-            this.lastReportedPosY = this.currWalkingPlayerEvent.method_3130();
-            this.lastReportedPosZ = this.posZ;
-            this.positionUpdateTicks = 0;
-         }
-
-         if (flag3) {
-            this.lastReportedYaw = this.currWalkingPlayerEvent.method_3134();
-            this.lastReportedPitch = this.currWalkingPlayerEvent.method_3131();
-         }
-
-         this.prevOnGround = this.currWalkingPlayerEvent.method_3132();
-         this.autoJumpEnabled = this.field_1398.gameSettings.autoJump;
-      }
-
-   }
-
-   @Inject(
-      method = {"onUpdateWalkingPlayer"},
-      at = {@At("HEAD")},
-      cancellable = true
-   )
-   public void onUpdateWalkingPlayer(CallbackInfo ci) {
-      AxisAlignedBB axisalignedbb = this.getEntityBoundingBox();
-      Pyro.getEventManager().method_32(this.currWalkingPlayerEvent = new f4u(f41.field_2120, this.rotationPitch, this.rotationYaw, axisalignedbb.minY, this.onGround));
-      if (this.currWalkingPlayerEvent.method_3136()) {
-         ci.cancel();
-         this.syncSprintSneakPackets();
-         this.currWalkingPlayerEvent.c(f41.field_2121);
-         Pyro.getEventManager().method_32(this.currWalkingPlayerEvent);
-      } else {
-         if (this.currWalkingPlayerEvent.c()) {
-            Pyro.rotationManager.method_3457(this.currWalkingPlayerEvent.method_3131());
-            Pyro.rotationManager.method_3454(this.currWalkingPlayerEvent.method_3134());
-            ci.cancel();
-            Pyro.getEventManager().method_32(new f4v(f41.field_2120, this.currWalkingPlayerEvent));
-            this.sendPositionPackets(axisalignedbb);
-            if (this.currWalkingPlayerEvent.method_3137() != null) {
-               this.currWalkingPlayerEvent.method_3137().accept((EntityPlayerSP)this);
+    private void Method1129() {
+        boolean flag1;
+        boolean flag = this.Method12583();
+        if (flag != this.Field623) {
+            if (flag) {
+                this.Field615.sendPacket((Packet)new CPacketEntityAction((Entity)((EntityPlayerSP)this), CPacketEntityAction.Action.START_SPRINTING));
+            } else {
+                this.Field615.sendPacket((Packet)new CPacketEntityAction((Entity)((EntityPlayerSP)this), CPacketEntityAction.Action.STOP_SPRINTING));
             }
-         }
-
-         this.currWalkingPlayerEvent.c(f41.field_2121);
-         Pyro.getEventManager().method_32(this.currWalkingPlayerEvent);
-      }
-   }
-
-   @Inject(
-      method = {"pushOutOfBlocks"},
-      at = {@At("HEAD")},
-      cancellable = true
-   )
-   public void pushOutOfBlocks(double x, double y, double z, CallbackInfoReturnable info) {
-      f4x event = new f4x();
-      Pyro.getEventManager().method_32(event);
-      if (event.c()) {
-         info.setReturnValue(false);
-      }
-
-   }
-
-   @Inject(
-      method = {"onLivingUpdate"},
-      at = {@At("HEAD")}
-   )
-   public void preLivingUpdate(CallbackInfo ci) {
-      if (this.inPortal) {
-         if (this.timeInPortal == 0.0F) {
-            this.field_1398.getSoundHandler().playSound(PositionedSoundRecord.getMasterRecord(SoundEvents.BLOCK_PORTAL_TRIGGER, this.rand.nextFloat() * 0.4F + 0.8F));
-         }
-
-         this.timeInPortal += 0.0125F;
-         if (this.timeInPortal >= 1.0F) {
-            this.timeInPortal = 1.0F;
-         }
-
-         this.inPortal = false;
-      }
-
-   }
-
-   @Inject(
-      method = {"sendChatMessage"},
-      at = {@At("HEAD")},
-      cancellable = true
-   )
-   public void sendChatMessage(String originalMessage, CallbackInfo info) {
-      if (originalMessage.startsWith(Config.INSTANCE.chatPrefix)) {
-         Minecraft.getMinecraft().ingameGUI.getChatGUI().addToSentMessages(originalMessage);
-         f3e.method_3213(originalMessage.substring(Config.INSTANCE.chatPrefix.length()));
-         info.cancel();
-      } else {
-         f4i event = new f4i(originalMessage);
-         Pyro.getEventManager().method_32(event);
-         if (event.c()) {
-            info.cancel();
-            if (event.method_3141() != null) {
-               this.connection.sendPacket(new CPacketChatMessage(event.method_3141()));
+            this.Field623 = flag;
+        }
+        if ((flag1 = this.Method1122()) != this.Field622) {
+            if (flag1) {
+                this.Field615.sendPacket((Packet)new CPacketEntityAction((Entity)((EntityPlayerSP)this), CPacketEntityAction.Action.START_SNEAKING));
+            } else {
+                this.Field615.sendPacket((Packet)new CPacketEntityAction((Entity)((EntityPlayerSP)this), CPacketEntityAction.Action.STOP_SNEAKING));
             }
-         }
-      }
+            this.Field622 = flag1;
+        }
+    }
 
-   }
+    private void Method1130(AxisAlignedBB axisAlignedBB) {
+        this.Method1129();
+        if (this.Method1121()) {
+            boolean flag3;
+            double d0 = this.Field7643 - this.Field616;
+            double d1 = this.Field614.Method5815() - this.Field617;
+            double d2 = this.Field7645 - this.Field618;
+            double d3 = this.Field614.Method5817() - this.Field619;
+            double d4 = this.Field614.Method5651() - this.Field620;
+            ++this.Field624;
+            boolean flag2 = d0 * d0 + d1 * d1 + d2 * d2 > 9.0E-4 || this.Field624 >= 20;
+            boolean bl = flag3 = d3 != 0.0 || d4 != 0.0;
+            if (this.Method12585()) {
+                this.Field615.sendPacket((Packet)new CPacketPlayer.PositionRotation(this.Field7646, -999.0, this.Field7648, this.Field614.Method5817(), this.Field614.Method5651(), this.Field614.Method5594()));
+                flag2 = false;
+            } else if (flag2 && flag3) {
+                this.Field615.sendPacket((Packet)new CPacketPlayer.PositionRotation(this.Field7643, this.Field614.Method5815(), this.Field7645, this.Field614.Method5817(), this.Field614.Method5651(), this.Field614.Method5594()));
+            } else if (flag2) {
+                this.Field615.sendPacket((Packet)new CPacketPlayer.Position(this.Field7643, this.Field614.Method5815(), this.Field7645, this.Field614.Method5594()));
+            } else if (flag3) {
+                this.Field615.sendPacket((Packet)new CPacketPlayer.Rotation(this.Field614.Method5817(), this.Field614.Method5651(), this.Field614.Method5594()));
+            } else if (this.Field621 != this.Field614.Method5594()) {
+                this.Field615.sendPacket((Packet)new CPacketPlayer(this.Field614.Method5594()));
+            }
+            if (flag2) {
+                this.Field616 = this.Field7643;
+                this.Field617 = this.Field614.Method5815();
+                this.Field618 = this.Field7645;
+                this.Field624 = 0;
+            }
+            if (flag3) {
+                this.Field619 = this.Field614.Method5817();
+                this.Field620 = this.Field614.Method5651();
+            }
+            this.Field621 = this.Field614.Method5594();
+            this.Field625 = this.Field626.gameSettings.autoJump;
+        }
+    }
 
-   @Inject(
-      method = {"displayGUIChest"},
-      at = {@At("HEAD")}
-   )
-   public void displayGUIChest(IInventory inv, CallbackInfo info) {
-      if ((Boolean)PyroStatic.field_2595.c.method_3034()) {
-         PyroStatic.field_2595.method_462(inv);
-      }
+    @Inject(method={"onUpdateWalkingPlayer"}, at={@Class0(value="HEAD")}, cancellable=true)
+    public void Method1131(CallbackInfo ci) {
+        AxisAlignedBB axisalignedbb = this.Method12584();
+        this.Field614 = new f4u(f41.Pre, this.Field7641, this.Field7642, axisalignedbb.minY, this.Field7649);
+        Pyro.Method8978().Method7918(this.Field614);
+        if (this.Field614.Method5818()) {
+            ci.Method9034();
+            this.Method1129();
+            this.Field614.Method5620(f41.Post);
+            Pyro.Method8978().Method7918(this.Field614);
+            return;
+        }
+        if (this.Field614.Method7947()) {
+            Pyro.Field6184.Method7539(this.Field614.Method5651());
+            Pyro.Field6184.Method7536(this.Field614.Method5817());
+            ci.Method9034();
+            Pyro.Method8978().Method7918(new f4v(f41.Pre, this.Field614));
+            this.Method1130(axisalignedbb);
+            if (this.Field614.Method5819() != null) {
+                this.Field614.Method5819().accept((EntityPlayerSP)this);
+            }
+        }
+        this.Field614.Method5620(f41.Post);
+        Pyro.Method8978().Method7918(this.Field614);
+    }
 
-   }
+    @Inject(method={"pushOutOfBlocks"}, at={@Class0(value="HEAD")}, cancellable=true)
+    public void Method1132(double x, double y, double z, CallbackInfoReturnable info) {
+        f4x event = new f4x();
+        Pyro.Method8978().Method7918(event);
+        if (event.Method7947()) {
+            info.Method521(false);
+        }
+    }
 
-   @Inject(
-      method = {"startRiding"},
-      at = {@At("HEAD")}
-   )
-   public void startRiding(Entity entity, boolean forced, CallbackInfoReturnable info) {
-      Pyro.getEventManager().method_32(new f4r(entity));
-   }
+    @Inject(method={"onLivingUpdate"}, at={@Class0(value="HEAD")})
+    public void Method1133(CallbackInfo ci) {
+        if (this.Field7653) {
+            if (this.Field627 == 0.0f) {
+                this.Field626.getSoundHandler().playSound((ISound)PositionedSoundRecord.getMasterRecord((SoundEvent)SoundEvents.BLOCK_PORTAL_TRIGGER, (float)(this.Field7654.nextFloat() * 0.4f + 0.8f)));
+            }
+            this.Field627 += 0.0125f;
+            if (this.Field627 >= 1.0f) {
+                this.Field627 = 1.0f;
+            }
+            this.Field7653 = false;
+        }
+    }
+
+    @Inject(method={"sendChatMessage"}, at={@Class0(value="HEAD")}, cancellable=true)
+    public void Method1134(String originalMessage, CallbackInfo info) {
+        if (originalMessage.startsWith(Config.Field3937.Field3931)) {
+            Minecraft.getMinecraft().ingameGUI.getChatGUI().addToSentMessages(originalMessage);
+            f3e.Method5655(originalMessage.substring(Config.Field3937.Field3931.length()));
+            info.Method9034();
+        } else {
+            f4i event = new f4i(originalMessage);
+            Pyro.Method8978().Method7918(event);
+            if (event.Method7947()) {
+                info.Method9034();
+                if (event.Method5798() != null) {
+                    this.Field615.sendPacket((Packet)new CPacketChatMessage(event.Method5798()));
+                }
+            }
+        }
+    }
+
+    @Inject(method={"displayGUIChest"}, at={@Class0(value="HEAD")})
+    public void Method1135(IInventory inv, CallbackInfo info) {
+        if (((Boolean)PyroStatic.Field6531.Field5236.Method5264()).booleanValue()) {
+            PyroStatic.Field6531.Method5342(inv);
+        }
+    }
+
+    @Inject(method={"startRiding"}, at={@Class0(value="HEAD")})
+    public void Method1136(Entity entity, boolean forced, CallbackInfoReturnable info) {
+        Pyro.Method8978().Method7918(new f4r(entity));
+    }
 }
+

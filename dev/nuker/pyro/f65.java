@@ -1,22 +1,39 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-public enum f65 {
-   // $FF: renamed from: c dev.nuker.pyro.f65
-   field_2194,
-   // $FF: renamed from: 0 dev.nuker.pyro.f65
-   field_2195,
-   // $FF: renamed from: 1 dev.nuker.pyro.f65
-   field_2196;
+public class f65
+extends Enum {
+    public static /* enum */ f65 NONE;
+    public static /* enum */ f65 CLIENTSIDE;
+    public static /* enum */ f65 SERVERSIDE;
+    public static /* synthetic */ f65[] Field4178;
 
-   // $FF: renamed from: c dev.nuker.pyro.f65[]
-   public static f65[] field_2197 = new f65[]{field_2194 = new f65("NONE", 0), field_2195 = new f65("CLIENTSIDE", 1), field_2196 = new f65("SERVERSIDE", 2)};
+    static {
+        f65[] arrf65 = new f65[3];
+        f65[] arrf652 = arrf65;
+        arrf65[0] = NONE = new f65("NONE", 0);
+        arrf65[1] = CLIENTSIDE = new f65("CLIENTSIDE", 1);
+        arrf65[2] = SERVERSIDE = new f65("SERVERSIDE", 2);
+        Field4178 = arrf65;
+    }
 
-   // $FF: renamed from: c (java.lang.String) dev.nuker.pyro.f65
-   public static f65 method_3271(String var0) {
-      return (f65)Enum.valueOf(f65.class, var0);
-   }
+    /*
+     * WARNING - Possible parameter corruption
+     * WARNING - void declaration
+     */
+    public f65() {
+        void var2_-1;
+        void var1_-1;
+    }
+
+    public static f65 Method5807(String string) {
+        return Enum.valueOf(f65.class, string);
+    }
+
+    public static f65[] Method5808() {
+        return (f65[])Field4178.clone();
+    }
 }
+

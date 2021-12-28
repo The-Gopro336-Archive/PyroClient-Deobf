@@ -1,10 +1,25 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.block.Block
+ *  net.minecraft.block.BlockLiquid
+ *  net.minecraft.block.state.IBlockState
+ *  net.minecraft.entity.Entity
+ *  net.minecraft.entity.player.EntityPlayer
+ *  net.minecraft.init.Blocks
+ *  net.minecraft.init.Items
+ *  net.minecraft.item.Item
+ *  net.minecraft.item.ItemArmor
+ *  net.minecraft.item.ItemFood
+ *  net.minecraft.item.ItemStack
+ *  net.minecraft.util.math.BlockPos
+ *  net.minecraft.util.math.MathHelper
+ *  net.minecraft.world.IBlockAccess
  */
 package dev.nuker.pyro;
 
-import java.util.Iterator;
+import dev.nuker.pyro.fdZ;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.state.IBlockState;
@@ -18,158 +33,129 @@ import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.IBlockAccess;
 
-public class fe9 extends fdZ {
-   // $FF: renamed from: c (net.minecraft.entity.Entity, boolean) boolean
-   public boolean method_1822(Entity var1, boolean var2) {
-      BlockPos var3 = new BlockPos(MathHelper.floor(var1.posX), MathHelper.floor(var1.posY), MathHelper.floor(var1.posZ));
-      BlockPos[] var4 = new BlockPos[]{var3.north(), var3.south(), var3.west(), var3.east(), var3.north().up(), var3.south().up(), var3.west().up(), var3.east().up(), var3.up().up().east(), var3.up().up()};
-      BlockPos[] var5 = new BlockPos[]{var3.north(), var3.south(), var3.west(), var3.east(), var3.up().up()};
-      BlockPos[] var6 = var2 ? var4 : var5;
-      int var7 = var6.length;
-
-      for(int var8 = 0; var8 < var7; ++var8) {
-         BlockPos var9 = var6[var8];
-         IBlockState var10 = c.world.getBlockState(var9);
-         if (c.world.isAirBlock(var9) || var10.getBlock() instanceof BlockLiquid || var10.getBlock().isReplaceable(c.world, var9)) {
+public class fe9
+extends fdZ {
+    public boolean Method343(Entity entity, boolean bl) {
+        BlockPos blockPos = new BlockPos(MathHelper.floor((double)entity.posX), MathHelper.floor((double)entity.posY), MathHelper.floor((double)entity.posZ));
+        BlockPos[] arrblockPos = new BlockPos[]{blockPos.north(), blockPos.south(), blockPos.west(), blockPos.east(), blockPos.north().up(), blockPos.south().up(), blockPos.west().up(), blockPos.east().up(), blockPos.up().up().east(), blockPos.up().up()};
+        BlockPos[] arrblockPos2 = new BlockPos[]{blockPos.north(), blockPos.south(), blockPos.west(), blockPos.east(), blockPos.up().up()};
+        for (BlockPos blockPos2 : bl ? arrblockPos : arrblockPos2) {
+            IBlockState iBlockState = fe9.Field313.world.getBlockState(blockPos2);
+            if (!fe9.Field313.world.isAirBlock(blockPos2) && !(iBlockState.getBlock() instanceof BlockLiquid) && !iBlockState.getBlock().isReplaceable((IBlockAccess)fe9.Field313.world, blockPos2)) continue;
             return false;
-         }
-      }
+        }
+        return true;
+    }
 
-      return true;
-   }
-
-   // $FF: renamed from: c (net.minecraft.entity.Entity, net.minecraft.block.Block) boolean
-   public static boolean method_1823(Entity var0, Block var1) {
-      BlockPos var2 = new BlockPos(Math.floor(var0.posX), Math.floor(var0.posY), Math.floor(var0.posZ));
-      BlockPos[] var3 = new BlockPos[]{var2.north(), var2.south(), var2.east(), var2.west()};
-      int var4 = 0;
-      BlockPos[] var5 = var3;
-      int var6 = var3.length;
-
-      for(int var7 = 0; var7 < var6; ++var7) {
-         BlockPos var8 = var5[var7];
-         IBlockState var9 = c.world.getBlockState(var8);
-         if (var9.getBlock() != Blocks.AIR && var9.isFullBlock()) {
-            if (var1.equals(Blocks.OBSIDIAN)) {
-               if (var9.getBlock().equals(Blocks.OBSIDIAN) || var9.getBlock().equals(Blocks.BEDROCK)) {
-                  ++var4;
-               }
-            } else if (var9.getBlock().equals(var1)) {
-               ++var4;
+    public static boolean Method501(Entity entity, Block block) {
+        BlockPos blockPos = new BlockPos(Math.floor(entity.posX), Math.floor(entity.posY), Math.floor(entity.posZ));
+        BlockPos[] arrblockPos = new BlockPos[]{blockPos.north(), blockPos.south(), blockPos.east(), blockPos.west()};
+        int n = 0;
+        for (BlockPos blockPos2 : arrblockPos) {
+            IBlockState iBlockState = fe9.Field313.world.getBlockState(blockPos2);
+            if (iBlockState.getBlock() == Blocks.AIR || !iBlockState.isFullBlock()) continue;
+            if (block.equals((Object)Blocks.OBSIDIAN)) {
+                if (!iBlockState.getBlock().equals((Object)Blocks.OBSIDIAN) && !iBlockState.getBlock().equals((Object)Blocks.BEDROCK)) continue;
+                ++n;
+                continue;
             }
-         }
-      }
+            if (!iBlockState.getBlock().equals((Object)block)) continue;
+            ++n;
+        }
+        return n >= 4;
+    }
 
-      return var4 >= 4;
-   }
+    public static boolean Method502(EntityPlayer entityPlayer) {
+        return entityPlayer != null && entityPlayer.getHeldItemMainhand().getItem() instanceof ItemFood && entityPlayer.isHandActive();
+    }
 
-   // $FF: renamed from: c (net.minecraft.entity.player.EntityPlayer) boolean
-   public static boolean method_1824(EntityPlayer var0) {
-      return var0 != null && var0.getHeldItemMainhand().getItem() instanceof ItemFood && var0.isHandActive();
-   }
-
-   // $FF: renamed from: c (int) float
-   public static float method_1825(int var0) {
-      float var1 = 100.0F;
-      Iterator var2 = c.player.getArmorInventoryList().iterator();
-
-      while(true) {
-         ItemStack var3;
-         do {
-            do {
-               do {
-                  do {
-                     do {
-                        if (!var2.hasNext()) {
-                           return var1;
-                        }
-
-                        var3 = (ItemStack)var2.next();
-                     } while(var0 == 0 && var3.getItem() != Items.DIAMOND_HELMET);
-                  } while(var0 == 1 && var3.getItem() != Items.DIAMOND_CHESTPLATE);
-               } while(var0 == 2 && var3.getItem() != Items.DIAMOND_LEGGINGS);
-            } while(var0 == 3 && var3.getItem() != Items.DIAMOND_BOOTS);
-         } while(var0 == 5 && (!(var3.getItem() instanceof ItemArmor) || var3.isEmpty()));
-
-         var1 = (float)(var3.getMaxDamage() - var3.getItemDamage()) / (float)var3.getMaxDamage() * 100.0F;
-      }
-   }
-
-   // $FF: renamed from: c (net.minecraft.entity.player.EntityPlayer, net.minecraft.item.Item) boolean
-   public static boolean method_1826(EntityPlayer var0, Item var1) {
-      return var0 != null && var0.getHeldItemMainhand().getItem() instanceof ItemFood && var0.isHandActive() && var0.getHeldItemMainhand().getItem().equals(var1);
-   }
-
-   // $FF: renamed from: 1 (net.minecraft.item.Item) int
-   public static int method_1827(Item var0) {
-      for(int var1 = 0; var1 < 9; ++var1) {
-         ItemStack var2 = c.player.inventory.getStackInSlot(var1);
-         if (var2 != ItemStack.EMPTY && var2.getItem() == var0) {
-            return var1;
-         }
-      }
-
-      return -1;
-   }
-
-   // $FF: renamed from: 2 (net.minecraft.item.Item) int
-   public static int method_1828(Item var0) {
-      for(int var1 = 0; var1 < c.player.inventoryContainer.getInventory().size(); ++var1) {
-         if (var1 != 0 && var1 != 5 && var1 != 6 && var1 != 7 && var1 != 8) {
-            ItemStack var2 = (ItemStack)c.player.inventoryContainer.getInventory().get(var1);
-            if (!var2.isEmpty() && var2.getItem().equals(var0)) {
-               return var1;
+    public static float Method503(int n) {
+        float f = 100.0f;
+        for (ItemStack itemStack : fe9.Field313.player.getArmorInventoryList()) {
+            if (n == 0 && itemStack.getItem() != Items.DIAMOND_HELMET || n == 1 && itemStack.getItem() != Items.DIAMOND_CHESTPLATE || n == 2 && itemStack.getItem() != Items.DIAMOND_LEGGINGS) continue;
+            if (n == 3) {
+                if (itemStack.getItem() != Items.DIAMOND_BOOTS) continue;
             }
-         }
-      }
+            if (n == 5 && (!(itemStack.getItem() instanceof ItemArmor) || itemStack.isEmpty())) continue;
+            f = (float)(itemStack.getMaxDamage() - itemStack.getItemDamage()) / (float)itemStack.getMaxDamage() * 100.0f;
+        }
+        return f;
+    }
 
-      return -1;
-   }
+    /*
+     * Enabled force condition propagation
+     * Lifted jumps to return sites
+     */
+    public static boolean Method504(EntityPlayer entityPlayer, Item item) {
+        if (entityPlayer == null) return false;
+        if (!(entityPlayer.getHeldItemMainhand().getItem() instanceof ItemFood)) return false;
+        if (!entityPlayer.isHandActive()) return false;
+        if (!entityPlayer.getHeldItemMainhand().getItem().equals((Object)item)) return false;
+        return true;
+    }
 
-   // $FF: renamed from: 0 (net.minecraft.item.Item) int
-   public static int method_1829(Item var0) {
-      if (c.player == null) {
-         return 0;
-      } else {
-         for(int var1 = 9; var1 < 36; ++var1) {
-            Item var2 = c.player.inventory.getStackInSlot(var1).getItem();
-            if (var2 == var0) {
-               return var1;
-            }
-         }
+    public static int Method497(Item item) {
+        for (int i = 0; i < 9; ++i) {
+            ItemStack itemStack = fe9.Field313.player.inventory.getStackInSlot(i);
+            if (itemStack == ItemStack.EMPTY) continue;
+            if (itemStack.getItem() != item) continue;
+            return i;
+        }
+        return -1;
+    }
 
-         return -1;
-      }
-   }
+    public static int Method505(Item item) {
+        for (int i = 0; i < fe9.Field313.player.inventoryContainer.getInventory().size(); ++i) {
+            ItemStack itemStack;
+            if (i == 0) continue;
+            if (i == 5) continue;
+            if (i == 6) continue;
+            if (i == 7 || i == 8 || (itemStack = (ItemStack)fe9.Field313.player.inventoryContainer.getInventory().get(i)).isEmpty() || !itemStack.getItem().equals((Object)item)) continue;
+            return i;
+        }
+        return -1;
+    }
 
-   // $FF: renamed from: c (net.minecraft.entity.Entity) net.minecraft.util.math.BlockPos
-   public static BlockPos method_1830(Entity var0) {
-      return var0 == null ? BlockPos.ORIGIN : new BlockPos(Math.floor(var0.posX), Math.floor(var0.posY), Math.floor(var0.posZ));
-   }
+    public static int Method496(Item item) {
+        if (fe9.Field313.player == null) {
+            return 0;
+        }
+        for (int i = 9; i < 36; ++i) {
+            Item item2 = fe9.Field313.player.inventory.getStackInSlot(i).getItem();
+            if (item2 != item) continue;
+            return i;
+        }
+        return -1;
+    }
 
-   // $FF: renamed from: 0 (net.minecraft.entity.player.EntityPlayer) float
-   public static float method_1831(EntityPlayer var0) {
-      return var0.getHealth() + var0.getAbsorptionAmount();
-   }
+    public static BlockPos Method506(Entity entity) {
+        if (entity == null) {
+            return BlockPos.ORIGIN;
+        }
+        return new BlockPos(Math.floor(entity.posX), Math.floor(entity.posY), Math.floor(entity.posZ));
+    }
 
-   // $FF: renamed from: c (net.minecraft.item.ItemStack) float
-   public static float method_1832(ItemStack var0) {
-      return (float)(var0.getMaxDamage() - var0.getItemDamage()) / (float)var0.getMaxDamage() * 100.0F;
-   }
+    public static float Method507(EntityPlayer entityPlayer) {
+        return entityPlayer.getHealth() + entityPlayer.getAbsorptionAmount();
+    }
 
-   // $FF: renamed from: c (net.minecraft.item.Item) void
-   public static void method_1833(Item var0) {
-      if (c.player.getHeldItemMainhand().getItem() != var0) {
-         for(int var1 = 0; var1 < 9; ++var1) {
-            ItemStack var2 = c.player.inventory.getStackInSlot(var1);
-            if (!var2.isEmpty() && var2.getItem() == var0) {
-               c.player.inventory.currentItem = var1;
-               c.playerController.updateController();
-               break;
-            }
-         }
+    public static float Method508(ItemStack itemStack) {
+        return (float)(itemStack.getMaxDamage() - itemStack.getItemDamage()) / (float)itemStack.getMaxDamage() * 100.0f;
+    }
 
-      }
-   }
+    public static void Method509(Item item) {
+        if (fe9.Field313.player.getHeldItemMainhand().getItem() == item) {
+            return;
+        }
+        for (int i = 0; i < 9; ++i) {
+            ItemStack itemStack = fe9.Field313.player.inventory.getStackInSlot(i);
+            if (itemStack.isEmpty() || itemStack.getItem() != item) continue;
+            fe9.Field313.player.inventory.currentItem = i;
+            fe9.Field313.playerController.updateController();
+            break;
+        }
+    }
 }
+

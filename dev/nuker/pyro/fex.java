@@ -1,9 +1,15 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.util.EnumFacing
+ *  net.minecraft.util.math.Vec3d
+ *  org.jetbrains.annotations.NotNull
+ *  org.jetbrains.annotations.Nullable
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.Rotation;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import net.minecraft.util.EnumFacing;
@@ -12,120 +18,102 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class fex {
-   // $FF: renamed from: c net.minecraft.util.math.Vec3d
-   @NotNull
-   public Vec3d field_1394;
-   // $FF: renamed from: c dev.nuker.pyro.Rotation
-   @NotNull
-   public Rotation field_1395;
-   // $FF: renamed from: c net.minecraft.util.EnumFacing
-   @Nullable
-   public EnumFacing field_1396;
+    @NotNull
+    public Vec3d Field536;
+    @NotNull
+    public Rotation Field537;
+    @Nullable
+    public EnumFacing Field538;
 
-   // $FF: renamed from: 3 () net.minecraft.util.EnumFacing
-   @Nullable
-   public EnumFacing method_2074() {
-      return this.field_1396;
-   }
+    @Nullable
+    public EnumFacing Method889() {
+        return this.Field538;
+    }
 
-   // $FF: renamed from: 2 () net.minecraft.util.math.Vec3d
-   @NotNull
-   public Vec3d method_2075() {
-      return this.field_1394;
-   }
+    @NotNull
+    public Vec3d Method890() {
+        return this.Field536;
+    }
 
-   public fex(Vec3d var1, Rotation var2, EnumFacing var3, int var4, DefaultConstructorMarker var5) {
-      if ((var4 & 4) != 0) {
-         var3 = (EnumFacing)null;
-      }
+    public fex(Vec3d vec3d, Rotation rotation, EnumFacing enumFacing, int n, DefaultConstructorMarker defaultConstructorMarker) {
+        if ((n & 4) != 0) {
+            enumFacing = null;
+        }
+        this(vec3d, rotation, enumFacing);
+    }
 
-      this(var1, var2, var3);
-   }
+    public fex(@NotNull Vec3d vec3d, @NotNull Rotation rotation) {
+        this(vec3d, rotation, null);
+    }
 
-   public fex(@NotNull Vec3d var1, @NotNull Rotation var2) {
-      this(var1, var2, (EnumFacing)null);
-   }
+    @NotNull
+    public Rotation Method891() {
+        return this.Field537;
+    }
 
-   // $FF: renamed from: 4 () dev.nuker.pyro.Rotation
-   @NotNull
-   public Rotation method_2076() {
-      return this.field_1395;
-   }
+    @NotNull
+    public Vec3d Method892() {
+        return this.Field536;
+    }
 
-   // $FF: renamed from: 0 () net.minecraft.util.math.Vec3d
-   @NotNull
-   public Vec3d method_2077() {
-      return this.field_1394;
-   }
+    public int hashCode() {
+        Vec3d vec3d = this.Field536;
+        Rotation rotation = this.Field537;
+        EnumFacing enumFacing = this.Field538;
+        return ((vec3d != null ? vec3d.hashCode() : 0) * 31 + (rotation != null ? ((Object)rotation).hashCode() : 0)) * 31 + (enumFacing != null ? enumFacing.hashCode() : 0);
+    }
 
-   public int hashCode() {
-      Vec3d var10000 = this.field_1394;
-      int var1 = (var10000 != null ? var10000.hashCode() : 0) * 31;
-      Rotation var10001 = this.field_1395;
-      var1 = (var1 + (var10001 != null ? var10001.hashCode() : 0)) * 31;
-      EnumFacing var2 = this.field_1396;
-      return var1 + (var2 != null ? var2.hashCode() : 0);
-   }
-
-   public boolean equals(@Nullable Object var1) {
-      if (this != var1) {
-         if (var1 instanceof fex) {
-            fex var2 = (fex)var1;
-            if (Intrinsics.areEqual((Object)this.field_1394, (Object)var2.field_1394) && Intrinsics.areEqual((Object)this.field_1395, (Object)var2.field_1395) && Intrinsics.areEqual((Object)this.field_1396, (Object)var2.field_1396)) {
-               return true;
+    public boolean equals(@Nullable Object object) {
+        block3: {
+            block2: {
+                if (this == object) break block2;
+                if (!(object instanceof fex)) break block3;
+                fex fex2 = (fex)object;
+                if (!Intrinsics.Method6572((Object)this.Field536, (Object)fex2.Field536)) break block3;
+                if (!Intrinsics.Method6572(this.Field537, fex2.Field537) || !Intrinsics.Method6572((Object)this.Field538, (Object)fex2.Field538)) break block3;
             }
-         }
+            return true;
+        }
+        return false;
+    }
 
-         return false;
-      } else {
-         return true;
-      }
-   }
+    @Nullable
+    public EnumFacing Method893() {
+        return this.Field538;
+    }
 
-   // $FF: renamed from: c () net.minecraft.util.EnumFacing
-   @Nullable
-   public EnumFacing method_2078() {
-      return this.field_1396;
-   }
+    @NotNull
+    public Rotation Method894() {
+        return this.Field537;
+    }
 
-   // $FF: renamed from: 1 () dev.nuker.pyro.Rotation
-   @NotNull
-   public Rotation method_2079() {
-      return this.field_1395;
-   }
+    @NotNull
+    public String toString() {
+        return "VecRotation(vec=" + (Object)this.Field536 + ", rotation=" + this.Field537 + ", sideHit=" + (Object)this.Field538 + ")";
+    }
 
-   @NotNull
-   public String toString() {
-      return "VecRotation(vec=" + this.field_1394 + ", rotation=" + this.field_1395 + ", sideHit=" + this.field_1396 + ")";
-   }
+    public static fex Method895(fex fex2, Vec3d vec3d, Rotation rotation, EnumFacing enumFacing, int n, Object object) {
+        if ((n & 1) != 0) {
+            vec3d = fex2.Field536;
+        }
+        if ((n & 2) != 0) {
+            rotation = fex2.Field537;
+        }
+        if ((n & 4) != 0) {
+            enumFacing = fex2.Field538;
+        }
+        return fex2.Method896(vec3d, rotation, enumFacing);
+    }
 
-   // $FF: renamed from: c (dev.nuker.pyro.fex, net.minecraft.util.math.Vec3d, dev.nuker.pyro.Rotation, net.minecraft.util.EnumFacing, int, java.lang.Object) dev.nuker.pyro.fex
-   public static fex method_2080(fex var0, Vec3d var1, Rotation var2, EnumFacing var3, int var4, Object var5) {
-      if ((var4 & 1) != 0) {
-         var1 = var0.field_1394;
-      }
+    @NotNull
+    public fex Method896(@NotNull Vec3d vec3d, @NotNull Rotation rotation, @Nullable EnumFacing enumFacing) {
+        return new fex(vec3d, rotation, enumFacing);
+    }
 
-      if ((var4 & 2) != 0) {
-         var2 = var0.field_1395;
-      }
-
-      if ((var4 & 4) != 0) {
-         var3 = var0.field_1396;
-      }
-
-      return var0.method_2081(var1, var2, var3);
-   }
-
-   // $FF: renamed from: c (net.minecraft.util.math.Vec3d, dev.nuker.pyro.Rotation, net.minecraft.util.EnumFacing) dev.nuker.pyro.fex
-   @NotNull
-   public fex method_2081(@NotNull Vec3d var1, @NotNull Rotation var2, @Nullable EnumFacing var3) {
-      return new fex(var1, var2, var3);
-   }
-
-   public fex(@NotNull Vec3d var1, @NotNull Rotation var2, @Nullable EnumFacing var3) {
-      super();
-      this.field_1394 = var1;
-      this.field_1395 = var2;
-      this.field_1396 = var3;
-   }
+    public fex(@NotNull Vec3d vec3d, @NotNull Rotation rotation, @Nullable EnumFacing enumFacing) {
+        this.Field536 = vec3d;
+        this.Field537 = rotation;
+        this.Field538 = enumFacing;
+    }
 }
+

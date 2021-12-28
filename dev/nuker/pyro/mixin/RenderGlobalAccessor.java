@@ -1,6 +1,9 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.renderer.RenderGlobal
+ *  net.minecraft.client.shader.ShaderGroup
  */
 package dev.nuker.pyro.mixin;
 
@@ -10,11 +13,12 @@ import net.minecraft.client.shader.ShaderGroup;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
-@Mixin({RenderGlobal.class})
+@Mixin(value={RenderGlobal.class})
 public interface RenderGlobalAccessor {
-   @Accessor("entityOutlineShader")
-   ShaderGroup getEntityOutlineShader();
+    @Accessor(value="entityOutlineShader")
+    public ShaderGroup Method12598();
 
-   @Accessor("damagedBlocks")
-   Map getDamagedBlocks();
+    @Accessor(value="damagedBlocks")
+    public Map Method12599();
 }
+

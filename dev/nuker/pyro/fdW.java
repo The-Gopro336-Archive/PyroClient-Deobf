@@ -1,113 +1,44 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.entity.EntityPlayerSP
+ *  net.minecraft.util.EnumHand
+ *  net.minecraft.util.math.RayTraceResult
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.fdF;
+import dev.nuker.pyro.fdr;
+import dev.nuker.pyro.few;
 import java.util.function.Consumer;
-import net.minecraft.inventory.ClickType;
-import org.jetbrains.annotations.NotNull;
+import kotlin.jvm.internal.Intrinsics;
+import net.minecraft.client.entity.EntityPlayerSP;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.RayTraceResult;
 
-public class fdW {
-   // $FF: renamed from: c int
-   public int field_1287;
-   // $FF: renamed from: 0 int
-   public int field_1288;
-   // $FF: renamed from: 1 int
-   public int field_1289;
-   // $FF: renamed from: 2 int
-   public int field_1290;
-   // $FF: renamed from: 3 int
-   public int field_1291;
-   // $FF: renamed from: c net.minecraft.inventory.ClickType
-   @NotNull
-   public ClickType field_1292;
-   // $FF: renamed from: c java.util.function.Consumer
-   @NotNull
-   public Consumer field_1293;
-   // $FF: renamed from: c dev.nuker.pyro.fdX
-   public fdX field_1294;
+public class fdw
+implements Consumer {
+    public fdF Field409;
+    public float[] Field410;
 
-   // $FF: renamed from: 4 () net.minecraft.inventory.ClickType
-   @NotNull
-   public ClickType method_1963() {
-      return this.field_1292;
-   }
+    public void accept(Object object) {
+        this.Method597((EntityPlayerSP)object);
+    }
 
-   // $FF: renamed from: 1 () int
-   public int method_1964() {
-      return this.field_1288;
-   }
+    public fdw(fdF fdF2, float[] arrf) {
+        this.Field409 = fdF2;
+        this.Field410 = arrf;
+    }
 
-   // $FF: renamed from: 2 () int
-   public int method_1965() {
-      return this.field_1287;
-   }
-
-   // $FF: renamed from: c () java.util.function.Consumer
-   @NotNull
-   public Consumer method_1966() {
-      return this.field_1293;
-   }
-
-   // $FF: renamed from: c (java.util.function.Consumer) void
-   public void method_1967(@NotNull Consumer var1) {
-      this.field_1293 = var1;
-   }
-
-   // $FF: renamed from: 0 () int
-   public int method_1968() {
-      return this.field_1290;
-   }
-
-   // $FF: renamed from: 0 (int) void
-   public void method_1969(int var1) {
-      this.field_1288 = var1;
-   }
-
-   // $FF: renamed from: c (int) void
-   public void method_1970(int var1) {
-      this.field_1290 = var1;
-   }
-
-   // $FF: renamed from: 5 () int
-   public int method_1971() {
-      return this.field_1291;
-   }
-
-   // $FF: renamed from: 2 (int) void
-   public void method_1972(int var1) {
-      this.field_1291 = var1;
-   }
-
-   // $FF: renamed from: c (net.minecraft.inventory.ClickType) void
-   public void method_1973(@NotNull ClickType var1) {
-      this.field_1292 = var1;
-   }
-
-   // $FF: renamed from: 1 (int) void
-   public void method_1974(int var1) {
-      this.field_1287 = var1;
-   }
-
-   public fdW(fdX var1, int var2, int var3, @NotNull int var4, ClickType var5, @NotNull int var6, Consumer var7) {
-      this.field_1294 = var1;
-      super();
-      this.field_1289 = var2;
-      this.field_1290 = var3;
-      this.field_1291 = var4;
-      this.field_1292 = var5;
-      this.field_1293 = var7;
-      this.field_1288 = var6;
-   }
-
-   // $FF: renamed from: 3 () int
-   public int method_1975() {
-      return this.field_1289;
-   }
-
-   // $FF: renamed from: 3 (int) void
-   public void method_1976(int var1) {
-      this.field_1289 = var1;
-   }
+    public void Method597(EntityPlayerSP entityPlayerSP) {
+        RayTraceResult rayTraceResult = few.Method835().Method849(this.Field410[0], this.Field410[1]);
+        fdr fdr2 = fdF.Method303(this.Field409);
+        if (fdr2 == null) {
+            Intrinsics.Method6551();
+        }
+        fdF.Method313((fdF)this.Field409).playerController.processRightClickBlock(fdF.Method313((fdF)this.Field409).player, fdF.Method313((fdF)this.Field409).world, fdr2.Method616(), rayTraceResult.sideHit, rayTraceResult.hitVec, EnumHand.MAIN_HAND);
+        fdF.Method307(this.Field409, true);
+    }
 }
+

@@ -1,30 +1,28 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.util.text.ITextComponent
+ *  net.minecraft.util.text.TextComponentString
  */
 package dev.nuker.pyro;
 
 import com.mojang.brigadier.Command;
+import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.context.CommandContext;
+import dev.nuker.pyro.PyroStatic;
+import dev.nuker.pyro.f1s;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
 
-public class f1A implements Command {
-   // $FF: renamed from: c dev.nuker.pyro.f1A
-   public static f1A field_2408 = new f1A();
+public class f1a
+implements Command {
+    public static f1a Field3721 = new f1a();
 
-   public int run(CommandContext var1) {
-      if (!(Boolean)PyroStatic.field_2612.c.method_3034()) {
-         if (fdZ.field_976.player.isRiding()) {
-            PyroStatic.field_2612.c.method_3033(true);
-            ((f1s)var1.getSource()).method_3083((ITextComponent)(new TextComponentString("Forced a dismount.")));
-         } else {
-            ((f1s)var1.getSource()).method_3083((ITextComponent)(new TextComponentString("You are not riding an entity.")));
-         }
-      } else {
-         ((f1s)var1.getSource()).method_3083((ITextComponent)(new TextComponentString("You have already forced a dismount.")));
-      }
-
-      return 0;
-   }
+    public int Method152(CommandContext commandContext) {
+        ((f1s)commandContext.Method6876()).Method5489((ITextComponent)new TextComponentString("Attempting to connect to port " + IntegerArgumentType.Method9838(commandContext, "port")));
+        PyroStatic.Field6541.Method5006("localhost", IntegerArgumentType.Method9838(commandContext, "port"));
+        return 0;
+    }
 }
+

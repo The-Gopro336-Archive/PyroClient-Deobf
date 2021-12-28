@@ -1,11 +1,14 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
-public class fbU extends Module {
-   public fbU() {
-      super("waypoints", "Waypoints", (String)null);
-   }
+import dev.nuker.pyro.Module;
+
+public class fbU
+extends Module {
+    public fbU() {
+        super("waypoints", "Waypoints", null);
+    }
 }
+

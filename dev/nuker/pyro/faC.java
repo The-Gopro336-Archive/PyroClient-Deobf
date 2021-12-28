@@ -1,163 +1,112 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.entity.EntityPlayerSP
+ *  net.minecraft.world.World
+ *  org.jetbrains.annotations.NotNull
+ *  org.jetbrains.annotations.Nullable
  */
 package dev.nuker.pyro;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-import net.minecraft.block.Block;
+import dev.nuker.pyro.BooleanSetting;
+import dev.nuker.pyro.IntegerSetting;
+import dev.nuker.pyro.Module;
+import dev.nuker.pyro.f0g;
+import dev.nuker.pyro.f41;
+import dev.nuker.pyro.f43;
+import dev.nuker.pyro.security.inject.LauncherEventHide;
+import kotlin.jvm.internal.FloatCompanionObject;
+import kotlin.math.MathKt;
 import net.minecraft.client.entity.EntityPlayerSP;
-import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.World;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-public class faC extends far {
-   // $FF: renamed from: c double
-   public double field_1195 = 0.2873D;
-   // $FF: renamed from: c int
-   public int field_1196 = 1;
-   // $FF: renamed from: 0 double
-   public double field_1197 = 0.0D;
-   // $FF: renamed from: 0 int
-   public int field_1198;
+public class fac
+extends Module {
+    @NotNull
+    public IntegerSetting Field1793 = (IntegerSetting)this.Method7264(new IntegerSetting("directions", "Directions", "Number of snap directions. A multiple of 2 is recommended", 8, 2, 16, 0, 64, null));
+    @NotNull
+    public BooleanSetting Field1794 = (BooleanSetting)this.Method7264(new BooleanSetting("lock_mouse", "Lock Mouse", "You can't move the mouse at all..", false));
+    @NotNull
+    public IntegerSetting Field1795 = (IntegerSetting)this.Method7264(new IntegerSetting("snap_ticks", "Snap Ticks", "Delay between mouse movement and snapping to yaw", 10, 0, 200, 0, 64, null));
+    public int Field1796;
+    public float Field1797 = FloatCompanionObject.Field5818.Method8423();
 
-   // $FF: renamed from: c (dev.nuker.pyro.f4u) void
-   public void method_1684(f4u var1) {
-      if (var1.c() == f41.field_2120) {
-         double var2 = c.player.posX - c.player.prevPosX;
-         double var4 = c.player.posZ - c.player.prevPosZ;
-         this.field_1197 = Math.sqrt(var2 * var2 + var4 * var4);
-      }
-   }
+    public int Method2499() {
+        return this.Field1796;
+    }
 
-   public void meth0() {
-      this.field_1195 = 0.2873D;
-      this.field_1197 = 0.0D;
-      this.field_1195 = 0.0D;
-      this.field_1196 = 4;
-      this.field_1198 = 0;
-   }
+    public float Method2500(float f, int n) {
+        return (float)MathKt.Method9439(f / (360.0f / (float)n)) * (360.0f / (float)n);
+    }
 
-   // $FF: renamed from: c () void
-   public void method_1682() {
-   }
+    public float Method2420() {
+        return this.Field1797;
+    }
 
-   // $FF: renamed from: c (net.minecraft.util.math.AxisAlignedBB) net.minecraft.block.Block
-   public Block method_1698(AxisAlignedBB var1) {
-      for(int var2 = MathHelper.floor(var1.minX); var2 < MathHelper.floor(var1.maxX) + 1; ++var2) {
-         for(int var3 = MathHelper.floor(var1.minZ); var3 < MathHelper.floor(var1.maxZ) + 1; ++var3) {
-            Block var4 = c.world.getBlockState(new BlockPos(var2, (int)var1.minY, var3)).getBlock();
-            if (var4 != null) {
-               return var4;
+    @NotNull
+    public IntegerSetting Method2501() {
+        return this.Field1795;
+    }
+
+    public void Method541(int n) {
+        this.Field1796 = n;
+    }
+
+    @f0g
+    @LauncherEventHide
+    public void Method277(@NotNull f43 f432) {
+        if (this.Field5233.player == null) {
+            return;
+        }
+        if (f432.Method5619() == f41.Pre && ((Boolean)this.Field1794.Method7979()).booleanValue()) {
+            this.Field5233.player.rotationYaw = this.Field1797;
+        }
+        if (((Boolean)this.Field1794.Method7979()).booleanValue()) {
+            this.Field5233.player.rotationYaw = this.Field1797;
+        } else {
+            if (this.Field5233.player.rotationYaw != this.Field1797) {
+                this.Field1796 = ((Number)this.Field1795.Method7979()).intValue();
+                this.Field1797 = this.Field5233.player.rotationYaw;
             }
-         }
-      }
-
-      return null;
-   }
-
-   // $FF: renamed from: c (dev.nuker.pyro.f4p) void
-   public void method_1681(f4p var1) {
-      if (var1.c() == f41.field_2120 && !(Boolean)PyroStatic.field_2473.c.method_3034() && !var1.c()) {
-         if (fec.method_1758()) {
-            var1.0();
-            ++this.field_1198;
-            this.field_1198 %= 5;
-            EntityPlayerSP var10000;
-            if (this.field_1198 != 0) {
-               f0b.field_2415.method_3669("speedhax");
-            } else if (fec.method_1773()) {
-               if ((Boolean)PyroStatic.field_2494.method_344().c()) {
-                  f0b.field_2415.method_3667("speedhax", f07.field_2303, 1.09F);
-               }
-
-               var10000 = c.player;
-               var10000.motionX *= 1.0199999809265137D;
-               var10000 = c.player;
-               var10000.motionZ *= 1.0199999809265137D;
+            if (this.Field1796 <= 0) {
+                this.Field1797 = this.Field5233.player.rotationYaw = this.Method2500(this.Field5233.player.rotationYaw, ((Number)this.Field1793.Method7979()).intValue());
             }
-
-            if (c.player.onGround && fec.method_1773()) {
-               this.field_1196 = 2;
+            if (this.Field1796 > 0) {
+                int n = this.Field1796;
+                this.Field1796 = n + -1;
             }
+        }
+    }
 
-            if (this.method_1699(c.player.posY - (double)((int)c.player.posY)) == this.method_1699(0.138D)) {
-               var10000 = c.player;
-               var10000.motionY -= 0.08D;
-               var1.method_3120(var1.method_3119() - 0.09316090325960147D);
-               var10000 = c.player;
-               var10000.posY -= 0.09316090325960147D;
-            }
+    public void Method544(float f) {
+        this.Field1797 = f;
+    }
 
-            if (this.field_1196 != 1 || c.player.moveForward == 0.0F && c.player.moveStrafing == 0.0F) {
-               if (this.field_1196 == 2) {
-                  this.field_1196 = 3;
-                  c.player.motionY = 0.399399995803833D;
-                  var1.method_3120(0.399399995803833D);
-                  this.field_1195 *= 2.149D;
-               } else if (this.field_1196 == 3) {
-                  this.field_1196 = 4;
-                  double var2 = 0.66D * (this.field_1197 - 1());
-                  this.field_1195 = this.field_1197 - var2;
-               } else {
-                  if (c.world.getCollisionBoxes(c.player, c.player.getEntityBoundingBox().offset(0.0D, c.player.motionY, 0.0D)).size() > 0 || c.player.collidedVertically) {
-                     this.field_1196 = 1;
-                  }
+    public fac() {
+        super("yaw_lock", "YawLock", "Lock your yaw so you can fly straight down a highway");
+    }
 
-                  this.field_1195 = this.field_1197 - this.field_1197 / 159.0D;
-               }
-            } else {
-               this.field_1196 = 2;
-               this.field_1195 = 1.38D * 1() - 0.01D;
-            }
+    @NotNull
+    public BooleanSetting Method274() {
+        return this.Field1794;
+    }
 
-            this.field_1195 = Math.max(this.field_1195, 1());
-            float var9 = c.player.movementInput.moveForward;
-            float var3 = c.player.movementInput.moveStrafe;
-            float var4 = c.player.rotationYaw;
-            if (var9 == 0.0F && var3 == 0.0F) {
-               var1.method_3125(0.0D);
-               var1.method_3127(0.0D);
-            } else if (var9 != 0.0F) {
-               if (var3 >= 1.0F) {
-                  var4 += (float)(var9 > 0.0F ? -45 : 45);
-                  var3 = 0.0F;
-               } else if (var3 <= -1.0F) {
-                  var4 += (float)(var9 > 0.0F ? 45 : -45);
-                  var3 = 0.0F;
-               }
+    @Override
+    public void Method205(boolean bl, @Nullable EntityPlayerSP entityPlayerSP, @Nullable World world) {
+        super.Method205(bl, entityPlayerSP, world);
+        if (entityPlayerSP == null) {
+            return;
+        }
+        this.Field1797 = bl && (Boolean)this.Field1794.Method7979() != false ? this.Method2500(entityPlayerSP.rotationYaw, ((Number)this.Field1793.Method7979()).intValue()) : FloatCompanionObject.Field5818.Method8423();
+        this.Field1796 = 0;
+    }
 
-               if (var9 > 0.0F) {
-                  var9 = 1.0F;
-               } else if (var9 < 0.0F) {
-                  var9 = -1.0F;
-               }
-            }
-
-            double var5 = Math.cos(Math.toRadians((double)(var4 + 90.0F)));
-            double var7 = Math.sin(Math.toRadians((double)(var4 + 90.0F)));
-            var1.method_3125((double)var9 * this.field_1195 * var5 + (double)var3 * this.field_1195 * var7);
-            var1.method_3127((double)var9 * this.field_1195 * var7 - (double)var3 * this.field_1195 * var5);
-            c.player.stepHeight = 0.6F;
-            if (var9 == 0.0F && var3 == 0.0F) {
-               var1.method_3125(0.0D);
-               var1.method_3127(0.0D);
-            }
-
-         }
-      }
-   }
-
-   // $FF: renamed from: c (double) double
-   public double method_1699(double var1) {
-      BigDecimal var3 = new BigDecimal(var1);
-      var3 = var3.setScale(3, RoundingMode.HALF_UP);
-      return var3.doubleValue();
-   }
-
-   public faC() {
-      this.field_1195 = 0.0D;
-      this.field_1196 = 4;
-   }
+    @NotNull
+    public IntegerSetting Method2502() {
+        return this.Field1793;
+    }
 }
+

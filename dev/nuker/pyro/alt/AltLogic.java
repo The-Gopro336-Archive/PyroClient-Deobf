@@ -1,6 +1,18 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  com.google.common.base.Charsets
+ *  com.mojang.authlib.Agent
+ *  com.mojang.authlib.GameProfile
+ *  com.mojang.authlib.exceptions.AuthenticationException
+ *  com.mojang.authlib.exceptions.AuthenticationUnavailableException
+ *  com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService
+ *  com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService
+ *  com.mojang.authlib.yggdrasil.YggdrasilUserAuthentication
+ *  com.mojang.util.UUIDTypeAdapter
+ *  net.minecraft.client.Minecraft
+ *  net.minecraft.util.Session
  */
 package dev.nuker.pyro.alt;
 
@@ -14,75 +26,75 @@ import com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService;
 import com.mojang.authlib.yggdrasil.YggdrasilUserAuthentication;
 import com.mojang.util.UUIDTypeAdapter;
 import dev.nuker.pyro.mixin.MinecraftAccessor;
-import java.net.InetAddress;
 import java.util.UUID;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.Session;
 
 public class AltLogic {
-   private static final YggdrasilAuthenticationService yas = new YggdrasilAuthenticationService(Minecraft.getMinecraft().getProxy(), UUID.randomUUID().toString());
-   public static final YggdrasilUserAuthentication yua;
-   private static final YggdrasilMinecraftSessionService ymss;
+    private static final YggdrasilAuthenticationService Field5466 = new YggdrasilAuthenticationService(Minecraft.getMinecraft().getProxy(), UUID.randomUUID().toString());
+    public static final YggdrasilUserAuthentication Field5467 = (YggdrasilUserAuthentication)Field5466.createUserAuthentication(Agent.MINECRAFT);
+    private static final YggdrasilMinecraftSessionService Field5468 = (YggdrasilMinecraftSessionService)Field5466.createMinecraftSessionService();
 
-   public static int login(String user, String password) {
-      yua.setUsername(user);
-      yua.setPassword(password);
+    public static int Method7694(String user, String password) {
+        Field5467.setUsername(user);
+        Field5467.setPassword(password);
+        try {
+            Field5467.logIn();
+        }
+        catch (AuthenticationException e) {
+            if (e instanceof AuthenticationUnavailableException) {
+                return 2;
+            }
+            return 1;
+        }
+        String username = Field5467.getSelectedProfile().getName();
+        String uuid = UUIDTypeAdapter.fromUUID((UUID)Field5467.getSelectedProfile().getId());
+        String access = Field5467.getAuthenticatedToken();
+        String type = Field5467.getUserType().getName();
+        ((MinecraftAccessor)Minecraft.getMinecraft()).Method6089(new Session(username, uuid, access, type));
+        Field5467.logOut();
+        return 0;
+    }
 
-      try {
-         yua.logIn();
-      } catch (AuthenticationException var6) {
-         if (var6 instanceof AuthenticationUnavailableException) {
-            return 2;
-         }
+    public static int Method7695(String user, String password) {
+        Field5467.setUsername(user);
+        Field5467.setPassword(password);
+        try {
+            Field5467.logIn();
+        }
+        catch (AuthenticationException e) {
+            if (e instanceof AuthenticationUnavailableException) {
+                return 2;
+            }
+            return 1;
+        }
+        return 0;
+    }
 
-         return 1;
-      }
+    public static boolean Method7696(String username) {
+        UUID uuid = UUID.nameUUIDFromBytes(("OfflinePlayer:" + username).getBytes(Charsets.UTF_8));
+        ((MinecraftAccessor)Minecraft.getMinecraft()).Method6089(new Session(username, uuid.toString(), "invalid", "legacy"));
+        return true;
+    }
 
-      String username = yua.getSelectedProfile().getName();
-      String uuid = UUIDTypeAdapter.fromUUID(yua.getSelectedProfile().getId());
-      String access = yua.getAuthenticatedToken();
-      String type = yua.getUserType().getName();
-      ((MinecraftAccessor)Minecraft.getMinecraft()).setSession(new Session(username, uuid, access, type));
-      yua.logOut();
-      return 0;
-   }
+    public static boolean Method7697() {
+        return Minecraft.getMinecraft().getSession().getProfile().getId().equals(UUID.nameUUIDFromBytes(("OfflinePlayer:" + Minecraft.getMinecraft().getSession().getUsername()).getBytes(Charsets.UTF_8)));
+    }
 
-   public static int verifyCredentials(String user, String password) {
-      yua.setUsername(user);
-      yua.setPassword(password);
-
-      try {
-         yua.logIn();
-         return 0;
-      } catch (AuthenticationException var3) {
-         return var3 instanceof AuthenticationUnavailableException ? 2 : 1;
-      }
-   }
-
-   public static boolean loginOffline(String username) {
-      UUID uuid = UUID.nameUUIDFromBytes(("OfflinePlayer:" + username).getBytes(Charsets.UTF_8));
-      ((MinecraftAccessor)Minecraft.getMinecraft()).setSession(new Session(username, uuid.toString(), "invalid", "legacy"));
-      return true;
-   }
-
-   public static boolean isOffline() {
-      return Minecraft.getMinecraft().getSession().getProfile().getId().equals(UUID.nameUUIDFromBytes(("OfflinePlayer:" + Minecraft.getMinecraft().getSession().getUsername()).getBytes(Charsets.UTF_8)));
-   }
-
-   public static boolean sessionValid() {
-      try {
-         GameProfile gp = Minecraft.getMinecraft().getSession().getProfile();
-         String token = Minecraft.getMinecraft().getSession().getToken();
-         String id = UUID.randomUUID().toString();
-         ymss.joinServer(gp, token, id);
-         return ymss.hasJoinedServer(gp, id, (InetAddress)null).isComplete();
-      } catch (Exception var3) {
-         return false;
-      }
-   }
-
-   static {
-      yua = (YggdrasilUserAuthentication)yas.createUserAuthentication(Agent.MINECRAFT);
-      ymss = (YggdrasilMinecraftSessionService)yas.createMinecraftSessionService();
-   }
+    public static boolean Method7698() {
+        try {
+            GameProfile gp = Minecraft.getMinecraft().getSession().getProfile();
+            String token = Minecraft.getMinecraft().getSession().getToken();
+            String id = UUID.randomUUID().toString();
+            Field5468.joinServer(gp, token, id);
+            if (Field5468.hasJoinedServer(gp, id, null).isComplete()) {
+                return true;
+            }
+        }
+        catch (Exception e) {
+            return false;
+        }
+        return false;
+    }
 }
+

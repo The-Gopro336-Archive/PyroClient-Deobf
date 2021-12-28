@@ -1,80 +1,69 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.network.Packet
+ *  net.minecraft.network.play.client.CPacketPlayerDigging
+ *  net.minecraft.network.play.client.CPacketPlayerDigging$Action
+ *  net.minecraft.util.EnumHand
  */
 package dev.nuker.pyro;
 
-import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.item.EntityEnderCrystal;
-import net.minecraft.init.MobEffects;
-import net.minecraft.potion.PotionEffect;
-import net.minecraft.tileentity.TileEntityBed;
-import net.minecraft.util.CombatRules;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.Explosion;
+import dev.nuker.pyro.DoubleSetting;
+import dev.nuker.pyro.Module;
+import dev.nuker.pyro.f0g;
+import dev.nuker.pyro.f0o;
+import dev.nuker.pyro.f41;
+import dev.nuker.pyro.f4l;
+import dev.nuker.pyro.f4t;
+import dev.nuker.pyro.fdl;
+import dev.nuker.pyro.mixin.PlayerControllerMPAccessor;
+import dev.nuker.pyro.security.inject.LauncherEventHide;
+import net.minecraft.network.Packet;
+import net.minecraft.network.play.client.CPacketPlayerDigging;
+import net.minecraft.util.EnumHand;
 
-public class fdM extends fdZ {
-   // $FF: renamed from: c float
-   public static float field_1229 = 5.0F;
-   // $FF: renamed from: 0 float
-   public static float field_1230 = 6.0F;
+public class fdm
+extends Module {
+    public f0o<fdl> Field345 = new f0o("mode", "Mode", null, fdl.Normal);
+    public DoubleSetting Field346 = new DoubleSetting("startDamage", "Start Damage", null, 0.0, 0.0, 1.0);
+    public DoubleSetting Field347 = new DoubleSetting("enddamage", "End Damage", null, 0.7f, 0.0, 1.0);
 
-   // $FF: renamed from: c (float) float
-   public static float method_1878(float var0) {
-      // $FF: Couldn't be decompiled
-   }
+    public fdm() {
+        super("speedmine", "Speedmine", "Allows you to mine blocks faster");
+        this.Method7264(this.Field345);
+        this.Method7264(this.Field346);
+        this.Method7264(this.Field347);
+    }
 
-   // $FF: renamed from: c (double, double, double, net.minecraft.entity.EntityLivingBase, float, boolean) float
-   public static float method_1879(double var0, double var2, double var4, EntityLivingBase var6, float var7, boolean var8) {
-      if (var6 == c.player && c.player.capabilities.isCreativeMode) {
-         return 0.0F;
-      } else {
-         double var9 = var6.getDistance(var0, var2, var4) / (double)(var7 * 2.0F);
-         if (var9 > 1.0D) {
-            return 0.0F;
-         } else {
-            double var11 = (double)c.world.getBlockDensity(new Vec3d(var0, var2, var4), var6.getEntityBoundingBox());
-            double var13 = (1.0D - var9) * var11;
-            float var15 = method_1878((float)((int)((var13 * var13 + var13) / 2.0D * 7.0D * (double)(var7 * 2.0F) + 1.0D)));
-            DamageSource var16 = DamageSource.causeExplosionDamage(new Explosion(c.world, c.player, var0, var2, var4, var7, var8, true));
-            float var17 = CombatRules.getDamageAfterAbsorb(var15, (float)var6.getTotalArmorValue(), (float)var6.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS).getAttributeValue());
-            int var18 = EnchantmentHelper.getEnchantmentModifierDamage(var6.getArmorInventoryList(), var16);
-            if (var18 > 0) {
-               var17 = CombatRules.getDamageAfterMagicAbsorb(var17, (float)var18);
+    @f0g
+    @LauncherEventHide
+    public void Method563(f4l f4l2) {
+        if (f4l2.Method5619() == f41.Pre && this.Field345.Method7979() == fdl.Packet) {
+            f4l2.Method7948();
+            this.Field5233.player.swingArm(EnumHand.MAIN_HAND);
+            this.Field5233.player.connection.sendPacket((Packet)new CPacketPlayerDigging(CPacketPlayerDigging.Action.START_DESTROY_BLOCK, f4l2.Method5787(), f4l2.Method5786()));
+            this.Field5233.player.connection.sendPacket((Packet)new CPacketPlayerDigging(CPacketPlayerDigging.Action.STOP_DESTROY_BLOCK, f4l2.Method5787(), f4l2.Method5786()));
+        }
+    }
+
+    @f0g
+    @LauncherEventHide
+    public void Method183(f4t f4t2) {
+        this.Method7274(String.valueOf(this.Field345.Method7979()));
+        if (this.Field345.Method7979() == fdl.Normal) {
+            PlayerControllerMPAccessor playerControllerMPAccessor = (PlayerControllerMPAccessor)this.Field5233.playerController;
+            playerControllerMPAccessor.Method66(0);
+            if ((Double)this.Field346.Method7979() != 0.0) {
+                if ((double)playerControllerMPAccessor.Method65() <= (Double)this.Field346.Method7979()) {
+                    double d = (Double)this.Field346.Method7979();
+                    playerControllerMPAccessor.Method64((float)d);
+                }
             }
-
-            PotionEffect var19 = var6.getActivePotionEffect(MobEffects.RESISTANCE);
-            if (var19 != null) {
-               var17 = var17 * (float)(25 - (var19.getAmplifier() + 1) * 5) / 25.0F;
+            if ((double)playerControllerMPAccessor.Method65() >= (Double)this.Field347.Method7979()) {
+                playerControllerMPAccessor.Method64(1.0f);
             }
-
-            return Math.max(var17, 0.0F);
-         }
-      }
-   }
-
-   // $FF: renamed from: c (net.minecraft.tileentity.TileEntityBed, net.minecraft.entity.EntityLivingBase) float
-   public static float method_1880(TileEntityBed var0, EntityLivingBase var1) {
-      BlockPos var2 = var0.getPos();
-      return method_1879((double)var2.getX() + 0.5D, (double)var2.getY() + 0.5D, (double)var2.getZ() + 0.5D, var1, field_1229, true);
-   }
-
-   // $FF: renamed from: 0 (net.minecraft.util.math.BlockPos, net.minecraft.entity.EntityLivingBase) float
-   public static float method_1881(BlockPos var0, EntityLivingBase var1) {
-      return method_1879((double)var0.getX() + 0.5D, (double)(var0.getY() + 1), (double)var0.getZ() + 0.5D, var1, field_1230, false);
-   }
-
-   // $FF: renamed from: c (net.minecraft.util.math.BlockPos, net.minecraft.entity.EntityLivingBase) float
-   public static float method_1882(BlockPos var0, EntityLivingBase var1) {
-      return method_1879((double)var0.getX() + 0.5D, (double)var0.getY() + 0.5D, (double)var0.getZ() + 0.5D, var1, field_1229, true);
-   }
-
-   // $FF: renamed from: c (net.minecraft.entity.item.EntityEnderCrystal, net.minecraft.entity.EntityLivingBase) float
-   public static float method_1883(EntityEnderCrystal var0, EntityLivingBase var1) {
-      return method_1879(var0.posX, var0.posY, var0.posZ, var1, field_1230, false);
-   }
+        }
+    }
 }
+

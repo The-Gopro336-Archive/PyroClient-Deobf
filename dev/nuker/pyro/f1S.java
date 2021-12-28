@@ -1,53 +1,52 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.Minecraft
+ *  net.minecraft.util.text.ITextComponent
+ *  net.minecraft.util.text.TextComponentString
+ *  org.jetbrains.annotations.NotNull
+ *  org.jetbrains.annotations.Nullable
  */
 package dev.nuker.pyro;
 
-import com.mojang.brigadier.Command;
-import com.mojang.brigadier.arguments.IntegerArgumentType;
-import com.mojang.brigadier.context.CommandContext;
-import kotlin.jvm.internal.Intrinsics;
+import dev.nuker.pyro.Pyro;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.network.NetHandlerPlayClient;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.passive.EntityDonkey;
-import net.minecraft.network.Packet;
-import net.minecraft.network.play.client.CPacketUseEntity;
-import net.minecraft.util.EnumHand;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
-import net.minecraft.world.World;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-public class f1S implements Command {
-   // $FF: renamed from: c dev.nuker.pyro.f1S
-   public static f1S field_2439 = new f1S();
+public class f1s {
+    @NotNull
+    public Map<String, Object> Field3769;
 
-   public int run(CommandContext var1) {
-      int var2 = IntegerArgumentType.getInteger(var1, "entityId");
-      Minecraft var3 = fdZ.field_976;
-      Entity var4 = var3.world.getEntityByID(var2);
-      NetHandlerPlayClient var10000;
-      if (var4 != null) {
-         var10000 = var3.getConnection();
-         if (var10000 == null) {
-            Intrinsics.throwNpe();
-         }
+    @NotNull
+    public Map Method5487() {
+        return this.Field3769;
+    }
 
-         var10000.sendPacket((Packet)(new CPacketUseEntity(var4, EnumHand.MAIN_HAND)));
-         ((f1s)var1.getSource()).method_3083((ITextComponent)(new TextComponentString("Attempted to force mount with entity in world " + var4.getName())));
-      } else {
-         var4 = (Entity)(new EntityDonkey((World)var3.world));
-         ((EntityDonkey)var4).setEntityId(var2);
-         var10000 = var3.getConnection();
-         if (var10000 == null) {
-            Intrinsics.throwNpe();
-         }
+    public void Method5488(@NotNull Map map) {
+        this.Field3769 = map;
+    }
 
-         var10000.sendPacket((Packet)(new CPacketUseEntity(var4, EnumHand.MAIN_HAND)));
-         ((f1s)var1.getSource()).method_3083((ITextComponent)(new TextComponentString("Attempted to force mount with entityid " + var2)));
-      }
+    public f1s() {
+        Map map;
+        f1s f1s2 = this;
+        boolean bl = false;
+        f1s2.Field3769 = map = (Map)new LinkedHashMap();
+    }
 
-      return 0;
-   }
+    public void Method5489(@Nullable ITextComponent iTextComponent) {
+        Minecraft.getMinecraft().ingameGUI.getChatGUI().printChatMessage(new TextComponentString("").appendSibling(Pyro.Method8977()).appendSibling(iTextComponent));
+    }
+
+    @NotNull
+    public f1s Method5490(@NotNull String string, @Nullable Object object) {
+        this.Field3769.put(string, object);
+        return this;
+    }
 }
+

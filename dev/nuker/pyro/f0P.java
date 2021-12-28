@@ -1,40 +1,38 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.Class56;
+import dev.nuker.pyro.IntegerSetting;
+import dev.nuker.pyro.f0R;
 import java.util.function.Consumer;
 import kotlin.jvm.internal.Intrinsics;
 
-public class f0P implements Consumer {
-   // $FF: renamed from: c dev.nuker.pyro.f0R
-   public f0R field_2383;
-   // $FF: renamed from: c dev.nuker.pyro.IntegerSetting
-   public IntegerSetting field_2384;
+public class f0P
+implements Consumer {
+    public f0R Field5506;
+    public IntegerSetting Field5507;
 
-   public void accept(Object var1) {
-      this.method_3623((Double)var1);
-   }
+    public void accept(Object object) {
+        this.Method4838((Double)object);
+    }
 
-   // $FF: renamed from: c (java.lang.Double) void
-   public void method_3623(Double var1) {
-      this.field_2384.c((int)var1);
-      if (!this.field_2383.method_3620()) {
-         class_7 var10000 = this.field_2383.c();
-         if (var10000 == null) {
-            Intrinsics.throwNpe();
-         }
+    public void Method4838(Double d) {
+        this.Field5507.Method7975((int)d.doubleValue());
+        if (!this.Field5506.Method7835()) {
+            Class56 class56 = this.Field5506.Method7870();
+            if (class56 == null) {
+                Intrinsics.Method6551();
+            }
+            class56.Method5266((int)d.doubleValue());
+        }
+        this.Field5506.Method7833(false);
+    }
 
-         var10000.method_3033((double)((int)var1));
-      }
-
-      this.field_2383.method_3619(false);
-   }
-
-   public f0P(f0R var1, IntegerSetting var2) {
-      this.field_2383 = var1;
-      this.field_2384 = var2;
-      super();
-   }
+    public f0P(f0R f0R2, IntegerSetting integerSetting) {
+        this.Field5506 = f0R2;
+        this.Field5507 = integerSetting;
+    }
 }
+

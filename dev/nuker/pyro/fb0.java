@@ -1,9 +1,20 @@
-/**
- * Obfuscator: Binsecure  Decompiler: FernFlower
- * De-obfuscated by Gopro336
+/*
+ * Decompiled with CFR 0.150.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.entity.EntityPlayerSP
+ *  net.minecraft.client.gui.GuiIngame
+ *  net.minecraft.client.gui.GuiPlayerTabOverlay
+ *  net.minecraft.world.World
+ *  net.minecraftforge.fml.common.ObfuscationReflectionHelper
+ *  org.jetbrains.annotations.Nullable
  */
 package dev.nuker.pyro;
 
+import dev.nuker.pyro.Module;
+import dev.nuker.pyro.f0g;
+import dev.nuker.pyro.f4t;
+import dev.nuker.pyro.f62;
 import dev.nuker.pyro.security.inject.LauncherEventHide;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.gui.GuiIngame;
@@ -12,31 +23,29 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import org.jetbrains.annotations.Nullable;
 
-public class fb0 extends Module {
-   // $FF: renamed from: c net.minecraft.client.gui.GuiPlayerTabOverlay
-   public GuiPlayerTabOverlay field_754;
+public class fb0
+extends Module {
+    public GuiPlayerTabOverlay Field1733;
 
-   // $FF: renamed from: c (dev.nuker.pyro.f4t) void
-   @f0g
-   @LauncherEventHide
-   public void method_1115(f4t var1) {
-      if (this.field_754 == null) {
-         this.field_754 = this.c.ingameGUI.getTabList();
-         ObfuscationReflectionHelper.setPrivateValue(GuiIngame.class, this.c.ingameGUI, new f62(this.c, this.c.ingameGUI), new String[]{"field_175196_v"});
-      }
+    @f0g
+    @LauncherEventHide
+    public void Method183(f4t f4t2) {
+        if (this.Field1733 == null) {
+            this.Field1733 = this.Field5233.ingameGUI.getTabList();
+            ObfuscationReflectionHelper.setPrivateValue(GuiIngame.class, (Object)this.Field5233.ingameGUI, (Object)((Object)new f62(this.Field5233, this.Field5233.ingameGUI)), (String[])new String[]{"field_175196_v"});
+        }
+    }
 
-   }
+    @Override
+    public void Method205(boolean bl, @Nullable EntityPlayerSP entityPlayerSP, @Nullable World world) {
+        super.Method205(bl, entityPlayerSP, world);
+        if (!bl && this.Field5233.ingameGUI != null && this.Field1733 != null) {
+            ObfuscationReflectionHelper.setPrivateValue(GuiIngame.class, (Object)this.Field5233.ingameGUI, (Object)this.Field1733, (String[])new String[]{"field_175196_v"});
+        }
+    }
 
-   // $FF: renamed from: c (boolean, net.minecraft.client.entity.EntityPlayerSP, net.minecraft.world.World) void
-   public void method_116(boolean var1, @Nullable EntityPlayerSP var2, @Nullable World var3) {
-      super.method_116(var1, var2, var3);
-      if (!var1 && this.c.ingameGUI != null && this.field_754 != null) {
-         ObfuscationReflectionHelper.setPrivateValue(GuiIngame.class, this.c.ingameGUI, this.field_754, new String[]{"field_175196_v"});
-      }
-
-   }
-
-   public fb0() {
-      super("extratab", "ExtraTab", "Removes the vanilla tab limit of 100", false);
-   }
+    public fb0() {
+        super("extratab", "ExtraTab", "Removes the vanilla tab limit of 100", false);
+    }
 }
+
